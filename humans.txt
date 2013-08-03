@@ -1,0 +1,12 @@
+/* TEAM */
+	Author: Igor Rzegocki
+	Contact: igor [at] rzegocki.pl
+	Twitter: @ajgon
+	From: Rzeszów, Poland
+
+/* SITE */
+	Last update: 2013/08/04
+	Language: English
+	Standards: HTML5, CSS3
+	Components: requirejs, Modernizr
+	Software: Sublime Text

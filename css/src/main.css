@@ -1,0 +1,352 @@
+/*
+ * Global styles
+ */
+
+body {
+    font-family: 13px/1.4 Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+h1 {
+    cursor: text;
+    font-weight: bold;
+    line-height: 1.7;
+    margin: 1em 0 15px;
+    padding: 0;
+    font-size: 2.5em;
+    border-bottom: 1px solid #ddd;
+}
+
+.isotope,
+.isotope .isotope-item {
+  /* change duration value to whatever you like */
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+      -ms-transition-duration: 0.8s;
+       -o-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:      -o-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+/*
+ * Header and menu
+ */
+
+.programajor {
+    width: 257px;
+    height: 320px;
+    position: absolute;
+    overflow: hidden;
+    bottom: 0;
+    right: 0;
+    background: 75px 262px url(../../img/programajor-emblem.png) no-repeat;
+}
+
+.programajor img {
+    display: none;
+}
+
+.header {
+	height: 460px;
+    position: relative;
+    background: #000;
+}
+
+.header-photo {
+    max-height: 400px;
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+.top {
+	background: #ececec;
+    border-top: solid 1px #dcdcdc;
+    border-bottom: solid 1px #dcdcdc;
+}
+
+.menu {
+    max-width: 1600px;
+    margin: 0 auto;
+    position: relative;
+    height: 60px;
+}
+
+.menu-items {
+    margin: 0;
+    padding: 0;
+}
+
+.menu-items li {
+    display: inline;
+    margin-right: 2em;
+}
+
+.menu-items li a {
+    line-height: 60px;
+    font-size: 1.3em;
+    text-shadow: 0 1px 0 #fff;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    -webkit-transition: 0.75s;
+    -moz-transition: 0.75s;
+    -o-transition: 0.75s;
+    -ms-transition: 0.75s;
+    transition: 0.75s;
+}
+
+.menu-items li a:hover {
+    color: #4183c4;
+}
+
+/*
+ * Main content
+ */
+
+.content {
+    margin: 0 auto;
+    background: #fff;
+	height: 2000px;
+}
+
+.content > section {
+    overflow: hidden;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* ABOUT */
+
+/* PORTFOLIO */
+
+.portfolio {
+    margin: 0;
+    padding: 0;
+}
+
+.portfolio .item {
+    display: block;
+    float: left;
+    position: relative;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    -o-perspective: 1000;
+    perspective: 1000;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.portfolio .back {
+    background: #000;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.portfolio .item,
+.portfolio .item .card,
+.portfolio .item .front,
+.portfolio .item .back {
+    width: 160px;
+    height: 160px;
+    display: block;
+    top: 0;
+    left: 0;
+    color: #fff;
+}
+
+.portfolio .item .card,
+.portfolio .item .front,
+.portfolio .item .back {
+    position: absolute;
+}
+
+.portfolio .promoted,
+.portfolio .promoted .card,
+.portfolio .promoted .front,
+.portfolio .promoted .back {
+    width: 320px;
+    height: 320px;
+}
+
+.portfolio .item .front,
+.portfolio .item .back {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: 0.75s;
+    -moz-transition: 0.75s;
+    -ms-transition: 0.75s;
+    -o-transition: 0.75s;
+    transition: 0.75s;
+    /*-webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;*/
+}
+
+.portfolio .item .front {
+    z-index: 5;
+}
+
+.portfolio .item .back {
+    z-index: 0;
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+.portfolio .item:hover .front {
+    z-index: 5;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.portfolio .item:hover .back {
+    z-index: 10;
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+
+
+.portfolio .back .card-title {
+    font-size: 1.1em;
+    text-align: center;
+    margin: 0;
+    padding: 10px 10px 0;
+    color: #f6f8e4;
+}
+
+.portfolio .back .card-title-narrow {
+    letter-spacing: -1px;
+}
+
+.portfolio .back .card-subtitle {
+    text-align: center;
+    font-size: 0.7em;
+    margin: 0;
+    color: #f6f8e4;
+}
+
+.portfolio .back .details {
+    margin: 25px 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.portfolio .back .details li {
+    font-size: 0.7em;
+    text-align: center;
+    color: #e9ffe6;
+}
+
+.portfolio .back .details .specs {
+    font-size: 0.6em;
+}
+
+.portfolio .back .details li a {
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #f23924;
+}
+
+.portfolio .promoted .back .card-title {
+    font-size: 2em;
+    padding: 30px 30px 0;
+}
+
+.portfolio .promoted .back .card-subtitle {
+    font-size: 1.1em;
+}
+
+.portfolio .promoted .back .details {
+    margin: 60px 30px;
+}
+
+.portfolio .promoted .back .details li {
+    font-size: 1.1em;
+}
+
+.portfolio .promoted .back .details .specs {
+    font-size: 1em;
+}
+
+.portfolio .promoted .back .details li a {
+    font-size: 1.2em;
+}
+
+
+/*
+ * Footer
+ */
+
+.footer {
+	background: #0cc;
+	height: 300px;
+}
+
+/* Improvements for browsers with javascript enabled */
+
+.no-touch .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.no-touch .top {
+    z-index: 4;
+    position: fixed;
+    top: 400px;
+    left: 0;
+    right: 0;
+}
+
+.no-touch .content {
+    margin: 460px 0 300px;
+    position: relative;
+    z-index: 3;
+    overflow: hidden;
+}
+
+.no-touch .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.no-touch .programajor img {
+    display: block;
+}
+
+.touch .content {
+    margin: 0;
+}

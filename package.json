@@ -1,0 +1,22 @@
+{
+  "name": "rzegockipl",
+  "version": "0.1.0",
+  "description": "Igor Rzegocki personal portfolio",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ajgon/ajgon.github.com.git"
+  },
+  "author": "Igor Rzegocki",
+  "license": "CC BY-SA 3.0",
+  "bugs": {
+    "url": "https://github.com/ajgon/ajgon.github.com/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-jslint": "~1.0.0",
+    "grunt-contrib-imagemin": "~0.1.4",
+    "grunt-contrib-cssmin": "~0.6.1",
+    "grunt-contrib-csslint": "~0.1.2",
+    "grunt-contrib-requirejs": "~0.4.1"
+  }
+}
