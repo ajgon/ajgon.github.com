@@ -29,28 +29,26 @@ define(['jquery', 'isotope'], function ($) {
 
             this.container
             .on('mouseenter', '.item', function (e) {
-                $(this).addClass('hovered').find('.front, .back').addClass('animating');
+                var $this = $(this);
+                $this.addClass('hovered');
+                $this.find('.front').addClass('front-animating');
+                $this.find('.back').addClass('back-animating');
             }).on('mouseleave', '.item', function (e) {
                 $(this).removeClass('hovered').find('.front, .back').removeClass('paused');
             }).on('animationend', '.front, .back', function (e) {
-                $(this).removeClass('animating');
+                var $this = $(this);
+                $this.removeClass('front-animating');
+                $this.removeClass('back-animating');
             }).on('animationiteration', '.hovered .front, .hovered .back', function (e) {
                 $(this).addClass('paused');
             });
 
         },
         isotopeOnLayout: function ($elems, isotope) {
-            // var containerWidth = Portfolio.container.parent().width(),
-            //     newContainerWidth = parseInt(containerWidth / 160, 10) * 160,
-            //     containerNewMargin = (containerWidth - newContainerWidth) / 2;
-            // console.log(containerWidth, newContainerWidth, containerNewMargin);
-            // Portfolio.container.width(newContainerWidth - Portfolio.containerPaddings);
-            //
             if (Portfolio.masonryCols !== isotope.masonry.cols) {
                 Portfolio.container.width(isotope.masonry.cols * 155);
                 Portfolio.masonryCols = isotope.masonry.cols;
             }
-            console.log(isotope.masonry.cols);
         }
     };
 

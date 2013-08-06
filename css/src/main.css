@@ -239,17 +239,29 @@ h1 {
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    animation-duration: 1s;
+    -webkit-animation-duration: 0.75s;
+    -moz-animation-duration: 0.75s;
+    -ms-animation-duration: 0.75s;
+    -o-animation-duration: 0.75s;
+    animation-duration: 0.75s;
+    -webkit-animation-direction: alternate;
+    -moz-animation-direction: alternate;
+    -ms-animation-direction: alternate;
+    -o-animation-direction: alternate;
     animation-direction: alternate;
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -ms-animation-play-state: paused;
+    -o-animation-play-state: paused;
     animation-play-state: paused;
+    -webkit-animation-iteration-count: 2;
+    -moz-animation-iteration-count: 2;
+    -ms-animation-iteration-count: 2;
+    -o-animation-iteration-count: 2;
     animation-iteration-count: 2;
-/*    -webkit-transition: 0.75s;
-    -moz-transition: 0.75s;
-    -ms-transition: 0.75s;
-    -o-transition: 0.75s;
-    transition: 0.75s;
-*/}
+}
 
 .portfolio .item .front {
     z-index: 5;
@@ -270,27 +282,8 @@ h1 {
     backface-visibility: hidden;
  }
 
-@-moz-keyframes rotate-back {
-  from {
-    -moz-transform: rotateY(-180deg);
-  }
-
-  to {
-    -moz-transform: rotateY(0deg);
-  }
-}
-
-@-moz-keyframes rotate-front {
-  from {
-    -moz-transform: rotateY(0deg);
-  }
-
-  to {
-    -moz-transform: rotateY(180deg);
-  }
-}
-
-.portfolio .item .animating {
+.portfolio .item .front-animating,
+.portfolio .item .back-animating {
     animation-play-state: running;
 }
 
@@ -300,27 +293,17 @@ h1 {
 
 .portfolio .item:hover .front,
 .portfolio .flipped .front,
-.portfolio .front.animating {
+.portfolio .item .front-animating {
     z-index: 5;
     animation-name: rotate-front;
-/*    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -o-transform: rotateY(180deg);
-    -ms-transform: rotateY(180deg);
-    transform: rotateY(180deg);
-*/}
+}
 
 .portfolio .item:hover .back,
 .portfolio .flipped .back,
-.portfolio .back.animating {
+.portfolio .item .back-animating {
     z-index: 10;
     animation-name: rotate-back;
-/*    -webkit-transform: rotateY(0deg);
-    -moz-transform: rotateY(0deg);
-    -o-transform: rotateY(0deg);
-    -ms-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-*/}
+}
 
 
 .portfolio .back .card-title {
@@ -412,6 +395,116 @@ h1 {
 	background: #0cc;
 	height: 300px;
 }
+
+/* Animation keyframes */
+@keyframes "rotate-back" {
+ from {
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+ }
+ to {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+ }
+
+}
+
+@-moz-keyframes rotate-back {
+ from {
+   -moz-transform: rotateY(-180deg);
+   transform: rotateY(-180deg);
+ }
+ to {
+   -moz-transform: rotateY(0deg);
+   transform: rotateY(0deg);
+ }
+
+}
+
+@-webkit-keyframes "rotate-back" {
+ from {
+   -webkit-transform: rotateY(-180deg);
+   transform: rotateY(-180deg);
+ }
+ to {
+   -webkit-transform: rotateY(0deg);
+   transform: rotateY(0deg);
+ }
+
+}
+
+@-o-keyframes "rotate-back" {
+ from {
+   -o-transform: rotateY(-180deg);
+   transform: rotateY(-180deg);
+ }
+ to {
+   -o-transform: rotateY(0deg);
+   transform: rotateY(0deg);
+ }
+
+}
+
+@keyframes "rotate-front" {
+ from {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+ }
+ to {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+ }
+
+}
+
+@-moz-keyframes rotate-front {
+ from {
+   -moz-transform: rotateY(0deg);
+   transform: rotateY(0deg);
+ }
+ to {
+   -moz-transform: rotateY(180deg);
+   transform: rotateY(180deg);
+ }
+
+}
+
+@-webkit-keyframes "rotate-front" {
+ from {
+   -webkit-transform: rotateY(0deg);
+   transform: rotateY(0deg);
+ }
+ to {
+   -webkit-transform: rotateY(180deg);
+   transform: rotateY(180deg);
+ }
+
+}
+
+@-o-keyframes "rotate-front" {
+ from {
+   -o-transform: rotateY(0deg);
+   transform: rotateY(0deg);
+ }
+ to {
+   -o-transform: rotateY(180deg);
+   transform: rotateY(180deg);
+ }
+
+}
+
 
 /* Improvements for browsers with javascript enabled */
 
