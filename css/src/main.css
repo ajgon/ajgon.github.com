@@ -240,12 +240,16 @@ h1 {
     -moz-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    -webkit-transition: 0.75s;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-play-state: paused;
+    animation-iteration-count: 2;
+/*    -webkit-transition: 0.75s;
     -moz-transition: 0.75s;
     -ms-transition: 0.75s;
     -o-transition: 0.75s;
     transition: 0.75s;
-}
+*/}
 
 .portfolio .item .front {
     z-index: 5;
@@ -264,27 +268,59 @@ h1 {
     -ms-backface-visibility: hidden;
     -o-backface-visibility: hidden;
     backface-visibility: hidden;
+ }
+
+@-moz-keyframes rotate-back {
+  from {
+    -moz-transform: rotateY(-180deg);
+  }
+
+  to {
+    -moz-transform: rotateY(0deg);
+  }
+}
+
+@-moz-keyframes rotate-front {
+  from {
+    -moz-transform: rotateY(0deg);
+  }
+
+  to {
+    -moz-transform: rotateY(180deg);
+  }
+}
+
+.portfolio .item .animating {
+    animation-play-state: running;
+}
+
+.portfolio .item .paused {
+    animation-play-state: paused;
 }
 
 .portfolio .item:hover .front,
-.portfolio .flipped .front {
+.portfolio .flipped .front,
+.portfolio .front.animating {
     z-index: 5;
-    -webkit-transform: rotateY(180deg);
+    animation-name: rotate-front;
+/*    -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
     -o-transform: rotateY(180deg);
     -ms-transform: rotateY(180deg);
     transform: rotateY(180deg);
-}
+*/}
 
 .portfolio .item:hover .back,
-.portfolio .flipped .back {
+.portfolio .flipped .back,
+.portfolio .back.animating {
     z-index: 10;
-    -webkit-transform: rotateY(0deg);
+    animation-name: rotate-back;
+/*    -webkit-transform: rotateY(0deg);
     -moz-transform: rotateY(0deg);
     -o-transform: rotateY(0deg);
     -ms-transform: rotateY(0deg);
     transform: rotateY(0deg);
-}
+*/}
 
 
 .portfolio .back .card-title {

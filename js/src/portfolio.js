@@ -26,6 +26,18 @@ define(['jquery', 'isotope'], function ($) {
                     Portfolio.container.width(Portfolio.container.width() + parseInt(containerDistance / 155, 10) * 155);
                 }
             });
+
+            this.container
+            .on('mouseenter', '.item', function (e) {
+                $(this).addClass('hovered').find('.front, .back').addClass('animating');
+            }).on('mouseleave', '.item', function (e) {
+                $(this).removeClass('hovered').find('.front, .back').removeClass('paused');
+            }).on('animationend', '.front, .back', function (e) {
+                $(this).removeClass('animating');
+            }).on('animationiteration', '.hovered .front, .hovered .back', function (e) {
+                $(this).addClass('paused');
+            });
+
         },
         isotopeOnLayout: function ($elems, isotope) {
             // var containerWidth = Portfolio.container.parent().width(),
