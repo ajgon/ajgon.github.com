@@ -89,7 +89,7 @@ h1 {
 }
 
 .menu-items {
-    margin: 0;
+    margin: 0 0 0 2em;
     padding: 0;
 }
 
@@ -123,6 +123,7 @@ h1 {
 .content {
     margin: 0 auto;
     background: #fff;
+    padding: 0 2em;
 }
 
 .content > section {

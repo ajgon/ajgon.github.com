@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Igor Rzegocki - Personal Homepage</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="author" href="humans.txt">
+        <link rel="stylesheet" href="css/dist/main.min.css">
+        <script src="js/vendor/modernizr.min.js"></script>
+    </head>
+    <body>
+
+        <div id="wrapper">
+            <div class="top" id="top">
+                <nav class="menu">
+                    <div class="programajor">
+                        <img src="img/programajor.png" alt="" id="avatar">
+                    </div>
+                    <ul class="menu-items">
+                        <li class="menu-item"><a href="#open-source">Open Source</a></li>
+                        <li class="menu-item"><a href="#portfolio">Portfolio</a></li>
+                        <li class="menu-item"><a href="#about-me">About me</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <header class="header">
+                <img class="header-photo" src="img/places/sydney.jpg" alt="">
+            </header>
+            <main class="content" id="content" role="main">
+<% include open_source %>
+<% include portfolio %>
+<% include about %>
+            </main>
+            <footer class="footer" id="bottom">
+                futar
+            </footer>
+        </div>
+
+        <script data-main="js/dist/main.min" src="js/vendor/requirejs.min.js"></script>
+
+    </body>
+</html>

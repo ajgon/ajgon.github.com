@@ -1,0 +1,571 @@
+[{
+    "id": "pavilion512",
+    "date": "2013-07-24",
+    "title": "Pawilon 512",
+    "subtitle": "Distant place",
+    "url": "http://512.kopernik.org.pl/",
+    "client": {
+        "id": "nextframe",
+        "name": "Nextframe",
+        "url": "http://www.nexframe.pl/"
+    },
+    "specs": ["html5", "css3", "js"],
+    "promoted": false
+}, {
+    "id": "poznajzasady",
+    "date": "2012-05-31",
+    "title": "Poznaj Zasady",
+    "subtitle": "Mineral water ads",
+    "url": "http://poznajzasady.pl/",
+    "client": {
+        "id": "nextframe",
+        "name": "Nextframe",
+        "url": "http://www.nexframe.pl/"
+    },
+    "specs": ["html5", "css3", "js"],
+    "promoted": false
+}, {
+    "id": "listerinezero",
+    "date": "2012-05-14",
+    "title": "Listerine Zero",
+    "subtitle": "Mouthwash campaign",
+    "url": "http://listerinezero.pl/",
+    "client": {
+        "id": "nextframe",
+        "name": "Nextframe",
+        "url": "http://www.nexframe.pl/"
+    },
+    "specs": ["html5", "css3", "js"],
+    "promoted": true
+}, {
+    "id": "gardenpartner",
+    "date": "2012-04-17",
+    "title": "Garden Partner",
+    "subtitle": "Garden services",
+    "url": "http://gardenpartner.com.pl/",
+    "client": {
+        "id": "garden-partner",
+        "name": "Garden Partner",
+        "url": "http://gardenpartner.com.pl/"
+    },
+    "specs": ["html5", "css3", "js"],
+    "promoted": false
+}, {
+    "id": "studiofx",
+    "date": "2012-04-12",
+    "title": "StudioFX",
+    "subtitle": "Special effects studio",
+    "url": "http://www.studiofx.pl/",
+    "client": {
+        "id": "nextframe",
+        "name": "Nextframe",
+        "url": "http://www.nexframe.pl/"
+    },
+    "specs": ["html5", "css3", "php5", "wp"],
+    "promoted": false
+}, {
+    "id": "ckk",
+    "date": "2012-03-20",
+    "title": "CKK",
+    "subtitle": "Conference center",
+    "url": "http://centrumkonferencyjnekopernik.pl/",
+    "client": {
+        "id": "nextframe",
+        "name": "Nextframe",
+        "url": "http://www.nexframe.pl/"
+    },
+    "specs": ["xhtml", "css", "php5", "wp"],
+    "promoted": false
+}, {
+    "id": "adbud",
+    "date": "2011-09-06",
+    "title": "AD-BUD",
+    "subtitle": "Real estate management",
+    "url": "http://www.ad-bud.pl/",
+    "client": {
+        "id": "nextframe",
+        "name": "Nextframe",
+        "url": "http://www.nexframe.pl/"
+    },
+    "specs": ["xhtml", "css", "php5"],
+    "promoted": false
+}, {
+    "id": "niebokopernika",
+    "date": "2011-08-25",
+    "title": "Niebo Kopernika",
+    "subtitle": "Planetarium",
+    "url": "http://www.niebokopernika.pl/",
+    "client": {
+        "id": "nextframe",
+        "name": "Nextframe",
+        "url": "http://www.nexframe.pl/"
+    },
+    "specs": ["xhtml", "css", "js", "php5"],
+    "promoted": true
+}, {
+    "id": "morgangroup",
+    "date": "2011-08-20",
+    "title": "Morgan Group",
+    "subtitle": "Apartments rental agency",
+    "url": "http://morgangroup.pl/",
+    "client": {
+        "id": "devonstudio",
+        "name": "DevonStudio",
+        "url": "http://devonstudio.com/"
+    },
+    "specs": ["html5", "css3", "js", "php5", "wp"],
+    "promoted": false
+}, {
+    "id": "cimp",
+    "date": "2011-08-19",
+    "title": "W podróży",
+    "subtitle": "Travelling medicine",
+    "url": "",
+    "client": {
+        "id": "active-pharma",
+        "name": "Active Pharma",
+        "url": "http://www.activepharma.pl/"
+    },
+    "specs": ["xhtml", "css", "js"],
+    "promoted": false
+}, {
+    "id": "avamys",
+    "date": "2011-08-03",
+    "title": "Avamys",
+    "subtitle": "Allergic rhinitis drug",
+    "url": "http://www.irgon.com/avamys/",
+    "client": {
+        "id": "active-pharma",
+        "name": "Active Pharma",
+        "url": "http://www.activepharma.pl/"
+    },
+    "specs": ["xhtml", "css", "js"],
+    "promoted": false
+}, {
+    "id": "weedo",
+    "date": "2011-07-13",
+    "title": "Weedo",
+    "subtitle": "iPad Accessories",
+    "url": "http://www.irgon.com/weedo/",
+    "client": {
+        "id": "weedo",
+        "name": "Weedo",
+        "url": "http://weedo.pl/"
+    },
+    "specs": ["xhtml", "css", "js"],
+    "promoted": false
+}, {
+    "id": "lapremiere",
+    "date": "2011-07-12",
+    "title": "La Premiere",
+    "subtitle": "Beauty studio",
+    "url": "http://lapremiere.pl/",
+    "client": {
+        "id": "devonstudio",
+        "name": "DevonStudio",
+        "url": "http://devonstudio.com/"
+    },
+    "specs": ["html5", "css3", "js", "php5", "wp"],
+    "promoted": false
+}, {
+    "id": "malaria",
+    "date": "2011-06-27",
+    "title": "Malaria",
+    "subtitle": "Malaria informations",
+    "url": "http://www.irgon.com/malaria/",
+    "client": {
+        "id": "active-pharma",
+        "name": "Active Pharma",
+        "url": "http://www.activepharma.pl/"
+    },
+    "specs": ["xhtml", "css", "js"],
+    "promoted": false
+}, {
+    "id": "tyverb",
+    "date": "2011-06-20",
+    "title": "Tyverb",
+    "subtitle": "Anti-cancer drug",
+    "url": "http://www.irgon.com/tyverb/",
+    "client": {
+        "id": "active-pharma",
+        "name": "Active Pharma",
+        "url": "http://www.activepharma.pl/"
+    },
+    "specs": ["xhtml", "css", "js"],
+    "promoted": false
+}, {
+    "id": "votrient20",
+    "date": "2011-06-04",
+    "title": "Votrient 2.0",
+    "subtitle": "Pazopanib",
+    "url": "http://www.irgon.com/votrient20/",
+    "client": {
+        "id": "active-pharma",
+        "name": "Active Pharma",
+        "url": "http://www.activepharma.pl/"
+    },
+    "specs": ["xhtml", "css", "js"],
+    "promoted": false
+}, {
+    "id": "fraxi",
+    "date": "2011-05-07",
+    "title": "Fraxi",
+    "subtitle": "Molecular weight heparin",
+    "url": "http://www.irgon.com/fraxi/",
+    "client": {
+        "id": "active-pharma",
+        "name": "Active Pharma",
+        "url": "http://www.activepharma.pl/"
+    },
+    "specs": ["xhtml", "css", "js"],
+    "promoted": false
+}, {
+    "id": "wordwatch",
+    "date": "2011-04-17",
+    "title": "WordWatch",
+    "subtitle": "AdSense positioning",
+    "url": "http://www.wordwatch.com/",
+    "client": {
+        "id": "wordwatch-inc.",
+        "name": "WordWatch Inc.",
+        "url": "http://www.wordwatch.com/"
+    },
+    "specs": ["xhtml", "css", "js", "ror"],
+    "promoted": false
+}, {
+    "id": "niedoboryodpornosci",
+    "date": "2011-04-13",
+    "title": "O odporności",
+    "subtitle": "Body immunity information",
+    "url": "http://niedoboryodpornosci.pl/",
+    "client": {
+        "id": "active-pharma",
+        "name": "Active Pharma",
+        "url": "http://www.activepharma.pl/"
+    },
+    "specs": ["xhtml", "css", "js"],
+    "promoted": false
+}, {
+    "id": "kleszcze",
+    "date": "2011-03-27",
+    "title": "Kleszcze",
+    "subtitle": "Ticks prevention",
+    "url": "http://kleszczeinfo.pl/",
+    "client": {
+        "id": "active-pharma",
+        "name": "Active Pharma",
+        "url": "http://www.activepharma.pl/"
+    },
+    "specs": ["xhtml", "css", "js"],
+    "promoted": false
+}, {
+    "id": "ospawietrzna",
+    "date": "2011-02-17",
+    "title": "Ospa Wietrzna",
+    "subtitle": "Smallpox informations",
+    "url": "http://ospawietrzna.pl/",
+    "client": {
+        "id": "active-pharma",
+        "name": "Active Pharma",
+        "url": "http://www.activepharma.pl/"
+    },
+    "specs": ["xhtml", "css", "js"],
+    "promoted": false
+}, {
+    "id": "votrient",
+    "date": "2011-02-15",
+    "title": "Votrient",
+    "subtitle": "Pazopanib",
+    "url": "http://www.irgon.com/votrient/",
+    "client": {
+        "id": "active-pharma",
+        "name": "Active Pharma",
+        "url": "http://www.activepharma.pl/"
+    },
+    "specs": ["xhtml", "css", "js"],
+    "promoted": false
+}, {
+    "id": "bigansoft",
+    "date": "2011-01-15",
+    "title": "BiGanSoft",
+    "subtitle": "IT Agency",
+    "url": "http://www.bigandsoft.pl/",
+    "client": {
+        "id": "starfactory",
+        "name": "StarFactory",
+        "url": "http://starfactory.pl/"
+    },
+    "specs": ["xhtml", "css", "js"],
+    "promoted": false
+}, {
+    "id": "xxlstock",
+    "date": "2011-01-14",
+    "title": "XXLStock",
+    "subtitle": "Photo Stock",
+    "url": "http://www.irgon.com/xxlstock/",
+    "client": {
+        "id": "starfactory",
+        "name": "StarFactory",
+        "url": "http://starfactory.pl/"
+    },
+    "specs": ["xhtml", "css", "js"],
+    "promoted": false
+}, {
+    "id": "cukrzyca",
+    "date": "2011-01-13",
+    "title": "Cukrzyca",
+    "subtitle": "Diabetics advices",
+    "url": "http://www.irgon.com/cukrzyca/",
+    "client": {
+        "id": "active-pharma",
+        "name": "Active Pharma",
+        "url": "http://www.activepharma.pl/"
+    },
+    "specs": ["xhtml", "css", "js"],
+    "promoted": false
+}, {
+    "id": "stalexport",
+    "date": "2010-10-04",
+    "title": "Stalexport",
+    "subtitle": "Lesser Poland highway",
+    "url": "http://www.autostrada-a4.pl/",
+    "client": {
+        "id": "enigmatis",
+        "name": "Enigmatis",
+        "url": "http://enigmatis.pl/"
+    },
+    "specs": ["xhtml", "css", "js"],
+    "promoted": true
+}, {
+    "id": "perfectdoor",
+    "date": "2010-09-01",
+    "title": "PerfectDoor",
+    "subtitle": "Doors and frames shop",
+    "url": "http://perfectdoor.pl/",
+    "client": {
+        "id": "starfactory",
+        "name": "StarFactory",
+        "url": "http://starfactory.pl/"
+    },
+    "specs": ["xhtml", "css", "js", "php5", "wp"],
+    "promoted": false
+}, {
+    "id": "optiva",
+    "date": "2010-07-21",
+    "title": "Optiva",
+    "subtitle": "Optic salon",
+    "url": "http://www.optiva.pl/",
+    "client": {
+        "id": "drp-solutions",
+        "name": "DRP Solutions",
+        "url": "https://prod.ceidg.gov.pl/CEIDG/ceidg.public.ui/SearchDetails.asp class="
+    },
+    "specs": ["xhtml", "css", "js"],
+    "promoted": false
+}, {
+    "id": "nodormz",
+    "date": "2010-05-07",
+    "title": "NoDormz",
+    "subtitle": "Student voices for places",
+    "url": "http://nodormz.com/",
+    "client": {
+        "id": "nodormz",
+        "name": "NoDormz",
+        "url": "http://nodormz.com/"
+    },
+    "specs": ["xhtml", "css"],
+    "promoted": false
+}, {
+    "id": "plusmed",
+    "date": "2010-03-19",
+    "title": "Plus-Med",
+    "subtitle": "Living orthopedic",
+    "url": "http://www.plus-med.pl/",
+    "client": {
+        "id": "puffy",
+        "name": "PuFFy",
+        "url": "http://puffy.pl/"
+    },
+    "specs": ["xhtml", "css"],
+    "promoted": false
+}, {
+    "id": "maxbart",
+    "date": "2009-12-22",
+    "title": "MaxBart",
+    "subtitle": "Construction Company",
+    "url": "http://www.irgon.com/maxbart/",
+    "client": {
+        "id": "",
+        "name": ""
+    },
+    "specs": ["xhtml", "css", "js"],
+    "promoted": false
+}, {
+    "id": "instytutpiekna",
+    "date": "2009-11-12",
+    "title": "Instytut piękna",
+    "subtitle": "Beauty studio",
+    "url": "http://www.irgon.com/instytutpiekna/",
+    "client": {
+        "id": "",
+        "name": ""
+    },
+    "specs": ["xhtml", "css", "js"],
+    "promoted": false
+}, {
+    "id": "schiphol",
+    "date": "2009-11-15",
+    "title": "Schiphol",
+    "subtitle": "International Airport",
+    "url": "http://www.irgon.com/schiphol/",
+    "client": {
+        "id": "iizt",
+        "name": "IIZT",
+        "url": "http://iizt.com/"
+    },
+    "specs": ["xhtml", "css"],
+    "promoted": true
+}, {
+    "id": "shiva",
+    "date": "2009-04-21",
+    "title": "Shiva",
+    "subtitle": "Dance & Fitness",
+    "url": "http://taniec.tarnow.pl/",
+    "client": {
+        "id": "puffy",
+        "name": "PuFFy",
+        "url": "http://puffy.pl/"
+    },
+    "specs": ["xhtml", "css", "js", "php5", "wp"],
+    "promoted": false
+}, {
+    "id": "iizt",
+    "date": "2009-01-09",
+    "title": "IIZT",
+    "subtitle": "IT Agency",
+    "url": "http://www.irgon.com/iizt/",
+    "client": {
+        "id": "iizt",
+        "name": "IIZT",
+        "url": "http://iizt.com/"
+    },
+    "specs": ["xhtml", "css", "js"],
+    "promoted": false
+}, {
+    "id": "apeiro",
+    "date": "2008-12-12",
+    "title": "Apeiro",
+    "subtitle": "IT Agency",
+    "url": "http://www.irgon.com/apeiro/",
+    "client": {
+        "id": "apeiro",
+        "name": "Apeiro",
+        "url": "http://apeiro.pl/"
+    },
+    "specs": ["xhtml", "css"],
+    "promoted": false
+}, {
+    "id": "kistenmakerterrein",
+    "date": "2008-08-19",
+    "title": "Kistenmaker",
+    "subtitle": "Real Estate Agency",
+    "url": "http://www.irgon.com/kistenmakerterrein/",
+    "client": {
+        "id": "iizt",
+        "name": "IIZT",
+        "url": "http://iizt.com/"
+    },
+    "specs": ["xhtml", "css"],
+    "promoted": false
+}, {
+    "id": "respectance",
+    "date": "2008-04-14",
+    "title": "Respectance",
+    "subtitle": "Online Tributes",
+    "url": "http://respectance.com/",
+    "client": {
+        "id": "respectance",
+        "name": "Respectance",
+        "url": "http://respectance.com/"
+    },
+    "specs": ["xhtml", "css", "js", "php5", "zf"],
+    "promoted": false
+}, {
+    "id": "brabbelboek",
+    "date": "2008-04-14",
+    "title": "Brabbelboek",
+    "subtitle": "Online baby books",
+    "url": "http://brabbelboek.nl/",
+    "client": {
+        "id": "respectance",
+        "name": "Respectance",
+        "url": "http://respectance.com/"
+    },
+    "specs": ["xhtml", "css", "js", "php5", "zf"],
+    "promoted": false
+}, {
+    "id": "bruidsbubbels",
+    "date": "2008-04-14",
+    "title": "BruidsBubbels",
+    "subtitle": "Online wedding books",
+    "url": "http://bruidsbubbels.nl/",
+    "client": {
+        "id": "respectance",
+        "name": "Respectance",
+        "url": "http://respectance.com/"
+    },
+    "specs": ["xhtml", "css", "js", "php5", "zf"],
+    "promoted": false
+}, {
+    "id": "jkm",
+    "date": "2007-10-20",
+    "title": "Korwin-Mikke",
+    "subtitle": "Polish publicist",
+    "url": "http://www.irgon.com/jkm/",
+    "client": {
+        "id": "jkm",
+        "name": "JKM",
+        "url": "http://korwin-mikke.pl/"
+    },
+    "specs": ["xhtml", "css"],
+    "promoted": false
+}, {
+    "id": "fotekapl",
+    "date": "2007-03-15",
+    "title": "Foteka.pl",
+    "subtitle": "Image sharing",
+    "url": "http://www.irgon.com/fotekapl/",
+    "client": {
+        "id": "devonstudio",
+        "name": "DevonStudio",
+        "url": "http://devonstudio.com/"
+    },
+    "specs": ["xhtml", "css"],
+    "promoted": false
+}, {
+    "id": "powiatkonecki",
+    "date": "2006-07-04",
+    "title": "Powiat Konecki",
+    "subtitle": "European Union programme",
+    "url": "http://innowacyjnosc.powiat.konskie.pl/",
+    "client": {
+        "id": "powiat-konecki",
+        "name": "Powiat Konecki",
+        "url": "http://powiat.konskie.pl/"
+    },
+    "specs": ["xhtml", "css", "php5"],
+    "promoted": false
+}, {
+    "id": "krainapomyslow",
+    "date": "2006-04-11",
+    "title": "Kraina Pomysłów",
+    "subtitle": "Hand-made soaps",
+    "url": "http://krainapomyslow.pl/",
+    "client": {
+        "id": "kraina-pomysłow",
+        "name": "Kraina Pomysłow",
+        "url": "http://krainapomyslow.pl/"
+    },
+    "specs": ["xhtml", "css"],
+    "promoted": false
+}]

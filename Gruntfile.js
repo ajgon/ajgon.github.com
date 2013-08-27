@@ -2,6 +2,8 @@
 module.exports = function (grunt) {
     'use strict';
 
+    var fs = require('fs');
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         csslint: {
@@ -46,6 +48,31 @@ module.exports = function (grunt) {
                     dest: './',
                 }]
             }
+        },
+        template: {
+            dev: {
+                src: '_data/templates/_layout.ejs',
+                dest: 'index.html',
+                variables: {
+                    portfolio: JSON.parse(fs.readFileSync('_data/json/portfolio.json')),
+                    specs: JSON.parse(fs.readFileSync('_data/json/specs.json')),
+                    moment: require('moment')
+                }
+            },
+        },
+        watch: {
+            css: {
+                files: ['css/src/*.css'],
+                tasks: ['cssmin']
+            },
+            js: {
+                files: ['js/src/*.js', 'js/vendor/*.js'],
+                tasks: ['requirejs']
+            },
+            html: {
+                files: ['_data/json/*.json', '_data/templates/*.ejs'],
+                tasks: ['template']
+            }
         }
     });
 
@@ -54,11 +81,13 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-templater');
 
     // Default task(s).
     grunt.registerTask('lint', ['csslint', 'jslint']);
-    grunt.registerTask('minify', ['cssmin', 'requirejs', 'imagemin']);
-    grunt.registerTask('devmin', ['cssmin', 'requirejs']);
+    grunt.registerTask('devmin', ['cssmin', 'requirejs', 'template']);
+    grunt.registerTask('minify', ['imagemin', 'devmin']);
     grunt.registerTask('default', ['lint', 'minify']);
 
 };
