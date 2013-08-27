@@ -4,6 +4,7 @@
 define(['jquery', 'isotope'], function ($) {
     'use strict';
 
+    /*jslint unparam: true*/
     var Portfolio = {
         init: function () {
             this.container = $('#portfolioItems');
@@ -28,20 +29,23 @@ define(['jquery', 'isotope'], function ($) {
             });
 
             this.container
-            .on('mouseenter', '.item', function (e) {
-                var $this = $(this);
-                $this.addClass('hovered');
-                $this.find('.front').addClass('front-animating');
-                $this.find('.back').addClass('back-animating');
-            }).on('mouseleave', '.item', function (e) {
-                $(this).removeClass('hovered').find('.front, .back').removeClass('paused');
-            }).on('animationend', '.front, .back', function (e) {
-                var $this = $(this);
-                $this.removeClass('front-animating');
-                $this.removeClass('back-animating');
-            }).on('animationiteration', '.hovered .front, .hovered .back', function (e) {
-                $(this).addClass('paused');
-            });
+                .on('mouseenter', '.item', function () {
+                    var $this = $(this);
+                    $this.addClass('hovered');
+                    $this.find('.front').addClass('front-animating');
+                    $this.find('.back').addClass('back-animating');
+                })
+                .on('mouseleave', '.item', function () {
+                    $(this).removeClass('hovered').find('.front, .back').removeClass('paused');
+                })
+                .on('animationend', '.front, .back', function () {
+                    var $this = $(this);
+                    $this.removeClass('front-animating');
+                    $this.removeClass('back-animating');
+                })
+                .on('animationiteration', '.hovered .front, .hovered .back', function () {
+                    $(this).addClass('paused');
+                });
 
         },
         isotopeOnLayout: function ($elems, isotope) {
@@ -51,6 +55,7 @@ define(['jquery', 'isotope'], function ($) {
             }
         }
     };
+    /*jslint unparam: false*/
 
     return Portfolio;
 });

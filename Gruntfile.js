@@ -1,4 +1,4 @@
-/*jslint node: true */
+/*jslint node: true, stupid: true */
 module.exports = function (grunt) {
     'use strict';
 
