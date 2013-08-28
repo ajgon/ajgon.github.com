@@ -4,11 +4,7 @@
     "title": "Pawilon 512",
     "subtitle": "Distant place",
     "url": "http://512.kopernik.org.pl/",
-    "client": {
-        "id": "nextframe",
-        "name": "Nextframe",
-        "url": "http://www.nexframe.pl/"
-    },
+    "client": "nextframe",
     "specs": ["html5", "css3", "js"],
     "promoted": false
 }, {
@@ -17,11 +13,7 @@
     "title": "Poznaj Zasady",
     "subtitle": "Mineral water ads",
     "url": "http://poznajzasady.pl/",
-    "client": {
-        "id": "nextframe",
-        "name": "Nextframe",
-        "url": "http://www.nexframe.pl/"
-    },
+    "client": "nextframe",
     "specs": ["html5", "css3", "js"],
     "promoted": false
 }, {
@@ -30,11 +22,7 @@
     "title": "Listerine Zero",
     "subtitle": "Mouthwash campaign",
     "url": "http://listerinezero.pl/",
-    "client": {
-        "id": "nextframe",
-        "name": "Nextframe",
-        "url": "http://www.nexframe.pl/"
-    },
+    "client": "nextframe",
     "specs": ["html5", "css3", "js"],
     "promoted": true
 }, {
@@ -43,11 +31,7 @@
     "title": "Garden Partner",
     "subtitle": "Garden services",
     "url": "http://gardenpartner.com.pl/",
-    "client": {
-        "id": "garden-partner",
-        "name": "Garden Partner",
-        "url": "http://gardenpartner.com.pl/"
-    },
+    "client": "garden-partner",
     "specs": ["html5", "css3", "js"],
     "promoted": false
 }, {
@@ -56,11 +40,7 @@
     "title": "StudioFX",
     "subtitle": "Special effects studio",
     "url": "http://www.studiofx.pl/",
-    "client": {
-        "id": "nextframe",
-        "name": "Nextframe",
-        "url": "http://www.nexframe.pl/"
-    },
+    "client": "nextframe",
     "specs": ["html5", "css3", "php5", "wp"],
     "promoted": false
 }, {
@@ -69,11 +49,7 @@
     "title": "CKK",
     "subtitle": "Conference center",
     "url": "http://centrumkonferencyjnekopernik.pl/",
-    "client": {
-        "id": "nextframe",
-        "name": "Nextframe",
-        "url": "http://www.nexframe.pl/"
-    },
+    "client": "nextframe",
     "specs": ["xhtml", "css", "php5", "wp"],
     "promoted": false
 }, {
@@ -82,11 +58,7 @@
     "title": "AD-BUD",
     "subtitle": "Real estate management",
     "url": "http://www.ad-bud.pl/",
-    "client": {
-        "id": "nextframe",
-        "name": "Nextframe",
-        "url": "http://www.nexframe.pl/"
-    },
+    "client": "nextframe",
     "specs": ["xhtml", "css", "php5"],
     "promoted": false
 }, {
@@ -95,11 +67,7 @@
     "title": "Niebo Kopernika",
     "subtitle": "Planetarium",
     "url": "http://www.niebokopernika.pl/",
-    "client": {
-        "id": "nextframe",
-        "name": "Nextframe",
-        "url": "http://www.nexframe.pl/"
-    },
+    "client": "nextframe",
     "specs": ["xhtml", "css", "js", "php5"],
     "promoted": true
 }, {
@@ -108,11 +76,7 @@
     "title": "Morgan Group",
     "subtitle": "Apartments rental agency",
     "url": "http://morgangroup.pl/",
-    "client": {
-        "id": "devonstudio",
-        "name": "DevonStudio",
-        "url": "http://devonstudio.com/"
-    },
+    "client": "devonstudio",
     "specs": ["html5", "css3", "js", "php5", "wp"],
     "promoted": false
 }, {
@@ -121,11 +85,7 @@
     "title": "W podróży",
     "subtitle": "Travelling medicine",
     "url": "",
-    "client": {
-        "id": "active-pharma",
-        "name": "Active Pharma",
-        "url": "http://www.activepharma.pl/"
-    },
+    "client": "active-pharma",
     "specs": ["xhtml", "css", "js"],
     "promoted": false
 }, {
@@ -134,11 +94,7 @@
     "title": "Avamys",
     "subtitle": "Allergic rhinitis drug",
     "url": "http://www.irgon.com/avamys/",
-    "client": {
-        "id": "active-pharma",
-        "name": "Active Pharma",
-        "url": "http://www.activepharma.pl/"
-    },
+    "client": "active-pharma",
     "specs": ["xhtml", "css", "js"],
     "promoted": false
 }, {
@@ -147,11 +103,7 @@
     "title": "Weedo",
     "subtitle": "iPad Accessories",
     "url": "http://www.irgon.com/weedo/",
-    "client": {
-        "id": "weedo",
-        "name": "Weedo",
-        "url": "http://weedo.pl/"
-    },
+    "client": "weedo",
     "specs": ["xhtml", "css", "js"],
     "promoted": false
 }, {
@@ -160,11 +112,7 @@
     "title": "La Premiere",
     "subtitle": "Beauty studio",
     "url": "http://lapremiere.pl/",
-    "client": {
-        "id": "devonstudio",
-        "name": "DevonStudio",
-        "url": "http://devonstudio.com/"
-    },
+    "client": "devonstudio",
     "specs": ["html5", "css3", "js", "php5", "wp"],
     "promoted": false
 }, {
@@ -173,11 +121,7 @@
     "title": "Malaria",
     "subtitle": "Malaria informations",
     "url": "http://www.irgon.com/malaria/",
-    "client": {
-        "id": "active-pharma",
-        "name": "Active Pharma",
-        "url": "http://www.activepharma.pl/"
-    },
+    "client": "active-pharma",
     "specs": ["xhtml", "css", "js"],
     "promoted": false
 }, {
@@ -186,11 +130,7 @@
     "title": "Tyverb",
     "subtitle": "Anti-cancer drug",
     "url": "http://www.irgon.com/tyverb/",
-    "client": {
-        "id": "active-pharma",
-        "name": "Active Pharma",
-        "url": "http://www.activepharma.pl/"
-    },
+    "client": "active-pharma",
     "specs": ["xhtml", "css", "js"],
     "promoted": false
 }, {
@@ -199,11 +139,7 @@
     "title": "Votrient 2.0",
     "subtitle": "Pazopanib",
     "url": "http://www.irgon.com/votrient20/",
-    "client": {
-        "id": "active-pharma",
-        "name": "Active Pharma",
-        "url": "http://www.activepharma.pl/"
-    },
+    "client": "active-pharma",
     "specs": ["xhtml", "css", "js"],
     "promoted": false
 }, {
@@ -212,11 +148,7 @@
     "title": "Fraxi",
     "subtitle": "Molecular weight heparin",
     "url": "http://www.irgon.com/fraxi/",
-    "client": {
-        "id": "active-pharma",
-        "name": "Active Pharma",
-        "url": "http://www.activepharma.pl/"
-    },
+    "client": "active-pharma",
     "specs": ["xhtml", "css", "js"],
     "promoted": false
 }, {
@@ -225,11 +157,7 @@
     "title": "WordWatch",
     "subtitle": "AdSense positioning",
     "url": "http://www.wordwatch.com/",
-    "client": {
-        "id": "wordwatch-inc.",
-        "name": "WordWatch Inc.",
-        "url": "http://www.wordwatch.com/"
-    },
+    "client": "wordwatch",
     "specs": ["xhtml", "css", "js", "ror"],
     "promoted": false
 }, {
@@ -238,11 +166,7 @@
     "title": "O odporności",
     "subtitle": "Body immunity information",
     "url": "http://niedoboryodpornosci.pl/",
-    "client": {
-        "id": "active-pharma",
-        "name": "Active Pharma",
-        "url": "http://www.activepharma.pl/"
-    },
+    "client": "active-pharma",
     "specs": ["xhtml", "css", "js"],
     "promoted": false
 }, {
@@ -251,11 +175,7 @@
     "title": "Kleszcze",
     "subtitle": "Ticks prevention",
     "url": "http://kleszczeinfo.pl/",
-    "client": {
-        "id": "active-pharma",
-        "name": "Active Pharma",
-        "url": "http://www.activepharma.pl/"
-    },
+    "client": "active-pharma",
     "specs": ["xhtml", "css", "js"],
     "promoted": false
 }, {
@@ -264,11 +184,7 @@
     "title": "Ospa Wietrzna",
     "subtitle": "Smallpox informations",
     "url": "http://ospawietrzna.pl/",
-    "client": {
-        "id": "active-pharma",
-        "name": "Active Pharma",
-        "url": "http://www.activepharma.pl/"
-    },
+    "client": "active-pharma",
     "specs": ["xhtml", "css", "js"],
     "promoted": false
 }, {
@@ -277,11 +193,7 @@
     "title": "Votrient",
     "subtitle": "Pazopanib",
     "url": "http://www.irgon.com/votrient/",
-    "client": {
-        "id": "active-pharma",
-        "name": "Active Pharma",
-        "url": "http://www.activepharma.pl/"
-    },
+    "client": "active-pharma",
     "specs": ["xhtml", "css", "js"],
     "promoted": false
 }, {
@@ -290,11 +202,7 @@
     "title": "BiGanSoft",
     "subtitle": "IT Agency",
     "url": "http://www.bigandsoft.pl/",
-    "client": {
-        "id": "starfactory",
-        "name": "StarFactory",
-        "url": "http://starfactory.pl/"
-    },
+    "client": "starfactory",
     "specs": ["xhtml", "css", "js"],
     "promoted": false
 }, {
@@ -303,11 +211,7 @@
     "title": "XXLStock",
     "subtitle": "Photo Stock",
     "url": "http://www.irgon.com/xxlstock/",
-    "client": {
-        "id": "starfactory",
-        "name": "StarFactory",
-        "url": "http://starfactory.pl/"
-    },
+    "client": "starfactory",
     "specs": ["xhtml", "css", "js"],
     "promoted": false
 }, {
@@ -316,11 +220,7 @@
     "title": "Cukrzyca",
     "subtitle": "Diabetics advices",
     "url": "http://www.irgon.com/cukrzyca/",
-    "client": {
-        "id": "active-pharma",
-        "name": "Active Pharma",
-        "url": "http://www.activepharma.pl/"
-    },
+    "client": "active-pharma",
     "specs": ["xhtml", "css", "js"],
     "promoted": false
 }, {
@@ -329,11 +229,7 @@
     "title": "Stalexport",
     "subtitle": "Lesser Poland highway",
     "url": "http://www.autostrada-a4.pl/",
-    "client": {
-        "id": "enigmatis",
-        "name": "Enigmatis",
-        "url": "http://enigmatis.pl/"
-    },
+    "client": "enigmatis",
     "specs": ["xhtml", "css", "js"],
     "promoted": true
 }, {
@@ -342,11 +238,7 @@
     "title": "PerfectDoor",
     "subtitle": "Doors and frames shop",
     "url": "http://perfectdoor.pl/",
-    "client": {
-        "id": "starfactory",
-        "name": "StarFactory",
-        "url": "http://starfactory.pl/"
-    },
+    "client": "starfactory",
     "specs": ["xhtml", "css", "js", "php5", "wp"],
     "promoted": false
 }, {
@@ -355,11 +247,7 @@
     "title": "Optiva",
     "subtitle": "Optic salon",
     "url": "http://www.optiva.pl/",
-    "client": {
-        "id": "drp-solutions",
-        "name": "DRP Solutions",
-        "url": "https://prod.ceidg.gov.pl/CEIDG/ceidg.public.ui/SearchDetails.asp class="
-    },
+    "client": "drp-solutions",
     "specs": ["xhtml", "css", "js"],
     "promoted": false
 }, {
@@ -368,11 +256,7 @@
     "title": "NoDormz",
     "subtitle": "Student voices for places",
     "url": "http://nodormz.com/",
-    "client": {
-        "id": "nodormz",
-        "name": "NoDormz",
-        "url": "http://nodormz.com/"
-    },
+    "client": "nodormz",
     "specs": ["xhtml", "css"],
     "promoted": false
 }, {
@@ -381,11 +265,7 @@
     "title": "Plus-Med",
     "subtitle": "Living orthopedic",
     "url": "http://www.plus-med.pl/",
-    "client": {
-        "id": "puffy",
-        "name": "PuFFy",
-        "url": "http://puffy.pl/"
-    },
+    "client": "puffy",
     "specs": ["xhtml", "css"],
     "promoted": false
 }, {
@@ -394,10 +274,7 @@
     "title": "MaxBart",
     "subtitle": "Construction Company",
     "url": "http://www.irgon.com/maxbart/",
-    "client": {
-        "id": "",
-        "name": ""
-    },
+    "client": false,
     "specs": ["xhtml", "css", "js"],
     "promoted": false
 }, {
@@ -406,10 +283,7 @@
     "title": "Instytut piękna",
     "subtitle": "Beauty studio",
     "url": "http://www.irgon.com/instytutpiekna/",
-    "client": {
-        "id": "",
-        "name": ""
-    },
+    "client": false,
     "specs": ["xhtml", "css", "js"],
     "promoted": false
 }, {
@@ -418,11 +292,7 @@
     "title": "Schiphol",
     "subtitle": "International Airport",
     "url": "http://www.irgon.com/schiphol/",
-    "client": {
-        "id": "iizt",
-        "name": "IIZT",
-        "url": "http://iizt.com/"
-    },
+    "client": "iizt",
     "specs": ["xhtml", "css"],
     "promoted": true
 }, {
@@ -431,11 +301,7 @@
     "title": "Shiva",
     "subtitle": "Dance & Fitness",
     "url": "http://taniec.tarnow.pl/",
-    "client": {
-        "id": "puffy",
-        "name": "PuFFy",
-        "url": "http://puffy.pl/"
-    },
+    "client": "puffy",
     "specs": ["xhtml", "css", "js", "php5", "wp"],
     "promoted": false
 }, {
@@ -444,11 +310,7 @@
     "title": "IIZT",
     "subtitle": "IT Agency",
     "url": "http://www.irgon.com/iizt/",
-    "client": {
-        "id": "iizt",
-        "name": "IIZT",
-        "url": "http://iizt.com/"
-    },
+    "client": "iizt",
     "specs": ["xhtml", "css", "js"],
     "promoted": false
 }, {
@@ -457,11 +319,7 @@
     "title": "Apeiro",
     "subtitle": "IT Agency",
     "url": "http://www.irgon.com/apeiro/",
-    "client": {
-        "id": "apeiro",
-        "name": "Apeiro",
-        "url": "http://apeiro.pl/"
-    },
+    "client": "apeiro",
     "specs": ["xhtml", "css"],
     "promoted": false
 }, {
@@ -470,11 +328,7 @@
     "title": "Kistenmaker",
     "subtitle": "Real Estate Agency",
     "url": "http://www.irgon.com/kistenmakerterrein/",
-    "client": {
-        "id": "iizt",
-        "name": "IIZT",
-        "url": "http://iizt.com/"
-    },
+    "client": "iizt",
     "specs": ["xhtml", "css"],
     "promoted": false
 }, {
@@ -483,11 +337,7 @@
     "title": "Respectance",
     "subtitle": "Online Tributes",
     "url": "http://respectance.com/",
-    "client": {
-        "id": "respectance",
-        "name": "Respectance",
-        "url": "http://respectance.com/"
-    },
+    "client": "respectance",
     "specs": ["xhtml", "css", "js", "php5", "zf"],
     "promoted": false
 }, {
@@ -496,11 +346,7 @@
     "title": "Brabbelboek",
     "subtitle": "Online baby books",
     "url": "http://brabbelboek.nl/",
-    "client": {
-        "id": "respectance",
-        "name": "Respectance",
-        "url": "http://respectance.com/"
-    },
+    "client": "respectance",
     "specs": ["xhtml", "css", "js", "php5", "zf"],
     "promoted": false
 }, {
@@ -509,11 +355,7 @@
     "title": "BruidsBubbels",
     "subtitle": "Online wedding books",
     "url": "http://bruidsbubbels.nl/",
-    "client": {
-        "id": "respectance",
-        "name": "Respectance",
-        "url": "http://respectance.com/"
-    },
+    "client": "respectance",
     "specs": ["xhtml", "css", "js", "php5", "zf"],
     "promoted": false
 }, {
@@ -522,11 +364,7 @@
     "title": "Korwin-Mikke",
     "subtitle": "Polish publicist",
     "url": "http://www.irgon.com/jkm/",
-    "client": {
-        "id": "jkm",
-        "name": "JKM",
-        "url": "http://korwin-mikke.pl/"
-    },
+    "client": "jkm",
     "specs": ["xhtml", "css"],
     "promoted": false
 }, {
@@ -535,11 +373,7 @@
     "title": "Foteka.pl",
     "subtitle": "Image sharing",
     "url": "http://www.irgon.com/fotekapl/",
-    "client": {
-        "id": "devonstudio",
-        "name": "DevonStudio",
-        "url": "http://devonstudio.com/"
-    },
+    "client": "devonstudio",
     "specs": ["xhtml", "css"],
     "promoted": false
 }, {
@@ -548,11 +382,7 @@
     "title": "Powiat Konecki",
     "subtitle": "European Union programme",
     "url": "http://innowacyjnosc.powiat.konskie.pl/",
-    "client": {
-        "id": "powiat-konecki",
-        "name": "Powiat Konecki",
-        "url": "http://powiat.konskie.pl/"
-    },
+    "client": "powiat-konecki",
     "specs": ["xhtml", "css", "php5"],
     "promoted": false
 }, {
@@ -561,11 +391,7 @@
     "title": "Kraina Pomysłów",
     "subtitle": "Hand-made soaps",
     "url": "http://krainapomyslow.pl/",
-    "client": {
-        "id": "kraina-pomysłow",
-        "name": "Kraina Pomysłow",
-        "url": "http://krainapomyslow.pl/"
-    },
+    "client": "kraina-pomyslow",
     "specs": ["xhtml", "css"],
     "promoted": false
 }]

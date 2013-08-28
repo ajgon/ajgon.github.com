@@ -3,57 +3,37 @@
                     <ul class="options">
                         <li>
                             <em>Sort by:</em>
-                            <select name="sort" id="option-sort">
-                                <option value="date">Date</option>
-                                <option value="client">Client</option>
+                            <select name="sort" class="option-sort" autocomplete="off">
+                                <option value="" selected>Shuffle</option>
+                                <option value="date" data-ascending="false">Date</option>
+                                <option value="client" data-ascending="true">Client</option>
                             </select>
                         </li>
                         <li>
                             <em>Filter:</em>
-                            <select name="filter" id="option-filter">
+                            <select name="filter" class="option-filter" autocomplete="off">
+                                <option value="">none</option>
                                 <option value="year">Year</option>
                                 <option value="client">Client</option>
                                 <option value="specs">Technology</option>
                             </select>
-                            <select name="filter-year" id="option-filter-year">
-                                <option value="2013">2013</option>
-                                <option value="2013">2013</option>
-                                <option value="2013">2013</option>
-                                <option value="2013">2013</option>
-                                <option value="2013">2013</option>
-                                <option value="2013">2008</option>
-                                <option value="2013">2007</option>
-                                <option value="2013">2006</option>
+                            <select name="filter-year" class="option-filter-item" data-filter="year" autocomplete="off">
+                                <option value="">none</option>
+<% for(y = 0; y < years.length; y += 1) { -%>
+                                <option value="<%= years[y] %>"><%= years[y] %></option>
+<% } -%>
                             </select>
-                            <select name="filter-client">
-                                <option value="active-pharma">Active Pharma</option>
-                                <option value="apeiro">Apeiro</option>
-                                <option value="drp-solutions">DRP Solutions</option>
-                                <option value="devonstudio">DevonStudio</option>
-                                <option value="enigmatis">Enigmatis</option>
-                                <option value="garden-partner">Garden Partner</option>
-                                <option value="iizt">IIZT</option>
-                                <option value="jkm">JKM</option>
-                                <option value="kraina-pomyslow">Kraina Pomysłów</option>
-                                <option value="nextframe">Nextframe</option>
-                                <option value="nodormz">NoDormz</option>
-                                <option value="powiat-konecki">Powiat Konecki</option>
-                                <option value="puffy">PuFFy</option>
-                                <option value="respectance">Respectance</option>
-                                <option value="starfactory">StarFactory</option>
-                                <option value="weedo">Weedo</option>
-                                <option value="wordwatch">WordWatch Inc.</option>
+                            <select name="filter-client" class="option-filter-item" data-filter="client" autocomplete="off">
+                                <option value="">none</option>
+<% for(client in clients) { -%>
+                                <option value="<%= client %>"><%= clients[client].name %></option>
+<% } -%>
                             </select>
-                            <select name="filter-specs">
-                                <option value="css">CSS</option>
-                                <option value="css3">CSS 3</option>
-                                <option value="html5">HTML 5</option>
-                                <option value="js">JavaScript</option>
-                                <option value="php5">PHP 5</option>
-                                <option value="ror">Ruby on Rails</option>
-                                <option value="wp">WordPress</option>
-                                <option value="xhtml">XHTML 1.1</option>
-                                <option value="zf">Zend Framework</option>
+                            <select name="filter-specs" class="option-filter-item" data-filter="specs" data-includes="true" autocomplete="off">
+                                <option value="">none</option>
+<% for(spec in specs) { -%>
+                                <option value="<%= spec %>"><%= specs[spec].long %></option>
+<% } -%>
                             </select>
                         </li>
                     </ul>

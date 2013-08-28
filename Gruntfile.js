@@ -2,7 +2,11 @@
 module.exports = function (grunt) {
     'use strict';
 
-    var fs = require('fs');
+    var fs = require('fs'),
+        portfolio = JSON.parse(fs.readFileSync('_data/json/portfolio.json')),
+        specs = JSON.parse(fs.readFileSync('_data/json/specs.json')),
+        clients = JSON.parse(fs.readFileSync('_data/json/clients.json')),
+        years = portfolio.map(function (p) { return p.date.replace(/-[0-9\-]*$/, ''); }).sort().reverse().filter(function (value, index, self) { return self.indexOf(value) === index; });
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -54,8 +58,10 @@ module.exports = function (grunt) {
                 src: '_data/templates/_layout.ejs',
                 dest: 'index.html',
                 variables: {
-                    portfolio: JSON.parse(fs.readFileSync('_data/json/portfolio.json')),
-                    specs: JSON.parse(fs.readFileSync('_data/json/specs.json')),
+                    portfolio: portfolio,
+                    specs: specs,
+                    clients: clients,
+                    years: years,
                     moment: require('moment')
                 }
             },

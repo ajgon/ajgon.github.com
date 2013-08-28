@@ -42,38 +42,42 @@
                     <ul class="options">
                         <li>
                             <em>Sort by:</em>
-                            <select name="sort" id="option-sort">
-                                <option value="date">Date</option>
-                                <option value="client">Client</option>
+                            <select name="sort" class="option-sort" autocomplete="off">
+                                <option value="" selected>Shuffle</option>
+                                <option value="date" data-ascending="false">Date</option>
+                                <option value="client" data-ascending="true">Client</option>
                             </select>
                         </li>
                         <li>
                             <em>Filter:</em>
-                            <select name="filter" id="option-filter">
+                            <select name="filter" class="option-filter" autocomplete="off">
+                                <option value="">none</option>
                                 <option value="year">Year</option>
                                 <option value="client">Client</option>
                                 <option value="specs">Technology</option>
                             </select>
-                            <select name="filter-year" id="option-filter-year">
+                            <select name="filter-year" class="option-filter-item" data-filter="year" autocomplete="off">
+                                <option value="">none</option>
                                 <option value="2013">2013</option>
-                                <option value="2013">2013</option>
-                                <option value="2013">2013</option>
-                                <option value="2013">2013</option>
-                                <option value="2013">2013</option>
-                                <option value="2013">2008</option>
-                                <option value="2013">2007</option>
-                                <option value="2013">2006</option>
+                                <option value="2012">2012</option>
+                                <option value="2011">2011</option>
+                                <option value="2010">2010</option>
+                                <option value="2009">2009</option>
+                                <option value="2008">2008</option>
+                                <option value="2007">2007</option>
+                                <option value="2006">2006</option>
                             </select>
-                            <select name="filter-client">
+                            <select name="filter-client" class="option-filter-item" data-filter="client" autocomplete="off">
+                                <option value="">none</option>
                                 <option value="active-pharma">Active Pharma</option>
                                 <option value="apeiro">Apeiro</option>
-                                <option value="drp-solutions">DRP Solutions</option>
                                 <option value="devonstudio">DevonStudio</option>
+                                <option value="drp-solutions">DRP Solutions</option>
                                 <option value="enigmatis">Enigmatis</option>
                                 <option value="garden-partner">Garden Partner</option>
                                 <option value="iizt">IIZT</option>
                                 <option value="jkm">JKM</option>
-                                <option value="kraina-pomyslow">Kraina Pomysłów</option>
+                                <option value="kraina-pomyslow">Kraina Pomysłow</option>
                                 <option value="nextframe">Nextframe</option>
                                 <option value="nodormz">NoDormz</option>
                                 <option value="powiat-konecki">Powiat Konecki</option>
@@ -81,23 +85,24 @@
                                 <option value="respectance">Respectance</option>
                                 <option value="starfactory">StarFactory</option>
                                 <option value="weedo">Weedo</option>
-                                <option value="wordwatch">WordWatch Inc.</option>
+                                <option value="wordwatch">Wordwatch Inc.</option>
                             </select>
-                            <select name="filter-specs">
-                                <option value="css">CSS</option>
-                                <option value="css3">CSS 3</option>
-                                <option value="html5">HTML 5</option>
+                            <select name="filter-specs" class="option-filter-item" data-filter="specs" data-includes="true" autocomplete="off">
+                                <option value="">none</option>
+                                <option value="css">Cascading Style Sheets</option>
+                                <option value="css3">Cascading Style Sheets 3</option>
+                                <option value="html5">HyperText Markup Language 5</option>
                                 <option value="js">JavaScript</option>
-                                <option value="php5">PHP 5</option>
+                                <option value="php5">PHP Hypertext Preprocessor 5</option>
                                 <option value="ror">Ruby on Rails</option>
                                 <option value="wp">WordPress</option>
-                                <option value="xhtml">XHTML 1.1</option>
+                                <option value="xhtml">eXtensible HyperText Markup Language</option>
                                 <option value="zf">Zend Framework</option>
                             </select>
                         </li>
                     </ul>
                     <ul class="portfolio clearfix" id="portfolioItems">
-                        <li class="item ">
+                        <li class="item " data-date="2013-07-24" data-client="nextframe" data-year="2013" data-specs="html5,css3,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/pavilion512.jpg" alt="">
@@ -107,14 +112,15 @@
                                     <h5 class="card-title">Pawilon 512</h5>
                                     <h6 class="card-subtitle">Distant place</h6>
                                     <ul class="details">
-                                        <li>For <a href="http://www.nexframe.pl/">Nextframe</a></li>
-                                        <li class="specs"><abbr title="undefined">HTML5</abbr>, <abbr title="Cascading Style Sheets 3">CSS3</abbr>, <abbr title="JavaScript">JS</abbr>.</li>
+                                        <li>For <a href="http://www.nextframe.pl/">Nextframe</a></li>
+                                        <li class="specs"><abbr title="HyperText Markup Language 5">HTML5</abbr>, <abbr title="Cascading Style Sheets 3">CSS3</abbr>, <abbr title="JavaScript">JS</abbr>.</li>
                                         <li><a href="http://512.kopernik.org.pl/" target="_blank">See online &raquo;</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2012-05-31" data-client="nextframe" data-year="2012" data-specs="html5,css3,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/poznajzasady.jpg" alt="">
@@ -124,14 +130,15 @@
                                     <h5 class="card-title">Poznaj Zasady</h5>
                                     <h6 class="card-subtitle">Mineral water ads</h6>
                                     <ul class="details">
-                                        <li>For <a href="http://www.nexframe.pl/">Nextframe</a></li>
-                                        <li class="specs"><abbr title="undefined">HTML5</abbr>, <abbr title="Cascading Style Sheets 3">CSS3</abbr>, <abbr title="JavaScript">JS</abbr>.</li>
+                                        <li>For <a href="http://www.nextframe.pl/">Nextframe</a></li>
+                                        <li class="specs"><abbr title="HyperText Markup Language 5">HTML5</abbr>, <abbr title="Cascading Style Sheets 3">CSS3</abbr>, <abbr title="JavaScript">JS</abbr>.</li>
                                         <li><a href="http://poznajzasady.pl/" target="_blank">See online &raquo;</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
-                        <li class="item promoted">
+
+                        <li class="item promoted" data-date="2012-05-14" data-client="nextframe" data-year="2012" data-specs="html5,css3,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/listerinezero.jpg" alt="">
@@ -141,14 +148,15 @@
                                     <h5 class="card-title">Listerine Zero</h5>
                                     <h6 class="card-subtitle">Mouthwash campaign</h6>
                                     <ul class="details">
-                                        <li>For <a href="http://www.nexframe.pl/">Nextframe</a></li>
-                                        <li class="specs"><abbr title="undefined">HTML5</abbr>, <abbr title="Cascading Style Sheets 3">CSS3</abbr>, <abbr title="JavaScript">JS</abbr>.</li>
+                                        <li>For <a href="http://www.nextframe.pl/">Nextframe</a></li>
+                                        <li class="specs"><abbr title="HyperText Markup Language 5">HTML5</abbr>, <abbr title="Cascading Style Sheets 3">CSS3</abbr>, <abbr title="JavaScript">JS</abbr>.</li>
                                         <li><a href="http://listerinezero.pl/" target="_blank">See online &raquo;</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2012-04-17" data-client="garden-partner" data-year="2012" data-specs="html5,css3,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/gardenpartner.jpg" alt="">
@@ -159,13 +167,14 @@
                                     <h6 class="card-subtitle">Garden services</h6>
                                     <ul class="details">
                                         <li>For <a href="http://gardenpartner.com.pl/">Garden Partner</a></li>
-                                        <li class="specs"><abbr title="undefined">HTML5</abbr>, <abbr title="Cascading Style Sheets 3">CSS3</abbr>, <abbr title="JavaScript">JS</abbr>.</li>
+                                        <li class="specs"><abbr title="HyperText Markup Language 5">HTML5</abbr>, <abbr title="Cascading Style Sheets 3">CSS3</abbr>, <abbr title="JavaScript">JS</abbr>.</li>
                                         <li><a href="http://gardenpartner.com.pl/" target="_blank">See online &raquo;</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2012-04-12" data-client="nextframe" data-year="2012" data-specs="html5,css3,php5,wp">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/studiofx.jpg" alt="">
@@ -175,14 +184,15 @@
                                     <h5 class="card-title">StudioFX</h5>
                                     <h6 class="card-subtitle">Special effects studio</h6>
                                     <ul class="details">
-                                        <li>For <a href="http://www.nexframe.pl/">Nextframe</a></li>
-                                        <li class="specs"><abbr title="undefined">HTML5</abbr>, <abbr title="Cascading Style Sheets 3">CSS3</abbr>, <abbr title="PHP Hypertext Preprocessor 5">PHP5</abbr>, <abbr title="WordPress">WP</abbr>.</li>
+                                        <li>For <a href="http://www.nextframe.pl/">Nextframe</a></li>
+                                        <li class="specs"><abbr title="HyperText Markup Language 5">HTML5</abbr>, <abbr title="Cascading Style Sheets 3">CSS3</abbr>, <abbr title="PHP Hypertext Preprocessor 5">PHP5</abbr>, <abbr title="WordPress">WP</abbr>.</li>
                                         <li><a href="http://www.studiofx.pl/" target="_blank">See online &raquo;</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2012-03-20" data-client="nextframe" data-year="2012" data-specs="xhtml,css,php5,wp">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/ckk.jpg" alt="">
@@ -192,14 +202,15 @@
                                     <h5 class="card-title">CKK</h5>
                                     <h6 class="card-subtitle">Conference center</h6>
                                     <ul class="details">
-                                        <li>For <a href="http://www.nexframe.pl/">Nextframe</a></li>
+                                        <li>For <a href="http://www.nextframe.pl/">Nextframe</a></li>
                                         <li class="specs"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr>, <abbr title="PHP Hypertext Preprocessor 5">PHP5</abbr>, <abbr title="WordPress">WP</abbr>.</li>
                                         <li><a href="http://centrumkonferencyjnekopernik.pl/" target="_blank">See online &raquo;</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2011-09-06" data-client="nextframe" data-year="2011" data-specs="xhtml,css,php5">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/adbud.jpg" alt="">
@@ -209,14 +220,15 @@
                                     <h5 class="card-title">AD-BUD</h5>
                                     <h6 class="card-subtitle">Real estate management</h6>
                                     <ul class="details">
-                                        <li>For <a href="http://www.nexframe.pl/">Nextframe</a></li>
+                                        <li>For <a href="http://www.nextframe.pl/">Nextframe</a></li>
                                         <li class="specs"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr>, <abbr title="PHP Hypertext Preprocessor 5">PHP5</abbr>.</li>
                                         <li><a href="http://www.ad-bud.pl/" target="_blank">See online &raquo;</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
-                        <li class="item promoted">
+
+                        <li class="item promoted" data-date="2011-08-25" data-client="nextframe" data-year="2011" data-specs="xhtml,css,js,php5">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/niebokopernika.jpg" alt="">
@@ -226,14 +238,15 @@
                                     <h5 class="card-title">Niebo Kopernika</h5>
                                     <h6 class="card-subtitle">Planetarium</h6>
                                     <ul class="details">
-                                        <li>For <a href="http://www.nexframe.pl/">Nextframe</a></li>
+                                        <li>For <a href="http://www.nextframe.pl/">Nextframe</a></li>
                                         <li class="specs"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr>, <abbr title="JavaScript">JS</abbr>, <abbr title="PHP Hypertext Preprocessor 5">PHP5</abbr>.</li>
                                         <li><a href="http://www.niebokopernika.pl/" target="_blank">See online &raquo;</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2011-08-20" data-client="devonstudio" data-year="2011" data-specs="html5,css3,js,php5,wp">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/morgangroup.jpg" alt="">
@@ -244,13 +257,14 @@
                                     <h6 class="card-subtitle">Apartments rental agency</h6>
                                     <ul class="details">
                                         <li>For <a href="http://devonstudio.com/">DevonStudio</a></li>
-                                        <li class="specs"><abbr title="undefined">HTML5</abbr>, <abbr title="Cascading Style Sheets 3">CSS3</abbr>, <abbr title="JavaScript">JS</abbr>, <abbr title="PHP Hypertext Preprocessor 5">PHP5</abbr>, <abbr title="WordPress">WP</abbr>.</li>
+                                        <li class="specs"><abbr title="HyperText Markup Language 5">HTML5</abbr>, <abbr title="Cascading Style Sheets 3">CSS3</abbr>, <abbr title="JavaScript">JS</abbr>, <abbr title="PHP Hypertext Preprocessor 5">PHP5</abbr>, <abbr title="WordPress">WP</abbr>.</li>
                                         <li><a href="http://morgangroup.pl/" target="_blank">See online &raquo;</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2011-08-19" data-client="active-pharma" data-year="2011" data-specs="xhtml,css,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/cimp.jpg" alt="">
@@ -267,7 +281,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2011-08-03" data-client="active-pharma" data-year="2011" data-specs="xhtml,css,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/avamys.jpg" alt="">
@@ -284,7 +299,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2011-07-13" data-client="weedo" data-year="2011" data-specs="xhtml,css,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/weedo.jpg" alt="">
@@ -301,7 +317,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2011-07-12" data-client="devonstudio" data-year="2011" data-specs="html5,css3,js,php5,wp">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/lapremiere.jpg" alt="">
@@ -312,13 +329,14 @@
                                     <h6 class="card-subtitle">Beauty studio</h6>
                                     <ul class="details">
                                         <li>For <a href="http://devonstudio.com/">DevonStudio</a></li>
-                                        <li class="specs"><abbr title="undefined">HTML5</abbr>, <abbr title="Cascading Style Sheets 3">CSS3</abbr>, <abbr title="JavaScript">JS</abbr>, <abbr title="PHP Hypertext Preprocessor 5">PHP5</abbr>, <abbr title="WordPress">WP</abbr>.</li>
+                                        <li class="specs"><abbr title="HyperText Markup Language 5">HTML5</abbr>, <abbr title="Cascading Style Sheets 3">CSS3</abbr>, <abbr title="JavaScript">JS</abbr>, <abbr title="PHP Hypertext Preprocessor 5">PHP5</abbr>, <abbr title="WordPress">WP</abbr>.</li>
                                         <li><a href="http://lapremiere.pl/" target="_blank">See online &raquo;</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2011-06-27" data-client="active-pharma" data-year="2011" data-specs="xhtml,css,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/malaria.jpg" alt="">
@@ -335,7 +353,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2011-06-20" data-client="active-pharma" data-year="2011" data-specs="xhtml,css,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/tyverb.jpg" alt="">
@@ -352,7 +371,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2011-06-04" data-client="active-pharma" data-year="2011" data-specs="xhtml,css,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/votrient20.jpg" alt="">
@@ -369,7 +389,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2011-05-07" data-client="active-pharma" data-year="2011" data-specs="xhtml,css,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/fraxi.jpg" alt="">
@@ -386,7 +407,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2011-04-17" data-client="wordwatch" data-year="2011" data-specs="xhtml,css,js,ror">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/wordwatch.jpg" alt="">
@@ -396,14 +418,15 @@
                                     <h5 class="card-title">WordWatch</h5>
                                     <h6 class="card-subtitle">AdSense positioning</h6>
                                     <ul class="details">
-                                        <li>For <a href="http://www.wordwatch.com/">WordWatch Inc.</a></li>
+                                        <li>For <a href="http://www.wordwatch.com/">Wordwatch Inc.</a></li>
                                         <li class="specs"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr>, <abbr title="JavaScript">JS</abbr>, <abbr title="Ruby on Rails">ROR</abbr>.</li>
                                         <li><a href="http://www.wordwatch.com/" target="_blank">See online &raquo;</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2011-04-13" data-client="active-pharma" data-year="2011" data-specs="xhtml,css,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/niedoboryodpornosci.jpg" alt="">
@@ -420,7 +443,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2011-03-27" data-client="active-pharma" data-year="2011" data-specs="xhtml,css,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/kleszcze.jpg" alt="">
@@ -437,7 +461,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2011-02-17" data-client="active-pharma" data-year="2011" data-specs="xhtml,css,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/ospawietrzna.jpg" alt="">
@@ -454,7 +479,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2011-02-15" data-client="active-pharma" data-year="2011" data-specs="xhtml,css,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/votrient.jpg" alt="">
@@ -471,7 +497,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2011-01-15" data-client="starfactory" data-year="2011" data-specs="xhtml,css,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/bigansoft.jpg" alt="">
@@ -488,7 +515,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2011-01-14" data-client="starfactory" data-year="2011" data-specs="xhtml,css,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/xxlstock.jpg" alt="">
@@ -505,7 +533,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2011-01-13" data-client="active-pharma" data-year="2011" data-specs="xhtml,css,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/cukrzyca.jpg" alt="">
@@ -522,7 +551,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item promoted">
+
+                        <li class="item promoted" data-date="2010-10-04" data-client="enigmatis" data-year="2010" data-specs="xhtml,css,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/stalexport.jpg" alt="">
@@ -539,7 +569,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2010-09-01" data-client="starfactory" data-year="2010" data-specs="xhtml,css,js,php5,wp">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/perfectdoor.jpg" alt="">
@@ -556,7 +587,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2010-07-21" data-client="drp-solutions" data-year="2010" data-specs="xhtml,css,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/optiva.jpg" alt="">
@@ -566,14 +598,15 @@
                                     <h5 class="card-title">Optiva</h5>
                                     <h6 class="card-subtitle">Optic salon</h6>
                                     <ul class="details">
-                                        <li>For <a href="https://prod.ceidg.gov.pl/CEIDG/ceidg.public.ui/SearchDetails.asp class=">DRP Solutions</a></li>
+                                        <li>For <a href="https://prod.ceidg.gov.pl/CEIDG/ceidg.public.ui/SearchDetails.aspx?Id=3ea80cd8-968a-42aa-8524-59b280e52267">DRP Solutions</a></li>
                                         <li class="specs"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr>, <abbr title="JavaScript">JS</abbr>.</li>
                                         <li><a href="http://www.optiva.pl/" target="_blank">See online &raquo;</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2010-05-07" data-client="nodormz" data-year="2010" data-specs="xhtml,css">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/nodormz.jpg" alt="">
@@ -590,7 +623,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2010-03-19" data-client="puffy" data-year="2010" data-specs="xhtml,css">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/plusmed.jpg" alt="">
@@ -607,7 +641,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2009-12-22" data-client="~" data-year="2009" data-specs="xhtml,css,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/maxbart.jpg" alt="">
@@ -617,14 +652,14 @@
                                     <h5 class="card-title">MaxBart</h5>
                                     <h6 class="card-subtitle">Construction Company</h6>
                                     <ul class="details">
-                                        <li>For <a href="undefined"></a></li>
                                         <li class="specs"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr>, <abbr title="JavaScript">JS</abbr>.</li>
                                         <li><a href="http://www.irgon.com/maxbart/" target="_blank">See online &raquo;</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2009-11-12" data-client="~" data-year="2009" data-specs="xhtml,css,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/instytutpiekna.jpg" alt="">
@@ -634,14 +669,14 @@
                                     <h5 class="card-title">Instytut piękna</h5>
                                     <h6 class="card-subtitle">Beauty studio</h6>
                                     <ul class="details">
-                                        <li>For <a href="undefined"></a></li>
                                         <li class="specs"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr>, <abbr title="JavaScript">JS</abbr>.</li>
                                         <li><a href="http://www.irgon.com/instytutpiekna/" target="_blank">See online &raquo;</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
-                        <li class="item promoted">
+
+                        <li class="item promoted" data-date="2009-11-15" data-client="iizt" data-year="2009" data-specs="xhtml,css">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/schiphol.jpg" alt="">
@@ -658,7 +693,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2009-04-21" data-client="puffy" data-year="2009" data-specs="xhtml,css,js,php5,wp">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/shiva.jpg" alt="">
@@ -675,7 +711,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2009-01-09" data-client="iizt" data-year="2009" data-specs="xhtml,css,js">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/iizt.jpg" alt="">
@@ -692,7 +729,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2008-12-12" data-client="apeiro" data-year="2008" data-specs="xhtml,css">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/apeiro.jpg" alt="">
@@ -709,7 +747,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2008-08-19" data-client="iizt" data-year="2008" data-specs="xhtml,css">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/kistenmakerterrein.jpg" alt="">
@@ -726,7 +765,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2008-04-14" data-client="respectance" data-year="2008" data-specs="xhtml,css,js,php5,zf">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/respectance.jpg" alt="">
@@ -743,7 +783,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2008-04-14" data-client="respectance" data-year="2008" data-specs="xhtml,css,js,php5,zf">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/brabbelboek.jpg" alt="">
@@ -760,7 +801,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2008-04-14" data-client="respectance" data-year="2008" data-specs="xhtml,css,js,php5,zf">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/bruidsbubbels.jpg" alt="">
@@ -777,7 +819,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2007-10-20" data-client="jkm" data-year="2007" data-specs="xhtml,css">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/jkm.jpg" alt="">
@@ -794,7 +837,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2007-03-15" data-client="devonstudio" data-year="2007" data-specs="xhtml,css">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/fotekapl.jpg" alt="">
@@ -811,7 +855,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2006-07-04" data-client="powiat-konecki" data-year="2006" data-specs="xhtml,css,php5">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/powiatkonecki.jpg" alt="">
@@ -828,7 +873,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="item ">
+
+                        <li class="item " data-date="2006-04-11" data-client="kraina-pomyslow" data-year="2006" data-specs="xhtml,css">
                             <div class="card">
                                 <div class="front">
                                     <img src="img/portfolio/krainapomyslow.jpg" alt="">
@@ -845,6 +891,7 @@
                                 </div>
                             </div>
                         </li>
+
                     </ul>
                 </section>
 

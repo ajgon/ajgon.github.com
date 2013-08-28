@@ -43,6 +43,17 @@ h1 {
           transition-property:         transform, opacity;
 }
 
+/**** Isotope filtering ****/
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden {
+  pointer-events: none;
+  z-index: 1;
+}
+
 /*
  * Header and menu
  */
@@ -308,7 +319,6 @@ h1 {
 
 
 .portfolio .back .card-title {
-    font-size: 1.1em;
     text-align: center;
     margin: 0;
     padding: 10px 0 0;
@@ -321,7 +331,6 @@ h1 {
 
 .portfolio .back .card-subtitle {
     text-align: center;
-    font-size: 0.65em;
     margin: 0;
     color: #f6f8e4;
 }
@@ -338,12 +347,12 @@ h1 {
     color: #e9ffe6;
 }
 
+.portfolio .back .card-subtitle,
 .portfolio .back .details .specs {
     font-size: 0.6em;
 }
 
 .portfolio .back .details li a {
-    font-size: 1.2em;
     text-decoration: none;
     color: #f23924;
     -webkit-transition: color .75s;
@@ -367,7 +376,8 @@ h1 {
     padding: 30px 30px 0;
 }
 
-.portfolio .promoted .back .card-subtitle {
+.portfolio .promoted .back .card-subtitle,
+.portfolio .promoted .back .details li {
     font-size: 1.1em;
 }
 
@@ -375,14 +385,12 @@ h1 {
     margin: 60px 30px;
 }
 
-.portfolio .promoted .back .details li {
-    font-size: 1.1em;
-}
-
+.portfolio .back .card-title,
 .portfolio .promoted .back .details .specs {
     font-size: 1em;
 }
 
+.portfolio .back .details li a,
 .portfolio .promoted .back .details li a {
     font-size: 1.2em;
 }
