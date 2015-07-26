@@ -1,0 +1,671 @@
+# Site settings
+title: Igor \"ajgon\" Rzegocki
+email: igor@rzegocki.pl
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://rzegocki.pl" # the base hostname & protocol for your site
+
+mainnav:
+    - Home
+    - About
+    - Portfolio
+    - Blog
+
+pagination:
+    per_page:     5             # maximum number of items per page
+    limit:        false          # Maximum number of pages to paginate (false for unlimited)
+
+portfolio:
+    -
+        id: colgate
+        promoted: true
+        title: Colgate
+        subtitle: Uśmiech Rodziny
+        url: http://usmiechdlarodziny.pl/
+        client: nextframe
+        specs:
+            - html5
+            - css3
+            - js
+    -
+        id: s-pavilion512
+        promoted: false
+        title: Pawilon 512
+        subtitle: Distant place
+        url: http://512.kopernik.org.pl/
+        client: nextframe
+        specs:
+            - html5
+            - css3
+            - js
+    -
+        id: s-poznajzasady
+        promoted: false
+        title: Poznaj Zasady
+        subtitle: Mineral water ads
+        url: http://poznajzasady.pl/
+        client: nextframe
+        specs:
+            - html5
+            - css3
+            - js
+    -
+        id: listerinezero
+        promoted: true
+        title: Listerine Zero
+        subtitle: Mouthwash campaign
+        url: http://listerinezero.pl/
+        client: nextframe
+        specs:
+            - html5
+            - css3
+            - js
+    -
+        id: s-gardenpartner
+        promoted: false
+        title: Garden Partner
+        subtitle: Garden services
+        url: http://gardenpartner.com.pl/
+        client: garden-partner
+        specs:
+            - html5
+            - css3
+            - js
+    -
+        id: s-studiofx
+        promoted: false
+        title: StudioFX
+        subtitle: Special effects studio
+        url: http://www.studiofx.pl/
+        client: nextframe
+        specs:
+            - html5
+            - css3
+            - php5
+            - wp
+    -
+        id: s-ckk
+        promoted: false
+        title: CKK
+        subtitle: Conference center
+        url: http://centrumkonferencyjnekopernik.pl/
+        client: nextframe
+        specs:
+            - xhtml
+            - css
+            - php5
+            - wp
+    -
+        id: s-adbud
+        promoted: false
+        title: AD-BUD
+        subtitle: Real estate management
+        url: http://www.ad-bud.pl/
+        client: nextframe
+        specs:
+            - xhtml
+            - css
+            - php5
+    -
+        id: niebokopernika
+        promoted: true
+        title: Niebo Kopernika
+        subtitle: Planetarium
+        url: http://www.niebokopernika.pl/
+        client: nextframe
+        specs:
+            - xhtml
+            - css
+            - js
+            - php5
+    -
+        id: s-morgangroup
+        promoted: false
+        title: Morgan Group
+        subtitle: Apartments rental agency
+        url: http://morgangroup.pl/
+        client: devonstudio
+        specs:
+            - html5
+            - css3
+            - js
+            - php5
+            - wp
+    -
+        id: s-cimp
+        promoted: false
+        title: W podrozy
+        subtitle: Travelling medicine
+        url:
+        client: active-pharma
+        specs:
+            - xhtml
+            - css
+            - js
+    -
+        id: s-avamys
+        promoted: false
+        title: Avamys
+        subtitle: Allergic rhinitis drug
+        url: http://www.irgon.com/avamys/
+        client: active-pharma
+        specs:
+            - xhtml
+            - css
+            - js
+    -
+        id: s-weedo
+        promoted: false
+        title: Weedo
+        subtitle: iPad Accessories
+        url: http://www.irgon.com/weedo/
+        client: weedo
+        specs:
+            - xhtml
+            - css
+            - js
+    -
+        id: s-lapremiere
+        promoted: false
+        title: La Premiere
+        subtitle: Beauty studio
+        url: http://lapremiere.pl/
+        client: devonstudio
+        specs:
+            - html5
+            - css3
+            - js
+            - php5
+            - wp
+    -
+        id: s-malaria
+        promoted: false
+        title: Malaria
+        subtitle: Malaria informations
+        url: http://www.irgon.com/malaria/
+        client: active-pharma
+        specs:
+            - xhtml
+            - css
+            - js
+    -
+        id: s-tyverb
+        promoted: false
+        title: Tyverb
+        subtitle: Anti-cancer drug
+        url: http://www.irgon.com/tyverb/
+        client: active-pharma
+        specs:
+            - xhtml
+            - css
+            - js
+    -
+        id: s-votrient20
+        promoted: false
+        title: Votrient 2.0
+        subtitle: Pazopanib
+        url: http://www.irgon.com/votrient20/
+        client: active-pharma
+        specs:
+            - xhtml
+            - css
+            - js
+    -
+        id: s-fraxi
+        promoted: false
+        title: Fraxi
+        subtitle: Molecular weight heparin
+        url: http://www.irgon.com/fraxi/
+        client: active-pharma
+        specs:
+            - xhtml
+            - css
+            - js
+    -
+        id: s-wordwatch
+        promoted: false
+        title: WordWatch
+        subtitle: AdSense positioning
+        url: http://www.wordwatch.com/
+        client: wordwatch
+        specs:
+            - xhtml
+            - css
+            - js
+            - ror
+    -
+        id: s-niedoboryodpornosci
+        promoted: false
+        title: O odpornosci
+        subtitle: Body immunity information
+        url: http://niedoboryodpornosci.pl/
+        client: active-pharma
+        specs:
+            - xhtml
+            - css
+            - js
+    -
+        id: s-kleszcze
+        promoted: false
+        title: Kleszcze
+        subtitle: Ticks prevention
+        url: http://kleszczeinfo.pl/
+        client: active-pharma
+        specs:
+            - xhtml
+            - css
+            - js
+    -
+        id: s-ospawietrzna
+        promoted: false
+        title: Ospa Wietrzna
+        subtitle: Smallpox informations
+        url: http://ospawietrzna.pl/
+        client: active-pharma
+        specs:
+            - xhtml
+            - css
+            - js
+    -
+        id: s-votrient
+        promoted: false
+        title: Votrient
+        subtitle: Pazopanib
+        url: http://www.irgon.com/votrient/
+        client: active-pharma
+        specs:
+            - xhtml
+            - css
+            - js
+    -
+        id: s-bigansoft
+        promoted: false
+        title: BiGanSoft
+        subtitle: IT Agency
+        url: http://www.bigandsoft.pl/
+        client: starfactory
+        specs:
+            - xhtml
+            - css
+            - js
+    -
+        id: s-xxlstock
+        promoted: false
+        title: XXLStock
+        subtitle: Photo Stock
+        url: http://www.irgon.com/xxlstock/
+        client: starfactory
+        specs:
+            - xhtml
+            - css
+            - js
+    -
+        id: s-cukrzyca
+        promoted: false
+        title: Cukrzyca
+        subtitle: Diabetics advices
+        url: http://www.irgon.com/cukrzyca/
+        client: active-pharma
+        specs:
+            - xhtml
+            - css
+            - js
+    -
+        id: stalexport
+        promoted: true
+        title: Stalexport
+        subtitle: Lesser Poland highway
+        url: http://www.autostrada-a4.pl/
+        client: enigmatis
+        specs:
+            - xhtml
+            - css
+            - js
+    -
+        id: s-perfectdoor
+        promoted: false
+        title: PerfectDoor
+        subtitle: Doors and frames shop
+        url: http://perfectdoor.pl/
+        client: starfactory
+        specs:
+            - xhtml
+            - css
+            - js
+            - php5
+            - wp
+    -
+        id: s-optiva
+        promoted: false
+        title: Optiva
+        subtitle: Optic salon
+        url: http://www.optiva.pl/
+        client: drp-solutions
+        specs:
+            - xhtml
+            - css
+            - js
+    -
+        id: s-nodormz
+        promoted: false
+        title: NoDormz
+        subtitle: Student voices for places
+        url: http://nodormz.com/
+        client: nodormz
+        specs:
+            - xhtml
+            - css
+    -
+        id: s-plusmed
+        promoted: false
+        title: Plus-Med
+        subtitle: Living orthopedic
+        url: http://www.plus-med.pl/
+        client: puffy
+        specs:
+            - xhtml
+            - css
+    -
+        id: s-maxbart
+        promoted: false
+        title: MaxBart
+        subtitle: Construction Company
+        url: http://www.irgon.com/maxbart/
+        client: ~
+        specs:
+            - xhtml
+            - css
+            - js
+    -
+        id: s-instytutpiekna
+        promoted: false
+        title: Instytut piekna
+        subtitle: Beauty studio
+        url: http://www.irgon.com/instytutpiekna/
+        client: ~
+        specs:
+            - xhtml
+            - css
+            - js
+    -
+        id: schiphol
+        promoted: true
+        title: Schiphol
+        subtitle: International Airport
+        url: http://www.irgon.com/schiphol/
+        client: iizt
+        specs:
+            - xhtml
+            - css
+    -
+        id: s-shiva
+        promoted: false
+        title: Shiva
+        subtitle: Dance & Fitness
+        url: http://taniec.tarnow.pl/
+        client: puffy
+        specs:
+            - xhtml
+            - css
+            - js
+            - php5
+            - wp
+    -
+        id: s-iizt
+        promoted: false
+        title: IIZT
+        subtitle: IT Agency
+        url: http://www.irgon.com/iizt/
+        client: iizt
+        specs:
+            - xhtml
+            - css
+            - js
+    -
+        id: s-apeiro
+        promoted: false
+        title: Apeiro
+        subtitle: IT Agency
+        url: http://www.irgon.com/apeiro/
+        client: apeiro
+        specs:
+            - xhtml
+            - css
+    -
+        id: s-kistenmakerterrein
+        promoted: false
+        title: Kistenmaker
+        subtitle: Real Estate Agency
+        url: http://www.irgon.com/kistenmakerterrein/
+        client: iizt
+        specs:
+            - xhtml
+            - css
+    -
+        id: s-respectance
+        promoted: false
+        title: Respectance
+        subtitle: Online Tributes
+        url: http://respectance.com/
+        client: respectance
+        specs:
+            - xhtml
+            - css
+            - js
+            - php5
+            - zf
+    -
+        id: s-brabbelboek
+        promoted: false
+        title: Brabbelboek
+        subtitle: Online baby books
+        url: http://brabbelboek.nl/
+        client: respectance
+        specs:
+            - xhtml
+            - css
+            - js
+            - php5
+            - zf
+    -
+        id: s-bruidsbubbels
+        promoted: false
+        title: BruidsBubbels
+        subtitle: Online wedding books
+        url: http://bruidsbubbels.nl/
+        client: respectance
+        specs:
+            - xhtml
+            - css
+            - js
+            - php5
+            - zf
+    -
+        id: s-jkm
+        promoted: false
+        title: Korwin-Mikke
+        subtitle: Polish publicist
+        url: http://www.irgon.com/jkm/
+        client: jkm
+        specs:
+            - xhtml
+            - css
+    -
+        id: s-fotekapl
+        promoted: false
+        title: Foteka.pl
+        subtitle: Image sharing
+        url: http://www.irgon.com/fotekapl/
+        client: devonstudio
+        specs:
+            - xhtml
+            - css
+    -
+        id: s-powiatkonecki
+        promoted: false
+        title: Powiat Konecki
+        subtitle: European Union programme
+        url: http://innowacyjnosc.powiat.konskie.pl/
+        client: powiat-konecki
+        specs:
+            - xhtml
+            - css
+            - php5
+    -
+        id: s-krainapomyslow
+        promoted: false
+        title: Kraina Pomyslow
+        subtitle: Hand-made soaps
+        url: http://krainapomyslow.pl/
+        client: kraina-pomyslow
+        specs:
+            - xhtml
+            - css
+
+site_clients:
+    -
+        id: kraina-pomyslow
+        name: Kraina Pomyslow
+        url: http://krainapomyslow.pl/
+    -
+        id: powiat-konecki
+        name: Powiat Konecki
+        url: http://powiat.konskie.pl/
+    -
+        id: devonstudio
+        name: DevonStudio
+        url: http://devonstudio.com/
+    -
+        id: jkm
+        name: JKM
+        url: http://korwin-mikke.pl/
+    -
+        id: respectance
+        name: Respectance
+        url: http://respectance.com/
+    -
+        id: iizt
+        name: IIZT
+        url: http://iizt.com/
+    -
+        id: apeiro
+        name: Apeiro
+        url: http://apeiro.pl/
+    -
+        id: puffy
+        name: PuFFy
+        url: http://puffy.pl/
+    -
+        id: nodormz
+        name: NoDormz
+        url: http://nodormz.com/
+    -
+        id: drp-solutions
+        name: DRP Solutions
+        url: https://prod.ceidg.gov.pl/CEIDG/ceidg.public.ui/SearchDetails.aspx?Id=3ea80cd8-968a-42aa-8524-59b280e52267
+    -
+        id: starfactory
+        name: StarFactory
+        url: http://starfactory.pl/
+    -
+        id: enigmatis
+        name: Enigmatis
+        url: http://enigmatis.pl/
+    -
+        id: active-pharma
+        name: Active Pharma
+        url: http://www.activepharma.pl/
+    -
+        id: wordwatch
+        name: Wordwatch Inc.
+        url: http://www.wordwatch.com/
+    -
+        id: weedo
+        name: Weedo
+        url: http://weedo.pl/
+    -
+        id: nextframe
+        name: Nextframe
+        url: http://www.nextframe.pl/
+    -
+        id: garden-partner
+        name: Garden Partner
+        url: http://gardenpartner.com.pl/
+
+site_specs:
+    -
+        id: html5
+        name: HTML5
+        title: HyperText Markup Language 5
+    -
+        id: css3
+        name: CSS3
+        title: Cascading Style Sheets 3
+    -
+        id: js
+        name: JS
+        title: JavaScript
+    -
+        id: php5
+        name: PHP5
+        title: PHP Hypertext Preprocessor
+    -
+        id: wp
+        name: WP
+        title: WordPress
+    -
+        id: xhtml
+        name: XHTML
+        title: eXtensible HyperText Markup Language
+    -
+        id: css
+        name: CSS
+        title: Cascading Style Sheets
+    -
+        id: ror
+        name: RoR
+        title: Ruby on Rails
+    -
+        id: zf
+        name: ZF
+        title: Zend Framework
+social:
+    -
+        icon_class: material-icons socicon
+        icon_value: Q
+        name: GitHub
+        url: https://github.com/ajgon
+    -
+        icon_class: material-icons socicon
+        icon_value: j
+        name: LinkedIN
+        url: https://linkedin.com/in/ajgon
+    -
+        icon_class: material-icons socicon
+        icon_value: a
+        name: Twitter
+        url: https://twitter.com/ajgon
+    -
+        icon_class: material-icons socicon
+        icon_value: b
+        name: Facebook
+        url: https://facebook.com/7d7cdc4a42dd7aa15f891c7314db770a02efe0e7
+    -
+        icon_class: material-icons
+        icon_value: mail
+        name: E-Mail
+        url: mailto:igor@rzegocki.pl
+    -
+        icon_class: material-icons
+        icon_value: vpn_key
+        name: GPG Key
+        url: /public-key.txt
+
+# Build settings
+markdown: kramdown
+gems:
+  - octopress-paginate
+  - octopress-codeblock

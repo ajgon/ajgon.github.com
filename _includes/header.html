@@ -1,0 +1,49 @@
+<header class="mdl-layout__header mdl-layout__header--waterfall mdl-shadow--4dp">
+  <div class="mdl-layout__header-row">
+    <!-- Title -->
+    <span class="mdl-layout-title">{{ site.title }}</span>
+    <!-- Add spacer, to align navigation to the right -->
+    <div class="mdl-layout-spacer"></div>
+    <!-- Navigation. We hide it in small screens. -->
+    <nav class="icons-navigation mdl-navigation">
+      <a id="download-cv" class="mdl-button mdl-js-button mdl-button--icon" href="/cv.pdf">
+        <i class="material-icons">file_download</i>
+      </a>
+      <button id="connect-options" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">more_vert</i>
+      </button>
+
+      <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+          for="connect-options">
+          {% for social in site.social %}
+            <li><a class="mdl-menu__item" href="{{ social.url }}" target="_blank">{{ social.name }}</a></li>
+          {% endfor %}
+      </ul>
+      <div for="download-cv" class="mdl-tooltip">Download CV</div>
+      <div for="connect-options" class="mdl-tooltip">Connect</div>
+    </nav>
+  </div>
+  <div class="mdl-layout__header-row mdl-layout__header-highlighted-row">
+    <nav class="waterfall-demo-header-nav mdl-navigation">
+      {% for title in site.mainnav %}
+        {% for node in site.pages %}
+          {% if title == node.title and node.title %}
+            <a href="{{ node.url }}" class="mdl-navigation__link{% if page.url == node.url %} is-active{% endif %}">{{ node.title }}</a>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </nav>
+  </div>
+</header>
+<div class="mdl-layout__drawer">
+  <span class="mdl-layout-title">ajgon's personal</span>
+  <nav class="mdl-navigation">
+    {% for name in site.mainnav %}
+      {% for node in site.pages %}
+        {% if name == node.name and node.title %}
+        <a class="mdl-navigation__link" href="{{ node.url }}">{{ node.title }}</a>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </nav>
+</div>

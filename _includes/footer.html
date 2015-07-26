@@ -1,0 +1,47 @@
+<footer class="mdl-mega-footer">
+  <div class="mdl-mega-footer__top-section mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col">
+      <h5 class="headline">Recent Tweets</h1>
+      <ul class="mdl-mega-footer--link-list mdl-mega-footer--left-align" id="recent-tweets">
+        Loading tweets...
+      </ul>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+      <h5 class="headline">Connect</h6>
+      {% for social in site.social %}
+        {% if social.icon_value != 'mail' %}
+          <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" href="{{ social.url }}" id="connect_{{ social.icon_value }}" target="_blank">
+            <i class="{{ social.icon_class }}">{{ social.icon_value }}</i>
+          </a>
+          <div for="connect_{{ social.icon_value }}" class="mdl-tooltip">{{ social.name }}</div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+      <h5 class="headline">Contact</h5>
+      <ul class="mdl-mega-footer--link-list">
+        <li>
+          Mail:
+          <script><!--
+            document.write('<a href="mai');
+            document.write('lto');
+            document.write(':&#105;&#103;&#111;&#114;');
+            document.write('@');
+            document.write('&#114;&#122;&#101;&#103;&#111;&#99;&#107;&#105;&#46;&#112;&#108;">');
+            document.write('&#105;&#103;&#111;&#114;');
+            document.write('@');
+            document.write('&#114;&#122;&#101;&#103;&#111;&#99;&#107;&#105;&#46;&#112;&#108;<\/a>');
+          // --></script><noscript>:&#105;&#103;&#111;&#114; at
+&#114;&#122;&#101;&#103;&#111;&#99;&#107;&#105; dot &#112;&#108;</noscript>
+        </li>
+        <li>
+          Skype: <a href="skype:igor.rzegocki">igor.rzegocki</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="mdl-mega-footer__bottom-section">
+    Copyright © 2015 - Igor Rzegocki - Powered by <a href="http://octopress.org/" target="_blank">Octopress</a>.
+    Previous version of the site, available <a href="/v3">here</a>.
+  </div>
+</footer>

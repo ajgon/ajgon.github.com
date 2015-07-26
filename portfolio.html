@@ -1,0 +1,81 @@
+---
+layout: raw
+title: "Portfolio"
+---
+
+<div class="page-container mdl-grid">
+    <div class="mdl-card portfolio-menu mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+        <div class="buttons-list" id="options-filter">
+            <h3 class="headline">{{ page.title }}</h3>
+            <div class="mdl-layout-spacer"></div>
+                <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" data-item="*">All</a>
+            {% for spec in site.site_specs %}
+                <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" data-item="{{ spec.id }}">{{ spec.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<section id="portfolio">
+    <ul class="portfolio clearfix" id="portfolioItems">
+
+        {% for item in site.portfolio %}
+            <li class="item{% if item.promoted %} promoted{% endif %}" data-date="{{ item.date }}" data-client="{% if item.client %}{{ item.client.id }}{% else %}none{% endif %}" data-year="{{ item.date | date: '%Y' }}" data-specs="{{ item.specs | join: ',' }}">
+                <div class="card">
+                    <div class="front mdl-card mdl-shadow--2dp">
+                        <img src="/images/portfolio/{{ item.id }}.jpg" alt="">
+                        <div class="mdl-card__title mdl-card--expand"></div>
+                        <div class="mdl-card__actions">
+                            <span class="mdl-card__ptitle">{{ item.title }}</span>
+                        </div>
+                    </div>
+                    <div class="back mdl-card mdl-shadow--2dp">
+                        <div class="mdl-card__title mdl-card--expand">
+                            <h4>{{ item.title }}</h4>
+                            <h5>{{ item.subtitle }}</h5>
+                            <ul class="details">
+                                {% if item.client %}
+                                    {% for site_client in site.site_clients %}
+                                        {% if item.client == site_client.id %}
+                                            <li>For <a href="{{ site_client.url }}" target="_blank">{{ site_client.name }}</a></li>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                                <li class="specs">
+                                {% for spec in item.specs %}
+                                    {% for site_spec in site.site_specs %}
+                                        {% if site_spec.id == spec %}
+                                            <abbr title="{{ site_spec.title }}">{{ site_spec.name }}</abbr>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+                               href="{{ item.url }}" target="_blank">
+                                See Online
+                            </a>
+                            <div class="mdl-layout-spacer"></div>
+                            <i class="material-icons">web</i>
+                        </div>
+                    </div>
+            </li>
+        {% endfor %}
+
+        <div class="card" style="display: none;">
+            <div class="front">
+                <img src="/images/portfolio/colgate.jpg" alt="">
+                <time class="released">Feb 2015</time>
+            </div>
+            <div class="back">
+                <h5 class="card-title">Colgate</h5>
+                <h6 class="card-subtitle">Uśmiech Rodziny</h6>
+                <ul class="details">
+                    <li>For <a href="http://www.nextframe.pl/">Nextframe</a></li>
+                    <li class="specs"><abbr title="HyperText Markup Language 5">HTML5</abbr>, <abbr title="Cascading Style Sheets 3">CSS3</abbr>, <abbr title="JavaScript">JS</abbr>.</li>
+                    <li><a href="http://usmiechdlarodziny.pl/" target="_blank">See online &raquo;</a></li>
+                </ul>
+            </div>
+        </div>
+    </ul>

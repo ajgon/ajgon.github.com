@@ -1,0 +1,61 @@
+---
+layout: raw
+title: Blog
+paginate: true
+---
+
+{% for post in paginator.posts %}
+<div class="post-container narrow mdl-grid">
+    <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+        <a href="{{ post.url }}">
+            <div class="mdl-card__media mdl-color-text--grey-50" style="background-image: url(/images/covers/{{ post.cover }}">
+                <h3>{{ post.title }}</h3>
+            </div>
+        </a>
+        <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
+            {{ post.excerpt }}
+        </div>
+        <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+            <div class="minilogo" style="background-image: url(/images/avatars/{{ post.author }}.png);"></div>
+            <div>
+                <strong>{{ post.author }}</strong>
+                <span>{{ post.date | date: "%b %-d, %Y" }}</span>
+            </div>
+            <div class="mdl-layout-spacer"></div>
+            <div>
+                <button id="share_{{ post.name | replace: '.', '-' }}" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">share</i>
+                </button>
+
+                <ul class="mdl-menu mdl-menu--top-right mdl-js-menu mdl-js-ripple-effect"
+                    for="share_{{ post.name | replace: '.', '-'}}">
+                        <li><a class="mdl-menu__item" href="#" target="_blank">LinkedIN</a></li>
+                        <li><a class="mdl-menu__item" href="#" target="_blank">Twitter</a></li>
+                        <li><a class="mdl-menu__item" href="#" target="_blank">Facebook</a></li>
+                </ul>
+                <div class="mdl-tooltip" for="share_{{ post.name | replace: '.', '-' }}">Share</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<nav class="post-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path }}" class="post-nav__button">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            Newer
+        </a>
+    {% endif %}
+    <div class="section-spacer"></div>
+    {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path }}" class="post-nav__button">
+            Older
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    {% endif %}
+</nav>

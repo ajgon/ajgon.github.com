@@ -1,0 +1,113 @@
+---
+layout: default
+---
+
+<div class="post-container full-post narrow mdl-grid">
+    <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+        <a href="{{ page.url }}">
+            <div class="mdl-card__media mdl-color-text--grey-50" style="background-image: url(/images/covers/{{ page.cover }}">
+                <h3>{{ page.title }}</h3>
+            </div>
+        </a>
+        <div class="mdl-card__supporting-text meta mdl-color-text--grey-700">
+            <div class="minilogo" style="background-image: url(/images/avatars/{{ page.author }}.png);"></div>
+            <div>
+                <strong>{{ page.author }}</strong>
+                <span>{{ page.date | date: "%b %-d, %Y" }}</span>
+            </div>
+            <div class="mdl-layout-spacer"></div>
+            <div>
+                <button id="share_{{ page.name | replace: '.', '-' }}" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">share</i>
+                </button>
+
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                    for="share_{{ page.name | replace: '.', '-'}}">
+                        <li><a class="mdl-menu__item" href="#" target="_blank">LinkedIN</a></li>
+                        <li><a class="mdl-menu__item" href="#" target="_blank">Twitter</a></li>
+                        <li><a class="mdl-menu__item" href="#" target="_blank">Facebook</a></li>
+                </ul>
+                <div class="mdl-tooltip" for="share_{{ page.name | replace: '.', '-' }}">Share</div>
+            </div>
+        </div>
+        <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
+            {{ content }}
+        </div>
+
+        <div id="disqus_thread" class="comments-disqus"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES * * */
+            var disqus_shortname = 'ajgon';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+{% comment %}
+        <div class="mdl-color-text--primary-contrast mdl-card__supporting-text comments">
+            <form>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <textarea rows=1 class="mdl-textfield__input" id="comment"></textarea>
+                    <label for="comment" class="mdl-textfield__label">Join the discussion</label>
+                </div>
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                    <i class="material-icons" role="presentation">check</i><span class="visuallyhidden">add comment</span>
+                </button>
+            </form>
+            <div class="comment mdl-color-text--grey-700">
+                <header class="comment__header">
+                    <img src="images/co1.jpg" class="comment__avatar">
+                    <div class="comment__author">
+                        <strong>James Splayd</strong>
+                        <span>2 days ago</span>
+                        </div>
+                </header>
+                <div class="comment__text">
+                    In in culpa nulla elit esse. Ex cillum enim aliquip sit sit ullamco ex eiusmod fugiat. Cupidatat ad minim officia mollit laborum magna dolor tempor cupidatat mollit. Est velit sit ad aliqua ullamco laborum excepteur dolore proident incididunt in labore elit.
+                </div>
+                <nav class="comment__actions">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                        <i class="material-icons" role="presentation">thumb_up</i><span class="visuallyhidden">like comment</span>
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                        <i class="material-icons" role="presentation">thumb_down</i><span class="visuallyhidden">dislike comment</span>
+                    </button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                        <i class="material-icons" role="presentation">share</i><span class="visuallyhidden">share comment</span>
+                    </button>
+                </nav>
+                <div class="comment__answers">
+                    <div class="comment">
+                        <header class="comment__header">
+                            <img src="images/co2.jpg" class="comment__avatar">
+                            <div class="comment__author">
+                                <strong>John Dufry</strong>
+                                <span>2 days ago</span>
+                            </div>
+                        </header>
+                        <div class="comment__text">
+                            Yep, agree!
+                        </div>
+                        <nav class="comment__actions">
+                            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                                <i class="material-icons" role="presentation">thumb_up</i><span class="visuallyhidden">like comment</span>
+                            </button>
+                            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                                <i class="material-icons" role="presentation">thumb_down</i><span class="visuallyhidden">dislike comment</span>
+                            </button>
+                            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                                <i class="material-icons" role="presentation">share</i><span class="visuallyhidden">share comment</span>
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endcomment %}
+    </div>
+</div>
