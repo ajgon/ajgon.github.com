@@ -15,27 +15,7 @@ paginate: true
         <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
             {{ post.excerpt }}
         </div>
-        <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-            <div class="minilogo" style="background-image: url(/images/avatars/{{ post.author }}.png);"></div>
-            <div>
-                <strong>{{ post.author }}</strong>
-                <span>{{ post.date | date: "%b %-d, %Y" }}</span>
-            </div>
-            <div class="mdl-layout-spacer"></div>
-            <div>
-                <button id="share_{{ post.name | replace: '.', '-' }}" class="mdl-button mdl-js-button mdl-button--icon">
-                    <i class="material-icons">share</i>
-                </button>
-
-                <ul class="mdl-menu mdl-menu--top-right mdl-js-menu mdl-js-ripple-effect"
-                    for="share_{{ post.name | replace: '.', '-'}}">
-                        <li><a class="mdl-menu__item" href="#" target="_blank">LinkedIN</a></li>
-                        <li><a class="mdl-menu__item" href="#" target="_blank">Twitter</a></li>
-                        <li><a class="mdl-menu__item" href="#" target="_blank">Facebook</a></li>
-                </ul>
-                <div class="mdl-tooltip" for="share_{{ post.name | replace: '.', '-' }}">Share</div>
-            </div>
-        </div>
+        {% include meta-bar.html post=post menu_position='top-right' %}
     </div>
 </div>
 {% endfor %}

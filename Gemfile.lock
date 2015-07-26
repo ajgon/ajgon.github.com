@@ -4,6 +4,8 @@ GEM
     blankslate (2.1.2.4)
     celluloid (0.16.0)
       timers (~> 4.0.0)
+    childprocess (0.5.6)
+      ffi (~> 1.0, >= 1.0.11)
     classifier-reborn (2.0.3)
       fast-stemmer (~> 1.0)
     coffee-script (2.4.1)
@@ -12,9 +14,20 @@ GEM
     coffee-script-source (1.9.1.1)
     colorator (0.1)
     execjs (2.5.2)
+    exifr (1.2.3)
     fast-stemmer (1.0.2)
     ffi (1.9.10)
+    fspath (2.1.1)
     hitimes (1.2.2)
+    image_optim (0.21.0)
+      exifr (~> 1.2, >= 1.2.2)
+      fspath (~> 2.1)
+      image_size (~> 1.3)
+      in_threads (~> 1.3)
+      progress (~> 3.0, >= 3.0.1)
+    image_size (1.4.1)
+    in_threads (1.3.1)
+    iniparse (1.4.0)
     jekyll (2.5.3)
       classifier-reborn (~> 2.0)
       colorator (~> 0.1)
@@ -66,18 +79,26 @@ GEM
       jekyll (>= 2.0)
     octopress-paginate (1.1.2)
       octopress-hooks
+    overcommit (0.27.0)
+      childprocess (~> 0.5.6)
+      iniparse (~> 1.4)
     parslet (1.5.0)
       blankslate (~> 2.0)
     posix-spawn (0.3.11)
+    progress (3.1.0)
     pygments.rb (0.6.3)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.2.0)
+    rainbow (2.0.0)
     rb-fsevent (0.9.5)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     redcarpet (3.3.2)
     safe_yaml (1.0.4)
     sass (3.4.16)
+    scss_lint (0.40.1)
+      rainbow (~> 2.0)
+      sass (~> 3.4.1)
     timers (4.0.1)
       hitimes
     titlecase (0.1.1)
@@ -89,9 +110,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  image_optim
   octopress
   octopress-codeblock
   octopress-paginate
+  overcommit
+  scss_lint
 
 BUNDLED WITH
    1.10.6

@@ -25,10 +25,10 @@
   </div>
   <div class="mdl-layout__header-row mdl-layout__header-highlighted-row mdl-layout--large-screen-only">
     <nav class="waterfall-demo-header-nav mdl-navigation">
-      {% for title in site.mainnav %}
+      {% for item in site.mainnav %}
         {% for node in site.pages %}
-          {% if title == node.title and node.title %}
-            <a href="{{ node.url }}" class="mdl-navigation__link{% if page.url == node.url %} is-active{% endif %}">{{ node.title }}</a>
+          {% if item.title == node.title and node.title %}
+            <a href="{{ node.url }}" class="mdl-navigation__link{% if page.name == node.name or (page.categories and node.name == 'blog.html') %} is-active{% endif %}">{{ node.title }}</a>
           {% endif %}
         {% endfor %}
       {% endfor %}
@@ -36,12 +36,12 @@
   </div>
 </header>
 <div class="mdl-layout__drawer">
-  <span class="mdl-layout-title">ajgon's personal</span>
+  <span class="mdl-layout-title"><a href="/">ajgon's personal</a></span>
   <nav class="mdl-navigation">
-    {% for title in site.mainnav %}
+    {% for item in site.mainnav %}
       {% for node in site.pages %}
-        {% if title == node.title and node.title %}
-          <a class="mdl-navigation__link" href="{{ node.url }}">{{ node.title }}</a>
+        {% if item.title == node.title and node.title %}
+          <a href="{{ node.url }}" class="mdl-navigation__link{% if page.name == node.name or (page.categories and node.name == 'blog.html') %} is-active{% endif %}">{{ node.title }}</a>
         {% endif %}
       {% endfor %}
     {% endfor %}

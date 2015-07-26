@@ -1,15 +1,14 @@
-/*global define */
-/*jslint browser: true */
+/* global jQuery: false, Modernizr: false */
 
 (function ($) {
     'use strict';
 
-    /*jslint unparam: true*/
     var Portfolio = {
         init: function () {
             this.container = $('#portfolioItems');
             this.optionsSetter = $('#options-filter');
-            this.containerPaddings = parseInt(this.container.css('padding-left'), 10) + parseInt(this.container.css('padding-right'), 10);
+            this.containerPaddings = parseInt(this.container.css('padding-left'), 10) +
+                                     parseInt(this.container.css('padding-right'), 10);
             this.masonryCols = -1;
 
             this.initIsotope();
@@ -18,15 +17,18 @@
 
             $(window).resize(function () {
                 var containerDistance = Portfolio.container.parent().width() - Portfolio.container.outerWidth();
+                var basicWidth = Portfolio.container.width();
                 if (containerDistance >= 155 || containerDistance <= 0) {
                     if (containerDistance <= 0) {
                         containerDistance -= 155;
                     }
-                    Portfolio.container.width(Portfolio.container.width() + parseInt(containerDistance / 155, 10) * 155);
+                    Portfolio.container.width(basicWidth + parseInt(containerDistance / 155, 10) * 155);
                 }
             });
 
-            $(window).load(function() { $(this).resize(); });
+            $(window).load(function () {
+                $(this).resize();
+            });
         },
         initIsotope: function () {
             this.container.isotope({
@@ -60,9 +62,13 @@
                     $this.removeClass('front-animating');
                     $this.removeClass('back-animating');
                 })
-                .on('animationiteration webkitAnimationIteration oanimationiteration MSAnimationIteration', '.hovered .front, .hovered .back', function () {
-                    $(this).addClass('paused');
-                });
+                .on(
+                    'animationiteration webkitAnimationIteration oanimationiteration MSAnimationIteration',
+                    '.hovered .front, .hovered .back',
+                    function () {
+                        $(this).addClass('paused');
+                    }
+                );
         },
         initOptions: function () {
             var self = this;
@@ -93,7 +99,6 @@
             }
         }
     };
-    /*jslint unparam: false*/
 
     window.Portfolio = Portfolio;
     Portfolio.init();

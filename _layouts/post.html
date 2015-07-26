@@ -9,27 +9,7 @@ layout: default
                 <h3>{{ page.title }}</h3>
             </div>
         </a>
-        <div class="mdl-card__supporting-text meta mdl-color-text--grey-700">
-            <div class="minilogo" style="background-image: url(/images/avatars/{{ page.author }}.png);"></div>
-            <div>
-                <strong>{{ page.author }}</strong>
-                <span>{{ page.date | date: "%b %-d, %Y" }}</span>
-            </div>
-            <div class="mdl-layout-spacer"></div>
-            <div>
-                <button id="share_{{ page.name | replace: '.', '-' }}" class="mdl-button mdl-js-button mdl-button--icon">
-                    <i class="material-icons">share</i>
-                </button>
-
-                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-                    for="share_{{ page.name | replace: '.', '-'}}">
-                        <li><a class="mdl-menu__item" href="#" target="_blank">LinkedIN</a></li>
-                        <li><a class="mdl-menu__item" href="#" target="_blank">Twitter</a></li>
-                        <li><a class="mdl-menu__item" href="#" target="_blank">Facebook</a></li>
-                </ul>
-                <div class="mdl-tooltip" for="share_{{ page.name | replace: '.', '-' }}">Share</div>
-            </div>
-        </div>
+        {% include meta-bar.html post=page menu_position='bottom-right' %}
         <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
             {{ content }}
         </div>

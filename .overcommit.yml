@@ -1,0 +1,55 @@
+PreCommit:
+  ALL:
+    on_warn: fail # Treat all warnings as failures
+    exclude:
+      - '_site/**/*'
+      - 'js/lib/**/*'
+      - '_sass/lib/**/*'
+      - 'feed.xml'
+  AuthorEmail:
+    enabled: true
+  AuthorName:
+    enabled: true
+  BrokenSymlinks:
+    enabled: true
+  BundleCheck:
+    enabled: true
+  CaseConflicts:
+    enabled: true
+  EsLint:
+    enabled: true
+  HardTabs:
+    enabled: true
+    exclude:
+      - '**/*.svg'
+      - '**/*.json'
+  ImageOptim:
+    enabled: true
+  JsHint:
+    enabled: true
+  JsLint:
+    enabled: false
+  Jscs:
+    enabled: true
+  Jsl:
+    enabled: true
+  JsonSyntax:
+    enabled: true
+  LocalPathsInGemfile:
+    enabled: true
+  MergeConflicts:
+    enabled: true
+  ScssLint:
+    enabled: true
+  ShellCheck:
+    enabled: true
+  TrailingWhitespace:
+    enabled: true
+    exclude:
+      - '**/*.svg'
+  XmlLint:
+    enabled: true
+  XmlSyntax:
+    enabled: true
+  YamlSyntax:
+    enabled: true

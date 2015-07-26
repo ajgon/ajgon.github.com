@@ -1,18 +1,16 @@
 # Site settings
 title: Igor \"ajgon\" Rzegocki
 email: igor@rzegocki.pl
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+description: "Personal webpage, online CV and blog."
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://rzegocki.pl" # the base hostname & protocol for your site
+permalink: "/blog/:year/:month/:day/:title/"
 
 mainnav:
-    - About
-    - Portfolio
-    - Open Source
-    - Blog
+    - {title: 'About', url: '/about'}
+    - {title: 'Portfolio', url: '/portfolio'}
+    - {title: 'Open Source', url: '/open-source'}
+    - {title: 'Blog', url: '/blog'}
 
 pagination:
     per_page:     5             # maximum number of items per page
@@ -28,7 +26,7 @@ portfolio:
         client: nextframe
         specs:
             - html5
-            - css3
+            - css
             - js
     -
         id: s-pavilion512
@@ -39,7 +37,7 @@ portfolio:
         client: nextframe
         specs:
             - html5
-            - css3
+            - css
             - js
     -
         id: s-poznajzasady
@@ -50,7 +48,7 @@ portfolio:
         client: nextframe
         specs:
             - html5
-            - css3
+            - css
             - js
     -
         id: listerinezero
@@ -61,7 +59,7 @@ portfolio:
         client: nextframe
         specs:
             - html5
-            - css3
+            - css
             - js
     -
         id: s-gardenpartner
@@ -72,7 +70,7 @@ portfolio:
         client: garden-partner
         specs:
             - html5
-            - css3
+            - css
             - js
     -
         id: s-studiofx
@@ -83,7 +81,7 @@ portfolio:
         client: nextframe
         specs:
             - html5
-            - css3
+            - css
             - php5
             - wp
     -
@@ -130,7 +128,7 @@ portfolio:
         client: devonstudio
         specs:
             - html5
-            - css3
+            - css
             - js
             - php5
             - wp
@@ -176,7 +174,7 @@ portfolio:
         client: devonstudio
         specs:
             - html5
-            - css3
+            - css
             - js
             - php5
             - wp
@@ -601,9 +599,9 @@ site_specs:
         name: HTML5
         title: HyperText Markup Language 5
     -
-        id: css3
-        name: CSS3
-        title: Cascading Style Sheets 3
+        id: css
+        name: CSS
+        title: Cascading Style Sheets
     -
         id: js
         name: JS
@@ -620,10 +618,6 @@ site_specs:
         id: xhtml
         name: XHTML
         title: eXtensible HyperText Markup Language
-    -
-        id: css
-        name: CSS
-        title: Cascading Style Sheets
     -
         id: ror
         name: RoR

@@ -1,0 +1,21 @@
+        <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+            <div class="minilogo" style="background-image: url(/images/avatars/{{ include.post.author }}.png);"></div>
+            <div>
+                <strong>{{ include.post.author }}</strong>
+                <span>{{ include.post.date | date: "%b %-d, %Y" }}</span>
+            </div>
+            <div class="mdl-layout-spacer"></div>
+            <div>
+                <button id="share_{{ include.post.name | replace: '.', '-' }}" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">share</i>
+                </button>
+
+                <ul class="mdl-menu mdl-menu--{{ include.menu_position }} mdl-js-menu mdl-js-ripple-effect"
+                    for="share_{{ include.post.name | replace: '.', '-'}}">
+                        <li><a class="mdl-menu__item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ site.url | encode }}{{ include.post.url }}&amp;title=" target="_blank" data-width="600" data-height="450">LinkedIN</a></li>
+                        <li><a class="mdl-menu__item" href="https://twitter.com/share?url={{ site.url | escape }}{{ include.post.url | escape }}&amp;text=" target="_blank" data-width="500" data-height="550">Twitter</a></li>
+                        <li><a class="mdl-menu__item" href="https://www.facebook.com/sharer/sharer.php?u={{ site.url | escape }}{{ include.post.url | escape }}&amp;display=popup" data-width="626" data-height="457" target="_blank">Facebook</a></li>
+                </ul>
+                <div class="mdl-tooltip" for="share_{{ include.post.name | replace: '.', '-' }}">Share</div>
+            </div>
+        </div>

@@ -3,20 +3,22 @@ layout: raw
 title: "Portfolio"
 ---
 
-<div class="page-container mdl-grid">
+<div class="page-container mdl-grid portfolio-header">
     <div class="mdl-card portfolio-menu mdl-shadow--4dp mdl-cell mdl-cell--12-col">
         <div class="buttons-list" id="options-filter">
             <h3 class="headline">{{ page.title }}</h3>
             <div class="mdl-layout-spacer"></div>
-                <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" data-item="*">All</a>
-            {% for spec in site.site_specs %}
+            <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" data-item="*">All</a>
+        {% for spec in site.site_specs %}
+            {% if spec.id != 'zf' %}
                 <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" data-item="{{ spec.id }}">{{ spec.name }}</a>
-            {% endfor %}
+            {% endif %}
+        {% endfor %}
         </div>
     </div>
 </div>
 
-<section id="portfolio">
+<section id="portfolio" class="portfolio-parent">
     <ul class="portfolio clearfix" id="portfolioItems">
 
         {% for item in site.portfolio %}
