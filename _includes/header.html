@@ -1,7 +1,7 @@
 <header class="mdl-layout__header mdl-layout__header--waterfall mdl-shadow--4dp">
   <div class="mdl-layout__header-row">
     <!-- Title -->
-    <span class="mdl-layout-title">{{ site.title }}</span>
+    <span class="mdl-layout-title"><a href="/">{{ site.title }}</a></span>
     <!-- Add spacer, to align navigation to the right -->
     <div class="mdl-layout-spacer"></div>
     <!-- Navigation. We hide it in small screens. -->
@@ -23,7 +23,7 @@
       <div for="connect-options" class="mdl-tooltip">Connect</div>
     </nav>
   </div>
-  <div class="mdl-layout__header-row mdl-layout__header-highlighted-row">
+  <div class="mdl-layout__header-row mdl-layout__header-highlighted-row mdl-layout--large-screen-only">
     <nav class="waterfall-demo-header-nav mdl-navigation">
       {% for title in site.mainnav %}
         {% for node in site.pages %}
@@ -38,10 +38,10 @@
 <div class="mdl-layout__drawer">
   <span class="mdl-layout-title">ajgon's personal</span>
   <nav class="mdl-navigation">
-    {% for name in site.mainnav %}
+    {% for title in site.mainnav %}
       {% for node in site.pages %}
-        {% if name == node.name and node.title %}
-        <a class="mdl-navigation__link" href="{{ node.url }}">{{ node.title }}</a>
+        {% if title == node.title and node.title %}
+          <a class="mdl-navigation__link" href="{{ node.url }}">{{ node.title }}</a>
         {% endif %}
       {% endfor %}
     {% endfor %}
