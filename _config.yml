@@ -22,11 +22,11 @@ subscribe_email:
 email: igor@rzegocki.pl
 
 navigation: [
-    {url: '/', text: 'About me'},
-    {url: '/portfolio', text: 'Portfolio'},
-    {url: '/open-source', text: 'Open source'},
-    {url: '/papers', text: 'Papers'},
-    {url: '/blog', text: 'Blog'}
+    {url: '/v3/', text: 'About me'},
+    {url: '/v3/portfolio', text: 'Portfolio'},
+    {url: '/v3/open-source', text: 'Open source'},
+    {url: '/v3/papers', text: 'Papers'},
+    {url: '/v3/blog', text: 'Blog'}
 ]
 
 # ----------------------- #
@@ -35,7 +35,7 @@ navigation: [
 
 # If publishing to a subdirectory as in http://site.com/project set 'root: /project'
 root: /v3/
-permalink: /blog/:year/:month/:day/:title/
+permalink: /v3/blog/:year/:month/:day/:title/
 source: source
 destination: public
 plugins: plugins
