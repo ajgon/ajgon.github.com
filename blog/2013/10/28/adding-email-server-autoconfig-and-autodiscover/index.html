@@ -1,426 +1,485 @@
-
 <!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
+<html>
+
+  <head>
   <meta charset="utf-8">
-  <title>Adding Email server autoconfig and autodiscover - Igor Rzegocki Personal Homepage</title>
-  <meta name="author" content="Igor Rzegocki">
-
-   
-  <meta name="description" content="">
-  
-  <meta name="keywords" content="">
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
-  <link rel="canonical" href="http://www.rzegocki.pl/blog/2013/10/28/adding-email-server-autoconfig-and-autodiscover">
-  <link href="/favicon.png" rel="icon">
-  <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Igor Rzegocki Personal Homepage" type="application/atom+xml">
-  <script src="/javascripts/jquery.js"></script>
-  <script src="/javascripts/bootstrap-collapse.js"></script>
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/html5shiv.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="/stylesheets/custom.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <title>Adding Email server autoconfig and autodiscover - Igor \"ajgon\" Rzegocki</title>
+  <meta name="description" content="One of the nicest, yet badly documented features in new MUAs is email servers autodiscovering. When you type your e-mail address in configuration window, mod...">
 
   
+  <meta content="adding-email-server-autoconfig-and-autodiscover.jpg" name="og:image">
+  
+  <meta content="http://rzegocki.pl/blog/2013/10/28/adding-email-server-autoconfig-and-autodiscover/" name="og:url">
+  <meta content='Adding Email server autoconfig and autodiscover - Igor \"ajgon\" Rzegocki' name="og:title">
+  <meta content="One of the nicest, yet badly documented features in new MUAs is email servers autodiscovering. When you type your e-mail address in configuration window, mod..." name="og:description">
 
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://rzegocki.pl/blog/2013/10/28/adding-email-server-autoconfig-and-autodiscover/">
+  <link rel="alternate" type="application/rss+xml" title='Igor \"ajgon\" Rzegocki' href="http://rzegocki.pl/feed.xml" />
+  <script src="/js/lib/modernizr.js"></script>
 </head>
 
-<body   >
-  <div class="navbar navbar-inverse navbar-static-top">
-  	<div class="navbar-inner">
-  	  <div class="container">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-          <span class="fui-menu-24"></span>
-        </a>
-  	  	<div class="nav-collapse collapse navbar-responsive-collapse" style="height:0;">
-  	      <ul class="nav">
-    
-        <li ><a href="/">About me</a></li>
-    
-        <li ><a href="/portfolio">Portfolio</a></li>
-    
-        <li ><a href="/open-source">Open source</a></li>
-    
-        <li ><a href="/papers">Papers</a></li>
-    
-        <li ><a href="/blog">Blog</a></li>
-    
-</ul>
 
-<ul class="nav pull-right">
-    
-    
-    <li><a href="http://github.com/ajgon" title="Github Profile"><i class="icon-github-sign social-navbar"></i> <span>GitHub</span></a></li>
-    
-    
-    <li><a href="http://linkedin.com/in/ajgon" title="Linkedin Profile"><i class="icon-linkedin-sign social-navbar"></i> <span>LinkedIn</span></a></li>
-    
-    
-    <li><a href="http://twitter.com/ajgon" title="Twitter Profile"><i class="icon-twitter-sign social-navbar"></i> <span>Twitter</span></a></li>
-    
-    
-    
-    <li><a href="http://facebook.com/7d7cdc4a42dd7aa15f891c7314db770a02efe0e7" title="Facebook Profile"><i class="icon-facebook-sign social-navbar"></i> <span>Facebook</span></a></li>
-    
-    
-    <li><a href="mailto:igor@rzegocki.pl" title="Email"><i class="icon-envelope-alt social-navbar"></i> <span>E-mail</span></a></li>
-    
-    
-    <li><a href="/public-key.txt" title="GPG Key"><i class="icon-key social-navbar"></i> <span>GPG Key</span></a></li>
-    
-</ul>
+  <body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--waterfall mdl-shadow--4dp">
+  <div class="mdl-layout__header-row">
+    <!-- Title -->
+    <span class="mdl-layout-title"><a href="/">Igor \"ajgon\" Rzegocki</a></span>
+    <!-- Add spacer, to align navigation to the right -->
+    <div class="mdl-layout-spacer"></div>
+    <!-- Navigation. We hide it in small screens. -->
+    <nav class="icons-navigation mdl-navigation">
+      <a id="download-cv" class="mdl-button mdl-js-button mdl-button--icon" href="/cv.pdf">
+        <i class="material-icons">file_download</i>
+      </a>
+      <button id="connect-options" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">more_vert</i>
+      </button>
 
-  	    </div>
-  	  </div>
-  	</div>
+      <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+          for="connect-options">
+          
+            <li><a class="mdl-menu__item" href="https://github.com/ajgon" target="_blank">GitHub</a></li>
+          
+            <li><a class="mdl-menu__item" href="https://linkedin.com/in/ajgon" target="_blank">LinkedIN</a></li>
+          
+            <li><a class="mdl-menu__item" href="https://twitter.com/ajgon" target="_blank">Twitter</a></li>
+          
+            <li><a class="mdl-menu__item" href="https://facebook.com/7d7cdc4a42dd7aa15f891c7314db770a02efe0e7" target="_blank">Facebook</a></li>
+          
+            <li><a class="mdl-menu__item" href="mailto:igor@rzegocki.pl" target="_blank">E-Mail</a></li>
+          
+            <li><a class="mdl-menu__item" href="/public-key.txt" target="_blank">GPG Key</a></li>
+          
+      </ul>
+      <div for="download-cv" class="mdl-tooltip">Download CV</div>
+      <div for="connect-options" class="mdl-tooltip">Connect</div>
+    </nav>
   </div>
-  <div class="container" id="main">
-    <div class="span12">
-      <div class="row-fluid">
-        <div id="content">
-          <div>
-<article class="hentry" role="article">
-  
-
-  <header>
-  <div class="jumbotron">
-    Adding Email Server Autoconfig and Autodiscover
-	<h5>
-
-
-
-
-
-
-
-
-  
-
-
-<i class="icon-calendar-empty"></i> <time datetime="2013-10-28T14:57:00+01:00" pubdate data-updated="true">Oct 28<span>th</span>, 2013</time></h5>
+  <div class="mdl-layout__header-row mdl-layout__header-highlighted-row mdl-layout--large-screen-only">
+    <nav class="waterfall-demo-header-nav mdl-navigation">
+      
+        
+          
+        
+          
+        
+          
+            <a href="/index.html" class="mdl-navigation__link">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <a href="/portfolio.html" class="mdl-navigation__link">Portfolio</a>
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <a href="/open-source.html" class="mdl-navigation__link">Open Source</a>
+          
+        
+          
+        
+          
+        
+      
+        
+          
+            <a href="/blog.html" class="mdl-navigation__link is-active">Blog</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+    </nav>
   </div>
 </header>
-  <div class="row-fluid">
-    <div class="span12">
-      <p>One of the nicest, yet badly documented features in new MUAs is email servers autodiscovering. When you type your e-mail address in configuration window, modern MUA is trying to determine what IMAP/POP3 servers are, and how to connect to them. To do so, they assume, that your email contains a server domain name. A nice assumption, but often not relevant (google apps is a good example here). Thankfully, there is also another way &ndash; asking an original server on a specially configured domain what those parameters are.</p>
+<div class="mdl-layout__drawer">
+  <span class="mdl-layout-title"><a href="/">ajgon's personal</a></span>
+  <nav class="mdl-navigation">
+    
+      
+        
+      
+        
+      
+        
+          <a href="/index.html" class="mdl-navigation__link">About</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="/portfolio.html" class="mdl-navigation__link">Portfolio</a>
+        
+      
+        
+      
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="/open-source.html" class="mdl-navigation__link">Open Source</a>
+        
+      
+        
+      
+        
+      
+    
+      
+        
+          <a href="/blog.html" class="mdl-navigation__link is-active">Blog</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+  </nav>
+</div>
+
+
+      <main class="mdl-layout__content">
+        <div class="post-container full-post narrow mdl-grid">
+    <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+        <a href="/blog/2013/10/28/adding-email-server-autoconfig-and-autodiscover/">
+            <div class="mdl-card__media mdl-color-text--grey-50" style="background-image: url(/images/covers/adding-email-server-autoconfig-and-autodiscover.jpg">
+                <h3>Adding Email server autoconfig and autodiscover</h3>
+            </div>
+        </a>
+                <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+            <div class="minilogo" style="background-image: url(/images/avatars/ajgon.png);"></div>
+            <div>
+                <strong>ajgon</strong>
+                <span>Oct 28, 2013</span>
+            </div>
+            <div class="mdl-layout-spacer"></div>
+            <div>
+                <button id="share_" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">share</i>
+                </button>
+
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                    for="share_">
+                        <li><a class="mdl-menu__item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://rzegocki.pl/blog/2013/10/28/adding-email-server-autoconfig-and-autodiscover/&amp;title=" target="_blank" data-width="600" data-height="450">LinkedIN</a></li>
+                        <li><a class="mdl-menu__item" href="https://twitter.com/share?url=http://rzegocki.pl/blog/2013/10/28/adding-email-server-autoconfig-and-autodiscover/&amp;text=" target="_blank" data-width="500" data-height="550">Twitter</a></li>
+                        <li><a class="mdl-menu__item" href="https://www.facebook.com/sharer/sharer.php?u=http://rzegocki.pl/blog/2013/10/28/adding-email-server-autoconfig-and-autodiscover/&amp;display=popup" data-width="626" data-height="457" target="_blank">Facebook</a></li>
+                </ul>
+                <div class="mdl-tooltip" for="share_">Share</div>
+            </div>
+        </div>
+
+        <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
+            <p>One of the nicest, yet badly documented features in new MUAs is email servers autodiscovering. When you type your e-mail address in configuration window, modern MUA is trying to determine what IMAP/POP3 servers are, and how to connect to them. To do so, they assume, that your email contains a server domain name. A nice assumption, but often not relevant (google apps is a good example here). Thankfully, there is also another way - asking an original server on a specially configured domain what those parameters are.</p>
 
 <!-- more -->
 
+<p>In a perfect world, there would one standard for that - in our world however, there are two: <code>autoconfig</code> (Mozilla favored) and <code>autodiscover</code> (Microsoft promoted). So we have to to set them together - thankfully both are based on simple XML files, so it’s not a big deal.</p>
 
-<p>In a perfect world, there would one standard for that &ndash; in our world however, there are two: <code>autoconfig</code> (Mozilla favored) and <code>autodiscover</code> (Microsoft promoted). So we have to to set them together &ndash; thankfully both are based on simple XML files, so it&rsquo;s not a big deal.</p>
+<h2 id="autoconfig-mozilla-thunderbird">autoconfig (Mozilla Thunderbird)</h2>
 
-<h2>autoconfig (Mozilla Thunderbird)</h2>
+<p>This one is (im my opinion) is more clean and advanced. To use it, just make your webserver to return below XML file on <code>autoconfig.</code> subdomain. So (for example) if you have email <code>myname@mydomain.com</code> - <code>autoconfig.mydomain.com</code> should return:</p>
 
-<p>This one is (im my opinion) is more clean and advanced. To use it, just make your webserver to return below XML file on <code>autoconfig.</code> subdomain. So (for example) if you have email <code>myname@mydomain.com</code> &ndash; <code>autoconfig.mydomain.com</code> should return:</p>
-
-<figure class='code'><figcaption><span>autoconfig.xml </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-</span><span class='line'><span class="nt">&lt;clientConfig</span> <span class="na">version=</span><span class="s">&quot;1.1&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;emailProvider</span> <span class="na">id=</span><span class="s">&quot;mydomain.com&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;domain&gt;</span>mydomain.com<span class="nt">&lt;/domain&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;displayName&gt;</span>Mail<span class="nt">&lt;/displayName&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;displayShortName&gt;</span>Mail<span class="nt">&lt;/displayShortName&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;incomingServer</span> <span class="na">type=</span><span class="s">&quot;pop3&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;hostname&gt;</span>mail.mydomain.com<span class="nt">&lt;/hostname&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;port&gt;</span>995<span class="nt">&lt;/port&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;socketType&gt;</span>SSL<span class="nt">&lt;/socketType&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;authentication&gt;</span>password-cleartext<span class="nt">&lt;/authentication&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;username&gt;</span>%EMAILADDRESS%<span class="nt">&lt;/username&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;pop3&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;leaveMessagesOnServer&gt;</span>true<span class="nt">&lt;/leaveMessagesOnServer&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;downloadOnBiff&gt;</span>true<span class="nt">&lt;/downloadOnBiff&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;daysToLeaveMessagesOnServer&gt;</span>10<span class="nt">&lt;/daysToLeaveMessagesOnServer&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;/pop3&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;/incomingServer&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;incomingServer</span> <span class="na">type=</span><span class="s">&quot;imap&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;hostname&gt;</span>mail.mydomain.com<span class="nt">&lt;/hostname&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;port&gt;</span>993<span class="nt">&lt;/port&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;socketType&gt;</span>SSL<span class="nt">&lt;/socketType&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;authentication&gt;</span>password-cleartext<span class="nt">&lt;/authentication&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;username&gt;</span>%EMAILADDRESS%<span class="nt">&lt;/username&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;/incomingServer&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;outgoingServer</span> <span class="na">type=</span><span class="s">&quot;smtp&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;hostname&gt;</span>mail.mydomain.com<span class="nt">&lt;/hostname&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;port&gt;</span>587<span class="nt">&lt;/port&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;socketType&gt;</span>STARTTLS<span class="nt">&lt;/socketType&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;authentication&gt;</span>password-cleartext<span class="nt">&lt;/authentication&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;username&gt;</span>%EMAILADDRESS%<span class="nt">&lt;/username&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;/outgoingServer&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/emailProvider&gt;</span>
-</span><span class='line'><span class="nt">&lt;/clientConfig&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">autoconfig.xml</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;clientConfig</span> <span class="na">version=</span><span class="s">&quot;1.1&quot;</span><span class="nt">&gt;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nt">&lt;emailProvider</span> <span class="na">id=</span><span class="s">&quot;mydomain.com&quot;</span><span class="nt">&gt;</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;domain&gt;</span>mydomain.com<span class="nt">&lt;/domain&gt;</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;displayName&gt;</span>Mail<span class="nt">&lt;/displayName&gt;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;displayShortName&gt;</span>Mail<span class="nt">&lt;/displayShortName&gt;</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;incomingServer</span> <span class="na">type=</span><span class="s">&quot;pop3&quot;</span><span class="nt">&gt;</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;hostname&gt;</span>mail.mydomain.com<span class="nt">&lt;/hostname&gt;</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;port&gt;</span>995<span class="nt">&lt;/port&gt;</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;socketType&gt;</span>SSL<span class="nt">&lt;/socketType&gt;</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;authentication&gt;</span>password-cleartext<span class="nt">&lt;/authentication&gt;</span>
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;username&gt;</span>%EMAILADDRESS%<span class="nt">&lt;/username&gt;</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;pop3&gt;</span>
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;leaveMessagesOnServer&gt;</span>true<span class="nt">&lt;/leaveMessagesOnServer&gt;</span>
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;downloadOnBiff&gt;</span>true<span class="nt">&lt;/downloadOnBiff&gt;</span>
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;daysToLeaveMessagesOnServer&gt;</span>10<span class="nt">&lt;/daysToLeaveMessagesOnServer&gt;</span>
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;/pop3&gt;</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;/incomingServer&gt;</span>
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;incomingServer</span> <span class="na">type=</span><span class="s">&quot;imap&quot;</span><span class="nt">&gt;</span>
+</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;hostname&gt;</span>mail.mydomain.com<span class="nt">&lt;/hostname&gt;</span>
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;port&gt;</span>993<span class="nt">&lt;/port&gt;</span>
+</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;socketType&gt;</span>SSL<span class="nt">&lt;/socketType&gt;</span>
+</div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;authentication&gt;</span>password-cleartext<span class="nt">&lt;/authentication&gt;</span>
+</div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;username&gt;</span>%EMAILADDRESS%<span class="nt">&lt;/username&gt;</span>
+</div></div><div data-line="25" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;/incomingServer&gt;</span>
+</div></div><div data-line="26" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;outgoingServer</span> <span class="na">type=</span><span class="s">&quot;smtp&quot;</span><span class="nt">&gt;</span>
+</div></div><div data-line="27" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;hostname&gt;</span>mail.mydomain.com<span class="nt">&lt;/hostname&gt;</span>
+</div></div><div data-line="28" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;port&gt;</span>587<span class="nt">&lt;/port&gt;</span>
+</div></div><div data-line="29" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;socketType&gt;</span>STARTTLS<span class="nt">&lt;/socketType&gt;</span>
+</div></div><div data-line="30" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;authentication&gt;</span>password-cleartext<span class="nt">&lt;/authentication&gt;</span>
+</div></div><div data-line="31" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;username&gt;</span>%EMAILADDRESS%<span class="nt">&lt;/username&gt;</span>
+</div></div><div data-line="32" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;/outgoingServer&gt;</span>
+</div></div><div data-line="33" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nt">&lt;/emailProvider&gt;</span>
+</div></div><div data-line="34" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;/clientConfig&gt;</span></div></div></pre></div></figure>
 
 <p>If you have an email server on a different domain than your email account, simply add redirect to your httpd server. For example in nginx:</p>
 
-<figure class='code'><figcaption><span>/etc/nginx.conf </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>server <span class="o">{</span>
-</span><span class='line'>    server_name autoconfig.myotherdomain.com;
-</span><span class='line'>    rewrite ^.* https://mydomain.com/config-v1.1.xml permanent;
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/nginx.conf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">server <span class="o">&#x7b;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">    server_name autoconfig.myotherdomain.com<span class="p">;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    rewrite ^.* https://mydomain.com/config-v1.1.xml permanent<span class="p">;</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">&#x7d;</span></div></div></pre></div></figure>
 
+<p>And that’s it! From now on, your email will be automatically discovered by Thunderbird.</p>
 
-<p>And that&rsquo;s it! From now on, your email will be automatically discovered by Thunderbird.</p>
-
-<h2>autodiscover (Microsoft Outlook)</h2>
+<h2 id="autodiscover-microsoft-outlook">autodiscover (Microsoft Outlook)</h2>
 
 <p>Procedure is very similar here. You just have to set <code>autodiscover.</code> domain, and XML file is slightly different. So, for example <code>autodiscover.mydomain.com</code> should return:</p>
 
-<figure class='code'><figcaption><span>autodiscover.xml </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-</span><span class='line'><span class="nt">&lt;Autodiscover</span> <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/exchange/autodiscover/responseschema/2006&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;Response</span> <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/exchange/autodiscover/outlook/responseschema/2006a&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;Account&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;AccountType&gt;</span>email<span class="nt">&lt;/AccountType&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;Action&gt;</span>settings<span class="nt">&lt;/Action&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;Protocol&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;Type&gt;</span>POP3<span class="nt">&lt;/Type&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;Server&gt;</span>mail.mydomain.com<span class="nt">&lt;/Server&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;Port&gt;</span>995<span class="nt">&lt;/Port&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;DomainRequired&gt;</span>on<span class="nt">&lt;/DomainRequired&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;SPA&gt;</span>off<span class="nt">&lt;/SPA&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;SSL&gt;</span>on<span class="nt">&lt;/SSL&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;AuthRequired&gt;</span>on<span class="nt">&lt;/AuthRequired&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;/Protocol&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;Protocol&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;Type&gt;</span>IMAP<span class="nt">&lt;/Type&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;Server&gt;</span>mail.mydomain.com<span class="nt">&lt;/Server&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;Port&gt;</span>993<span class="nt">&lt;/Port&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;DomainRequired&gt;</span>on<span class="nt">&lt;/DomainRequired&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;SPA&gt;</span>off<span class="nt">&lt;/SPA&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;SSL&gt;</span>on<span class="nt">&lt;/SSL&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;AuthRequired&gt;</span>on<span class="nt">&lt;/AuthRequired&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;/Protocol&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;Protocol&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;Type&gt;</span>SMTP<span class="nt">&lt;/Type&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;Server&gt;</span>mail.mydomain.com<span class="nt">&lt;/Server&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;Port&gt;</span>587<span class="nt">&lt;/Port&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;DomainRequired&gt;</span>on<span class="nt">&lt;/DomainRequired&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;SPA&gt;</span>off<span class="nt">&lt;/SPA&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;SSL&gt;</span>on<span class="nt">&lt;/SSL&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;AuthRequired&gt;</span>on<span class="nt">&lt;/AuthRequired&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;UsePOPAuth&gt;</span>off<span class="nt">&lt;/UsePOPAuth&gt;</span>
-</span><span class='line'>                <span class="nt">&lt;SMTPLast&gt;</span>off<span class="nt">&lt;/SMTPLast&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;/Protocol&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;/Account&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/Response&gt;</span>
-</span><span class='line'><span class="nt">&lt;/Autodiscover&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">autodiscover.xml</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;Autodiscover</span> <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/exchange/autodiscover/responseschema/2006&quot;</span><span class="nt">&gt;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nt">&lt;Response</span> <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/exchange/autodiscover/outlook/responseschema/2006a&quot;</span><span class="nt">&gt;</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;Account&gt;</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;AccountType&gt;</span>email<span class="nt">&lt;/AccountType&gt;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;Action&gt;</span>settings<span class="nt">&lt;/Action&gt;</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;Protocol&gt;</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;Type&gt;</span>POP3<span class="nt">&lt;/Type&gt;</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;Server&gt;</span>mail.mydomain.com<span class="nt">&lt;/Server&gt;</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;Port&gt;</span>995<span class="nt">&lt;/Port&gt;</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;DomainRequired&gt;</span>on<span class="nt">&lt;/DomainRequired&gt;</span>
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;SPA&gt;</span>off<span class="nt">&lt;/SPA&gt;</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;SSL&gt;</span>on<span class="nt">&lt;/SSL&gt;</span>
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;AuthRequired&gt;</span>on<span class="nt">&lt;/AuthRequired&gt;</span>
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;/Protocol&gt;</span>
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;Protocol&gt;</span>
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;Type&gt;</span>IMAP<span class="nt">&lt;/Type&gt;</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;Server&gt;</span>mail.mydomain.com<span class="nt">&lt;/Server&gt;</span>
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;Port&gt;</span>993<span class="nt">&lt;/Port&gt;</span>
+</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;DomainRequired&gt;</span>on<span class="nt">&lt;/DomainRequired&gt;</span>
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;SPA&gt;</span>off<span class="nt">&lt;/SPA&gt;</span>
+</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;SSL&gt;</span>on<span class="nt">&lt;/SSL&gt;</span>
+</div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;AuthRequired&gt;</span>on<span class="nt">&lt;/AuthRequired&gt;</span>
+</div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;/Protocol&gt;</span>
+</div></div><div data-line="25" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;Protocol&gt;</span>
+</div></div><div data-line="26" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;Type&gt;</span>SMTP<span class="nt">&lt;/Type&gt;</span>
+</div></div><div data-line="27" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;Server&gt;</span>mail.mydomain.com<span class="nt">&lt;/Server&gt;</span>
+</div></div><div data-line="28" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;Port&gt;</span>587<span class="nt">&lt;/Port&gt;</span>
+</div></div><div data-line="29" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;DomainRequired&gt;</span>on<span class="nt">&lt;/DomainRequired&gt;</span>
+</div></div><div data-line="30" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;SPA&gt;</span>off<span class="nt">&lt;/SPA&gt;</span>
+</div></div><div data-line="31" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;SSL&gt;</span>on<span class="nt">&lt;/SSL&gt;</span>
+</div></div><div data-line="32" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;AuthRequired&gt;</span>on<span class="nt">&lt;/AuthRequired&gt;</span>
+</div></div><div data-line="33" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;UsePOPAuth&gt;</span>off<span class="nt">&lt;/UsePOPAuth&gt;</span>
+</div></div><div data-line="34" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;SMTPLast&gt;</span>off<span class="nt">&lt;/SMTPLast&gt;</span>
+</div></div><div data-line="35" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;/Protocol&gt;</span>
+</div></div><div data-line="36" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;/Account&gt;</span>
+</div></div><div data-line="37" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nt">&lt;/Response&gt;</span>
+</div></div><div data-line="38" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;/Autodiscover&gt;</span></div></div></pre></div></figure>
 
 <p>And again, if your email domain differs from server domain, add proper redirect:</p>
 
-<figure class='code'><figcaption><span>/etc/nginx.conf </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>server <span class="o">{</span>
-</span><span class='line'>    server_name autodiscover.myotherdomain.com;
-</span><span class='line'>    rewrite ^.* https://mydomain.com/autodiscover.xml permanent;
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/nginx.conf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">server <span class="o">&#x7b;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">    server_name autodiscover.myotherdomain.com<span class="p">;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    rewrite ^.* https://mydomain.com/autodiscover.xml permanent<span class="p">;</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">&#x7d;</span></div></div></pre></div></figure>
 
+<p>And that’s it! Enjoy your new, shiny, auto-configuring E-mail!</p>
 
-<p>And that&rsquo;s it! Enjoy your new, shiny, auto-configuring E-mail!</p>
-
-<h3>Sources</h3>
+<h3 id="sources">Sources</h3>
 
 <ul>
-<li><a href="bugtracker.ispconfig.org/index.php?do=details&amp;task_id=2152">bugtracker.ispconfig.org/index.php?do=details&amp;task_id=2152</a></li>
+  <li><a href="bugtracker.ispconfig.org/index.php?do=details&amp;task_id=2152">bugtracker.ispconfig.org/index.php?do=details&amp;task_id=2152</a></li>
 </ul>
 
-
-    </div>
-  </div>
-
-
-
-  <footer>
-    <hr>
-    
-    <div class="row-fluid">
-      
-      <div class="span6">
-        <p class="meta">
-        
-        
-
-
-
-  <a href="/blog/categories/Administration/"><span class="badge">Administration</span></a>
-
-
-
-
-        </p>
-      </div>
-      
-      <div class="span6 social-sharing">
-        <div class="sharing">
-  <div class="addthis_toolbox addthis_default_style ">
-  
-  
-  <a class="addthis_button_tweet"></a>
-  
-  
-  <a class="addthis_counter addthis_pill_style"></a>
-  </div>
-  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
-</div>
-
-      </div>
-      
-      
-    </div>
-    
-    <div class="row-fluid">
-      <div class="span12">
-        <p class="meta">
-          
-            <a class="basic-alignment left" href="/blog/2013/04/14/setting-encrypted-backup-email-server/" title="Previous Post: Setting encrypted backup Email server">&laquo; Setting encrypted backup Email server</a>
-          
-          
-            <a class="basic-alignment right" href="/blog/2013/11/13/25-awesome-tools-every-developer-should-have/" title="Next Post: 25 awesome tools every developer should have">25 awesome tools every developer should have &raquo;</a>
-          
-        </p>
-      </div>
-    </div>
-  </footer>
-</article>
-
-</div>
-
-
-
         </div>
-      </div>
-      <div class="row-fluid">
-        <footer class="footer-page" role="contentinfo">
-          <p>
-  Copyright &copy; 2015 - Igor Rzegocki -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span> - Theme by <a href="http://alexgaribay.com">Alex Garibay</a>. Previous version of the site, available <a href="/v2">here</a>.
-</p>
+
+        <div id="disqus_thread" class="comments-disqus"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES * * */
+            var disqus_shortname = 'ajgon';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
 
-        </footer>
-      </div>
+    </div>
+</div>
+
+
+        <footer class="mdl-mega-footer">
+  <div class="mdl-mega-footer__top-section mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col">
+      <h5 class="headline">Recent Tweets</h1>
+      <ul class="mdl-mega-footer--link-list mdl-mega-footer--left-align" id="recent-tweets">
+        Loading tweets...
+      </ul>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+      <h5 class="headline">Connect</h6>
+      
+        
+          <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" href="https://github.com/ajgon" id="connect_Q" target="_blank">
+            <i class="material-icons socicon">Q</i>
+          </a>
+          <div for="connect_Q" class="mdl-tooltip">GitHub</div>
+        
+      
+        
+          <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" href="https://linkedin.com/in/ajgon" id="connect_j" target="_blank">
+            <i class="material-icons socicon">j</i>
+          </a>
+          <div for="connect_j" class="mdl-tooltip">LinkedIN</div>
+        
+      
+        
+          <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" href="https://twitter.com/ajgon" id="connect_a" target="_blank">
+            <i class="material-icons socicon">a</i>
+          </a>
+          <div for="connect_a" class="mdl-tooltip">Twitter</div>
+        
+      
+        
+          <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" href="https://facebook.com/7d7cdc4a42dd7aa15f891c7314db770a02efe0e7" id="connect_b" target="_blank">
+            <i class="material-icons socicon">b</i>
+          </a>
+          <div for="connect_b" class="mdl-tooltip">Facebook</div>
+        
+      
+        
+      
+        
+          <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" href="/public-key.txt" id="connect_vpn_key" target="_blank">
+            <i class="material-icons">vpn_key</i>
+          </a>
+          <div for="connect_vpn_key" class="mdl-tooltip">GPG Key</div>
+        
+      
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+      <h5 class="headline">Contact</h5>
+      <ul class="mdl-mega-footer--link-list">
+        <li>
+          Mail:
+          <script><!--
+            document.write('<a href="mai');
+            document.write('lto');
+            document.write(':&#105;&#103;&#111;&#114;');
+            document.write('@');
+            document.write('&#114;&#122;&#101;&#103;&#111;&#99;&#107;&#105;&#46;&#112;&#108;">');
+            document.write('&#105;&#103;&#111;&#114;');
+            document.write('@');
+            document.write('&#114;&#122;&#101;&#103;&#111;&#99;&#107;&#105;&#46;&#112;&#108;<\/a>');
+          // --></script><noscript>:&#105;&#103;&#111;&#114; at
+&#114;&#122;&#101;&#103;&#111;&#99;&#107;&#105; dot &#112;&#108;</noscript>
+        </li>
+        <li>
+          Skype: <a href="skype:igor.rzegocki">igor.rzegocki</a>
+        </li>
+      </ul>
     </div>
   </div>
-  
+  <div class="mdl-mega-footer__bottom-section">
+    Copyright © 2015 - Igor Rzegocki - Powered by <a href="http://octopress.org/" target="_blank">Octopress</a>.
+    Previous version of the site, available <a href="/v3">here</a>.
+  </div>
+</footer>
+
+      </main>
+    </div>
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-65616575-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<script src="/js/lib/material.js"></script>
+<script src="/js/lib/jquery.js"></script>
+<script src="/js/main.js"></script>
 
 
 
+  </body>
 
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
-</body>
 </html>
