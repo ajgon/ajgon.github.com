@@ -642,16 +642,16 @@ social:
         icon_value: a
         name: Twitter
         url: https://twitter.com/ajgon
-    -
-        icon_class: material-icons socicon
-        icon_value: b
-        name: Facebook
-        url: https://facebook.com/7d7cdc4a42dd7aa15f891c7314db770a02efe0e7
-    -
-        icon_class: material-icons
-        icon_value: mail
-        name: E-Mail
-        url: mailto:igor@rzegocki.pl
+#    -
+#        icon_class: material-icons socicon
+#        icon_value: b
+#        name: Facebook
+#        url: https://facebook.com/7d7cdc4a42dd7aa15f891c7314db770a02efe0e7
+#    -
+#        icon_class: material-icons
+#        icon_value: mail
+#        name: E-Mail
+#        url: mailto:igor@rzegocki.pl
     -
         icon_class: material-icons
         icon_value: vpn_key
