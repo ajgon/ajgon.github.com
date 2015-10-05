@@ -6246,3 +6246,10 @@ body {
     margin-left: 10px; }
   .buttons-list .headline {
     margin: 0; }
+
+.avatars {
+  list-style: none;
+  text-align: center; }
+  .avatars li {
+    display: inline-block;
+    margin: 0 10px; }
