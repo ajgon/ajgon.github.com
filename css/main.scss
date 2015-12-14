@@ -349,3 +349,14 @@ body {
         margin: 0 10px;
     }
 }
+
+.post-container .mdl-card .meta + .mdl-card__supporting-text > * {
+    max-width: 640px;
+}
+
+.post-container .mdl-card .mdl-card__supporting-text strong {
+    font-weight: bold;
+    &.warning {
+        color: #c00;
+    }
+}
