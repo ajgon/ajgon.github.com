@@ -5,9 +5,380 @@
     <description>Personal webpage, online CV and blog.</description>
     <link>http://rzegocki.pl/</link>
     <atom:link href="http://rzegocki.pl/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 05 Oct 2015 21:34:22 +0200</pubDate>
-    <lastBuildDate>Mon, 05 Oct 2015 21:34:22 +0200</lastBuildDate>
+    <pubDate>Thu, 17 Dec 2015 18:52:41 +0100</pubDate>
+    <lastBuildDate>Thu, 17 Dec 2015 18:52:41 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Turn your Raspberry Pi to powerful HTPC with OSMC</title>
+        <description>&lt;p&gt;I am big fan of TV series. There were times (mostly in college), when I watched them almost continuously. Recently I got tired of Laptop screen, and moved to &lt;a href=&quot;http://www.samsung.com/uk/consumer/tv-audio-video/televisions/hd-tvs/UE32H5500AKXXU&quot;&gt;something bigger&lt;/a&gt;. I also had a spare Raspberry PI, so naturally the conslusion came - why not connect them together and create a genuine Mediacenter.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
+
+&lt;p&gt;If you plan to build a HTPC here are some general guidelines regarding hardware:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;make sure, that TV supports &lt;a href=&quot;https://en.wikipedia.org/wiki/HDMI#CEC&quot;&gt;HDMI CEC&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;you have a proper HDMI cable, with CEC pins&lt;/li&gt;
+  &lt;li&gt;if you plan to use WiFi on Raspberry, it’s a good idea to use dongle with external antenna, and 5GHz support (I strongly recommend &lt;a href=&quot;http://www.edimax.com/edimax/merchandise/merchandise_detail/data/edimax/global/wireless_adapters_ac600_dual-band/ew-7811uac&quot;&gt;this one&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;and last but not least, use a reliable power source for your PI (2A is a must)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Thanks to this setup, you should be able to enjoy a nice and smooth media experience :).&lt;/p&gt;
+
+&lt;h2 id=&quot;installing-osmc&quot;&gt;Installing OSMC&lt;/h2&gt;
+
+&lt;p&gt;But first things first, you need to install OSMC to a SD Card. This is the simplest part - just go to &lt;a href=&quot;https://osmc.tv/download/&quot;&gt;OSMC Downloads section&lt;/a&gt; and choose an installer for your operating system. Then just fire it up, and follow the instructions. The installator will ask you for (in order):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Language and device&lt;/li&gt;
+  &lt;li&gt;OSMC version (choose the most recent, obviously)&lt;/li&gt;
+  &lt;li&gt;Destination (SD card)&lt;/li&gt;
+  &lt;li&gt;Network configuration (if you’re using WiFi, it’s a good idea to pass your SSID/password here, this will allow to SSH to the machine after bootup, which can be lifesaver during troubleshooting)&lt;/li&gt;
+  &lt;li&gt;and last but not least, the device which you wish to install OSMC on (make sure it’s connected, and select it from the list)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;After successful installation, put the SD Card into your Raspberry, plug it in to the TV and boot it up. OSMC would finalize installation (which should take approx 5-10 mins) a greet you up, with the “First Launch Wizard”. Here you can set, the initial settings like: Language, Timezone, Hostname, accept the License Agreement, and choose the default skin (the rest of this guide, will relate to the default “OSMC” skin).&lt;/p&gt;
+
+&lt;h2 id=&quot;basic-extensions&quot;&gt;Basic extensions&lt;/h2&gt;
+
+&lt;p&gt;Guys from OSMC did a pretty decent job, and pre-installed a lot of useful ones already. However, there are some extra few, which I find pretty useful. I will describe each extension in sentence or two, note where can you find it in the settings, and provide settings which I use, and which you can base on as a good start.&lt;/p&gt;
+
+&lt;h3 id=&quot;kodi-file-cleaner&quot;&gt;Kodi File Cleaner&lt;/h3&gt;
+
+&lt;p&gt;This little fella, would remove any video files, which you already watched. If you don’t plan to use external HDD, and rely only on SD-Card - this could be a life saver.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Available in: Add-Ons =&amp;gt; Program =&amp;gt; Kodi File Cleaner&lt;/li&gt;
+  &lt;li&gt;Settings
+    &lt;ul&gt;
+      &lt;li&gt;Actions =&amp;gt; Cleaning type: Delete permanently&lt;/li&gt;
+      &lt;li&gt;Actions =&amp;gt; Clean movies: true&lt;/li&gt;
+      &lt;li&gt;Actions =&amp;gt; Clean TV shows: true&lt;/li&gt;
+      &lt;li&gt;Actions =&amp;gt; Also delete empty folders: true&lt;/li&gt;
+      &lt;li&gt;Actions =&amp;gt; Also clean related files with similar names (e.g. subtitles): true&lt;/li&gt;
+      &lt;li&gt;Frequency =&amp;gt; Run as a service: true&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;super-favourites&quot;&gt;Super Favourites&lt;/h3&gt;
+
+&lt;p&gt;I like this one, mostly for its ability of importing/exporting Kodi favorites. Also, if you tend to favorite remote source like YouTube Channels (I often do) - this one would refresh them, every time they are accessed. Internal Kodi Favorites, has problems with that.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Available in: Add-Ons =&amp;gt; Program =&amp;gt; Super Favourites&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;subtitles&quot;&gt;Subtitles&lt;/h3&gt;
+
+&lt;p&gt;No rocket-science here, &lt;code&gt;OpenSubtitles.org&lt;/code&gt; in my opinion is a must. As a Pole, I also use and recommend the &lt;code&gt;Napiprojekt.pl&lt;/code&gt;, but bear in mind, that this contain polish subtitles only.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Available in: Add-Ons =&amp;gt; Subtitles =&amp;gt; Napiprojekt.pl&lt;/li&gt;
+  &lt;li&gt;Available in: Add-Ons =&amp;gt; Subtitles =&amp;gt; OpenSubtitles.org&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;watchdog&quot;&gt;Watchdog&lt;/h3&gt;
+
+&lt;p&gt;Very useful addon. It scans your library directories for new videos, and adds them automatically to library. Life-saver if you have some scripts which downloads TV Series automatically.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Available in: Add-Ons =&amp;gt; Services =&amp;gt; Watchdog
+    &lt;ul&gt;
+      &lt;li&gt;General =&amp;gt; Remove from library when files are removed: true&lt;/li&gt;
+      &lt;li&gt;General =&amp;gt; Clean on startup: true&lt;/li&gt;
+      &lt;li&gt;General =&amp;gt; Scan on startup: true&lt;/li&gt;
+      &lt;li&gt;Advanced =&amp;gt; Method for local sources: Polling (if you use some network file system like SMB or NFS) or Auto (if you store files locally)&lt;/li&gt;
+      &lt;li&gt;Advanced =&amp;gt; Removal method: Remove the deleted video only&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;youtube-vimeo-etc&quot;&gt;YouTube, Vimeo etc.&lt;/h3&gt;
+
+&lt;p&gt;Also no-brainers, and selection is a matter of your taste. Personally I only use the YouTube and TED Talks.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Available in: Add-Ons =&amp;gt; Video add-ons =&amp;gt; Ted Talks&lt;/li&gt;
+  &lt;li&gt;Available in: Add-Ons =&amp;gt; Video add-ons =&amp;gt; Vimeo&lt;/li&gt;
+  &lt;li&gt;Available in: Add-Ons =&amp;gt; Video add-ons =&amp;gt; YouTube&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;settings&quot;&gt;Settings&lt;/h2&gt;
+
+&lt;p&gt;After installation of basic extensions, it’s a good idea to tune up some settings. First of all - set the panels, to “Expert” mode. Then, set them up, as you prefer. Below, is a short list of options, which I usually change:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Apperance =&amp;gt; Skin =&amp;gt; GUI sounds: Skin built-in&lt;/li&gt;
+  &lt;li&gt;Apperance =&amp;gt; International =&amp;gt; Region: Central Europe&lt;/li&gt;
+  &lt;li&gt;Apperance =&amp;gt; File lists =&amp;gt; Allow file renaming and deletion: true&lt;/li&gt;
+  &lt;li&gt;Video =&amp;gt; Library =&amp;gt; Select first unwatched TV show season / episode: Always&lt;/li&gt;
+  &lt;li&gt;Video =&amp;gt; Library =&amp;gt; Update library on startup: true&lt;/li&gt;
+  &lt;li&gt;Video =&amp;gt; Playback =&amp;gt; Play next video automatically: true&lt;/li&gt;
+  &lt;li&gt;Video =&amp;gt; Acceleration =&amp;gt; Allow hardware acceleration - OMX: true&lt;/li&gt;
+  &lt;li&gt;Video =&amp;gt; Subtiltes =&amp;gt; Preferred subtitle language: Polish&lt;/li&gt;
+  &lt;li&gt;Video =&amp;gt; Subtitles =&amp;gt; Font to user for text subtitles =&amp;gt; Character set: Central Europe (Windows)&lt;/li&gt;
+  &lt;li&gt;Video =&amp;gt; Subtitles =&amp;gt; Languages to download subtitles for: English, Polish&lt;/li&gt;
+  &lt;li&gt;Video =&amp;gt; Subtitles =&amp;gt; Default TV show service: Napiprojekt.pl&lt;/li&gt;
+  &lt;li&gt;Video =&amp;gt; Subtitles =&amp;gt; Default movie service: Opensubtitles.org&lt;/li&gt;
+  &lt;li&gt;System =&amp;gt; Input devices =&amp;gt; Peripherals =&amp;gt; CEC Adapter =&amp;gt; Pause playback when switching to another source&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;configuring-the-remote-control&quot;&gt;Configuring the Remote Control&lt;/h2&gt;
+
+&lt;p&gt;If you have proper HDMI cable, and TV supporting CEC, your remote should “just work” with the OSMC. However, it’s very unlikely that you’ll be happy with default configuration. For example, in my case - the “Back” button was displaying context menu, instead of going back. To fix this, first thing you need to find out, is what each button on the remote maps to in Kodi. There is a &lt;a href=&quot;http://forum.kodi.tv/showthread.php?tid=139145&amp;amp;pid=1285390#pid1285390&quot;&gt;great thread&lt;/a&gt; providing step-by-step instruction, but in a nutsheel, you need to SSH to your OSMC machine, and create a &lt;code&gt;.kodi/userdata/keymaps/remote.xml&lt;/code&gt; with &lt;a href=&quot;https://gist.github.com/ajgon/59a73b8b8e236e30ab33&quot;&gt;given contents&lt;/a&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC Machine&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;curl -o ~/.kodi/userdata/keymaps/remote.xml https://gist.githubusercontent.com/ajgon/59a73b8b8e236e30ab33/raw/d9fbf3c20edbff85d71b99b47d202d8a0ab1a8d9/remote.xml&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;p&gt;After that, restart OSMC, and click every button on your remote. They shouldn’t do anything, except displaying a notification with the button name in Kodi. Note them down, you would need them in a second.&lt;/p&gt;
+
+&lt;p&gt;Next copy the default &lt;code&gt;remote.xml&lt;/code&gt; file over the current one, and start configuriation!:&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC Machine&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;cp /usr/share/kodi/system/keymaps/remote.xml ~/.kodi/userdata/keymaps/remote.xml&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;p&gt;The file is pretty self-explanatory. The XML node name, is they key name you noted minute ago, and the value is either &lt;a href=&quot;http://kodi.wiki/view/Action_IDs&quot;&gt;Kodi Action&lt;/a&gt; or &lt;a href=&quot;http://kodi.wiki/view/List_of_built-in_functions&quot;&gt;Kodi Function&lt;/a&gt;. For the reference, you &lt;a href=&quot;https://gist.github.com/ajgon/17e7553a599669f39694/revisions?diff=split&quot;&gt;can check the diff&lt;/a&gt; between my config (for Samsung Remote) and default one.&lt;/p&gt;
+
+&lt;h2 id=&quot;osd-auto-hide&quot;&gt;OSD Auto-hide&lt;/h2&gt;
+
+&lt;p&gt;Discovering that, was a big suprise for me. At the time of writing this post, there is no easy way, to auto-hide OSD. When you display it - it will remain on screen until you “unclick” it away. However, you can make this happen with a little hack.&lt;/p&gt;
+
+&lt;p&gt;First of all, you need to download and install, a Titan skin helper service - either from &lt;a href=&quot;http://kodi.wiki/view/Add-on:Titan_skin_helper_service&quot;&gt;Kodi Repository&lt;/a&gt; or from its &lt;a href=&quot;https://github.com/marcelveldt/script.skin.helper.service/releases&quot;&gt;GitHub Page&lt;/a&gt;. This neat tool adds many extra options for skin makers, and one of them is &lt;a href=&quot;https://github.com/marcelveldt/script.skin.helper.service/blob/master/resources/lib/ListItemMonitor.py#L81&quot;&gt;AutoCloseVideoOSD property&lt;/a&gt;. All you need to do, is to add it to the current skin. If you’re using OSMC Skin, the easiest way, is to edit it’s &lt;code&gt;Startup.xml&lt;/code&gt; file, and add it as &lt;code&gt;&amp;lt;onload&amp;gt;&lt;/code&gt; property.&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC Machine&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;sed -i&lt;span class=&quot;s1&quot;&gt;&amp;#39;~&amp;#39;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;s@&amp;lt;/window&amp;gt;@        &amp;lt;onload&amp;gt;Skin.SetString(SkinHelper.AutoCloseVideoOSD, 4)&amp;lt;/onload&amp;gt;\n&amp;lt;/window&amp;gt;@&amp;#39;&lt;/span&gt; /usr/share/kodi/addons/skin.osmc/16x9/Startup.xml&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;p&gt;where &lt;code&gt;4&lt;/code&gt; is time in seconds, you wish to OSD appear on screen, before disappearing.&lt;/p&gt;
+
+&lt;h2 id=&quot;buffering&quot;&gt;Buffering&lt;/h2&gt;
+
+&lt;p&gt;If you plan, to use some remote data-storage (NAS, another Pi with HDD or any tool involving remote file system), it’s a good idea to increase buffer size of the video player. Don’t set it too large though, since it will occupy &lt;a href=&quot;http://kodi.wiki/view/HOW-TO:Modify_the_video_cache&quot;&gt;3 times more RAM than the value set&lt;/a&gt; (so if you set it to 100M, it will occupy 300M of RAM, etc.). For Raspberry Pi 2 with its 1GB RAM, a safe value is approx. 150MB. And it should be more than sufficient even for 1080p videos. Increasing buffer size, is quite simple - just create a &lt;code&gt;.kodi/userdata/advancedsettings.xml&lt;/code&gt; file on your OSMC, and fill it as below (altering &lt;code&gt;cachemembuffersize&lt;/code&gt; to your needs).&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC: .kodi/userdata/advancedsettings.xml&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;advancedsettings&amp;gt;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;network&amp;gt;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;3&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;buffermode&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/buffermode&amp;gt;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;4&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;cachemembuffersize&amp;gt;&lt;/span&gt;157286400&lt;span class=&quot;nt&quot;&gt;&amp;lt;/cachemembuffersize&amp;gt;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;5&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;readbufferfactor&amp;gt;&lt;/span&gt;10&lt;span class=&quot;nt&quot;&gt;&amp;lt;/readbufferfactor&amp;gt;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;6&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/network&amp;gt;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;7&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/advancedsettings&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;stop-video-play-when-tv-is-turned-off&quot;&gt;Stop video play, when TV is turned off&lt;/h2&gt;
+
+&lt;p&gt;Another feature which is not available in Kodi. You can either shutdown or suspend (not possible on Pi) your machine. You can’t just stop video and leave machine “as is”. Unfortunatelly, there is no easy fix, without recompiling half of the Kodi, so the only acceptable solution I found out, is to ping my SmartTV, and see when it sleeps (which meangs, it would stop sending ping response). I’m aware that this solution isn’t perfect, but it’s the best I have at the moment.&lt;/p&gt;
+
+&lt;p&gt;Whole idea is actually pretty simple, just create a script &lt;code&gt;/usr/local/bin/ping-tv.sh&lt;/code&gt; and fill with content below (don’t forget to put your TV IP there).&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC:&amp;nbsp;/usr/local/bin/ping-tv.sh&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nv&quot;&gt;TVIP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;IP of your TV&amp;gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;3&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt; &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;4&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nv&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt; ping -c &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; -W &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$TVIP&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; grep from* &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; wc -l &lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;5&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nv&quot;&gt;tvon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt; cat /tmp/tvon &lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;6&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt; &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;7&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$count&lt;/span&gt; -eq &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;8&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$tvon&lt;/span&gt; -eq &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;9&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;        xbmc-send -a &lt;span class=&quot;s1&quot;&gt;&amp;#39;PlayerControl(Stop)&amp;#39;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;10&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;11&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -n &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &amp;gt; /tmp/tvon
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;12&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;13&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -n &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &amp;gt; /tmp/tvon
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;14&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now, all its left is adding this script to the cron, Unfortunatelly, cron cannot launch tasks more often, than a minute, and losing up to a minute for script to actually notice, that TV is switched off is unacceptable. However, there is another neat trick under my sleeve - using &lt;code&gt;sleep&lt;/code&gt;. So fire up &lt;code&gt;crontab -e&lt;/code&gt; and fill it with:&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC: crontab -e&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;* * * * * /usr/local/bin/ping-tv.sh
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;* * * * * sleep &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; /usr/local/bin/ping-tv.sh
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;3&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;* * * * * sleep &lt;span class=&quot;m&quot;&gt;20&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; /usr/local/bin/ping-tv.sh
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;4&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;* * * * * sleep &lt;span class=&quot;m&quot;&gt;30&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; /usr/local/bin/ping-tv.sh
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;5&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;* * * * * sleep &lt;span class=&quot;m&quot;&gt;40&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; /usr/local/bin/ping-tv.sh
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;6&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;* * * * * sleep &lt;span class=&quot;m&quot;&gt;50&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; /usr/local/bin/ping-tv.sh&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;p&gt;This would force cron, to start 6 processes, each one waiting different time, before actually pinging the TV. In the end, the maximum waiting time would be shorten to 10 seconds, which is acceptable in my opinion (you can always add more entries following that pattern).&lt;/p&gt;
+
+&lt;h2 id=&quot;tv-shows&quot;&gt;TV Shows&lt;/h2&gt;
+
+&lt;p&gt;Ok, let’s make it perfectly clear - I’m not responsible if DEA, FBI, KGB or HGW knock to your door one day. &lt;strong class=&quot;warning&quot;&gt;This is for informational purposes only&lt;/strong&gt;. If your country provides a legal alternative like Hulu or Netflix, you should definitely consider it. If not (or you don’t care), continue reading.&lt;/p&gt;
+
+&lt;p&gt;The simplest approach, is just manually installing torrent client, and download desired shows, as they premiere. But what if I told you that you can automate this process, to the level where all new shows gets downloaded and categorized automatically, gets their subtitles downloaded and finally, they’re added to the Kodi Library? And all of that wihout single click (after some configuration of course)?&lt;/p&gt;
+
+&lt;p&gt;Interested? Continue… :)&lt;/p&gt;
+
+&lt;h3 id=&quot;transmission&quot;&gt;Transmission&lt;/h3&gt;
+
+&lt;p&gt;First thing you need is a torrent client. I strongly recommend &lt;a href=&quot;http://www.transmissionbt.com/&quot;&gt;Transmission&lt;/a&gt; since it does its job pretty well, and provides a nice web interface. Since we don’t need GUI, we can narrow down the installotion to three packages:&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC root&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;apt-get install transmission-cli transmission-common transmission-daemon&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;p&gt;If you like, you can also install Kodi Transmission Add-On (under: Add-Ons =&amp;gt; Program =&amp;gt; Transmission), which will provide you a very basic GUI directly from Kodi interface.&lt;/p&gt;
+
+&lt;p&gt;Next you need to do the configuration. All options are stored in &lt;code&gt;/etc/transmission-daemon/settings.json&lt;/code&gt;. Since, those settings are very individual, I won’t provide any examples, instead direct you to &lt;a href=&quot;https://trac.transmissionbt.com/wiki/EditConfigFiles&quot;&gt;Transmission settings.json file documenatation&lt;/a&gt;. When you finish them up, &lt;strong&gt;don’t restart the daemon&lt;/strong&gt;! You will lose all the changes (don’t ask), instead run:&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC root&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;invoke-rc.d transmission-daemon reload&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;rss-feed&quot;&gt;RSS Feed&lt;/h3&gt;
+
+&lt;p&gt;First thing you need, is the data source of new premieres. The easiest solution is an RSS channel - in this example I will use &lt;a href=&quot;http://showrss.info/&quot;&gt;showrss.info&lt;/a&gt;, since they’re doing exactly that.&lt;/p&gt;
+
+&lt;p&gt;Whole process is rather simple - create an account, add all the shows you wish to be noted on, and create a feed URL on &lt;a href=&quot;http://showrss.info/?cs=feeds&quot;&gt;Feeds&lt;/a&gt; page. Put this URL somewhere, you will need it in a minute.&lt;/p&gt;
+
+&lt;h3 id=&quot;subliminal&quot;&gt;Subliminal&lt;/h3&gt;
+
+&lt;p&gt;Next thing, is some tool which will download subtitles for you. I strongly recommend &lt;a href=&quot;http://subliminal.readthedocs.org/en/latest/&quot;&gt;Subliminal&lt;/a&gt;, since it’s easy to use, and supports many providers.&lt;/p&gt;
+
+&lt;p&gt;Subliminal is a python package. However OSMC doesn’t come with any python package managing tool (which is understandable). The easiest to use is &lt;a href=&quot;https://pip.pypa.io/en/stable/&quot;&gt;pip&lt;/a&gt;. So let’s install it:&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC root&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;apt-get install python-pip&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;p&gt;Next install latest stable version of subliminal. Do it from &lt;code&gt;osmc&lt;/code&gt; user, not from &lt;code&gt;root&lt;/code&gt;! There is no need for polluting the systemspace, and thanks to that all the files will be stored in one, easy-to-wipe-out directory.&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC osmc user&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;pip install --user subliminal&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;p&gt;Also local user space, means that you need to add its path to your &lt;code&gt;$PATH&lt;/code&gt; env.&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC osmc user&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;export PATH=&amp;quot;$HOME/.local/bin:$PATH&amp;quot;&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/.bashrc&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;p&gt;If you don’t want to use &lt;code&gt;napiprojekt&lt;/code&gt; provider, you’re done. If you do, read next section.&lt;/p&gt;
+
+&lt;h4 id=&quot;subliminal---napiprojekt&quot;&gt;Subliminal - napiprojekt&lt;/h4&gt;
+
+&lt;p&gt;At the time of writing this article, napiprojekt support for subliminal was in beta stage, and was not included in pip repository. The easiest way to check, if napiprojekt is enabled, is check the list of supported providers:&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC osmc user&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;subliminal download --help &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; grep provider
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;c&quot;&gt;#  -p, --provider [addic7ed|opensubtitles|podnapisi|thesubdb|tvsubtitles]&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;p&gt;If napiprojekt is listed, you can skip this step.&lt;/p&gt;
+
+&lt;p&gt;Otherwise download the freshest development version (if you don’t have a git, invoke &lt;code&gt;apt-get install git&lt;/code&gt; as root) and install it:&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC osmc user&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;git clone --depth&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; -b develop https://github.com/Diaoul/subliminal.git ~/subliminal
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/subliminal
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;3&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;python setup.py install --user
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;4&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;5&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;rm -rf ~/subliminal&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now napiprojekt should display:&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC osmc user&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;subliminal download --help &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; grep provider
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;c&quot;&gt;#  -p, --provider [addic7ed|napiprojekt|opensubtitles|podnapisi|thesubdb|tvsubtitles]&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;flexget&quot;&gt;FlexGet&lt;/h3&gt;
+
+&lt;p&gt;And now, the biggest star, a tool which glue all this stuff together: &lt;a href=&quot;http://flexget.com/&quot;&gt;FlexGet&lt;/a&gt;. This tool, when properly configured, will parse showrss.info RSS feed, add all new shows to the transmission queue, after download move them to proper directory, and finally fetch subtitles. It will also keep and eye on shows which does not have subtitles when downloaded (very common situation, for freshest episodes), and try to fetch them when they appear.&lt;/p&gt;
+
+&lt;h4 id=&quot;flexget---installation&quot;&gt;FlexGet - Installation&lt;/h4&gt;
+
+&lt;p&gt;No rocket science here (remember - &lt;code&gt;osmc&lt;/code&gt; user, not &lt;code&gt;root&lt;/code&gt;):&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC osmc user&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;pip install --user flexget
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;pip install --user transmissionrpc&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;p&gt;The second package is necessary for all FlexGet transmission-related plugins.&lt;/p&gt;
+
+&lt;h4 id=&quot;flexget---napiprojekt&quot;&gt;FlexGet - napiprojekt&lt;/h4&gt;
+
+&lt;p&gt;If you wish to use napiprojekt and &lt;a href=&quot;http://flexget.com/wiki/Plugins/subliminal&quot;&gt;subliminal plugin&lt;/a&gt;, you need to monkey patch it (however, you can safely skip this step, despite the fact you will use subliminal - see below). Also before applying the patch, check the &lt;code&gt;PROVIDERS&lt;/code&gt; constant in &lt;code&gt;~/.local/lib/python2.7/site-packages/flexget/plugins/output/subtitles_subliminal.py&lt;/code&gt; file. At the time of writing this article, &lt;code&gt;napiprojekt&lt;/code&gt; wasn’t there, but this might changed. If it’s absent, do:&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC osmc user&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;sed -i&lt;span class=&quot;s1&quot;&gt;&amp;#39;~&amp;#39;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;s@&amp;#39;opensubtitles&amp;#39;,@&amp;#39;opensubtitles&amp;#39;,\n    &amp;#39;napiprojekt&amp;#39;,@&amp;quot;&lt;/span&gt; ~/.local/lib/python2.7/site-packages/flexget/plugins/output/subtitles_subliminal.py&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;flexget---configuration&quot;&gt;FlexGet - configuration&lt;/h4&gt;
+
+&lt;p&gt;The most important step - we need to tell FlexGet what to do, what to fetch and where to put it. You should really, REALLY read the &lt;a href=&quot;http://flexget.com/wiki/Configuration&quot;&gt;FlexGet Configuration documenatation&lt;/a&gt; so you know what you’re doing. After that, you can use this template as a good start (put it to &lt;code&gt;~/.flexget/config.yml&lt;/code&gt;):&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;~/.flexget/config.yml&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;download-tv-shows&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;3&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;priority&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;10&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;4&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;rss&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;5&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;&amp;lt;showrss_url&amp;gt;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;6&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;all_series&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;7&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;transmission&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;8&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;localhost&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;9&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;9091&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;10&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;&amp;lt;transmission_username&amp;gt;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;11&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;&amp;lt;transmission_password&amp;gt;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;12&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;main_file_only&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;13&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;download&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;&amp;lt;finished_downloads_path&amp;gt;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;14&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;sort-tv-shows&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;15&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;priority&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;20&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;16&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;disable&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;17&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;retry_failed&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;18&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;metainfo_series&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;19&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;thetvdb_lookup&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;20&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;require_field&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p-Indicator&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;series_name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;series_id&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;series_season&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;tvdb_series_name&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;]&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;21&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;22&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;&amp;lt;finished_downloads_path&amp;gt;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;23&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;regexp&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;.*\.(avi|mkv|mp4)$&amp;#39;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;24&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;recursive&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;25&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;accept_all&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;26&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;exists_series&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;&amp;lt;tv_shows_path&amp;gt;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;27&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;move&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;28&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;lt;tv_shows_path&amp;gt;/&amp;quot;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;29&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;.&amp;quot;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;30&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;along&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;31&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;        &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;srt&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;32&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;download-subtitles&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;33&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;priority&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;30&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;34&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;filesystem&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;/etc/gss/mech.d/&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;35&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;disable&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;36&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;seen&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;37&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;accept_all&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;38&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;exec&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;39&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;ls -1R &amp;quot;&amp;lt;tv_shows_path&amp;gt;&amp;quot; | grep &amp;#39;\.S0&amp;#39; | sed -r &amp;#39;s@(\.pl)?\....$@@g&amp;#39; | sort | uniq -c | grep &amp;#39;^\s*1&amp;#39; | sed &amp;#39;s@^\s*1\s*@@g&amp;#39; | awk -F# &amp;#39;&amp;#x7b; print &amp;quot;find \&amp;quot;&amp;lt;tv_shows_path&amp;gt;\&amp;quot; -name \&amp;quot;&amp;quot; $1 &amp;quot;\&amp;quot;*&amp;quot; &amp;#x7d;&amp;#39; &amp;gt; /tmp/go&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;40&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;chmod +x /tmp/go&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;41&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;/tmp/go | awk -F&amp;quot;###&amp;quot; &amp;#39;&amp;#x7b; print &amp;quot;\&amp;quot;&amp;quot; $1 &amp;quot;\&amp;quot;&amp;quot; &amp;#x7d;&amp;#39; | tr &amp;#39;\n&amp;#39; &amp;#39; &amp;#39; | xargs /home/osmc/.local/bin/subliminal download -l pl -p napiprojekt -p opensubtitles&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;42&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;clean-up&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;43&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;priority&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;40&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;44&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;no_entries_ok&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;yes&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;45&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;clean_transmission&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;46&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;localhost&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;47&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;9091&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;48&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;&amp;lt;transmission_username&amp;gt;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;49&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;&amp;lt;transmission_password&amp;gt;&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;50&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;min_ratio&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;0&lt;/span&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;51&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;finished_for&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;1 hours&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;showrss_url&lt;/em&gt; - the URL to your ShowRSS feed&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;finished_downloads_path&lt;/em&gt; - is the path, where files finished by transmission would land.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;tv_shows_path&lt;/em&gt; - is the path, where files processed by FlexGet would be moved&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;transmission_username&lt;/em&gt;, &lt;em&gt;transmission_password&lt;/em&gt; - pretty self-explanatory&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So what this scripts does?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;download-tv-shows&lt;/code&gt; - checks ShowRSS feed for new shows, and if found - adds them to tranmission.&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;sort-tv-shows&lt;/code&gt; - checks transmission downloads directory for new shows. If found, moves them to tv shows directory, and tries to determine proper show and episode name in file path. So &lt;code&gt;GreatShow.S01E03.720p.h264.PROPER.mkv&lt;/code&gt; from tranmission downloads would become &lt;code&gt;GreatShow/GreatShow.S01E03 - Episode Name.mkv&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;download-subtitles&lt;/code&gt; - this task is pretty bizzare, I can tell. I tried to use &lt;a href=&quot;http://flexget.com/wiki/Plugins/subliminal&quot;&gt;subliminal plugin&lt;/a&gt; for this example, however it never worked as expected. Instead, I used the bash script, which looks for all files without corresponding &lt;code&gt;*.srt&lt;/code&gt;s and fires subliminal on them.&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;clean-up&lt;/code&gt; - pretty obvious - clean transmission queue, when file is processed.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;flexget---cron&quot;&gt;FlexGet - cron&lt;/h4&gt;
+
+&lt;p&gt;FlexGet itself is not a service, it needs to be run periodically. Thankfully this can be solved with a single line in crontab.&lt;/p&gt;
+
+&lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC user: crontab -e&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;*/30 * * * * /home/osmc/.local/bin/flexget --cron execute&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;p&gt;I think 30-minutes is a very safe time-window - Your FlexGet scripts shouldn’t overlap.&lt;/p&gt;
+
+&lt;h2 id=&quot;pulsar&quot;&gt;Pulsar&lt;/h2&gt;
+
+&lt;p&gt;Again, remember &lt;strong class=&quot;warning&quot;&gt;this is for informational purposes only&lt;/strong&gt;. I strongly encourage you, to obtain all the videos you wish to watch, using legal sources.&lt;/p&gt;
+
+&lt;p&gt;Pulsar is a video add-on, which allows torrent streaming. Remember &lt;a href=&quot;http://popcorn-time.se/&quot;&gt;PopCorn time&lt;/a&gt;? This is something similar, but for Kodi.&lt;/p&gt;
+
+&lt;p&gt;First things first, you would need &lt;a href=&quot;http://sourceforge.net/projects/icanuckxbmcrepo/files/repository.pulsarunofficial-1.0.1.zip/download&quot;&gt;Unofficial Pulsar Repository&lt;/a&gt;. Download it, put into your OSMC, and &lt;code&gt;Install from ZIP File&lt;/code&gt;. The rest is pretty straightforward - navigate to &lt;em&gt;Add-ons =&amp;gt; Install from Repository** and choose *Pulsar Unofficial&lt;/em&gt;. From there, you need Pulsar (from &lt;em&gt;Video add-ons&lt;/em&gt; section), and providers (available under &lt;em&gt;Programs&lt;/em&gt;). Then you can add Pulsar, to your home screen using &lt;em&gt;Settings =&amp;gt; Apperance =&amp;gt; Skin =&amp;gt; Settings =&amp;gt; Home =&amp;gt; Customise Home Menu&lt;/em&gt; and voilla! Grab some pop-corn and enjoy!&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Phew! That was the long one! I’m aware, that some things are not as easy as they should be, but trust me - it’s worth the effort. Kodi can be a pretty powerful tool if you give it a chance, and in return it will pay you back with a Media Center, you will find hard to take your eyes off.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 10 Dec 2015 22:15:00 +0100</pubDate>
+        <link>http://rzegocki.pl/blog/2015/12/10/turn-your-raspberry-pi-to-powerful-htpc-with-osmc/</link>
+        <guid isPermaLink="true">http://rzegocki.pl/blog/2015/12/10/turn-your-raspberry-pi-to-powerful-htpc-with-osmc/</guid>
+        
+        
+        <category>lifehack</category>
+        
+      </item>
     
       <item>
         <title>Installing custom Linux on Raspberry&amp;nbsp;Pi&amp;nbsp;2</title>

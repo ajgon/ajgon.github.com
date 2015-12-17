@@ -6253,3 +6253,11 @@ body {
   .avatars li {
     display: inline-block;
     margin: 0 10px; }
+
+.post-container .mdl-card .meta + .mdl-card__supporting-text > * {
+  max-width: 640px; }
+
+.post-container .mdl-card .mdl-card__supporting-text strong {
+  font-weight: bold; }
+  .post-container .mdl-card .mdl-card__supporting-text strong.warning {
+    color: #c00; }
