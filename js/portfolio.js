@@ -73,8 +73,8 @@
         initOptions: function () {
             var self = this;
             this.optionsSetter.on('click', '.mdl-button', function (e) {
-                $(this).addClass('mdl-button--accent').siblings('.mdl-button').removeClass('mdl-button--accent');
                 var item = $(this).data('item');
+                $(this).addClass('mdl-button--accent').siblings('.mdl-button').removeClass('mdl-button--accent');
                 if (item === '*') {
                     self.container.isotope({filter: '*'});
                 } else {

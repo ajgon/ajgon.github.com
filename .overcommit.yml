@@ -2,14 +2,10 @@ PreCommit:
   ALL:
     on_warn: fail # Treat all warnings as failures
     exclude:
-      - '_site/**/*'
+      - 'v1/**/*'
+      - 'v2/**/*'
       - 'js/lib/**/*'
       - '_sass/lib/**/*'
-      - 'feed.xml'
-  AuthorEmail:
-    enabled: true
-  AuthorName:
-    enabled: true
   BrokenSymlinks:
     enabled: true
   BundleCheck:
@@ -21,6 +17,8 @@ PreCommit:
   HardTabs:
     enabled: true
     exclude:
+      - 'v1/**/*'
+      - 'v2/**/*'
       - '**/*.svg'
       - '**/*.json'
   ImageOptim:
@@ -39,17 +37,13 @@ PreCommit:
     enabled: true
   MergeConflicts:
     enabled: true
-  ScssLint:
-    enabled: true
   ShellCheck:
     enabled: true
   TrailingWhitespace:
     enabled: true
     exclude:
+      - 'v1/**/*'
+      - 'v2/**/*'
       - '**/*.svg'
-  XmlLint:
-    enabled: true
-  XmlSyntax:
-    enabled: true
   YamlSyntax:
     enabled: true

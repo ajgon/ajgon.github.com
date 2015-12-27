@@ -281,9 +281,13 @@ Now you can exit the chroot (and VM if you used it), and flash your SDCard. In O
 {% codeblock OSX Shell lang:sh %}
 diskutil list # Check for you SDCard disk number
 diskutil umountDisk /dev/diskX # Where X is a disc number
-sudo dd if=rpi.img of=/dev/diskX
+sudo dd if=rpi.img of=/dev/rdiskX
 diskutil eject /dev/diskX
 {% endcodeblock %}
+
+Notice, that for `dd` I'm using `/dev/rdiskX` instead of the `/dev/diskX`. It's because how OSX handles disk devices.
+[You can read more here](http://superuser.com/questions/631592/why-is-dev-rdisk-about-20-times-faster-than-dev-disk-in-mac-os-x)
+if you are intereseted.
 
 In Linux it's as simple as typing:
 
