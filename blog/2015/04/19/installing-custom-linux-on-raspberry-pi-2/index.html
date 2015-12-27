@@ -487,8 +487,12 @@ and be online.</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSX Shell</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">diskutil list <span class="c"># Check for you SDCard disk number</span>
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">diskutil umountDisk /dev/diskX <span class="c"># Where X is a disc number</span>
-</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">sudo dd <span class="k">if</span><span class="o">=</span>rpi.img <span class="nv">of</span><span class="o">=</span>/dev/diskX
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">sudo dd <span class="k">if</span><span class="o">=</span>rpi.img <span class="nv">of</span><span class="o">=</span>/dev/rdiskX
 </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">diskutil eject /dev/diskX</div></div></pre></div></figure>
+
+<p>Notice, that for <code>dd</code> I’m using <code>/dev/rdiskX</code> instead of the <code>/dev/diskX</code>. It’s because how OSX handles disk devices.
+<a href="http://superuser.com/questions/631592/why-is-dev-rdisk-about-20-times-faster-than-dev-disk-in-mac-os-x">You can read more here</a>
+if you are intereseted.</p>
 
 <p>In Linux it’s as simple as typing:</p>
 
