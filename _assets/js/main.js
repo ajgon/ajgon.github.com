@@ -1,3 +1,9 @@
+//= require lib/modernizr
+//= require lib/jquery
+//= require lib/material
+//= require lib/isotope
+//= require portfolio
+
 /* global jQuery: false */
 
 (function ($) {

@@ -122,7 +122,7 @@ address=/.dev/127.0.0.1
 Last thing left, is setting a nameserver to 127.0.0.1 in your Network prefpane,
 as shown below.
 
-![dnsmasq configuration](/images/upload/dnsmasq.png)
+![dnsmasq configuration]({% asset_path "upload/dnsmasq.png" %})
 
 From now on all *.dev domains will be translated to `127.0.0.1` and from there
 all `wp.dev` and `php.dev` domains will be handled by nginx. Good stuff.

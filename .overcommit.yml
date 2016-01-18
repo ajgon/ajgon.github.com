@@ -4,8 +4,7 @@ PreCommit:
     exclude:
       - 'v1/**/*'
       - 'v2/**/*'
-      - 'js/lib/**/*'
-      - '_sass/lib/**/*'
+      - '_assets/js/lib/**/*'
   BrokenSymlinks:
     enabled: true
   BundleCheck:

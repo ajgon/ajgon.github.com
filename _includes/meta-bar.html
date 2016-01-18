@@ -1,5 +1,5 @@
         <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-            <div class="minilogo" style="background-image: url(/images/avatars/{{ include.post.author }}.png);"></div>
+            <div class="minilogo" style="background-image: url({% asset_path "avatars/{{ include.post.author }}.png" %});"></div>
             <div>
                 <strong>{{ include.post.author }}</strong>
                 <span>{{ include.post.date | date: "%b %-d, %Y" }}</span>

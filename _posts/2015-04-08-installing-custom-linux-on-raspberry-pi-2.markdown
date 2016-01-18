@@ -7,7 +7,7 @@ cover: installing-custom-linux-on-raspberry-pi-2.jpg
 categories: Administration
 ---
 
-Few days ago, [I gave myself a present](/images/upload/rpi.jpg), which (at the very beginning) I was planning to power
+Few days ago, [I gave myself a present]({% asset_path "upload/rpi.jpg" %}), which (at the very beginning) I was planning to power
 up with [OSMC](https://osmc.tv/) and use it as HTPC. However, in a meantime I had to switch my apartment, and put
 my worn ATOM server offline for couple of hours - necessity I didn't like very much. This, and the fact that my server
 got very noisy (I suspected power supply fan) convinced me to start looking for something new. And then I thought -

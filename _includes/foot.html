@@ -8,11 +8,4 @@
   ga('send', 'pageview');
 </script>
 
-<script src="/js/lib/material.js"></script>
-<script src="/js/lib/jquery.js"></script>
-<script src="/js/main.js"></script>
-
-{% if page.name == 'portfolio.html' %}
-<script src="/js/lib/isotope.js"></script>
-<script src="/js/portfolio.js"></script>
-{% endif %}
+{% javascript 'main' %}

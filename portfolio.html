@@ -25,7 +25,7 @@ title: "Portfolio"
             <li class="item{% if item.promoted %} promoted{% endif %}" data-date="{{ item.date }}" data-client="{% if item.client %}{{ item.client.id }}{% else %}none{% endif %}" data-year="{{ item.date | date: '%Y' }}" data-specs="{{ item.specs | join: ',' }}">
                 <div class="card">
                     <div class="front mdl-card mdl-shadow--2dp">
-                        <img src="/images/portfolio/{{ item.id }}.jpg" alt="">
+                        <img src="{% asset_path "portfolio/{{ item.id }}.jpg" %}" alt="">
                         <div class="mdl-card__title mdl-card--expand"></div>
                         <div class="mdl-card__actions">
                             <span class="mdl-card__ptitle">{{ item.title }}</span>
@@ -64,20 +64,4 @@ title: "Portfolio"
                     </div>
             </li>
         {% endfor %}
-
-        <div class="card" style="display: none;">
-            <div class="front">
-                <img src="/images/portfolio/colgate.jpg" alt="">
-                <time class="released">Feb 2015</time>
-            </div>
-            <div class="back">
-                <h5 class="card-title">Colgate</h5>
-                <h6 class="card-subtitle">Uśmiech Rodziny</h6>
-                <ul class="details">
-                    <li>For <a href="http://www.nextframe.pl/">Nextframe</a></li>
-                    <li class="specs"><abbr title="HyperText Markup Language 5">HTML5</abbr>, <abbr title="Cascading Style Sheets 3">CSS3</abbr>, <abbr title="JavaScript">JS</abbr>.</li>
-                    <li><a href="http://usmiechdlarodziny.pl/" target="_blank">See online &raquo;</a></li>
-                </ul>
-            </div>
-        </div>
     </ul>

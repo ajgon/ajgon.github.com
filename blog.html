@@ -8,7 +8,7 @@ paginate: true
 <div class="post-container narrow mdl-grid">
     <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
         <a href="{{ post.url }}">
-            <div class="mdl-card__media mdl-color-text--grey-50" style="background-image: url(/images/covers/{{ post.cover }}">
+            <div class="mdl-card__media mdl-color-text--grey-50" style="background-image: url({% asset_path "covers/{{ post.cover }}" %}">
                 <h3>{{ post.title }}</h3>
             </div>
         </a>
