@@ -2,25 +2,25 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: local('Roboto Light'), local('Roboto-Light'), url(/fonts/Roboto-Light.woff2) format('woff2'), url(/fonts/Roboto-Light.woff) format('woff');
+  src: local('Roboto Light'), local('Roboto-Light'), url(asset_path("Roboto-Light.woff2")) format('woff2'), url(asset_path("Roboto-Light.woff")) format('woff');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local('Roboto'), local('Roboto-Regular'), url(/fonts/Roboto-Regular.woff2) format('woff2'), url(/fonts/Roboto-Regular.woff) format('woff');
+  src: local('Roboto'), local('Roboto-Regular'), url(asset_path("Roboto-Regular.woff2")) format('woff2'), url(asset_path("Roboto-Regular.woff")) format('woff');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: local('Roboto Medium'), local('Roboto-Medium'), url(/fonts/Roboto-Medium.woff2) format('woff2'), url(/fonts/Roboto-Medium.woff) format('woff');
+  src: local('Roboto Medium'), local('Roboto-Medium'), url(asset_path("Roboto-Medium.woff2")) format('woff2'), url(asset_path("Roboto-Medium.woff")) format('woff');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  src: local('Roboto Bold'), local('Roboto-Bold'), url(/fonts/Roboto-Bold.woff2) format('woff2'), url(/fonts/Roboto-Bold.woff) format('woff');
+  src: local('Roboto Bold'), local('Roboto-Bold'), url(asset_path("Roboto-Bold.woff2")) format('woff2'), url(asset_path("Roboto-Bold.woff")) format('woff');
 }
 
 @font-face {
@@ -37,11 +37,11 @@
 
 @font-face {
   font-family: 'socicon';
-  src: url('/fonts/socicon.eot');
-  src: url('/fonts/socicon.eot?#iefix') format('embedded-opentype'),
-       url('/fonts/socicon.woff') format('woff'),
-       url('/fonts/socicon.ttf') format('truetype'),
-       url('/fonts/socicon.svg#sociconregular') format('svg');
+  src: url(asset_path("socicon.eot"));
+  src: url(asset_path("socicon.eot?#iefix")) format('embedded-opentype'),
+       url(asset_path("socicon.woff")) format('woff'),
+       url(asset_path("socicon.ttf")) format('truetype'),
+       url(asset_path("socicon.svg#sociconregular")) format('svg');
   font-weight: normal;
   font-style: normal;
   text-transform: initial;
