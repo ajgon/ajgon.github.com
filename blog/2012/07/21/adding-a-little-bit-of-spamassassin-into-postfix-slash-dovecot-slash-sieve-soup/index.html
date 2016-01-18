@@ -17,12 +17,10 @@
   <meta content="I was always prefering “stay in the shadows” policy in terms of email address.I have two secondary emails (for spam I want to read, and for spam I want to be..." name="og:description">
 
 
-  <link rel="stylesheet" href="/css/main.css">
+  <link href='/stylesheets/all-697f2d8c775b33dc0da91a5f3c9ba091.css' media='all' rel='stylesheet' type='text/css'>
   <link rel="canonical" href="http://rzegocki.pl/blog/2012/07/21/adding-a-little-bit-of-spamassassin-into-postfix-slash-dovecot-slash-sieve-soup/">
   <link rel="alternate" type="application/rss+xml" title='Igor \"ajgon\" Rzegocki' href="http://rzegocki.pl/feed.xml" />
-  <script src="/js/lib/modernizr.js"></script>
 </head>
-
 
   <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -68,9 +66,7 @@
           
         
           
-            <a href="/index.html" class="mdl-navigation__link">About</a>
-          
-        
+            <a href="/" class="mdl-navigation__link">About</a>
           
         
           
@@ -92,9 +88,7 @@
           
         
           
-        
-          
-            <a href="/portfolio.html" class="mdl-navigation__link">Portfolio</a>
+            <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
           
         
           
@@ -110,9 +104,7 @@
           
         
           
-        
-          
-            <a href="/open-source.html" class="mdl-navigation__link">Open Source</a>
+            <a href="/open-source/" class="mdl-navigation__link">Open Source</a>
           
         
           
@@ -124,9 +116,7 @@
           
         
           
-            <a href="/blog.html" class="mdl-navigation__link is-active">Blog</a>
-          
-        
+            <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
           
         
           
@@ -155,9 +145,7 @@
         
       
         
-          <a href="/index.html" class="mdl-navigation__link">About</a>
-        
-      
+          <a href="/" class="mdl-navigation__link">About</a>
         
       
         
@@ -179,9 +167,7 @@
         
       
         
-      
-        
-          <a href="/portfolio.html" class="mdl-navigation__link">Portfolio</a>
+          <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
         
       
         
@@ -197,9 +183,7 @@
         
       
         
-      
-        
-          <a href="/open-source.html" class="mdl-navigation__link">Open Source</a>
+          <a href="/open-source/" class="mdl-navigation__link">Open Source</a>
         
       
         
@@ -211,9 +195,7 @@
         
       
         
-          <a href="/blog.html" class="mdl-navigation__link is-active">Blog</a>
-        
-      
+          <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
         
       
         
@@ -230,7 +212,6 @@
   </nav>
 </div>
 
-
       <main class="mdl-layout__content">
         <div class="post-container full-post narrow mdl-grid">
     <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
@@ -239,7 +220,7 @@
                 <h3>Adding a little bit of SpamAssassin into Postfix/Dovecot/Sieve soup</h3>
             </div>
         </a>
-                <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+        <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
             <div class="minilogo" style="background-image: url(/images/avatars/ajgon.png);"></div>
             <div>
                 <strong>ajgon</strong>
@@ -260,7 +241,6 @@
                 <div class="mdl-tooltip" for="share_">Share</div>
             </div>
         </div>
-
         <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
             <p>I was always prefering “stay in the shadows” policy in terms of email address.
 I have two secondary emails (for spam I want to read, and for spam I want to be
@@ -304,7 +284,7 @@ except DCC.</p>
 
 <h2 id="setting-up-spamassassin">Setting up SpamAssassin</h2>
 
-<p>The next step is to configure <code>spamd</code> to run as a daemon:</p>
+<p>The next step is to configure <code class="highlighter-rouge">spamd</code> to run as a daemon:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">groupdd spamd
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">useradd -g spamd -s /bin/false -d /var/lib/spamassassin spamd
@@ -326,9 +306,9 @@ except DCC.</p>
 </div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">OPTIONS</span><span class="o">=</span><span class="s2">&quot;--create-prefs -x --max-children 3 --username spamd --helper-home-dir $&#x7b;SAHOME&#x7d; -s $&#x7b;SAHOME&#x7d;/spamd.log --virtual-config-dir=$&#x7b;USERACCOUNTS&#x7d;/%l@%d/spamassassin -A 192.168.1.1&quot;</span>
 </div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>...<span class="o">]</span></div></div></pre></div></figure>
 
-<p>The <code>virtual-config-dir</code> allows us to have separate user preferences and bayes
+<p>The <code class="highlighter-rouge">virtual-config-dir</code> allows us to have separate user preferences and bayes
 databases for each virtual user. The next thing is to edit
-<code>/etc/spamassassin/local.cf</code> file:</p>
+<code class="highlighter-rouge">/etc/spamassassin/local.cf</code> file:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/spamassassin/local.cf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>...<span class="o">]</span>
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># Save spam messages as a message/rfc822 MIME attachment instead of</span>
@@ -342,7 +322,7 @@ databases for each virtual user. The next thing is to edit
 </div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">use_razor2 1
 </div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line">razor_config /etc/razor/razor-agent.conf</div></div></pre></div></figure>
 
-<p>Afterwards, edit <code>/etc/spamassassin/v310.pre</code> and check that the DCC, Razor and
+<p>Afterwards, edit <code class="highlighter-rouge">/etc/spamassassin/v310.pre</code> and check that the DCC, Razor and
 Pyzor plugins are enabled (DCC is disabled by default). After that, the only
 thing left is to update SA databases and start it:</p>
 
@@ -353,7 +333,7 @@ thing left is to update SA databases and start it:</p>
 
 <p>From the postfix side all you have to do is change transport (I suggest to
 create a new one - then, when something goes wrong you can easily switch back
-to old working configuration) or <code>mailbox_command</code>. For transport, the magic
+to old working configuration) or <code class="highlighter-rouge">mailbox_command</code>. For transport, the magic
 line looks like this:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/postfix/master.cf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">dovecot-spam   unix  -       n       n       -       -       pipe
@@ -361,7 +341,7 @@ line looks like this:</p>
 
 <p>And this is the line I’ve been looking for. SpamAssassin takes message, pushes
 it through his intestines, adds headers, and output is pushed further to
-<code>deliver</code> command. From that point, it can be taken by Sieve. To make this
+<code class="highlighter-rouge">deliver</code> command. From that point, it can be taken by Sieve. To make this
 work, don’t forget to change the transport!</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/postfix/main.cf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">mailbox_transport</span> <span class="o">=</span> dovecot-spam</div></div></pre></div></figure>
@@ -389,7 +369,7 @@ should land in Junk.</p>
 adjustments over time (like intelligent filters in SA and so on), and - when I
 start to trust it fully - instead of moving into the Junk all spam will be
 deleted. But for now, everything works like a charm :) If you experience any
-problems, first look into <code>/var/lib/spamassassin/spamd.log</code> file - there is big
+problems, first look into <code class="highlighter-rouge">/var/lib/spamassassin/spamd.log</code> file - there is big
 chance, that you’ll find your answers there.</p>
 
 <h3 id="sources">Sources</h3>
@@ -479,7 +459,6 @@ chance, that you’ll find your answers there.</p>
     Previous version of the site, available <a href="/v3">here</a>.
   </div>
 </footer>
-
       </main>
     </div>
 
@@ -493,12 +472,7 @@ chance, that you’ll find your answers there.</p>
   ga('send', 'pageview');
 </script>
 
-<script src="/js/lib/material.js"></script>
-<script src="/js/lib/jquery.js"></script>
-<script src="/js/main.js"></script>
-
-
-
+<script async src='/javascripts/all-178beb3f7d9df1f91c857b33a6b5a3bb.js'></script>
   </body>
 
 </html>

@@ -5,9 +5,9 @@
     <description>Personal webpage, online CV and blog.</description>
     <link>http://rzegocki.pl/</link>
     <atom:link href="http://rzegocki.pl/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 27 Dec 2015 17:16:17 +0100</pubDate>
-    <lastBuildDate>Sun, 27 Dec 2015 17:16:17 +0100</lastBuildDate>
-    <generator>Jekyll v2.5.3</generator>
+    <pubDate>Mon, 18 Jan 2016 20:47:32 +0100</pubDate>
+    <lastBuildDate>Mon, 18 Jan 2016 20:47:32 +0100</lastBuildDate>
+    <generator>Jekyll v3.0.1</generator>
     
       <item>
         <title>Turn your Raspberry Pi to powerful HTPC with OSMC</title>
@@ -74,7 +74,7 @@
 
 &lt;h3 id=&quot;subtitles&quot;&gt;Subtitles&lt;/h3&gt;
 
-&lt;p&gt;No rocket-science here, &lt;code&gt;OpenSubtitles.org&lt;/code&gt; in my opinion is a must. As a Pole I also use and recommend the &lt;code&gt;Napiprojekt.pl&lt;/code&gt;, but bear in mind, that this contain polish subtitles only.&lt;/p&gt;
+&lt;p&gt;No rocket-science here, &lt;code class=&quot;highlighter-rouge&quot;&gt;OpenSubtitles.org&lt;/code&gt; in my opinion is a must. As a Pole I also use and recommend the &lt;code class=&quot;highlighter-rouge&quot;&gt;Napiprojekt.pl&lt;/code&gt;, but bear in mind, that this contain polish subtitles only.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Available in: Add-Ons =&amp;gt; Subtitles =&amp;gt; Napiprojekt.pl&lt;/li&gt;
@@ -129,13 +129,13 @@
 
 &lt;h2 id=&quot;configuring-the-remote-control&quot;&gt;Configuring the Remote Control&lt;/h2&gt;
 
-&lt;p&gt;If you have proper HDMI cable and TV supporting CEC, your remote should “just work” with the OSMC. However, it’s very unlikely that you’ll be happy with default configuration. For example, in my case - the “Back” button was displaying context menu, instead of going back. To fix this, first thing you need to find out is what each button on the remote maps to in Kodi. There is a &lt;a href=&quot;http://forum.kodi.tv/showthread.php?tid=139145&amp;amp;pid=1285390#pid1285390&quot;&gt;great thread&lt;/a&gt; providing step-by-step instruction, but in a nutsheel, you need to SSH to your OSMC machine and create a &lt;code&gt;.kodi/userdata/keymaps/remote.xml&lt;/code&gt; file with &lt;a href=&quot;https://gist.github.com/ajgon/59a73b8b8e236e30ab33&quot;&gt;given contents&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you have proper HDMI cable and TV supporting CEC, your remote should “just work” with the OSMC. However, it’s very unlikely that you’ll be happy with default configuration. For example, in my case - the “Back” button was displaying context menu, instead of going back. To fix this, first thing you need to find out is what each button on the remote maps to in Kodi. There is a &lt;a href=&quot;http://forum.kodi.tv/showthread.php?tid=139145&amp;amp;pid=1285390#pid1285390&quot;&gt;great thread&lt;/a&gt; providing step-by-step instruction, but in a nutsheel, you need to SSH to your OSMC machine and create a &lt;code class=&quot;highlighter-rouge&quot;&gt;.kodi/userdata/keymaps/remote.xml&lt;/code&gt; file with &lt;a href=&quot;https://gist.github.com/ajgon/59a73b8b8e236e30ab33&quot;&gt;given contents&lt;/a&gt;.&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC Machine&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;curl -o ~/.kodi/userdata/keymaps/remote.xml https://gist.githubusercontent.com/ajgon/59a73b8b8e236e30ab33/raw/d9fbf3c20edbff85d71b99b47d202d8a0ab1a8d9/remote.xml&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
 &lt;p&gt;After that, restart OSMC, and click every button on your remote. They shouldn’t do anything except displaying a notification with the button name in Kodi. Note them down, you would need them in a second.&lt;/p&gt;
 
-&lt;p&gt;Next copy the default &lt;code&gt;remote.xml&lt;/code&gt; file over the current one, and start configuriation!&lt;/p&gt;
+&lt;p&gt;Next copy the default &lt;code class=&quot;highlighter-rouge&quot;&gt;remote.xml&lt;/code&gt; file over the current one, and start configuriation!&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC Machine&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;cp /usr/share/kodi/system/keymaps/remote.xml ~/.kodi/userdata/keymaps/remote.xml&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
@@ -145,15 +145,15 @@
 
 &lt;p&gt;Discovering that, was a big suprise for me. At the time of writing this post there is no easy way to auto-hide OSD. When you display it - it will remain on screen until you “unclick” it away. However, you can fix this behavior with a little hack.&lt;/p&gt;
 
-&lt;p&gt;First of all, you need to download and install a Titan skin helper service - either from &lt;a href=&quot;http://kodi.wiki/view/Add-on:Titan_skin_helper_service&quot;&gt;Kodi Repository&lt;/a&gt;, or from its &lt;a href=&quot;https://github.com/marcelveldt/script.skin.helper.service/releases&quot;&gt;GitHub Page&lt;/a&gt;. This neat tool adds many extra options for skin makers, and one of them is &lt;a href=&quot;https://github.com/marcelveldt/script.skin.helper.service/blob/master/resources/lib/ListItemMonitor.py#L81&quot;&gt;AutoCloseVideoOSD property&lt;/a&gt;. All you need to do, is to add it to the current skin. If you’re using OSMC Skin, the easiest way is to edit its &lt;code&gt;Startup.xml&lt;/code&gt; file, and add it as &lt;code&gt;&amp;lt;onload&amp;gt;&lt;/code&gt; property.&lt;/p&gt;
+&lt;p&gt;First of all, you need to download and install a Titan skin helper service - either from &lt;a href=&quot;http://kodi.wiki/view/Add-on:Titan_skin_helper_service&quot;&gt;Kodi Repository&lt;/a&gt;, or from its &lt;a href=&quot;https://github.com/marcelveldt/script.skin.helper.service/releases&quot;&gt;GitHub Page&lt;/a&gt;. This neat tool adds many extra options for skin makers, and one of them is &lt;a href=&quot;https://github.com/marcelveldt/script.skin.helper.service/blob/master/resources/lib/ListItemMonitor.py#L81&quot;&gt;AutoCloseVideoOSD property&lt;/a&gt;. All you need to do, is to add it to the current skin. If you’re using OSMC Skin, the easiest way is to edit its &lt;code class=&quot;highlighter-rouge&quot;&gt;Startup.xml&lt;/code&gt; file, and add it as &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;onload&amp;gt;&lt;/code&gt; property.&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC Machine&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;sed -i&lt;span class=&quot;s1&quot;&gt;&amp;#39;~&amp;#39;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;s@&amp;lt;/window&amp;gt;@        &amp;lt;onload&amp;gt;Skin.SetString(SkinHelper.AutoCloseVideoOSD, 4)&amp;lt;/onload&amp;gt;\n&amp;lt;/window&amp;gt;@&amp;#39;&lt;/span&gt; /usr/share/kodi/addons/skin.osmc/16x9/Startup.xml&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;where &lt;code&gt;4&lt;/code&gt; is time in seconds you wish to OSD appear on screen, before fading out.&lt;/p&gt;
+&lt;p&gt;where &lt;code class=&quot;highlighter-rouge&quot;&gt;4&lt;/code&gt; is time in seconds you wish to OSD appear on screen, before fading out.&lt;/p&gt;
 
 &lt;h2 id=&quot;buffering&quot;&gt;Buffering&lt;/h2&gt;
 
-&lt;p&gt;If you plan to use some remote data-storage (NAS, another Pi with HDD, or any tool involving remote file system) it’s a good idea to increase buffer size of the video player. Don’t set it too large though, since it will occupy &lt;a href=&quot;http://kodi.wiki/view/HOW-TO:Modify_the_video_cache&quot;&gt;3 times more RAM than the value set&lt;/a&gt; (so if you set it to 100M it will occupy 300M of RAM, etc.). For Raspberry Pi 2 with its 1GB RAM, a safe value is approx. 150MB. And it should be more than sufficient, even for 1080p videos. Increasing buffer size is quite simple - just create a &lt;code&gt;.kodi/userdata/advancedsettings.xml&lt;/code&gt; file on your OSMC, and fill it as below (altering &lt;code&gt;cachemembuffersize&lt;/code&gt; to your needs).&lt;/p&gt;
+&lt;p&gt;If you plan to use some remote data-storage (NAS, another Pi with HDD, or any tool involving remote file system) it’s a good idea to increase buffer size of the video player. Don’t set it too large though, since it will occupy &lt;a href=&quot;http://kodi.wiki/view/HOW-TO:Modify_the_video_cache&quot;&gt;3 times more RAM than the value set&lt;/a&gt; (so if you set it to 100M it will occupy 300M of RAM, etc.). For Raspberry Pi 2 with its 1GB RAM, a safe value is approx. 150MB. And it should be more than sufficient, even for 1080p videos. Increasing buffer size is quite simple - just create a &lt;code class=&quot;highlighter-rouge&quot;&gt;.kodi/userdata/advancedsettings.xml&lt;/code&gt; file on your OSMC, and fill it as below (altering &lt;code class=&quot;highlighter-rouge&quot;&gt;cachemembuffersize&lt;/code&gt; to your needs).&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC: .kodi/userdata/advancedsettings.xml&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;advancedsettings&amp;gt;&lt;/span&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;network&amp;gt;&lt;/span&gt;
@@ -167,7 +167,7 @@
 
 &lt;p&gt;Another feature which is not available in Kodi. You can either shutdown or suspend (not possible on Pi) your machine. You can’t just stop video and leave machine “as is”. Unfortunatelly, there is no easy fix without recompiling half of the Kodi, so the only acceptable solution I found out, is to ping SmartTV and see when it goes to sleep (which means it would stop sending ping response). I’m aware that this solution isn’t perfect, but it’s the best I have at the moment.&lt;/p&gt;
 
-&lt;p&gt;Whole idea is actually pretty simple - just create a script &lt;code&gt;/usr/local/bin/ping-tv.sh&lt;/code&gt; and fill with content below (don’t forget to put your TV IP there).&lt;/p&gt;
+&lt;p&gt;Whole idea is actually pretty simple - just create a script &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/bin/ping-tv.sh&lt;/code&gt; and fill with content below (don’t forget to put your TV IP there).&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC:&amp;nbsp;/usr/local/bin/ping-tv.sh&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nv&quot;&gt;TVIP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;IP of your TV&amp;gt;
@@ -182,7 +182,7 @@
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;13&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -n &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &amp;gt; /tmp/tvon
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;14&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;Now, all it’s left, is adding this script to the cron. Unfortunatelly, cron cannot launch tasks more often than a minute. And losing up to a minute for script to actually notice that TV is switched off - is unacceptable. However, there is another neat trick under my sleeve - using &lt;code&gt;sleep&lt;/code&gt;. So fire up &lt;code&gt;crontab -e&lt;/code&gt; and fill it with:&lt;/p&gt;
+&lt;p&gt;Now, all it’s left, is adding this script to the cron. Unfortunatelly, cron cannot launch tasks more often than a minute. And losing up to a minute for script to actually notice that TV is switched off - is unacceptable. However, there is another neat trick under my sleeve - using &lt;code class=&quot;highlighter-rouge&quot;&gt;sleep&lt;/code&gt;. So fire up &lt;code class=&quot;highlighter-rouge&quot;&gt;crontab -e&lt;/code&gt; and fill it with:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC: crontab -e&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;* * * * * /usr/local/bin/ping-tv.sh
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;* * * * * sleep &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; /usr/local/bin/ping-tv.sh
@@ -209,7 +209,7 @@
 
 &lt;p&gt;If you like, you can also install Kodi Transmission Add-On (under: &lt;em&gt;Add-Ons =&amp;gt; Program =&amp;gt; Transmission&lt;/em&gt;), which will provide you a very basic GUI directly from Kodi interface.&lt;/p&gt;
 
-&lt;p&gt;Next, you need to do the configuration. All options are stored in &lt;code&gt;/etc/transmission-daemon/settings.json&lt;/code&gt;. Since, those settings are very individual, I won’t provide any examples. Instead, I will direct you to &lt;a href=&quot;https://trac.transmissionbt.com/wiki/EditConfigFiles&quot;&gt;Transmission settings.json file documenatation&lt;/a&gt;. When you finish them up, &lt;strong&gt;don’t restart the daemon&lt;/strong&gt;! You will lose all the changes (don’t ask). Instead run:&lt;/p&gt;
+&lt;p&gt;Next, you need to do the configuration. All options are stored in &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/transmission-daemon/settings.json&lt;/code&gt;. Since, those settings are very individual, I won’t provide any examples. Instead, I will direct you to &lt;a href=&quot;https://trac.transmissionbt.com/wiki/EditConfigFiles&quot;&gt;Transmission settings.json file documenatation&lt;/a&gt;. When you finish them up, &lt;strong&gt;don’t restart the daemon&lt;/strong&gt;! You will lose all the changes (don’t ask). Instead run:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC root&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;invoke-rc.d transmission-daemon reload&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
@@ -227,16 +227,16 @@
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC root&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;apt-get install python-pip&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;Next, install latest stable version of subliminal. Do it from &lt;code&gt;osmc&lt;/code&gt; user, not from &lt;code&gt;root&lt;/code&gt;! There is no need for polluting the system userspace, and thanks to that, all the files will be stored in one, easy-to-wipe-out directory.&lt;/p&gt;
+&lt;p&gt;Next, install latest stable version of subliminal. Do it from &lt;code class=&quot;highlighter-rouge&quot;&gt;osmc&lt;/code&gt; user, not from &lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt;! There is no need for polluting the system userspace, and thanks to that, all the files will be stored in one, easy-to-wipe-out directory.&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC osmc user&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;pip install --user subliminal&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;Also local userspace means, you need to add its path to your &lt;code&gt;$PATH&lt;/code&gt; env.&lt;/p&gt;
+&lt;p&gt;Also local userspace means, you need to add its path to your &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt; env.&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC osmc user&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;export PATH=&amp;quot;$HOME/.local/bin:$PATH&amp;quot;&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/.bashrc&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;If you don’t want to use &lt;code&gt;napiprojekt&lt;/code&gt; provider, you’re done. If you do, read next section.&lt;/p&gt;
+&lt;p&gt;If you don’t want to use &lt;code class=&quot;highlighter-rouge&quot;&gt;napiprojekt&lt;/code&gt; provider, you’re done. If you do, read next section.&lt;/p&gt;
 
 &lt;h4 id=&quot;subliminal---napiprojekt&quot;&gt;Subliminal - napiprojekt&lt;/h4&gt;
 
@@ -247,7 +247,7 @@
 
 &lt;p&gt;If napiprojekt is listed, you can skip this step.&lt;/p&gt;
 
-&lt;p&gt;Otherwise download the freshest development version (if you don’t have a git, invoke &lt;code&gt;sudo apt-get install git&lt;/code&gt;) and install it:&lt;/p&gt;
+&lt;p&gt;Otherwise download the freshest development version (if you don’t have a git, invoke &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install git&lt;/code&gt;) and install it:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC osmc user&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;git clone --depth&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; -b develop https://github.com/Diaoul/subliminal.git ~/subliminal
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/subliminal
@@ -266,7 +266,7 @@
 
 &lt;h4 id=&quot;flexget---installation&quot;&gt;FlexGet - Installation&lt;/h4&gt;
 
-&lt;p&gt;No rocket science here (remember - &lt;code&gt;osmc&lt;/code&gt; user, not &lt;code&gt;root&lt;/code&gt;):&lt;/p&gt;
+&lt;p&gt;No rocket science here (remember - &lt;code class=&quot;highlighter-rouge&quot;&gt;osmc&lt;/code&gt; user, not &lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt;):&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC osmc user&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;pip install --user flexget
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;pip install --user transmissionrpc&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
@@ -275,13 +275,13 @@
 
 &lt;h4 id=&quot;flexget---napiprojekt&quot;&gt;FlexGet - napiprojekt&lt;/h4&gt;
 
-&lt;p&gt;If you wish to use napiprojekt and &lt;a href=&quot;http://flexget.com/wiki/Plugins/subliminal&quot;&gt;subliminal plugin&lt;/a&gt;, you need to monkey patch it (however, you can safely skip this step, despite the fact you will use subliminal - see below). Also before applying the patch, check the &lt;code&gt;PROVIDERS&lt;/code&gt; constant in &lt;code&gt;~/.local/lib/python2.7/site-packages/flexget/plugins/output/subtitles_subliminal.py&lt;/code&gt; file. At the time of writing this article &lt;code&gt;napiprojekt&lt;/code&gt; wasn’t there, so if it’s absent, do:&lt;/p&gt;
+&lt;p&gt;If you wish to use napiprojekt and &lt;a href=&quot;http://flexget.com/wiki/Plugins/subliminal&quot;&gt;subliminal plugin&lt;/a&gt;, you need to monkey patch it (however, you can safely skip this step, despite the fact you will use subliminal - see below). Also before applying the patch, check the &lt;code class=&quot;highlighter-rouge&quot;&gt;PROVIDERS&lt;/code&gt; constant in &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.local/lib/python2.7/site-packages/flexget/plugins/output/subtitles_subliminal.py&lt;/code&gt; file. At the time of writing this article &lt;code class=&quot;highlighter-rouge&quot;&gt;napiprojekt&lt;/code&gt; wasn’t there, so if it’s absent, do:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;OSMC osmc user&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;sed -i&lt;span class=&quot;s1&quot;&gt;&amp;#39;~&amp;#39;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;s@&amp;#39;opensubtitles&amp;#39;,@&amp;#39;opensubtitles&amp;#39;,\n    &amp;#39;napiprojekt&amp;#39;,@&amp;quot;&lt;/span&gt; ~/.local/lib/python2.7/site-packages/flexget/plugins/output/subtitles_subliminal.py&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;flexget---configuration&quot;&gt;FlexGet - configuration&lt;/h4&gt;
 
-&lt;p&gt;The most important step - we need to tell FlexGet what to do, what to fetch and where to put it. You should really, REALLY read the &lt;a href=&quot;http://flexget.com/wiki/Configuration&quot;&gt;FlexGet Configuration documenatation&lt;/a&gt; so you know what you’re doing. After that, you can use this template for a good start (put it to &lt;code&gt;~/.flexget/config.yml&lt;/code&gt;):&lt;/p&gt;
+&lt;p&gt;The most important step - we need to tell FlexGet what to do, what to fetch and where to put it. You should really, REALLY read the &lt;a href=&quot;http://flexget.com/wiki/Configuration&quot;&gt;FlexGet Configuration documenatation&lt;/a&gt; so you know what you’re doing. After that, you can use this template for a good start (put it to &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.flexget/config.yml&lt;/code&gt;):&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;~/.flexget/config.yml&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;download-tv-shows&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
@@ -345,10 +345,10 @@
 &lt;p&gt;So what this scripts does?&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code&gt;download-tv-shows&lt;/code&gt; - checks ShowRSS feed for new shows, and if found - adds them to tranmission.&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;sort-tv-shows&lt;/code&gt; - checks transmission downloads directory for new shows. If found, moves them to tv shows directory, and tries to determine proper show and episode name in file path. So &lt;code&gt;GreatShow.S01E03.720p.h264.PROPER.mkv&lt;/code&gt; from tranmission downloads would become &lt;code&gt;GreatShow/GreatShow.S01E03 - Episode Name.mkv&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;download-subtitles&lt;/code&gt; - this task is pretty bizzare, I can tell. I tried to use &lt;a href=&quot;http://flexget.com/wiki/Plugins/subliminal&quot;&gt;subliminal plugin&lt;/a&gt; for this example, however it never worked as expected. Instead, I used the bash script which looks for all files without corresponding &lt;code&gt;*.srt&lt;/code&gt;s and fires subliminal on them.&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;clean-up&lt;/code&gt; - pretty obvious - clean transmission queue when file is finished processing.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;download-tv-shows&lt;/code&gt; - checks ShowRSS feed for new shows, and if found - adds them to tranmission.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sort-tv-shows&lt;/code&gt; - checks transmission downloads directory for new shows. If found, moves them to tv shows directory, and tries to determine proper show and episode name in file path. So &lt;code class=&quot;highlighter-rouge&quot;&gt;GreatShow.S01E03.720p.h264.PROPER.mkv&lt;/code&gt; from tranmission downloads would become &lt;code class=&quot;highlighter-rouge&quot;&gt;GreatShow/GreatShow.S01E03 - Episode Name.mkv&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;download-subtitles&lt;/code&gt; - this task is pretty bizzare, I can tell. I tried to use &lt;a href=&quot;http://flexget.com/wiki/Plugins/subliminal&quot;&gt;subliminal plugin&lt;/a&gt; for this example, however it never worked as expected. Instead, I used the bash script which looks for all files without corresponding &lt;code class=&quot;highlighter-rouge&quot;&gt;*.srt&lt;/code&gt;s and fires subliminal on them.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;clean-up&lt;/code&gt; - pretty obvious - clean transmission queue when file is finished processing.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;flexget---cron&quot;&gt;FlexGet - cron&lt;/h4&gt;
@@ -365,7 +365,7 @@
 
 &lt;p&gt;Pulsar is a video add-on which allows torrent streaming. Remember &lt;a href=&quot;http://popcorn-time.se/&quot;&gt;PopCorn time&lt;/a&gt;? This is something similar, but for Kodi.&lt;/p&gt;
 
-&lt;p&gt;First things first, you would need &lt;a href=&quot;http://sourceforge.net/projects/icanuckxbmcrepo/files/repository.pulsarunofficial-1.0.1.zip/download&quot;&gt;Unofficial Pulsar Repository&lt;/a&gt;. Download it, put into your OSMC, and &lt;code&gt;Install from ZIP File&lt;/code&gt;. The rest is pretty straightforward - navigate to &lt;em&gt;Add-ons =&amp;gt; Install from Repository&lt;/em&gt; and choose &lt;em&gt;Pulsar Unofficial&lt;/em&gt;. From there, you need Pulsar (from &lt;em&gt;Video add-ons&lt;/em&gt; section), and providers (available under &lt;em&gt;Programs&lt;/em&gt;). Then, you can add Pulsar to your home screen using &lt;em&gt;Settings =&amp;gt; Apperance =&amp;gt; Skin =&amp;gt; Settings =&amp;gt; Home =&amp;gt; Customise Home Menu&lt;/em&gt; and voilla! Grab some pop-corn and enjoy!&lt;/p&gt;
+&lt;p&gt;First things first, you would need &lt;a href=&quot;http://sourceforge.net/projects/icanuckxbmcrepo/files/repository.pulsarunofficial-1.0.1.zip/download&quot;&gt;Unofficial Pulsar Repository&lt;/a&gt;. Download it, put into your OSMC, and &lt;code class=&quot;highlighter-rouge&quot;&gt;Install from ZIP File&lt;/code&gt;. The rest is pretty straightforward - navigate to &lt;em&gt;Add-ons =&amp;gt; Install from Repository&lt;/em&gt; and choose &lt;em&gt;Pulsar Unofficial&lt;/em&gt;. From there, you need Pulsar (from &lt;em&gt;Video add-ons&lt;/em&gt; section), and providers (available under &lt;em&gt;Programs&lt;/em&gt;). Then, you can add Pulsar to your home screen using &lt;em&gt;Settings =&amp;gt; Apperance =&amp;gt; Skin =&amp;gt; Settings =&amp;gt; Home =&amp;gt; Customise Home Menu&lt;/em&gt; and voilla! Grab some pop-corn and enjoy!&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 
@@ -376,7 +376,7 @@
         <guid isPermaLink="true">http://rzegocki.pl/blog/2015/12/10/turn-your-raspberry-pi-to-powerful-htpc-with-osmc/</guid>
         
         
-        <category>lifehack</category>
+        <category>Lifehack</category>
         
       </item>
     
@@ -430,8 +430,8 @@ install all the necessary packages:&lt;/p&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;losetup -f --show rpi.img &lt;span class=&quot;c&quot;&gt;# returns loop device used later, usually /dev/loop0&lt;/span&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;3&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;fdisk /dev/loop0&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;We need to create two partitions. As I mentioned, the first one needs to be FAT16 partition (type &lt;code&gt;e&lt;/code&gt;), the second one
-a Linux one (type &lt;code&gt;83&lt;/code&gt;). So, to do this in fdisk invoke:&lt;/p&gt;
+&lt;p&gt;We need to create two partitions. As I mentioned, the first one needs to be FAT16 partition (type &lt;code class=&quot;highlighter-rouge&quot;&gt;e&lt;/code&gt;), the second one
+a Linux one (type &lt;code class=&quot;highlighter-rouge&quot;&gt;83&lt;/code&gt;). So, to do this in fdisk invoke:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;As root&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;n &lt;span class=&quot;c&quot;&gt;# Create new partition&lt;/span&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;p &lt;span class=&quot;c&quot;&gt;# Set it as primary...&lt;/span&gt;
@@ -457,14 +457,14 @@ a Linux one (type &lt;code&gt;83&lt;/code&gt;). So, to do this in fdisk invoke:&
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;6&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;mount /dev/mapper/loop0p1 boot
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;7&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;mount /dev/mapper/loop0p2 root&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;If you have problems with partitioning the file using &lt;code&gt;kpartx&lt;/code&gt;, try to move it outside from &lt;code&gt;/vagrant&lt;/code&gt; dir to
-some place in virtual filesystem (homedir is fine), follow this guide, and then copy &lt;code&gt;.img&lt;/code&gt; file back to &lt;code&gt;/vagrant&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If you have problems with partitioning the file using &lt;code class=&quot;highlighter-rouge&quot;&gt;kpartx&lt;/code&gt;, try to move it outside from &lt;code class=&quot;highlighter-rouge&quot;&gt;/vagrant&lt;/code&gt; dir to
+some place in virtual filesystem (homedir is fine), follow this guide, and then copy &lt;code class=&quot;highlighter-rouge&quot;&gt;.img&lt;/code&gt; file back to &lt;code class=&quot;highlighter-rouge&quot;&gt;/vagrant&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;installing-and-configuring-debian&quot;&gt;Installing and configuring Debian&lt;/h2&gt;
 
-&lt;p&gt;After that, we have two directories: &lt;code&gt;boot&lt;/code&gt; which will contain all RPI Firmware, and &lt;code&gt;root&lt;/code&gt; which will contain our
+&lt;p&gt;After that, we have two directories: &lt;code class=&quot;highlighter-rouge&quot;&gt;boot&lt;/code&gt; which will contain all RPI Firmware, and &lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt; which will contain our
 desired distro (Debian). Now, it’s just a typical Debian bootstrapping. Since Raspberry Pi 2 finally
-supports ARMv7, we can safely use Debian &lt;code&gt;armhf&lt;/code&gt; architecture, and have all goodies like hardware floating points,
+supports ARMv7, we can safely use Debian &lt;code class=&quot;highlighter-rouge&quot;&gt;armhf&lt;/code&gt; architecture, and have all goodies like hardware floating points,
 out of the box.&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;As root&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;debootstrap --arch armhf --foreign wheezy root http://ftp.debian.org/debian/
@@ -475,9 +475,9 @@ out of the box.&lt;/p&gt;
 &lt;p&gt;Next we need to set a minimal set of configuration files, to actually boot our disto.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Note: In code headers, I used absolute paths in relation to your RPI root directory, so if you want to set up
-&lt;code&gt;/etc/fstab&lt;/code&gt; you need to edit &lt;code&gt;root/etc/fstab&lt;/code&gt; (if you followed this guide).&lt;/em&gt;&lt;/p&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/fstab&lt;/code&gt; you need to edit &lt;code class=&quot;highlighter-rouge&quot;&gt;root/etc/fstab&lt;/code&gt; (if you followed this guide).&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;First is &lt;code&gt;/etc/fstab&lt;/code&gt; which is used to mount initial partitions (boot and proc system).&lt;/p&gt;
+&lt;p&gt;First is &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/fstab&lt;/code&gt; which is used to mount initial partitions (boot and proc system).&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;Raspberry &amp;#47;etc/fstab&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;proc            /proc           proc    defaults        &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;       0
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;/dev/mmcblk0p1  /boot           vfat    defaults        &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;       0&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
@@ -502,13 +502,13 @@ out of the box.&lt;/p&gt;
 
 &lt;p&gt;And that’s it! At this point, if you have a monitor, you can flash your SD Card, plug it in to your Raspberry, and see
 if your Debian boots up. If you also have a keyboard, you should be able to log in to it as well, and do the following
-steps from there. Otherwise, keep using your &lt;code&gt;rpi.img&lt;/code&gt;.&lt;/p&gt;
+steps from there. Otherwise, keep using your &lt;code class=&quot;highlighter-rouge&quot;&gt;rpi.img&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;chrooting&quot;&gt;Chrooting&lt;/h2&gt;
 
 &lt;p&gt;&lt;em&gt;You can skip this step, if you already booted up your system and configuring it from there.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Beforehand we need to mount &lt;code&gt;/dev&lt;/code&gt; and &lt;code&gt;/proc&lt;/code&gt; filesystems, to create a fully functional chrooted environment.&lt;/p&gt;
+&lt;p&gt;Beforehand we need to mount &lt;code class=&quot;highlighter-rouge&quot;&gt;/dev&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;/proc&lt;/code&gt; filesystems, to create a fully functional chrooted environment.&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;As root&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;mount -t proc proc root/proc
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;mount --rbind /dev root/dev&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
@@ -524,8 +524,8 @@ while installing vim.&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;As Raspberry root&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;APT::Install-Recommends &amp;quot;0&amp;quot;;&amp;#39;&lt;/span&gt; &amp;gt; /etc/apt/apt.conf.d/00norecommends&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;Next we need to setup a minimal dose of packages, which are necessary to use our distro — &lt;code&gt;locales&lt;/code&gt; for
-basic UTF8 language support, and &lt;code&gt;openssh-server&lt;/code&gt; to allow us to actually sign in to the machine.&lt;/p&gt;
+&lt;p&gt;Next we need to setup a minimal dose of packages, which are necessary to use our distro — &lt;code class=&quot;highlighter-rouge&quot;&gt;locales&lt;/code&gt; for
+basic UTF8 language support, and &lt;code class=&quot;highlighter-rouge&quot;&gt;openssh-server&lt;/code&gt; to allow us to actually sign in to the machine.&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;As Raspberry root&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;apt-get update
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nv&quot;&gt;LANG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;C apt-get install locales
@@ -542,7 +542,7 @@ sudo, python and aptitude.&lt;/p&gt;
 
 &lt;p&gt;Easiest case scenario is Ethernet with DHCP. Keep in mind, that if you don’t plan to use ethernet at all (only WiFi),
 you should skip this step, as it will slow down boot up of Pi significantly (the machine will try to establish ethernet
-connection for over 60s). Otherwise, all you need to do is add following lines to &lt;code&gt;/etc/network/interfaces&lt;/code&gt;:&lt;/p&gt;
+connection for over 60s). Otherwise, all you need to do is add following lines to &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/network/interfaces&lt;/code&gt;:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;Raspberry &amp;#47;etc/network/interfaces&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;auto lo
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;iface lo inet loopback
@@ -553,7 +553,7 @@ connection for over 60s). Otherwise, all you need to do is add following lines t
 &lt;p&gt;It’s a good idea to force nameservers (i.e. to OpenDNS as in example above) - many providers, are setting default DNS
 servers to Google DNS, &lt;a href=&quot;https://developers.google.com/speed/public-dns/faq#privacy&quot;&gt;which is not the best choice&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;To make &lt;code&gt;dns-nameservers&lt;/code&gt; directive actually work, you would need a &lt;code&gt;resolvconf&lt;/code&gt; package.&lt;/p&gt;
+&lt;p&gt;To make &lt;code class=&quot;highlighter-rouge&quot;&gt;dns-nameservers&lt;/code&gt; directive actually work, you would need a &lt;code class=&quot;highlighter-rouge&quot;&gt;resolvconf&lt;/code&gt; package.&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;Raspbery root&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;apt-get install resolvconf&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
@@ -610,7 +610,7 @@ and be online.&lt;/p&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;3&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;sudo dd &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;rpi.img &lt;span class=&quot;nv&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/dev/rdiskX
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;4&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;diskutil eject /dev/diskX&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;Notice, that for &lt;code&gt;dd&lt;/code&gt; I’m using &lt;code&gt;/dev/rdiskX&lt;/code&gt; instead of the &lt;code&gt;/dev/diskX&lt;/code&gt;. It’s because how OSX handles disk devices.
+&lt;p&gt;Notice, that for &lt;code class=&quot;highlighter-rouge&quot;&gt;dd&lt;/code&gt; I’m using &lt;code class=&quot;highlighter-rouge&quot;&gt;/dev/rdiskX&lt;/code&gt; instead of the &lt;code class=&quot;highlighter-rouge&quot;&gt;/dev/diskX&lt;/code&gt;. It’s because how OSX handles disk devices.
 &lt;a href=&quot;http://superuser.com/questions/631592/why-is-dev-rdisk-about-20-times-faster-than-dev-disk-in-mac-os-x&quot;&gt;You can read more here&lt;/a&gt;
 if you are intereseted.&lt;/p&gt;
 
@@ -622,8 +622,8 @@ if you are intereseted.&lt;/p&gt;
 
 &lt;p&gt;Put your card into your Raspberry and boot it up! If everything goes well, you should be able to SSH to it.
 If you haven’t use monitor and keyboard, you might end not knowing which IP address SSH to. The easiest solution for
-this problem is use &lt;code&gt;nmap&lt;/code&gt; to detect all open hosts in your subnet, then check which one responds to &lt;code&gt;root&lt;/code&gt; user
-with &lt;code&gt;raspberry&lt;/code&gt; password.&lt;/p&gt;
+this problem is use &lt;code class=&quot;highlighter-rouge&quot;&gt;nmap&lt;/code&gt; to detect all open hosts in your subnet, then check which one responds to &lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt; user
+with &lt;code class=&quot;highlighter-rouge&quot;&gt;raspberry&lt;/code&gt; password.&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;In terminal&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;nmap -p22 -oG - --open 192.168.0.0/24 &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; grep Host &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; awk &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#x7b;print $2&amp;#x7d;&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; sort &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; uniq&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
@@ -651,11 +651,11 @@ easily.&lt;/p&gt;
 &lt;h2 id=&quot;may-04-update-debian-jessie&quot;&gt;[May 04 update] Debian Jessie&lt;/h2&gt;
 
 &lt;p&gt;Few days ago, &lt;a href=&quot;https://www.debian.org/News/2015/20150426&quot;&gt;Debian Jessie came out&lt;/a&gt;. I checked this guide against it, and
-everything should work out of the box. All you need to do is change &lt;code&gt;wheezy&lt;/code&gt; to &lt;code&gt;jessie&lt;/code&gt; in debootstrap phase and in
-&lt;code&gt;/etc/apt/sources.list&lt;/code&gt; file. Also, the new &lt;code&gt;/etc/network/interfaces.d&lt;/code&gt; format was introduced, so instead putting all
+everything should work out of the box. All you need to do is change &lt;code class=&quot;highlighter-rouge&quot;&gt;wheezy&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;jessie&lt;/code&gt; in debootstrap phase and in
+&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/apt/sources.list&lt;/code&gt; file. Also, the new &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/network/interfaces.d&lt;/code&gt; format was introduced, so instead putting all
 of your newtork conf in one file, you can split it to separate files and them put in this directory (i.e.
-&lt;code&gt;/etc/network/interfaces.d/lo&lt;/code&gt;, &lt;code&gt;etc/network/interfaces.d/wifi&lt;/code&gt; etc.). You might also have problems with &lt;code&gt;root&lt;/code&gt; login
-via SSH, if so, set &lt;code&gt;PermitRootLogin yes&lt;/code&gt; in &lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt; (but don’t forget, to set it back to &lt;code&gt;no&lt;/code&gt; when
+&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/network/interfaces.d/lo&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;etc/network/interfaces.d/wifi&lt;/code&gt; etc.). You might also have problems with &lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt; login
+via SSH, if so, set &lt;code class=&quot;highlighter-rouge&quot;&gt;PermitRootLogin yes&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/ssh/sshd_config&lt;/code&gt; (but don’t forget, to set it back to &lt;code class=&quot;highlighter-rouge&quot;&gt;no&lt;/code&gt; when
 you finish configuration!).&lt;/p&gt;
 </description>
         <pubDate>Sun, 19 Apr 2015 20:00:00 +0200</pubDate>
@@ -663,7 +663,7 @@ you finish configuration!).&lt;/p&gt;
         <guid isPermaLink="true">http://rzegocki.pl/blog/2015/04/19/installing-custom-linux-on-raspberry-pi-2/</guid>
         
         
-        <category>administration</category>
+        <category>Administration</category>
         
       </item>
     
@@ -685,7 +685,7 @@ you finish configuration!).&lt;/p&gt;
 &lt;h2 id=&quot;homebrewhttpbrewsh&quot;&gt;&lt;a href=&quot;http://brew.sh/&quot;&gt;homebrew&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&quot;/images/upload/brew.png&quot; alt=&quot;homebrew&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;A package manager for OSX. Think of it as &lt;a href=&quot;https://en.wikipedia.org/wiki/Advanced_Packaging_Tool&quot;&gt;&lt;code&gt;apt-get&lt;/code&gt;&lt;/a&gt; for Mac. It was written by the guys who had enough of MacPorts and decided to do it better. And they did - brew shines everywhere where MacPorts fails, starting from logical directory structure, through simple packaging system (everything is git based) to great simplicity of the tool itself.&lt;/p&gt;
+&lt;p&gt;A package manager for OSX. Think of it as &lt;a href=&quot;https://en.wikipedia.org/wiki/Advanced_Packaging_Tool&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get&lt;/code&gt;&lt;/a&gt; for Mac. It was written by the guys who had enough of MacPorts and decided to do it better. And they did - brew shines everywhere where MacPorts fails, starting from logical directory structure, through simple packaging system (everything is git based) to great simplicity of the tool itself.&lt;/p&gt;
 
 &lt;h2 id=&quot;oh-my-zshhttpsgithubcomrobbyrusselloh-my-zsh&quot;&gt;&lt;a href=&quot;https://github.com/robbyrussell/oh-my-zsh&quot;&gt;oh-my-zsh&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&quot;/images/upload/oh-my-zsh.png&quot; alt=&quot;oh-my-zsh&quot; /&gt;&lt;/p&gt;
@@ -722,7 +722,7 @@ you finish configuration!).&lt;/p&gt;
 &lt;h3 id=&quot;colorshttpsgithubcomtylereichalfred-extrastreemastersourcecolors&quot;&gt;&lt;a href=&quot;https://github.com/TylerEich/Alfred-Extras/tree/master/Source/Colors&quot;&gt;Colors&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;/images/upload/alfred-colors.png&quot; alt=&quot;Colors&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Great tool for front-end developers. It converts colors between RGB, HSL and hexadecimal format. But the true power is the integration with color picker. By simply typing &lt;code&gt;#&lt;/code&gt; it allows you to choose any pixel from your desktop, and then Colors will automatically return hex/rgb/hsl values for it, ready to be copied or pasted.&lt;/p&gt;
+&lt;p&gt;Great tool for front-end developers. It converts colors between RGB, HSL and hexadecimal format. But the true power is the integration with color picker. By simply typing &lt;code class=&quot;highlighter-rouge&quot;&gt;#&lt;/code&gt; it allows you to choose any pixel from your desktop, and then Colors will automatically return hex/rgb/hsl values for it, ready to be copied or pasted.&lt;/p&gt;
 
 &lt;h3 id=&quot;dashhttpsgithubcomwillfarrellalfred-dash-workflow&quot;&gt;&lt;a href=&quot;https://github.com/willfarrell/alfred-dash-workflow&quot;&gt;Dash&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;/images/upload/alfred-dash.png&quot; alt=&quot;Dash&quot; /&gt;&lt;/p&gt;
@@ -737,7 +737,7 @@ you finish configuration!).&lt;/p&gt;
 &lt;h3 id=&quot;flush-dns-cachehttpsgithubcomcdraegeralfred2-flushdns-workflow&quot;&gt;&lt;a href=&quot;https://github.com/cdraeger/alfred2-flushdns-workflow&quot;&gt;Flush DNS cache&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;/images/upload/alfred-flush.png&quot; alt=&quot;Flush DNS cache&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Mac OS X can be very stubborn sometimes when it comes to adding new entries to &lt;code&gt;/etc/hosts&lt;/code&gt;. This little extension is an excellent solution.&lt;/p&gt;
+&lt;p&gt;Mac OS X can be very stubborn sometimes when it comes to adding new entries to &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/hosts&lt;/code&gt;. This little extension is an excellent solution.&lt;/p&gt;
 
 &lt;h3 id=&quot;html-entity-lookuphttpsgithubcomajgonalfred2-html-entity-lookup&quot;&gt;&lt;a href=&quot;https://github.com/ajgon/alfred2-html-entity-lookup&quot;&gt;HTML Entity Lookup&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;/images/upload/alfred-entity.png&quot; alt=&quot;HTML Entity Lookup&quot; /&gt;&lt;/p&gt;
@@ -840,7 +840,7 @@ you finish configuration!).&lt;/p&gt;
         <guid isPermaLink="true">http://rzegocki.pl/blog/2013/11/13/25-awesome-tools-every-developer-should-have/</guid>
         
         
-        <category>workflow</category>
+        <category>Workflow</category>
         
       </item>
     
@@ -850,11 +850,11 @@ you finish configuration!).&lt;/p&gt;
 
 &lt;!-- more --&gt;
 
-&lt;p&gt;In a perfect world, there would one standard for that - in our world however, there are two: &lt;code&gt;autoconfig&lt;/code&gt; (Mozilla favored) and &lt;code&gt;autodiscover&lt;/code&gt; (Microsoft promoted). So we have to to set them together - thankfully both are based on simple XML files, so it’s not a big deal.&lt;/p&gt;
+&lt;p&gt;In a perfect world, there would one standard for that - in our world however, there are two: &lt;code class=&quot;highlighter-rouge&quot;&gt;autoconfig&lt;/code&gt; (Mozilla favored) and &lt;code class=&quot;highlighter-rouge&quot;&gt;autodiscover&lt;/code&gt; (Microsoft promoted). So we have to to set them together - thankfully both are based on simple XML files, so it’s not a big deal.&lt;/p&gt;
 
 &lt;h2 id=&quot;autoconfig-mozilla-thunderbird&quot;&gt;autoconfig (Mozilla Thunderbird)&lt;/h2&gt;
 
-&lt;p&gt;This one is (im my opinion) is more clean and advanced. To use it, just make your webserver to return below XML file on &lt;code&gt;autoconfig.&lt;/code&gt; subdomain. So (for example) if you have email &lt;code&gt;myname@mydomain.com&lt;/code&gt; - &lt;code&gt;autoconfig.mydomain.com&lt;/code&gt; should return:&lt;/p&gt;
+&lt;p&gt;This one is (im my opinion) is more clean and advanced. To use it, just make your webserver to return below XML file on &lt;code class=&quot;highlighter-rouge&quot;&gt;autoconfig.&lt;/code&gt; subdomain. So (for example) if you have email &lt;code class=&quot;highlighter-rouge&quot;&gt;myname@mydomain.com&lt;/code&gt; - &lt;code class=&quot;highlighter-rouge&quot;&gt;autoconfig.mydomain.com&lt;/code&gt; should return:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;autoconfig.xml&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;clientConfig&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;version=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;1.1&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
@@ -902,7 +902,7 @@ you finish configuration!).&lt;/p&gt;
 
 &lt;h2 id=&quot;autodiscover-microsoft-outlook&quot;&gt;autodiscover (Microsoft Outlook)&lt;/h2&gt;
 
-&lt;p&gt;Procedure is very similar here. You just have to set &lt;code&gt;autodiscover.&lt;/code&gt; domain, and XML file is slightly different. So, for example &lt;code&gt;autodiscover.mydomain.com&lt;/code&gt; should return:&lt;/p&gt;
+&lt;p&gt;Procedure is very similar here. You just have to set &lt;code class=&quot;highlighter-rouge&quot;&gt;autodiscover.&lt;/code&gt; domain, and XML file is slightly different. So, for example &lt;code class=&quot;highlighter-rouge&quot;&gt;autodiscover.mydomain.com&lt;/code&gt; should return:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;autodiscover.xml&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;Autodiscover&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://schemas.microsoft.com/exchange/autodiscover/responseschema/2006&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
@@ -963,7 +963,7 @@ you finish configuration!).&lt;/p&gt;
         <guid isPermaLink="true">http://rzegocki.pl/blog/2013/10/28/adding-email-server-autoconfig-and-autodiscover/</guid>
         
         
-        <category>administration</category>
+        <category>Administration</category>
         
       </item>
     
@@ -1036,7 +1036,7 @@ confirmation - and eventually fail):&lt;/p&gt;
 
 &lt;p&gt;Config file is pretty explanatory - what you have to change is “domains”
 parameter (put only domains, which you want to receive encrypted messages),
-keyhome (set to &lt;code&gt;/var/gpg/.gnupg&lt;/code&gt;) and keymap (map all the emails which should
+keyhome (set to &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/gpg/.gnupg&lt;/code&gt;) and keymap (map all the emails which should
 receive encrypted content there - follow the hint in file). So all in all your
 config file should look similar to this:&lt;/p&gt;
 
@@ -1056,14 +1056,14 @@ config file should look similar to this:&lt;/p&gt;
 &lt;h2 id=&quot;setting-postfix&quot;&gt;Setting postfix&lt;/h2&gt;
 
 &lt;p&gt;The last thing is postfix configuration which is (surprisingly) really easy,
-just activate content filter in &lt;code&gt;main.cf&lt;/code&gt; and add relay to &lt;code&gt;master.cf&lt;/code&gt;. One
+just activate content filter in &lt;code class=&quot;highlighter-rouge&quot;&gt;main.cf&lt;/code&gt; and add relay to &lt;code class=&quot;highlighter-rouge&quot;&gt;master.cf&lt;/code&gt;. One
 last thing is to add X-GPG-* headers to tell the script, which extra email
 addresses we want to deliver messages encrypted. Normally gpg-mailgate encrypts
 only messages to addresses that are configured in gpg-mailgate.conf file and
 available in To/Cc/Bcc headers of original message. Unfortunatelly, we are
 using a totally different zoho.com email intended only for backups - it will
 never appear in original message headers, because it’s not the recipient. To
-make it appear - simply add &lt;code&gt;X-GPG-Encrypt-Cc&lt;/code&gt; header to your message. So, the
+make it appear - simply add &lt;code class=&quot;highlighter-rouge&quot;&gt;X-GPG-Encrypt-Cc&lt;/code&gt; header to your message. So, the
 configuration will present as follows:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;/etc/postfix/main.cf&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;c&quot;&gt;# gpg&lt;/span&gt;
@@ -1085,7 +1085,7 @@ configuration will present as follows:&lt;/p&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;12&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;        -o &lt;span class=&quot;nv&quot;&gt;mynetworks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;127.0.0.0/8
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;13&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;        -o &lt;span class=&quot;nv&quot;&gt;smtpd_authorized_xforward_hosts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;127.0.0.0/8&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;Don’t forget to create &lt;code&gt;header_checks.db&lt;/code&gt; and restart postfix.&lt;/p&gt;
+&lt;p&gt;Don’t forget to create &lt;code class=&quot;highlighter-rouge&quot;&gt;header_checks.db&lt;/code&gt; and restart postfix.&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;As root&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;postmap header_checks
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;/etc/init.d/postfix restart&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
@@ -1104,7 +1104,7 @@ shiny and secure backup :)&lt;/p&gt;
         <guid isPermaLink="true">http://rzegocki.pl/blog/2013/04/14/setting-encrypted-backup-email-server/</guid>
         
         
-        <category>administration</category>
+        <category>Administration</category>
         
       </item>
     
@@ -1131,7 +1131,7 @@ debian packages:&lt;/p&gt;
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;As root&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;apt-get install opendkim libmail-dkim-perl&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
 &lt;p&gt;The second one is a dkim support for spamassassin. I’ll cover that later. Next,
-you need to edit your &lt;code&gt;/etc/opendkim.conf&lt;/code&gt; file:&lt;/p&gt;
+you need to edit your &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/opendkim.conf&lt;/code&gt; file:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;/etc/opendkim.conf&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;SysLog             yes
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;Umask              002
@@ -1143,14 +1143,14 @@ you need to edit your &lt;code&gt;/etc/opendkim.conf&lt;/code&gt; file:&lt;/p&gt
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;10&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;Mode               sv
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;11&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;X-Header           yes&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;code&gt;Mode sv&lt;/code&gt; directive tells opendkim to sign but also verify messages, while
-&lt;code&gt;X-Header&lt;/code&gt; adds &lt;code&gt;X-Dkim&lt;/code&gt; header (which contains information about the DKIM
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Mode sv&lt;/code&gt; directive tells opendkim to sign but also verify messages, while
+&lt;code class=&quot;highlighter-rouge&quot;&gt;X-Header&lt;/code&gt; adds &lt;code class=&quot;highlighter-rouge&quot;&gt;X-Dkim&lt;/code&gt; header (which contains information about the DKIM
 daemon you are using). Next we need to tell opendkim which port it will be
-using, so in &lt;code&gt;/etc/default/opendkim&lt;/code&gt; uncomment:&lt;/p&gt;
+using, so in &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/default/opendkim&lt;/code&gt; uncomment:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;/etc/default/opendkim&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nv&quot;&gt;SOCKET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;inet:12345@localhost&amp;quot;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# listen on loopback on port 12345&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;Now we have to populate those extra files we defined. &lt;code&gt;TrustedHosts&lt;/code&gt; is the
+&lt;p&gt;Now we have to populate those extra files we defined. &lt;code class=&quot;highlighter-rouge&quot;&gt;TrustedHosts&lt;/code&gt; is the
 easiest one, it’s just the list of hosts and domains which are allowed to use
 DKIM. So in most cases:&lt;/p&gt;
 
@@ -1160,7 +1160,7 @@ DKIM. So in most cases:&lt;/p&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;4&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;1.2.3.4 &lt;span class=&quot;c&quot;&gt;# external IP&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
 &lt;p&gt;Next, we need to create a key and DNS TXT record pair for each domain we want
-to be signed. I suggest to use strong key (&lt;code&gt;-b&lt;/code&gt; parameter), to avoid
+to be signed. I suggest to use strong key (&lt;code class=&quot;highlighter-rouge&quot;&gt;-b&lt;/code&gt; parameter), to avoid
 &lt;a href=&quot;http://www.wired.com/threatlevel/2012/10/dkim-vulnerability-widespread&quot;&gt;some company’s failure&lt;/a&gt;.
 To do this:&lt;/p&gt;
 
@@ -1170,9 +1170,9 @@ To do this:&lt;/p&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;4&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;chown opendkim:opendkim mail.private
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;5&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;chmod &lt;span class=&quot;m&quot;&gt;600&lt;/span&gt; mail.private&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;This will create two files: &lt;code&gt;mail.private&lt;/code&gt; - which contains a private RSA key,
-and &lt;code&gt;mail.txt&lt;/code&gt; which contains a contents for DNS TXT record. So let’s make use
-of them! First keys - they need to be fined in &lt;code&gt;KeyTable&lt;/code&gt; and &lt;code&gt;SingingTable&lt;/code&gt;
+&lt;p&gt;This will create two files: &lt;code class=&quot;highlighter-rouge&quot;&gt;mail.private&lt;/code&gt; - which contains a private RSA key,
+and &lt;code class=&quot;highlighter-rouge&quot;&gt;mail.txt&lt;/code&gt; which contains a contents for DNS TXT record. So let’s make use
+of them! First keys - they need to be fined in &lt;code class=&quot;highlighter-rouge&quot;&gt;KeyTable&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;SingingTable&lt;/code&gt;
 files.&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;/etc/mail/dkim/KeyTable&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;mail._domainkey.mydomain.com mydomain.com:mail:/etc/mail/dkim/keys/mydomain.com/mail.private&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
@@ -1180,8 +1180,8 @@ files.&lt;/p&gt;
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;/etc/mail/dkim/SigningTable&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;mydomain.com mail._domainkey.mydomain.com&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
 &lt;p&gt;The last thing we need to do is to add a DNS TXT record for
-&lt;code&gt;mail._domainkey.mydomain.com&lt;/code&gt; domain containing contents provided by
-&lt;code&gt;opendkim-genkey&lt;/code&gt;. For example for irgon.com it looks like this:&lt;/p&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;mail._domainkey.mydomain.com&lt;/code&gt; domain containing contents provided by
+&lt;code class=&quot;highlighter-rouge&quot;&gt;opendkim-genkey&lt;/code&gt;. For example for irgon.com it looks like this:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;DNS TXT record&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;mail._domainkey.irgon.com descriptive text &lt;span class=&quot;s2&quot;&gt;&amp;quot;v=DKIM1\; g=*\; k=rsa\; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsfIThdXoizR6sop0gifPwPkT45I/KnTTNKDS4BHWtoU6as62c/3BRQuKqDAIacheZzWbfEPq/M2YvoNrVhx1laltg7aeUhZlcVOtz415lIy8M8oUVTCDxewBKsTEQD5M4Roaadoj7vzpA1JMcOEv36TizFq/KB5GL46pVNyOMJ+Mg&amp;quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;97F+EQQeiOFsn/T+tNuxWky3l4Qky3S8U34wYmRSr+sVLu4U31QtocwL4uJ7ofVNdVk0baYo7s1HYnM3CGEKK+zdHTR/AoNiquvVX1lLX9s85bade4cNuRaINjzDyM4fAglLgSHZEtRcRlYqdMEpQcplI1OaSxIFS4DpFL3RwIDAQAB&amp;quot;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
@@ -1211,9 +1211,9 @@ files.&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;/etc/postfix/master.cf&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;policy-spf  unix  -  n  n  -  -  spawn &lt;span class=&quot;nv&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;nobody &lt;span class=&quot;nv&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/bin/policyd-spf&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;Add spf timeout to &lt;code&gt;/etc/postfix/main.cf&lt;/code&gt; and adjust
-&lt;code&gt;smtpd_recipient_restrictions&lt;/code&gt; to include
-&lt;code&gt;check_policy_service unix:private/policy-spf&lt;/code&gt;, so in my file it looks like
+&lt;p&gt;Add spf timeout to &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/postfix/main.cf&lt;/code&gt; and adjust
+&lt;code class=&quot;highlighter-rouge&quot;&gt;smtpd_recipient_restrictions&lt;/code&gt; to include
+&lt;code class=&quot;highlighter-rouge&quot;&gt;check_policy_service unix:private/policy-spf&lt;/code&gt;, so in my file it looks like
 this:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;/etc/postfix/main.cf&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
@@ -1229,7 +1229,7 @@ this:&lt;/p&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;11&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;spf-policyd_time_limit &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 3600s&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
 &lt;p&gt;Last but not least is updating a DNS record. This is simple and similar to DKIM -
-just ad TXT record to your TLD containing &lt;code&gt;v=spf1 a mx ip4:&amp;lt;your ip&amp;gt;&lt;/code&gt;, for
+just ad TXT record to your TLD containing &lt;code class=&quot;highlighter-rouge&quot;&gt;v=spf1 a mx ip4:&amp;lt;your ip&amp;gt;&lt;/code&gt;, for
 example my looks like this:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;DNS TXT record&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;irgon.com descriptive text &lt;span class=&quot;s2&quot;&gt;&amp;quot;v=spf1 a mx ip4:213.134.188.213&amp;quot;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
@@ -1259,16 +1259,16 @@ properly.&lt;/p&gt;
 &lt;h2 id=&quot;final-polishing&quot;&gt;Final polishing&lt;/h2&gt;
 
 &lt;p&gt;By default spamassassin has DKIM filters enabled. To ensure, look for
-&lt;code&gt;loadplugin Mail::SpamAssassin::Plugin::DKIM&lt;/code&gt; in your
-&lt;code&gt;/etc/spamassassin/v312.pre&lt;/code&gt; file. When it’s enabled you should see values like
-&lt;code&gt;DKIM_VALID&lt;/code&gt; or &lt;code&gt;T_DKIM_INVALID&lt;/code&gt; in &lt;code&gt;X-Spam-Status&lt;/code&gt; header. Normally,
+&lt;code class=&quot;highlighter-rouge&quot;&gt;loadplugin Mail::SpamAssassin::Plugin::DKIM&lt;/code&gt; in your
+&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/spamassassin/v312.pre&lt;/code&gt; file. When it’s enabled you should see values like
+&lt;code class=&quot;highlighter-rouge&quot;&gt;DKIM_VALID&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;T_DKIM_INVALID&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;X-Spam-Status&lt;/code&gt; header. Normally,
 spamassassin puts a very little weight to that rules, but you can easily
 increase it by adding:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;/etc/mail/spamassassin/local.cf&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;score T_DKIM_INVALID 10
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;score DKIM_ADSP_CUSTOM_MED 10&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;You can also add sieve filter based on &lt;code&gt;Authentication-Results&lt;/code&gt; if you want to
+&lt;p&gt;You can also add sieve filter based on &lt;code class=&quot;highlighter-rouge&quot;&gt;Authentication-Results&lt;/code&gt; if you want to
 treat those suspicious messages differently than normal spam:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;.dovecot.sieve&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; header :contains &lt;span class=&quot;s2&quot;&gt;&amp;quot;Authentication-Results&amp;quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;dkim=fail&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;#x7b;&lt;/span&gt; fileinto &lt;span class=&quot;s2&quot;&gt;&amp;quot;DANGER&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; stop&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;#x7d;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
@@ -1287,7 +1287,7 @@ treat those suspicious messages differently than normal spam:&lt;/p&gt;
         <guid isPermaLink="true">http://rzegocki.pl/blog/2012/10/27/add-more-complexity-to-your-emails-use-dkim-and-spf/</guid>
         
         
-        <category>administration</category>
+        <category>Administration</category>
         
       </item>
     
@@ -1329,7 +1329,7 @@ problem is actually pretty easy to solve as well - just use encryption
 
 &lt;p&gt;The next thing was snapshots. They had to be diff-based - that for sure. At the
 beginning I tried to use rsync. It was nightmare. Sure, it had this
-&lt;code&gt;compare-dest&lt;/code&gt; option, and after many hours of VooDoo magic I was able to set
+&lt;code class=&quot;highlighter-rouge&quot;&gt;compare-dest&lt;/code&gt; option, and after many hours of VooDoo magic I was able to set
 it properly, but still I was unhappy with it. Mostly, because it didn’t handle
 file removal very well (if some files were removed in a new snapshot, they
 simply weren’t included, so I didn’t have any information about that, so when I
@@ -1341,8 +1341,8 @@ all of this together?&lt;/p&gt;
 &lt;h2 id=&quot;setting-davfs-for-boxcom&quot;&gt;Setting davfs for box.com&lt;/h2&gt;
 
 &lt;p&gt;This step is pretty simple, just install it, add your box.com credentials to
-&lt;code&gt;/etc/davfs2/secrets&lt;/code&gt;, set &lt;code&gt;use_locks&lt;/code&gt; to &lt;code&gt;0&lt;/code&gt; and add proper line to
-&lt;code&gt;/etc/fstab&lt;/code&gt;. Then just mount it. So:&lt;/p&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/davfs2/secrets&lt;/code&gt;, set &lt;code class=&quot;highlighter-rouge&quot;&gt;use_locks&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;0&lt;/code&gt; and add proper line to
+&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/fstab&lt;/code&gt;. Then just mount it. So:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;As root&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;https://www.box.com/dav    login@email.com     my_box_com_password&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/davfs2/secrets
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;sed -i&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt; -r &lt;span class=&quot;s1&quot;&gt;&amp;#39;s/#?\s*use_locks\s+0/use_locks 1/g&amp;#39;&lt;/span&gt; /etc/davfs2/davfs2.conf
@@ -1394,7 +1394,7 @@ this initial deploy, make sure that all the files are moved to box.com!&lt;/p&gt
 
 &lt;h2 id=&quot;restoring-backup&quot;&gt;Restoring backup&lt;/h2&gt;
 
-&lt;p&gt;This is pretty simple. First, fetch all the &lt;code&gt;*.initial.*&lt;/code&gt; files to some
+&lt;p&gt;This is pretty simple. First, fetch all the &lt;code class=&quot;highlighter-rouge&quot;&gt;*.initial.*&lt;/code&gt; files to some
 directory, then merge them, decrypt and unpack.&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;As root&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;mkdir -p /home/Restore/.git
@@ -1430,7 +1430,7 @@ box.com, but if you do - please, let me know!&lt;/p&gt;
         <guid isPermaLink="true">http://rzegocki.pl/blog/2012/10/14/setting-secure-cloud-based-backup-system-using-git-and-box-com/</guid>
         
         
-        <category>administration</category>
+        <category>Administration</category>
         
       </item>
     
@@ -1462,7 +1462,7 @@ simply type:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;As user&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;ruby &amp;lt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;curl -fsSkL raw.github.com/mxcl/homebrew/go&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;After installing it, i suggest to type &lt;code&gt;brew doctor&lt;/code&gt; and follow the
+&lt;p&gt;After installing it, i suggest to type &lt;code class=&quot;highlighter-rouge&quot;&gt;brew doctor&lt;/code&gt; and follow the
 instructions if something unexpected occurs. However, in clean
 Mountain Lion+XCode+command line tools installation I didn’t get any warnings,
 so you shouldn’t as well.&lt;/p&gt;
@@ -1493,10 +1493,10 @@ alternative to &lt;a href=&quot;http://www.apache.org/&quot;&gt;apache&lt;/a&gt;
 &lt;p&gt;As for configuration, take look at my
 &lt;a href=&quot;https://github.com/ajgon/DeeDee/tree/master/etc/nginx&quot;&gt;DeeDee project nginx configuration files&lt;/a&gt;
 - they are really good starting point for configuring your nginx. However, if
-you are lazy, just take and copy &lt;code&gt;wordpress&lt;/code&gt; and &lt;code&gt;php&lt;/code&gt; files from &lt;code&gt;extra/lang&lt;/code&gt;
-directory (on DeeDee github) to &lt;code&gt;/usr/local/etc/nginx&lt;/code&gt; (this is where your
+you are lazy, just take and copy &lt;code class=&quot;highlighter-rouge&quot;&gt;wordpress&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;php&lt;/code&gt; files from &lt;code class=&quot;highlighter-rouge&quot;&gt;extra/lang&lt;/code&gt;
+directory (on DeeDee github) to &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/etc/nginx&lt;/code&gt; (this is where your
 nginx configuration files lives) and add following section at the bottom
-(before the last closing bracket) of the &lt;code&gt;nginx.conf&lt;/code&gt; file:&lt;/p&gt;
+(before the last closing bracket) of the &lt;code class=&quot;highlighter-rouge&quot;&gt;nginx.conf&lt;/code&gt; file:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;/usr/local/etc/nginx/nginx.conf&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;server &lt;span class=&quot;o&quot;&gt;&amp;#x7b;&lt;/span&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    server_name ~^&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;www.&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;?&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;?&amp;lt;project&amp;gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;^.&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.php.dev&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -1520,7 +1520,7 @@ nginx configuration files lives) and add following section at the bottom
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;21&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    include wordpress&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;22&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;#x7d;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;Now type &lt;code&gt;sudo /usr/local/sbin/nginx -t&lt;/code&gt; - if eveyrhing is okay, you should see
+&lt;p&gt;Now type &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo /usr/local/sbin/nginx -t&lt;/code&gt; - if eveyrhing is okay, you should see
 a proper message.&lt;/p&gt;
 
 &lt;p&gt;Next thing we need to do is to make those wp.dev and php.dev domains work. To
@@ -1530,7 +1530,7 @@ do this, install &lt;a href=&quot;http://www.thekelleys.org.uk/dnsmasq/doc.html&
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;cp &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;brew --prefix dnsmasq&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;/dnsmasq.conf.example /usr/local/etc/dnsmasq.conf
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;3&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;sudo cp &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;brew --prefix dnsmasq&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;/homebrew.mxcl.dnsmasq.plist /Library/LaunchDaemons&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;Now edit newly created &lt;code&gt;dnsmasq.conf&lt;/code&gt; file and add:&lt;/p&gt;
+&lt;p&gt;Now edit newly created &lt;code class=&quot;highlighter-rouge&quot;&gt;dnsmasq.conf&lt;/code&gt; file and add:&lt;/p&gt;
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;/usr/local/etc/dnsmasq.conf&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nv&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/.dev/127.0.0.1&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
 &lt;p&gt;Last thing left, is setting a nameserver to 127.0.0.1 in your Network prefpane,
@@ -1538,8 +1538,8 @@ as shown below.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/upload/dnsmasq.png&quot; alt=&quot;dnsmasq configuration&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;From now on all *.dev domains will be translated to &lt;code&gt;127.0.0.1&lt;/code&gt; and from there
-all &lt;code&gt;wp.dev&lt;/code&gt; and &lt;code&gt;php.dev&lt;/code&gt; domains will be handled by nginx. Good stuff.&lt;/p&gt;
+&lt;p&gt;From now on all *.dev domains will be translated to &lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.0.1&lt;/code&gt; and from there
+all &lt;code class=&quot;highlighter-rouge&quot;&gt;wp.dev&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;php.dev&lt;/code&gt; domains will be handled by nginx. Good stuff.&lt;/p&gt;
 
 &lt;h2 id=&quot;installing-php-fpm-and-mysql&quot;&gt;Installing PHP-FPM and MySQL&lt;/h2&gt;
 
@@ -1570,7 +1570,7 @@ contain PHP recipes out of box, so we need
 good approach, because when I use my mac for normal stuff, I don’t want any
 unnecessary resources consumed. So to tie all of this together, I have a simple
 script which will launch or disable all the services on demand. Just create
-(and make executable) &lt;code&gt;/usr/local/bin/dev&amp;lt;&lt;/code&gt; file with following contents:&lt;/p&gt;
+(and make executable) &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/bin/dev&amp;lt;&lt;/code&gt; file with following contents:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;/usr/local/bin/dev&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$# &lt;/span&gt;-lt &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
@@ -1587,8 +1587,8 @@ script which will launch or disable all the services on demand. Just create
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;13&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;    &lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;14&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;Now when you need to enter “development mode” simply type &lt;code&gt;dev on&lt;/code&gt; and to quit
-&lt;code&gt;dev off&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Now when you need to enter “development mode” simply type &lt;code class=&quot;highlighter-rouge&quot;&gt;dev on&lt;/code&gt; and to quit
+&lt;code class=&quot;highlighter-rouge&quot;&gt;dev off&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 
@@ -1600,7 +1600,7 @@ I do :).&lt;/p&gt;
         <guid isPermaLink="true">http://rzegocki.pl/blog/2012/09/22/setting-development-environment-on-your-mac/</guid>
         
         
-        <category>php</category>
+        <category>PHP</category>
         
       </item>
     
@@ -1648,7 +1648,7 @@ except DCC.&lt;/p&gt;
 
 &lt;h2 id=&quot;setting-up-spamassassin&quot;&gt;Setting up SpamAssassin&lt;/h2&gt;
 
-&lt;p&gt;The next step is to configure &lt;code&gt;spamd&lt;/code&gt; to run as a daemon:&lt;/p&gt;
+&lt;p&gt;The next step is to configure &lt;code class=&quot;highlighter-rouge&quot;&gt;spamd&lt;/code&gt; to run as a daemon:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;As root&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;groupdd spamd
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;useradd -g spamd -s /bin/false -d /var/lib/spamassassin spamd
@@ -1670,9 +1670,9 @@ except DCC.&lt;/p&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;17&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nv&quot;&gt;OPTIONS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;--create-prefs -x --max-children 3 --username spamd --helper-home-dir $&amp;#x7b;SAHOME&amp;#x7d; -s $&amp;#x7b;SAHOME&amp;#x7d;/spamd.log --virtual-config-dir=$&amp;#x7b;USERACCOUNTS&amp;#x7d;/%l@%d/spamassassin -A 192.168.1.1&amp;quot;&lt;/span&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;18&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt; &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;19&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;The &lt;code&gt;virtual-config-dir&lt;/code&gt; allows us to have separate user preferences and bayes
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;virtual-config-dir&lt;/code&gt; allows us to have separate user preferences and bayes
 databases for each virtual user. The next thing is to edit
-&lt;code&gt;/etc/spamassassin/local.cf&lt;/code&gt; file:&lt;/p&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/spamassassin/local.cf&lt;/code&gt; file:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;/etc/spamassassin/local.cf&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Save spam messages as a message/rfc822 MIME attachment instead of&lt;/span&gt;
@@ -1686,7 +1686,7 @@ databases for each virtual user. The next thing is to edit
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;12&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt; &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;13&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;use_razor2 1
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;14&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;razor_config /etc/razor/razor-agent.conf&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
 
-&lt;p&gt;Afterwards, edit &lt;code&gt;/etc/spamassassin/v310.pre&lt;/code&gt; and check that the DCC, Razor and
+&lt;p&gt;Afterwards, edit &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/spamassassin/v310.pre&lt;/code&gt; and check that the DCC, Razor and
 Pyzor plugins are enabled (DCC is disabled by default). After that, the only
 thing left is to update SA databases and start it:&lt;/p&gt;
 
@@ -1697,7 +1697,7 @@ thing left is to update SA databases and start it:&lt;/p&gt;
 
 &lt;p&gt;From the postfix side all you have to do is change transport (I suggest to
 create a new one - then, when something goes wrong you can easily switch back
-to old working configuration) or &lt;code&gt;mailbox_command&lt;/code&gt;. For transport, the magic
+to old working configuration) or &lt;code class=&quot;highlighter-rouge&quot;&gt;mailbox_command&lt;/code&gt;. For transport, the magic
 line looks like this:&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;/etc/postfix/master.cf&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;dovecot-spam   unix  -       n       n       -       -       pipe
@@ -1705,7 +1705,7 @@ line looks like this:&lt;/p&gt;
 
 &lt;p&gt;And this is the line I’ve been looking for. SpamAssassin takes message, pushes
 it through his intestines, adds headers, and output is pushed further to
-&lt;code&gt;deliver&lt;/code&gt; command. From that point, it can be taken by Sieve. To make this
+&lt;code class=&quot;highlighter-rouge&quot;&gt;deliver&lt;/code&gt; command. From that point, it can be taken by Sieve. To make this
 work, don’t forget to change the transport!&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;/etc/postfix/main.cf&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;&lt;span class=&quot;nv&quot;&gt;mailbox_transport&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; dovecot-spam&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/figure&gt;
@@ -1733,7 +1733,7 @@ should land in Junk.&lt;/p&gt;
 adjustments over time (like intelligent filters in SA and so on), and - when I
 start to trust it fully - instead of moving into the Junk all spam will be
 deleted. But for now, everything works like a charm :) If you experience any
-problems, first look into &lt;code&gt;/var/lib/spamassassin/spamd.log&lt;/code&gt; file - there is big
+problems, first look into &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/lib/spamassassin/spamd.log&lt;/code&gt; file - there is big
 chance, that you’ll find your answers there.&lt;/p&gt;
 
 &lt;h3 id=&quot;sources&quot;&gt;Sources&lt;/h3&gt;
@@ -1747,7 +1747,7 @@ chance, that you’ll find your answers there.&lt;/p&gt;
         <guid isPermaLink="true">http://rzegocki.pl/blog/2012/07/21/adding-a-little-bit-of-spamassassin-into-postfix-slash-dovecot-slash-sieve-soup/</guid>
         
         
-        <category>administration</category>
+        <category>Administration</category>
         
       </item>
     
@@ -1773,9 +1773,9 @@ started looking for solution for that problem and found
 &lt;p&gt;Ok, so how to do it? Firstly, as for dovecot 1.2.x, sieve was completely
 rewritten as a new plugin. It can be obtained from
 &lt;a href=&quot;http://www.rename-it.nl/dovecot/1.2/&quot;&gt;rename-it.nl website&lt;/a&gt;. At the time of
-writing this post, there is no &lt;code&gt;*.deb&lt;/code&gt; package in repositories, so I have to
-build it manually. I also had to install &lt;code&gt;dovecot-dev&lt;/code&gt; package, because of
-sieve configurator, which needs a &lt;code&gt;dovecot-config&lt;/code&gt; file.&lt;/p&gt;
+writing this post, there is no &lt;code class=&quot;highlighter-rouge&quot;&gt;*.deb&lt;/code&gt; package in repositories, so I have to
+build it manually. I also had to install &lt;code class=&quot;highlighter-rouge&quot;&gt;dovecot-dev&lt;/code&gt; package, because of
+sieve configurator, which needs a &lt;code class=&quot;highlighter-rouge&quot;&gt;dovecot-config&lt;/code&gt; file.&lt;/p&gt;
 
 &lt;figure class=&quot;code-highlight-figure&quot;&gt;&lt;figcaption class=&quot;code-highlight-caption&quot;&gt;&lt;span class=&quot;code-highlight-caption-title&quot;&gt;As root&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;code-highlight&quot;&gt;&lt;pre class=&quot;code-highlight-pre&quot;&gt;&lt;div data-line=&quot;1&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;wget http://www.rename-it.nl/dovecot/1.2/dovecot-1.2-sieve-0.1.19.tar.gz
 &lt;/div&gt;&lt;/div&gt;&lt;div data-line=&quot;2&quot; class=&quot;code-highlight-row numbered&quot;&gt;&lt;div class=&quot;code-highlight-line&quot;&gt;tar -xzvf dovecot-1.2-sieve-0.1.19.tar.gz
@@ -1803,8 +1803,8 @@ can check them on
 After that, just restart postfix and everything is set.&lt;/p&gt;
 
 &lt;p&gt;The last step is setting all the filters properly. They should be stored in
-&lt;code&gt;~/.dovecot.sieve&lt;/code&gt; (if you use &lt;code&gt;mailbox_command&lt;/code&gt;) or in
-&lt;code&gt;/home/vmail/user@domain/.dovecot.sieve&lt;/code&gt; (if you use &lt;code&gt;mailbox_transport&lt;/code&gt;).
+&lt;code class=&quot;highlighter-rouge&quot;&gt;~/.dovecot.sieve&lt;/code&gt; (if you use &lt;code class=&quot;highlighter-rouge&quot;&gt;mailbox_command&lt;/code&gt;) or in
+&lt;code class=&quot;highlighter-rouge&quot;&gt;/home/vmail/user@domain/.dovecot.sieve&lt;/code&gt; (if you use &lt;code class=&quot;highlighter-rouge&quot;&gt;mailbox_transport&lt;/code&gt;).
 Sieve uses it’s own &lt;a href=&quot;http://www.ietf.org/rfc/rfc5228.txt&quot;&gt;pseudo-language&lt;/a&gt; for
 filtering, but below is a part of my file which should provide a
 &lt;a href=&quot;http://wiki.dovecot.org/LDA/Sieve/&quot;&gt;good example&lt;/a&gt; for start:&lt;/p&gt;
@@ -1833,7 +1833,7 @@ and confirms that own server is an really, really great idea :)&lt;/p&gt;
         <guid isPermaLink="true">http://rzegocki.pl/blog/2012/07/16/setting-server-side-mail-filtering-with-sieve-and-dovecot/</guid>
         
         
-        <category>administration</category>
+        <category>Administration</category>
         
       </item>
     

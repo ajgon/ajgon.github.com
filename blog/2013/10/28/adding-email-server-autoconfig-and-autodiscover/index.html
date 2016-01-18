@@ -17,12 +17,10 @@
   <meta content="One of the nicest, yet badly documented features in new MUAs is email servers autodiscovering. When you type your e-mail address in configuration window, mod..." name="og:description">
 
 
-  <link rel="stylesheet" href="/css/main.css">
+  <link href='/stylesheets/all-697f2d8c775b33dc0da91a5f3c9ba091.css' media='all' rel='stylesheet' type='text/css'>
   <link rel="canonical" href="http://rzegocki.pl/blog/2013/10/28/adding-email-server-autoconfig-and-autodiscover/">
   <link rel="alternate" type="application/rss+xml" title='Igor \"ajgon\" Rzegocki' href="http://rzegocki.pl/feed.xml" />
-  <script src="/js/lib/modernizr.js"></script>
 </head>
-
 
   <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -68,9 +66,7 @@
           
         
           
-            <a href="/index.html" class="mdl-navigation__link">About</a>
-          
-        
+            <a href="/" class="mdl-navigation__link">About</a>
           
         
           
@@ -92,9 +88,7 @@
           
         
           
-        
-          
-            <a href="/portfolio.html" class="mdl-navigation__link">Portfolio</a>
+            <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
           
         
           
@@ -110,9 +104,7 @@
           
         
           
-        
-          
-            <a href="/open-source.html" class="mdl-navigation__link">Open Source</a>
+            <a href="/open-source/" class="mdl-navigation__link">Open Source</a>
           
         
           
@@ -124,9 +116,7 @@
           
         
           
-            <a href="/blog.html" class="mdl-navigation__link is-active">Blog</a>
-          
-        
+            <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
           
         
           
@@ -155,9 +145,7 @@
         
       
         
-          <a href="/index.html" class="mdl-navigation__link">About</a>
-        
-      
+          <a href="/" class="mdl-navigation__link">About</a>
         
       
         
@@ -179,9 +167,7 @@
         
       
         
-      
-        
-          <a href="/portfolio.html" class="mdl-navigation__link">Portfolio</a>
+          <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
         
       
         
@@ -197,9 +183,7 @@
         
       
         
-      
-        
-          <a href="/open-source.html" class="mdl-navigation__link">Open Source</a>
+          <a href="/open-source/" class="mdl-navigation__link">Open Source</a>
         
       
         
@@ -211,9 +195,7 @@
         
       
         
-          <a href="/blog.html" class="mdl-navigation__link is-active">Blog</a>
-        
-      
+          <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
         
       
         
@@ -230,7 +212,6 @@
   </nav>
 </div>
 
-
       <main class="mdl-layout__content">
         <div class="post-container full-post narrow mdl-grid">
     <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
@@ -239,7 +220,7 @@
                 <h3>Adding Email server autoconfig and autodiscover</h3>
             </div>
         </a>
-                <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+        <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
             <div class="minilogo" style="background-image: url(/images/avatars/ajgon.png);"></div>
             <div>
                 <strong>ajgon</strong>
@@ -260,17 +241,16 @@
                 <div class="mdl-tooltip" for="share_">Share</div>
             </div>
         </div>
-
         <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
             <p>One of the nicest, yet badly documented features in new MUAs is email servers autodiscovering. When you type your e-mail address in configuration window, modern MUA is trying to determine what IMAP/POP3 servers are, and how to connect to them. To do so, they assume, that your email contains a server domain name. A nice assumption, but often not relevant (google apps is a good example here). Thankfully, there is also another way - asking an original server on a specially configured domain what those parameters are.</p>
 
 <!-- more -->
 
-<p>In a perfect world, there would one standard for that - in our world however, there are two: <code>autoconfig</code> (Mozilla favored) and <code>autodiscover</code> (Microsoft promoted). So we have to to set them together - thankfully both are based on simple XML files, so it’s not a big deal.</p>
+<p>In a perfect world, there would one standard for that - in our world however, there are two: <code class="highlighter-rouge">autoconfig</code> (Mozilla favored) and <code class="highlighter-rouge">autodiscover</code> (Microsoft promoted). So we have to to set them together - thankfully both are based on simple XML files, so it’s not a big deal.</p>
 
 <h2 id="autoconfig-mozilla-thunderbird">autoconfig (Mozilla Thunderbird)</h2>
 
-<p>This one is (im my opinion) is more clean and advanced. To use it, just make your webserver to return below XML file on <code>autoconfig.</code> subdomain. So (for example) if you have email <code>myname@mydomain.com</code> - <code>autoconfig.mydomain.com</code> should return:</p>
+<p>This one is (im my opinion) is more clean and advanced. To use it, just make your webserver to return below XML file on <code class="highlighter-rouge">autoconfig.</code> subdomain. So (for example) if you have email <code class="highlighter-rouge">myname@mydomain.com</code> - <code class="highlighter-rouge">autoconfig.mydomain.com</code> should return:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">autoconfig.xml</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;clientConfig</span> <span class="na">version=</span><span class="s">&quot;1.1&quot;</span><span class="nt">&gt;</span>
@@ -318,7 +298,7 @@
 
 <h2 id="autodiscover-microsoft-outlook">autodiscover (Microsoft Outlook)</h2>
 
-<p>Procedure is very similar here. You just have to set <code>autodiscover.</code> domain, and XML file is slightly different. So, for example <code>autodiscover.mydomain.com</code> should return:</p>
+<p>Procedure is very similar here. You just have to set <code class="highlighter-rouge">autodiscover.</code> domain, and XML file is slightly different. So, for example <code class="highlighter-rouge">autodiscover.mydomain.com</code> should return:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">autodiscover.xml</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;Autodiscover</span> <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/exchange/autodiscover/responseschema/2006&quot;</span><span class="nt">&gt;</span>
@@ -455,7 +435,6 @@
     Previous version of the site, available <a href="/v3">here</a>.
   </div>
 </footer>
-
       </main>
     </div>
 
@@ -469,12 +448,7 @@
   ga('send', 'pageview');
 </script>
 
-<script src="/js/lib/material.js"></script>
-<script src="/js/lib/jquery.js"></script>
-<script src="/js/main.js"></script>
-
-
-
+<script async src='/javascripts/all-178beb3f7d9df1f91c857b33a6b5a3bb.js'></script>
   </body>
 
 </html>

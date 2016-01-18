@@ -17,12 +17,10 @@
   <meta content="There is a popular Internet saying that people are divided into two groups -those who make backups, and those who will. I strongly believe into that,that’s w..." name="og:description">
 
 
-  <link rel="stylesheet" href="/css/main.css">
+  <link href='/stylesheets/all-697f2d8c775b33dc0da91a5f3c9ba091.css' media='all' rel='stylesheet' type='text/css'>
   <link rel="canonical" href="http://rzegocki.pl/blog/2013/04/14/setting-encrypted-backup-email-server/">
   <link rel="alternate" type="application/rss+xml" title='Igor \"ajgon\" Rzegocki' href="http://rzegocki.pl/feed.xml" />
-  <script src="/js/lib/modernizr.js"></script>
 </head>
-
 
   <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -68,9 +66,7 @@
           
         
           
-            <a href="/index.html" class="mdl-navigation__link">About</a>
-          
-        
+            <a href="/" class="mdl-navigation__link">About</a>
           
         
           
@@ -92,9 +88,7 @@
           
         
           
-        
-          
-            <a href="/portfolio.html" class="mdl-navigation__link">Portfolio</a>
+            <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
           
         
           
@@ -110,9 +104,7 @@
           
         
           
-        
-          
-            <a href="/open-source.html" class="mdl-navigation__link">Open Source</a>
+            <a href="/open-source/" class="mdl-navigation__link">Open Source</a>
           
         
           
@@ -124,9 +116,7 @@
           
         
           
-            <a href="/blog.html" class="mdl-navigation__link is-active">Blog</a>
-          
-        
+            <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
           
         
           
@@ -155,9 +145,7 @@
         
       
         
-          <a href="/index.html" class="mdl-navigation__link">About</a>
-        
-      
+          <a href="/" class="mdl-navigation__link">About</a>
         
       
         
@@ -179,9 +167,7 @@
         
       
         
-      
-        
-          <a href="/portfolio.html" class="mdl-navigation__link">Portfolio</a>
+          <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
         
       
         
@@ -197,9 +183,7 @@
         
       
         
-      
-        
-          <a href="/open-source.html" class="mdl-navigation__link">Open Source</a>
+          <a href="/open-source/" class="mdl-navigation__link">Open Source</a>
         
       
         
@@ -211,9 +195,7 @@
         
       
         
-          <a href="/blog.html" class="mdl-navigation__link is-active">Blog</a>
-        
-      
+          <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
         
       
         
@@ -230,7 +212,6 @@
   </nav>
 </div>
 
-
       <main class="mdl-layout__content">
         <div class="post-container full-post narrow mdl-grid">
     <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
@@ -239,7 +220,7 @@
                 <h3>Setting encrypted backup Email server</h3>
             </div>
         </a>
-                <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+        <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
             <div class="minilogo" style="background-image: url(/images/avatars/ajgon.png);"></div>
             <div>
                 <strong>ajgon</strong>
@@ -260,7 +241,6 @@
                 <div class="mdl-tooltip" for="share_">Share</div>
             </div>
         </div>
-
         <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
             <p>There is a popular Internet saying that people are divided into two groups -
 those who make backups, and those who will. I strongly believe into that,
@@ -329,7 +309,7 @@ confirmation - and eventually fail):</p>
 
 <p>Config file is pretty explanatory - what you have to change is “domains”
 parameter (put only domains, which you want to receive encrypted messages),
-keyhome (set to <code>/var/gpg/.gnupg</code>) and keymap (map all the emails which should
+keyhome (set to <code class="highlighter-rouge">/var/gpg/.gnupg</code>) and keymap (map all the emails which should
 receive encrypted content there - follow the hint in file). So all in all your
 config file should look similar to this:</p>
 
@@ -349,14 +329,14 @@ config file should look similar to this:</p>
 <h2 id="setting-postfix">Setting postfix</h2>
 
 <p>The last thing is postfix configuration which is (surprisingly) really easy,
-just activate content filter in <code>main.cf</code> and add relay to <code>master.cf</code>. One
+just activate content filter in <code class="highlighter-rouge">main.cf</code> and add relay to <code class="highlighter-rouge">master.cf</code>. One
 last thing is to add X-GPG-* headers to tell the script, which extra email
 addresses we want to deliver messages encrypted. Normally gpg-mailgate encrypts
 only messages to addresses that are configured in gpg-mailgate.conf file and
 available in To/Cc/Bcc headers of original message. Unfortunatelly, we are
 using a totally different zoho.com email intended only for backups - it will
 never appear in original message headers, because it’s not the recipient. To
-make it appear - simply add <code>X-GPG-Encrypt-Cc</code> header to your message. So, the
+make it appear - simply add <code class="highlighter-rouge">X-GPG-Encrypt-Cc</code> header to your message. So, the
 configuration will present as follows:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/postfix/main.cf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># gpg</span>
@@ -378,7 +358,7 @@ configuration will present as follows:</p>
 </div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">        -o <span class="nv">mynetworks</span><span class="o">=</span>127.0.0.0/8
 </div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">        -o <span class="nv">smtpd_authorized_xforward_hosts</span><span class="o">=</span>127.0.0.0/8</div></div></pre></div></figure>
 
-<p>Don’t forget to create <code>header_checks.db</code> and restart postfix.</p>
+<p>Don’t forget to create <code class="highlighter-rouge">header_checks.db</code> and restart postfix.</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">postmap header_checks
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">/etc/init.d/postfix restart</div></div></pre></div></figure>
@@ -473,7 +453,6 @@ shiny and secure backup :)</p>
     Previous version of the site, available <a href="/v3">here</a>.
   </div>
 </footer>
-
       </main>
     </div>
 
@@ -487,12 +466,7 @@ shiny and secure backup :)</p>
   ga('send', 'pageview');
 </script>
 
-<script src="/js/lib/material.js"></script>
-<script src="/js/lib/jquery.js"></script>
-<script src="/js/main.js"></script>
-
-
-
+<script async src='/javascripts/all-178beb3f7d9df1f91c857b33a6b5a3bb.js'></script>
   </body>
 
 </html>

@@ -30,7 +30,8 @@ div.info,
 }
 
 #wrapper #detail {
-    filter: none;
+    -webkit-filter: none;
+            filter: none;
 }
 
 #slides li {

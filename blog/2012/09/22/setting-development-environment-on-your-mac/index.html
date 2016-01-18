@@ -17,12 +17,10 @@
   <meta content="Recently I bought anawesome piece of hardwareto my MacBook Pro. Unfortunatellyto install it,I had to remove my old HDD and all system files with it as well. ..." name="og:description">
 
 
-  <link rel="stylesheet" href="/css/main.css">
+  <link href='/stylesheets/all-697f2d8c775b33dc0da91a5f3c9ba091.css' media='all' rel='stylesheet' type='text/css'>
   <link rel="canonical" href="http://rzegocki.pl/blog/2012/09/22/setting-development-environment-on-your-mac/">
   <link rel="alternate" type="application/rss+xml" title='Igor \"ajgon\" Rzegocki' href="http://rzegocki.pl/feed.xml" />
-  <script src="/js/lib/modernizr.js"></script>
 </head>
-
 
   <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -68,9 +66,7 @@
           
         
           
-            <a href="/index.html" class="mdl-navigation__link">About</a>
-          
-        
+            <a href="/" class="mdl-navigation__link">About</a>
           
         
           
@@ -92,9 +88,7 @@
           
         
           
-        
-          
-            <a href="/portfolio.html" class="mdl-navigation__link">Portfolio</a>
+            <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
           
         
           
@@ -110,9 +104,7 @@
           
         
           
-        
-          
-            <a href="/open-source.html" class="mdl-navigation__link">Open Source</a>
+            <a href="/open-source/" class="mdl-navigation__link">Open Source</a>
           
         
           
@@ -124,9 +116,7 @@
           
         
           
-            <a href="/blog.html" class="mdl-navigation__link is-active">Blog</a>
-          
-        
+            <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
           
         
           
@@ -155,9 +145,7 @@
         
       
         
-          <a href="/index.html" class="mdl-navigation__link">About</a>
-        
-      
+          <a href="/" class="mdl-navigation__link">About</a>
         
       
         
@@ -179,9 +167,7 @@
         
       
         
-      
-        
-          <a href="/portfolio.html" class="mdl-navigation__link">Portfolio</a>
+          <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
         
       
         
@@ -197,9 +183,7 @@
         
       
         
-      
-        
-          <a href="/open-source.html" class="mdl-navigation__link">Open Source</a>
+          <a href="/open-source/" class="mdl-navigation__link">Open Source</a>
         
       
         
@@ -211,9 +195,7 @@
         
       
         
-          <a href="/blog.html" class="mdl-navigation__link is-active">Blog</a>
-        
-      
+          <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
         
       
         
@@ -230,7 +212,6 @@
   </nav>
 </div>
 
-
       <main class="mdl-layout__content">
         <div class="post-container full-post narrow mdl-grid">
     <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
@@ -239,7 +220,7 @@
                 <h3>Setting development environment on your Mac</h3>
             </div>
         </a>
-                <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+        <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
             <div class="minilogo" style="background-image: url(/images/avatars/ajgon.png);"></div>
             <div>
                 <strong>ajgon</strong>
@@ -260,7 +241,6 @@
                 <div class="mdl-tooltip" for="share_">Share</div>
             </div>
         </div>
-
         <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
             <p>Recently I bought an
 <a href="http://www.anandtech.com/show/4253/the-crucial-m4-micron-c400-ssd-review">awesome piece of hardware</a>
@@ -288,7 +268,7 @@ simply type:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">ruby &lt;<span class="o">(</span>curl -fsSkL raw.github.com/mxcl/homebrew/go<span class="o">)</span></div></div></pre></div></figure>
 
-<p>After installing it, i suggest to type <code>brew doctor</code> and follow the
+<p>After installing it, i suggest to type <code class="highlighter-rouge">brew doctor</code> and follow the
 instructions if something unexpected occurs. However, in clean
 Mountain Lion+XCode+command line tools installation I didn’t get any warnings,
 so you shouldn’t as well.</p>
@@ -319,10 +299,10 @@ alternative to <a href="http://www.apache.org/">apache</a>.</p>
 <p>As for configuration, take look at my
 <a href="https://github.com/ajgon/DeeDee/tree/master/etc/nginx">DeeDee project nginx configuration files</a>
 - they are really good starting point for configuring your nginx. However, if
-you are lazy, just take and copy <code>wordpress</code> and <code>php</code> files from <code>extra/lang</code>
-directory (on DeeDee github) to <code>/usr/local/etc/nginx</code> (this is where your
+you are lazy, just take and copy <code class="highlighter-rouge">wordpress</code> and <code class="highlighter-rouge">php</code> files from <code class="highlighter-rouge">extra/lang</code>
+directory (on DeeDee github) to <code class="highlighter-rouge">/usr/local/etc/nginx</code> (this is where your
 nginx configuration files lives) and add following section at the bottom
-(before the last closing bracket) of the <code>nginx.conf</code> file:</p>
+(before the last closing bracket) of the <code class="highlighter-rouge">nginx.conf</code> file:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/usr/local/etc/nginx/nginx.conf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">server <span class="o">&#x7b;</span>
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">    server_name ~^<span class="o">(</span>www.<span class="o">)</span>?<span class="o">(</span>?&lt;project&gt;<span class="o">[</span>^.<span class="o">]</span>+<span class="o">)</span>.php.dev<span class="p">;</span>
@@ -346,7 +326,7 @@ nginx configuration files lives) and add following section at the bottom
 </div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">    include wordpress<span class="p">;</span>
 </div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">&#x7d;</span></div></div></pre></div></figure>
 
-<p>Now type <code>sudo /usr/local/sbin/nginx -t</code> - if eveyrhing is okay, you should see
+<p>Now type <code class="highlighter-rouge">sudo /usr/local/sbin/nginx -t</code> - if eveyrhing is okay, you should see
 a proper message.</p>
 
 <p>Next thing we need to do is to make those wp.dev and php.dev domains work. To
@@ -356,7 +336,7 @@ do this, install <a href="http://www.thekelleys.org.uk/dnsmasq/doc.html">dnsmasq
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">cp <span class="k">$(</span>brew --prefix dnsmasq<span class="k">)</span>/dnsmasq.conf.example /usr/local/etc/dnsmasq.conf
 </div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">sudo cp <span class="k">$(</span>brew --prefix dnsmasq<span class="k">)</span>/homebrew.mxcl.dnsmasq.plist /Library/LaunchDaemons</div></div></pre></div></figure>
 
-<p>Now edit newly created <code>dnsmasq.conf</code> file and add:</p>
+<p>Now edit newly created <code class="highlighter-rouge">dnsmasq.conf</code> file and add:</p>
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/usr/local/etc/dnsmasq.conf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">address</span><span class="o">=</span>/.dev/127.0.0.1</div></div></pre></div></figure>
 
 <p>Last thing left, is setting a nameserver to 127.0.0.1 in your Network prefpane,
@@ -364,8 +344,8 @@ as shown below.</p>
 
 <p><img src="/images/upload/dnsmasq.png" alt="dnsmasq configuration" /></p>
 
-<p>From now on all *.dev domains will be translated to <code>127.0.0.1</code> and from there
-all <code>wp.dev</code> and <code>php.dev</code> domains will be handled by nginx. Good stuff.</p>
+<p>From now on all *.dev domains will be translated to <code class="highlighter-rouge">127.0.0.1</code> and from there
+all <code class="highlighter-rouge">wp.dev</code> and <code class="highlighter-rouge">php.dev</code> domains will be handled by nginx. Good stuff.</p>
 
 <h2 id="installing-php-fpm-and-mysql">Installing PHP-FPM and MySQL</h2>
 
@@ -396,7 +376,7 @@ contain PHP recipes out of box, so we need
 good approach, because when I use my mac for normal stuff, I don’t want any
 unnecessary resources consumed. So to tie all of this together, I have a simple
 script which will launch or disable all the services on demand. Just create
-(and make executable) <code>/usr/local/bin/dev&lt;</code> file with following contents:</p>
+(and make executable) <code class="highlighter-rouge">/usr/local/bin/dev&lt;</code> file with following contents:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/usr/local/bin/dev</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">#!/bin/bash</span>
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">if</span> <span class="o">[</span><span class="nv">$# </span>-lt <span class="m">1</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
@@ -413,8 +393,8 @@ script which will launch or disable all the services on demand. Just create
 </div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="k">fi</span>
 </div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">fi</span></div></div></pre></div></figure>
 
-<p>Now when you need to enter “development mode” simply type <code>dev on</code> and to quit
-<code>dev off</code>.</p>
+<p>Now when you need to enter “development mode” simply type <code class="highlighter-rouge">dev on</code> and to quit
+<code class="highlighter-rouge">dev off</code>.</p>
 
 <h2 id="conclusion">Conclusion</h2>
 
@@ -502,7 +482,6 @@ I do :).</p>
     Previous version of the site, available <a href="/v3">here</a>.
   </div>
 </footer>
-
       </main>
     </div>
 
@@ -516,12 +495,7 @@ I do :).</p>
   ga('send', 'pageview');
 </script>
 
-<script src="/js/lib/material.js"></script>
-<script src="/js/lib/jquery.js"></script>
-<script src="/js/main.js"></script>
-
-
-
+<script async src='/javascripts/all-178beb3f7d9df1f91c857b33a6b5a3bb.js'></script>
   </body>
 
 </html>

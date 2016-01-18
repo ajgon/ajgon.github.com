@@ -17,12 +17,10 @@
   <meta content="The next thing my paranoid me couldn’t stand of is that my emails can be easilyspoofed. Yeah, I know I’m not a very famous person, so probability of suchthin..." name="og:description">
 
 
-  <link rel="stylesheet" href="/css/main.css">
+  <link href='/stylesheets/all-697f2d8c775b33dc0da91a5f3c9ba091.css' media='all' rel='stylesheet' type='text/css'>
   <link rel="canonical" href="http://rzegocki.pl/blog/2012/10/27/add-more-complexity-to-your-emails-use-dkim-and-spf/">
   <link rel="alternate" type="application/rss+xml" title='Igor \"ajgon\" Rzegocki' href="http://rzegocki.pl/feed.xml" />
-  <script src="/js/lib/modernizr.js"></script>
 </head>
-
 
   <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -68,9 +66,7 @@
           
         
           
-            <a href="/index.html" class="mdl-navigation__link">About</a>
-          
-        
+            <a href="/" class="mdl-navigation__link">About</a>
           
         
           
@@ -92,9 +88,7 @@
           
         
           
-        
-          
-            <a href="/portfolio.html" class="mdl-navigation__link">Portfolio</a>
+            <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
           
         
           
@@ -110,9 +104,7 @@
           
         
           
-        
-          
-            <a href="/open-source.html" class="mdl-navigation__link">Open Source</a>
+            <a href="/open-source/" class="mdl-navigation__link">Open Source</a>
           
         
           
@@ -124,9 +116,7 @@
           
         
           
-            <a href="/blog.html" class="mdl-navigation__link is-active">Blog</a>
-          
-        
+            <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
           
         
           
@@ -155,9 +145,7 @@
         
       
         
-          <a href="/index.html" class="mdl-navigation__link">About</a>
-        
-      
+          <a href="/" class="mdl-navigation__link">About</a>
         
       
         
@@ -179,9 +167,7 @@
         
       
         
-      
-        
-          <a href="/portfolio.html" class="mdl-navigation__link">Portfolio</a>
+          <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
         
       
         
@@ -197,9 +183,7 @@
         
       
         
-      
-        
-          <a href="/open-source.html" class="mdl-navigation__link">Open Source</a>
+          <a href="/open-source/" class="mdl-navigation__link">Open Source</a>
         
       
         
@@ -211,9 +195,7 @@
         
       
         
-          <a href="/blog.html" class="mdl-navigation__link is-active">Blog</a>
-        
-      
+          <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
         
       
         
@@ -230,7 +212,6 @@
   </nav>
 </div>
 
-
       <main class="mdl-layout__content">
         <div class="post-container full-post narrow mdl-grid">
     <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
@@ -239,7 +220,7 @@
                 <h3>Add more complexity to your Emails - use DKIM and SPF</h3>
             </div>
         </a>
-                <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+        <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
             <div class="minilogo" style="background-image: url(/images/avatars/ajgon.png);"></div>
             <div>
                 <strong>ajgon</strong>
@@ -260,7 +241,6 @@
                 <div class="mdl-tooltip" for="share_">Share</div>
             </div>
         </div>
-
         <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
             <p>The next thing my paranoid me couldn’t stand of is that my emails can be easily
 spoofed. Yeah, I know I’m not a very famous person, so probability of such
@@ -283,7 +263,7 @@ debian packages:</p>
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">apt-get install opendkim libmail-dkim-perl</div></div></pre></div></figure>
 
 <p>The second one is a dkim support for spamassassin. I’ll cover that later. Next,
-you need to edit your <code>/etc/opendkim.conf</code> file:</p>
+you need to edit your <code class="highlighter-rouge">/etc/opendkim.conf</code> file:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/opendkim.conf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">SysLog             yes
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">Umask              002
@@ -295,14 +275,14 @@ you need to edit your <code>/etc/opendkim.conf</code> file:</p>
 </div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">Mode               sv
 </div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">X-Header           yes</div></div></pre></div></figure>
 
-<p><code>Mode sv</code> directive tells opendkim to sign but also verify messages, while
-<code>X-Header</code> adds <code>X-Dkim</code> header (which contains information about the DKIM
+<p><code class="highlighter-rouge">Mode sv</code> directive tells opendkim to sign but also verify messages, while
+<code class="highlighter-rouge">X-Header</code> adds <code class="highlighter-rouge">X-Dkim</code> header (which contains information about the DKIM
 daemon you are using). Next we need to tell opendkim which port it will be
-using, so in <code>/etc/default/opendkim</code> uncomment:</p>
+using, so in <code class="highlighter-rouge">/etc/default/opendkim</code> uncomment:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/default/opendkim</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">SOCKET</span><span class="o">=</span><span class="s2">&quot;inet:12345@localhost&quot;</span> <span class="c"># listen on loopback on port 12345</span></div></div></pre></div></figure>
 
-<p>Now we have to populate those extra files we defined. <code>TrustedHosts</code> is the
+<p>Now we have to populate those extra files we defined. <code class="highlighter-rouge">TrustedHosts</code> is the
 easiest one, it’s just the list of hosts and domains which are allowed to use
 DKIM. So in most cases:</p>
 
@@ -312,7 +292,7 @@ DKIM. So in most cases:</p>
 </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">1.2.3.4 <span class="c"># external IP</span></div></div></pre></div></figure>
 
 <p>Next, we need to create a key and DNS TXT record pair for each domain we want
-to be signed. I suggest to use strong key (<code>-b</code> parameter), to avoid
+to be signed. I suggest to use strong key (<code class="highlighter-rouge">-b</code> parameter), to avoid
 <a href="http://www.wired.com/threatlevel/2012/10/dkim-vulnerability-widespread">some company’s failure</a>.
 To do this:</p>
 
@@ -322,9 +302,9 @@ To do this:</p>
 </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">chown opendkim:opendkim mail.private
 </div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">chmod <span class="m">600</span> mail.private</div></div></pre></div></figure>
 
-<p>This will create two files: <code>mail.private</code> - which contains a private RSA key,
-and <code>mail.txt</code> which contains a contents for DNS TXT record. So let’s make use
-of them! First keys - they need to be fined in <code>KeyTable</code> and <code>SingingTable</code>
+<p>This will create two files: <code class="highlighter-rouge">mail.private</code> - which contains a private RSA key,
+and <code class="highlighter-rouge">mail.txt</code> which contains a contents for DNS TXT record. So let’s make use
+of them! First keys - they need to be fined in <code class="highlighter-rouge">KeyTable</code> and <code class="highlighter-rouge">SingingTable</code>
 files.</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/mail/dkim/KeyTable</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">mail._domainkey.mydomain.com mydomain.com:mail:/etc/mail/dkim/keys/mydomain.com/mail.private</div></div></pre></div></figure>
@@ -332,8 +312,8 @@ files.</p>
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/mail/dkim/SigningTable</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">mydomain.com mail._domainkey.mydomain.com</div></div></pre></div></figure>
 
 <p>The last thing we need to do is to add a DNS TXT record for
-<code>mail._domainkey.mydomain.com</code> domain containing contents provided by
-<code>opendkim-genkey</code>. For example for irgon.com it looks like this:</p>
+<code class="highlighter-rouge">mail._domainkey.mydomain.com</code> domain containing contents provided by
+<code class="highlighter-rouge">opendkim-genkey</code>. For example for irgon.com it looks like this:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">DNS TXT record</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">mail._domainkey.irgon.com descriptive text <span class="s2">&quot;v=DKIM1\; g=*\; k=rsa\; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsfIThdXoizR6sop0gifPwPkT45I/KnTTNKDS4BHWtoU6as62c/3BRQuKqDAIacheZzWbfEPq/M2YvoNrVhx1laltg7aeUhZlcVOtz415lIy8M8oUVTCDxewBKsTEQD5M4Roaadoj7vzpA1JMcOEv36TizFq/KB5GL46pVNyOMJ+Mg&quot;</span> <span class="s2">&quot;97F+EQQeiOFsn/T+tNuxWky3l4Qky3S8U34wYmRSr+sVLu4U31QtocwL4uJ7ofVNdVk0baYo7s1HYnM3CGEKK+zdHTR/AoNiquvVX1lLX9s85bade4cNuRaINjzDyM4fAglLgSHZEtRcRlYqdMEpQcplI1OaSxIFS4DpFL3RwIDAQAB&quot;</span></div></div></pre></div></figure>
 
@@ -363,9 +343,9 @@ files.</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/postfix/master.cf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">policy-spf  unix  -  n  n  -  -  spawn <span class="nv">user</span><span class="o">=</span>nobody <span class="nv">argv</span><span class="o">=</span>/usr/bin/policyd-spf</div></div></pre></div></figure>
 
-<p>Add spf timeout to <code>/etc/postfix/main.cf</code> and adjust
-<code>smtpd_recipient_restrictions</code> to include
-<code>check_policy_service unix:private/policy-spf</code>, so in my file it looks like
+<p>Add spf timeout to <code class="highlighter-rouge">/etc/postfix/main.cf</code> and adjust
+<code class="highlighter-rouge">smtpd_recipient_restrictions</code> to include
+<code class="highlighter-rouge">check_policy_service unix:private/policy-spf</code>, so in my file it looks like
 this:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/postfix/main.cf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>...<span class="o">]</span>
@@ -381,7 +361,7 @@ this:</p>
 </div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">spf-policyd_time_limit <span class="o">=</span> 3600s</div></div></pre></div></figure>
 
 <p>Last but not least is updating a DNS record. This is simple and similar to DKIM -
-just ad TXT record to your TLD containing <code>v=spf1 a mx ip4:&lt;your ip&gt;</code>, for
+just ad TXT record to your TLD containing <code class="highlighter-rouge">v=spf1 a mx ip4:&lt;your ip&gt;</code>, for
 example my looks like this:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">DNS TXT record</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">irgon.com descriptive text <span class="s2">&quot;v=spf1 a mx ip4:213.134.188.213&quot;</span></div></div></pre></div></figure>
@@ -411,16 +391,16 @@ properly.</p>
 <h2 id="final-polishing">Final polishing</h2>
 
 <p>By default spamassassin has DKIM filters enabled. To ensure, look for
-<code>loadplugin Mail::SpamAssassin::Plugin::DKIM</code> in your
-<code>/etc/spamassassin/v312.pre</code> file. When it’s enabled you should see values like
-<code>DKIM_VALID</code> or <code>T_DKIM_INVALID</code> in <code>X-Spam-Status</code> header. Normally,
+<code class="highlighter-rouge">loadplugin Mail::SpamAssassin::Plugin::DKIM</code> in your
+<code class="highlighter-rouge">/etc/spamassassin/v312.pre</code> file. When it’s enabled you should see values like
+<code class="highlighter-rouge">DKIM_VALID</code> or <code class="highlighter-rouge">T_DKIM_INVALID</code> in <code class="highlighter-rouge">X-Spam-Status</code> header. Normally,
 spamassassin puts a very little weight to that rules, but you can easily
 increase it by adding:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/mail/spamassassin/local.cf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">score T_DKIM_INVALID 10
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">score DKIM_ADSP_CUSTOM_MED 10</div></div></pre></div></figure>
 
-<p>You can also add sieve filter based on <code>Authentication-Results</code> if you want to
+<p>You can also add sieve filter based on <code class="highlighter-rouge">Authentication-Results</code> if you want to
 treat those suspicious messages differently than normal spam:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">.dovecot.sieve</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">if</span> header :contains <span class="s2">&quot;Authentication-Results&quot;</span> <span class="s2">&quot;dkim=fail&quot;</span> <span class="o">&#x7b;</span> fileinto <span class="s2">&quot;DANGER&quot;</span><span class="p">;</span> stop<span class="p">;</span> <span class="o">&#x7d;</span></div></div></pre></div></figure>
@@ -515,7 +495,6 @@ treat those suspicious messages differently than normal spam:</p>
     Previous version of the site, available <a href="/v3">here</a>.
   </div>
 </footer>
-
       </main>
     </div>
 
@@ -529,12 +508,7 @@ treat those suspicious messages differently than normal spam:</p>
   ga('send', 'pageview');
 </script>
 
-<script src="/js/lib/material.js"></script>
-<script src="/js/lib/jquery.js"></script>
-<script src="/js/main.js"></script>
-
-
-
+<script async src='/javascripts/all-178beb3f7d9df1f91c857b33a6b5a3bb.js'></script>
   </body>
 
 </html>

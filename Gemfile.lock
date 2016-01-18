@@ -1,25 +1,24 @@
+GIT
+  remote: git://github.com/octopress/hooks.git
+  revision: 9ec9efcbe8e2aa4d79d2a35543a29b51f3e6feb2
+  specs:
+    octopress-hooks (2.6.1)
+      jekyll (>= 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    blankslate (2.1.2.4)
-    celluloid (0.16.0)
-      timers (~> 4.0.0)
-    childprocess (0.5.6)
-      ffi (~> 1.0, >= 1.0.11)
-    classifier-reborn (2.0.3)
-      fast-stemmer (~> 1.0)
-    coffee-script (2.4.1)
-      coffee-script-source
+    autoprefixer-rails (6.3.1)
       execjs
-    coffee-script-source (1.9.1.1)
+      json
+    childprocess (0.5.9)
+      ffi (~> 1.0, >= 1.0.11)
     colorator (0.1)
-    execjs (2.5.2)
-    exifr (1.2.3)
-    fast-stemmer (1.0.2)
+    execjs (2.6.0)
+    exifr (1.2.4)
     ffi (1.9.10)
     fspath (2.1.1)
-    hitimes (1.2.2)
-    image_optim (0.21.0)
+    image_optim (0.22.0)
       exifr (~> 1.2, >= 1.2.2)
       fspath (~> 2.1)
       image_size (~> 1.3)
@@ -27,34 +26,24 @@ GEM
       progress (~> 3.0, >= 3.0.1)
     image_size (1.4.1)
     in_threads (1.3.1)
-    iniparse (1.4.0)
-    jekyll (2.5.3)
-      classifier-reborn (~> 2.0)
+    iniparse (1.4.2)
+    jekyll (3.0.1)
       colorator (~> 0.1)
-      jekyll-coffeescript (~> 1.0)
-      jekyll-gist (~> 1.0)
-      jekyll-paginate (~> 1.0)
       jekyll-sass-converter (~> 1.0)
       jekyll-watch (~> 1.1)
       kramdown (~> 1.3)
-      liquid (~> 2.6.1)
+      liquid (~> 3.0)
       mercenary (~> 0.3.3)
-      pygments.rb (~> 0.6.0)
-      redcarpet (~> 3.1)
+      rouge (~> 1.7)
       safe_yaml (~> 1.0)
-      toml (~> 0.1.0)
-    jekyll-coffeescript (1.0.1)
-      coffee-script (~> 2.2)
-    jekyll-gist (1.2.1)
-    jekyll-paginate (1.1.0)
-    jekyll-sass-converter (1.3.0)
-      sass (~> 3.2)
-    jekyll-watch (1.2.1)
-      listen (~> 2.7)
-    kramdown (1.8.0)
-    liquid (2.6.3)
-    listen (2.10.1)
-      celluloid (~> 0.16.0)
+    jekyll-sass-converter (1.4.0)
+      sass (~> 3.4)
+    jekyll-watch (1.3.0)
+      listen (~> 3.0)
+    json (1.8.3)
+    kramdown (1.9.0)
+    liquid (3.0.6)
+    listen (3.0.5)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     mercenary (0.3.5)
@@ -66,45 +55,62 @@ GEM
       octopress-hooks (~> 2.0)
       redcarpet (~> 3.0)
       titlecase
-    octopress-code-highlighter (4.2.6)
-      colorator (~> 0.1)
-      octopress-hooks
+    octopress-asset-pipeline (2.0.6)
+      octopress-ink (~> 1.1.0)
+    octopress-autoprefixer (2.0.0)
+      autoprefixer-rails
+      jekyll (~> 3.0)
+    octopress-code-highlighter (4.3.0)
+      jekyll (~> 3.0)
     octopress-codeblock (1.0.5)
       octopress-code-highlighter (~> 4.2)
+    octopress-date-format (3.0.3)
+      jekyll (>= 2.0)
     octopress-deploy (1.3.0)
       colorator
-    octopress-escape-code (2.0.6)
+    octopress-escape-code (2.1.1)
+      jekyll (~> 3.0)
+    octopress-filters (1.4.0)
+      jekyll
       octopress-hooks (~> 2.0)
-    octopress-hooks (2.6.1)
+      rubypants-unicode
+      titlecase
+    octopress-include-tag (1.1.3)
       jekyll (>= 2.0)
+      octopress-tag-helpers (~> 1.0)
+    octopress-ink (1.1.4)
+      jekyll (>= 2.0)
+      octopress (~> 3.0)
+      octopress-autoprefixer
+      octopress-date-format
+      octopress-filters (~> 1.1)
+      octopress-hooks (~> 2.2)
+      octopress-include-tag (~> 1.0)
+      uglifier (~> 2.5)
     octopress-paginate (1.1.2)
       octopress-hooks
-    overcommit (0.27.0)
+    octopress-tag-helpers (1.0.8)
+      jekyll (>= 2.0)
+    overcommit (0.30.0)
       childprocess (~> 0.5.6)
       iniparse (~> 1.4)
-    parslet (1.5.0)
-      blankslate (~> 2.0)
-    posix-spawn (0.3.11)
-    progress (3.1.0)
-    pygments.rb (0.6.3)
-      posix-spawn (~> 0.3.6)
-      yajl-ruby (~> 1.2.0)
+    progress (3.1.1)
     rainbow (2.0.0)
-    rb-fsevent (0.9.5)
+    rb-fsevent (0.9.7)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    redcarpet (3.3.2)
+    redcarpet (3.3.4)
+    rouge (1.10.1)
+    rubypants-unicode (0.2.5)
     safe_yaml (1.0.4)
-    sass (3.4.16)
-    scss_lint (0.40.1)
+    sass (3.4.21)
+    scss_lint (0.43.2)
       rainbow (~> 2.0)
-      sass (~> 3.4.1)
-    timers (4.0.1)
-      hitimes
+      sass (~> 3.4.15)
     titlecase (0.1.1)
-    toml (0.1.2)
-      parslet (~> 1.5.0)
-    yajl-ruby (1.2.1)
+    uglifier (2.7.2)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
 
 PLATFORMS
   ruby
@@ -112,7 +118,9 @@ PLATFORMS
 DEPENDENCIES
   image_optim
   octopress
+  octopress-asset-pipeline
   octopress-codeblock
+  octopress-hooks!
   octopress-paginate
   overcommit
   scss_lint

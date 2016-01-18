@@ -9,6 +9,8 @@ group :development do
 end
 
 group :jekyll_plugins do
+  gem 'octopress-hooks', github: 'octopress/hooks'
   gem 'octopress-paginate'
   gem 'octopress-codeblock'
+  gem 'octopress-asset-pipeline'
 end

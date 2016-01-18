@@ -17,12 +17,10 @@
   <meta content="Leaving GMail was of the best decisions for my mail I made recently. But also amost problematic one. I needed to set all the MTA architecture myself. I teste..." name="og:description">
 
 
-  <link rel="stylesheet" href="/css/main.css">
+  <link href='/stylesheets/all-697f2d8c775b33dc0da91a5f3c9ba091.css' media='all' rel='stylesheet' type='text/css'>
   <link rel="canonical" href="http://rzegocki.pl/blog/2012/07/16/setting-server-side-mail-filtering-with-sieve-and-dovecot/">
   <link rel="alternate" type="application/rss+xml" title='Igor \"ajgon\" Rzegocki' href="http://rzegocki.pl/feed.xml" />
-  <script src="/js/lib/modernizr.js"></script>
 </head>
-
 
   <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -68,9 +66,7 @@
           
         
           
-            <a href="/index.html" class="mdl-navigation__link">About</a>
-          
-        
+            <a href="/" class="mdl-navigation__link">About</a>
           
         
           
@@ -92,9 +88,7 @@
           
         
           
-        
-          
-            <a href="/portfolio.html" class="mdl-navigation__link">Portfolio</a>
+            <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
           
         
           
@@ -110,9 +104,7 @@
           
         
           
-        
-          
-            <a href="/open-source.html" class="mdl-navigation__link">Open Source</a>
+            <a href="/open-source/" class="mdl-navigation__link">Open Source</a>
           
         
           
@@ -124,9 +116,7 @@
           
         
           
-            <a href="/blog.html" class="mdl-navigation__link is-active">Blog</a>
-          
-        
+            <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
           
         
           
@@ -155,9 +145,7 @@
         
       
         
-          <a href="/index.html" class="mdl-navigation__link">About</a>
-        
-      
+          <a href="/" class="mdl-navigation__link">About</a>
         
       
         
@@ -179,9 +167,7 @@
         
       
         
-      
-        
-          <a href="/portfolio.html" class="mdl-navigation__link">Portfolio</a>
+          <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
         
       
         
@@ -197,9 +183,7 @@
         
       
         
-      
-        
-          <a href="/open-source.html" class="mdl-navigation__link">Open Source</a>
+          <a href="/open-source/" class="mdl-navigation__link">Open Source</a>
         
       
         
@@ -211,9 +195,7 @@
         
       
         
-          <a href="/blog.html" class="mdl-navigation__link is-active">Blog</a>
-        
-      
+          <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
         
       
         
@@ -230,7 +212,6 @@
   </nav>
 </div>
 
-
       <main class="mdl-layout__content">
         <div class="post-container full-post narrow mdl-grid">
     <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
@@ -239,7 +220,7 @@
                 <h3>Setting server-side mail filtering with sieve and dovecot</h3>
             </div>
         </a>
-                <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+        <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
             <div class="minilogo" style="background-image: url(/images/avatars/ajgon.png);"></div>
             <div>
                 <strong>ajgon</strong>
@@ -260,7 +241,6 @@
                 <div class="mdl-tooltip" for="share_">Share</div>
             </div>
         </div>
-
         <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
             <p>Leaving GMail was of the best decisions for my mail I made recently. But also a
 most problematic one. I needed to set all the MTA architecture myself. I tested
@@ -282,9 +262,9 @@ started looking for solution for that problem and found
 <p>Ok, so how to do it? Firstly, as for dovecot 1.2.x, sieve was completely
 rewritten as a new plugin. It can be obtained from
 <a href="http://www.rename-it.nl/dovecot/1.2/">rename-it.nl website</a>. At the time of
-writing this post, there is no <code>*.deb</code> package in repositories, so I have to
-build it manually. I also had to install <code>dovecot-dev</code> package, because of
-sieve configurator, which needs a <code>dovecot-config</code> file.</p>
+writing this post, there is no <code class="highlighter-rouge">*.deb</code> package in repositories, so I have to
+build it manually. I also had to install <code class="highlighter-rouge">dovecot-dev</code> package, because of
+sieve configurator, which needs a <code class="highlighter-rouge">dovecot-config</code> file.</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">wget http://www.rename-it.nl/dovecot/1.2/dovecot-1.2-sieve-0.1.19.tar.gz
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">tar -xzvf dovecot-1.2-sieve-0.1.19.tar.gz
@@ -312,8 +292,8 @@ can check them on
 After that, just restart postfix and everything is set.</p>
 
 <p>The last step is setting all the filters properly. They should be stored in
-<code>~/.dovecot.sieve</code> (if you use <code>mailbox_command</code>) or in
-<code>/home/vmail/user@domain/.dovecot.sieve</code> (if you use <code>mailbox_transport</code>).
+<code class="highlighter-rouge">~/.dovecot.sieve</code> (if you use <code class="highlighter-rouge">mailbox_command</code>) or in
+<code class="highlighter-rouge">/home/vmail/user@domain/.dovecot.sieve</code> (if you use <code class="highlighter-rouge">mailbox_transport</code>).
 Sieve uses it’s own <a href="http://www.ietf.org/rfc/rfc5228.txt">pseudo-language</a> for
 filtering, but below is a part of my file which should provide a
 <a href="http://wiki.dovecot.org/LDA/Sieve/">good example</a> for start:</p>
@@ -418,7 +398,6 @@ and confirms that own server is an really, really great idea :)</p>
     Previous version of the site, available <a href="/v3">here</a>.
   </div>
 </footer>
-
       </main>
     </div>
 
@@ -432,12 +411,7 @@ and confirms that own server is an really, really great idea :)</p>
   ga('send', 'pageview');
 </script>
 
-<script src="/js/lib/material.js"></script>
-<script src="/js/lib/jquery.js"></script>
-<script src="/js/main.js"></script>
-
-
-
+<script async src='/javascripts/all-178beb3f7d9df1f91c857b33a6b5a3bb.js'></script>
   </body>
 
 </html>

@@ -17,12 +17,10 @@
   <meta content="After giving up my spying e-mail provider, and movingeverything to my own DeeDee server, I movedsmoothly from one paranoia to another. Ok, my e-mail is not r..." name="og:description">
 
 
-  <link rel="stylesheet" href="/css/main.css">
+  <link href='/stylesheets/all-697f2d8c775b33dc0da91a5f3c9ba091.css' media='all' rel='stylesheet' type='text/css'>
   <link rel="canonical" href="http://rzegocki.pl/blog/2012/10/14/setting-secure-cloud-based-backup-system-using-git-and-box-com/">
   <link rel="alternate" type="application/rss+xml" title='Igor \"ajgon\" Rzegocki' href="http://rzegocki.pl/feed.xml" />
-  <script src="/js/lib/modernizr.js"></script>
 </head>
-
 
   <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -68,9 +66,7 @@
           
         
           
-            <a href="/index.html" class="mdl-navigation__link">About</a>
-          
-        
+            <a href="/" class="mdl-navigation__link">About</a>
           
         
           
@@ -92,9 +88,7 @@
           
         
           
-        
-          
-            <a href="/portfolio.html" class="mdl-navigation__link">Portfolio</a>
+            <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
           
         
           
@@ -110,9 +104,7 @@
           
         
           
-        
-          
-            <a href="/open-source.html" class="mdl-navigation__link">Open Source</a>
+            <a href="/open-source/" class="mdl-navigation__link">Open Source</a>
           
         
           
@@ -124,9 +116,7 @@
           
         
           
-            <a href="/blog.html" class="mdl-navigation__link is-active">Blog</a>
-          
-        
+            <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
           
         
           
@@ -155,9 +145,7 @@
         
       
         
-          <a href="/index.html" class="mdl-navigation__link">About</a>
-        
-      
+          <a href="/" class="mdl-navigation__link">About</a>
         
       
         
@@ -179,9 +167,7 @@
         
       
         
-      
-        
-          <a href="/portfolio.html" class="mdl-navigation__link">Portfolio</a>
+          <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
         
       
         
@@ -197,9 +183,7 @@
         
       
         
-      
-        
-          <a href="/open-source.html" class="mdl-navigation__link">Open Source</a>
+          <a href="/open-source/" class="mdl-navigation__link">Open Source</a>
         
       
         
@@ -211,9 +195,7 @@
         
       
         
-          <a href="/blog.html" class="mdl-navigation__link is-active">Blog</a>
-        
-      
+          <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
         
       
         
@@ -230,7 +212,6 @@
   </nav>
 </div>
 
-
       <main class="mdl-layout__content">
         <div class="post-container full-post narrow mdl-grid">
     <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
@@ -239,7 +220,7 @@
                 <h3>Setting secure, cloud-based backup system using git and box.com</h3>
             </div>
         </a>
-                <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+        <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
             <div class="minilogo" style="background-image: url(/images/avatars/ajgon.png);"></div>
             <div>
                 <strong>ajgon</strong>
@@ -260,7 +241,6 @@
                 <div class="mdl-tooltip" for="share_">Share</div>
             </div>
         </div>
-
         <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
             <p>After giving up my <a href="http://gmail.com/">spying e-mail provider</a>, and moving
 everything to my own <a href="https://github.com/ajgon/DeeDee">DeeDee server</a>, I moved
@@ -298,7 +278,7 @@ problem is actually pretty easy to solve as well - just use encryption
 
 <p>The next thing was snapshots. They had to be diff-based - that for sure. At the
 beginning I tried to use rsync. It was nightmare. Sure, it had this
-<code>compare-dest</code> option, and after many hours of VooDoo magic I was able to set
+<code class="highlighter-rouge">compare-dest</code> option, and after many hours of VooDoo magic I was able to set
 it properly, but still I was unhappy with it. Mostly, because it didn’t handle
 file removal very well (if some files were removed in a new snapshot, they
 simply weren’t included, so I didn’t have any information about that, so when I
@@ -310,8 +290,8 @@ all of this together?</p>
 <h2 id="setting-davfs-for-boxcom">Setting davfs for box.com</h2>
 
 <p>This step is pretty simple, just install it, add your box.com credentials to
-<code>/etc/davfs2/secrets</code>, set <code>use_locks</code> to <code>0</code> and add proper line to
-<code>/etc/fstab</code>. Then just mount it. So:</p>
+<code class="highlighter-rouge">/etc/davfs2/secrets</code>, set <code class="highlighter-rouge">use_locks</code> to <code class="highlighter-rouge">0</code> and add proper line to
+<code class="highlighter-rouge">/etc/fstab</code>. Then just mount it. So:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s2">&quot;https://www.box.com/dav    login@email.com     my_box_com_password&quot;</span> &gt;&gt; /etc/davfs2/secrets
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">sed -i<span class="s1">&#39;&#39;</span> -r <span class="s1">&#39;s/#?\s*use_locks\s+0/use_locks 1/g&#39;</span> /etc/davfs2/davfs2.conf
@@ -363,7 +343,7 @@ this initial deploy, make sure that all the files are moved to box.com!</p>
 
 <h2 id="restoring-backup">Restoring backup</h2>
 
-<p>This is pretty simple. First, fetch all the <code>*.initial.*</code> files to some
+<p>This is pretty simple. First, fetch all the <code class="highlighter-rouge">*.initial.*</code> files to some
 directory, then merge them, decrypt and unpack.</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">mkdir -p /home/Restore/.git
@@ -475,7 +455,6 @@ box.com, but if you do - please, let me know!</p>
     Previous version of the site, available <a href="/v3">here</a>.
   </div>
 </footer>
-
       </main>
     </div>
 
@@ -489,12 +468,7 @@ box.com, but if you do - please, let me know!</p>
   ga('send', 'pageview');
 </script>
 
-<script src="/js/lib/material.js"></script>
-<script src="/js/lib/jquery.js"></script>
-<script src="/js/main.js"></script>
-
-
-
+<script async src='/javascripts/all-178beb3f7d9df1f91c857b33a6b5a3bb.js'></script>
   </body>
 
 </html>
