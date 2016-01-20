@@ -2,6 +2,7 @@
 //= require lib/jquery
 //= require lib/material
 //= require lib/isotope
+//= require lib/analytics
 //= require portfolio
 
 /* global jQuery: false */
@@ -9,7 +10,7 @@
 (function ($) {
     'use strict';
 
-    $.getJSON('https://www.api.tweecool.com/?screenname=ajgon&count=25', function (data) {
+    $.getJSON('https://twitterproxy.herokuapp.com/?name=ajgon', function (data) {
         var $node = $('#recent-tweets').empty();
         var t = 0;
         var count = 0;
