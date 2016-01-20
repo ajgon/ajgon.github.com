@@ -5,8 +5,8 @@
     <description>Personal webpage, online CV and blog.</description>
     <link>http://rzegocki.pl/</link>
     <atom:link href="http://rzegocki.pl/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 20 Jan 2016 18:37:09 +0100</pubDate>
-    <lastBuildDate>Wed, 20 Jan 2016 18:37:09 +0100</lastBuildDate>
+    <pubDate>Wed, 20 Jan 2016 19:19:24 +0100</pubDate>
+    <lastBuildDate>Wed, 20 Jan 2016 19:19:24 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -382,7 +382,7 @@
     
       <item>
         <title>Installing custom Linux on Raspberry&amp;nbsp;Pi&amp;nbsp;2</title>
-        <description>&lt;p&gt;Few days ago, &lt;a href=&quot;/assets/upload/rpi-a4f42cbf356b88c402d92306d64dea82ae7430417c97a3cc0942e5582cdcd9af.jpg&quot;&gt;I gave myself a present&lt;/a&gt;, which (at the very beginning) I was planning to power
+        <description>&lt;p&gt;Few days ago, &lt;a href=&quot;https://www.rzegockicdn.ml/assets/upload/rpi-a4f42cbf356b88c402d92306d64dea82ae7430417c97a3cc0942e5582cdcd9af.jpg&quot;&gt;I gave myself a present&lt;/a&gt;, which (at the very beginning) I was planning to power
 up with &lt;a href=&quot;https://osmc.tv/&quot;&gt;OSMC&lt;/a&gt; and use it as HTPC. However, in a meantime I had to switch my apartment, and put
 my worn ATOM server offline for couple of hours - necessity I didn’t like very much. This, and the fact that my server
 got very noisy (I suspected power supply fan) convinced me to start looking for something new. And then I thought -
@@ -678,99 +678,99 @@ you finish configuration!).&lt;/p&gt;
 &lt;p&gt;Most developers have a list somewhere (sometimes just in their heads) of favorite applications they use every day. In X-Team, every hero has his own list as well, and I’d like to share with you the most common tools on those lists.&lt;/p&gt;
 
 &lt;h2 id=&quot;itermhttpwwwiterm2com&quot;&gt;&lt;a href=&quot;http://www.iterm2.com/&quot;&gt;iTerm&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/iTerm-1374abea76b000a6902d76b20a6d75f62ea4eeb4deeeeddae768b4089f0abdd0.png&quot; alt=&quot;iTerm&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/iTerm-1374abea76b000a6902d76b20a6d75f62ea4eeb4deeeeddae768b4089f0abdd0.png&quot; alt=&quot;iTerm&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Like it or not, terminal is the most important developer tool. It makes doing a lot of tasks way easier and faster than GUI. As somebody said: “GUI makes easy tasks trivial, and hard tasks impossible to make.” So learn to love your terminal, and it’ll thank you later.&lt;/p&gt;
 
 &lt;h2 id=&quot;homebrewhttpbrewsh&quot;&gt;&lt;a href=&quot;http://brew.sh/&quot;&gt;homebrew&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/brew-8759c145c839dd7cccb65b354d49fc8688a18c6b69ece014e3a4ffe345cd0521.png&quot; alt=&quot;homebrew&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/brew-8759c145c839dd7cccb65b354d49fc8688a18c6b69ece014e3a4ffe345cd0521.png&quot; alt=&quot;homebrew&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;A package manager for OSX. Think of it as &lt;a href=&quot;https://en.wikipedia.org/wiki/Advanced_Packaging_Tool&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get&lt;/code&gt;&lt;/a&gt; for Mac. It was written by the guys who had enough of MacPorts and decided to do it better. And they did - brew shines everywhere where MacPorts fails, starting from logical directory structure, through simple packaging system (everything is git based) to great simplicity of the tool itself.&lt;/p&gt;
 
 &lt;h2 id=&quot;oh-my-zshhttpsgithubcomrobbyrusselloh-my-zsh&quot;&gt;&lt;a href=&quot;https://github.com/robbyrussell/oh-my-zsh&quot;&gt;oh-my-zsh&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/oh-my-zsh-236a3179bd04fd5bdf41f3afd3ec14249607d0526cdd771225d752449808b280.png&quot; alt=&quot;oh-my-zsh&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/oh-my-zsh-236a3179bd04fd5bdf41f3afd3ec14249607d0526cdd771225d752449808b280.png&quot; alt=&quot;oh-my-zsh&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;A very nice addition to zsh shell - it comes bundled with a ton of helpful functions, helpers, plugins and themes. Want to see your current git branch in your shell prompt? You got it. RVM version? No problem. Weather? You bet. And still, it has ZShell under it, so it comes along with a nice path completion, history browsing and ton of other stuff.&lt;/p&gt;
 
 &lt;h2 id=&quot;ackhttpbeyondgrepcom&quot;&gt;&lt;a href=&quot;http://beyondgrep.com/&quot;&gt;ack&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/ack-097c879f078c43f3d7a6660b0192e1d764a8d44b868194f376dfeb753a581b32.png&quot; alt=&quot;ack&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/ack-097c879f078c43f3d7a6660b0192e1d764a8d44b868194f376dfeb753a581b32.png&quot; alt=&quot;ack&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;This is how grep would look like if it was created 20 years later; a great, blazing fast tool for finding contents of the file. And it is written with developers in mind, which means (for example), you can narrow results of the search only to the source files of the language you prefer. Or ignore VCS files. Or use regular expressions out of the box. This is a find-in-file Swiss Army Knife.&lt;/p&gt;
 
 &lt;h2 id=&quot;rvmhttprvmio&quot;&gt;&lt;a href=&quot;http://rvm.io/&quot;&gt;rvm&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/rvm-a6a632d45a8cdd239dbaad8490484666de54437dc3e748dc5f7ff128419608b8.png&quot; alt=&quot;rvm&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/rvm-a6a632d45a8cdd239dbaad8490484666de54437dc3e748dc5f7ff128419608b8.png&quot; alt=&quot;rvm&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;A tool no Ruby developer can live without. RVM is a command-line gadget which allows you to easily install, manage, and work with multiple Ruby environments from interpreters to sets of gems. Recently, Ruby experienced a thing called “fragmentation hell.” There are two major versions of it, two major versions of its biggest framework (Hey! Rails! I’m talking about you!), and a lot of concurrent gems. RVM helps you to catch up with all of that, and manage Ruby/Rails projects more efficiently.&lt;/p&gt;
 
 &lt;h2 id=&quot;grunthttpgruntjscom&quot;&gt;&lt;a href=&quot;http://gruntjs.com/&quot;&gt;Grunt&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/grunt-2943f0e60cb36c17687051df646af1ae9083e85ca2ea4fe658d984e0e6b5ebd8.png&quot; alt=&quot;Grunt&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/grunt-2943f0e60cb36c17687051df646af1ae9083e85ca2ea4fe658d984e0e6b5ebd8.png&quot; alt=&quot;Grunt&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;This is a tool that our front-end guys love. It’s a JavaScript task runner. It takes all the repeatable tasks off your shoulders. Thanks to its huge plugins database, it can minify CSS/JS files, compress images, compile LESS/SASS scripts, lint your source and even set a live-preview server for you. All in an easy-to-use JavaScript environment.&lt;/p&gt;
 
 &lt;h2 id=&quot;alfred-2httpwwwalfredappcom&quot;&gt;&lt;a href=&quot;http://www.alfredapp.com/&quot;&gt;Alfred 2&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/alfred-cc92687b608297165ea9c1d358dead466bf3342e6360d79f8c941b1bb1fa8b33.png&quot; alt=&quot;Alfred 2&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/alfred-cc92687b608297165ea9c1d358dead466bf3342e6360d79f8c941b1bb1fa8b33.png&quot; alt=&quot;Alfred 2&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Alfred is a task launcher, designed to find files and operate on them quickly and easily. The application itself doesn’t differ much from Spotlight, and careful reader may ask, what is the advantage of it.&lt;/p&gt;
 
 &lt;p&gt;That’s where &lt;a href=&quot;http://www.alfredapp.com/powerpack/&quot;&gt;Powerpack&lt;/a&gt; kicks in. It enables things called “workflows.” And workflows are huge advantage - think of them as Alfred on steroids. They are community written extensions which allows the base app to do almost everything. And there are &lt;a href=&quot;http://www.alfredworkflow.com/&quot;&gt;hundreds&lt;/a&gt; of them. Below is the short list of the ones we are using in X-Team.&lt;/p&gt;
 
 &lt;h3 id=&quot;can-i-usehttpsgithubcomwillfarrellalfred-caniuse-workflow&quot;&gt;&lt;a href=&quot;https://github.com/willfarrell/alfred-caniuse-workflow&quot;&gt;Can I Use…&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/alfred-caniuse-fd3b1081b1b62cc12a380ec4003d7b82d21b349d3a81646b2ac0aa5eb5b33871.png&quot; alt=&quot;Can I Use...&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/alfred-caniuse-fd3b1081b1b62cc12a380ec4003d7b82d21b349d3a81646b2ac0aa5eb5b33871.png&quot; alt=&quot;Can I Use...&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Full &lt;a href=&quot;http://caniuse.com/&quot;&gt;caniuse.com&lt;/a&gt; database under your fingertips. No extra browsing needed.&lt;/p&gt;
 
 &lt;h3 id=&quot;colorshttpsgithubcomtylereichalfred-extrastreemastersourcecolors&quot;&gt;&lt;a href=&quot;https://github.com/TylerEich/Alfred-Extras/tree/master/Source/Colors&quot;&gt;Colors&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/alfred-colors-060f28ab1324ef84670a178b987ed65e6d4efb6409b265104d1be13db9fbddf7.png&quot; alt=&quot;Colors&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/alfred-colors-060f28ab1324ef84670a178b987ed65e6d4efb6409b265104d1be13db9fbddf7.png&quot; alt=&quot;Colors&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Great tool for front-end developers. It converts colors between RGB, HSL and hexadecimal format. But the true power is the integration with color picker. By simply typing &lt;code class=&quot;highlighter-rouge&quot;&gt;#&lt;/code&gt; it allows you to choose any pixel from your desktop, and then Colors will automatically return hex/rgb/hsl values for it, ready to be copied or pasted.&lt;/p&gt;
 
 &lt;h3 id=&quot;dashhttpsgithubcomwillfarrellalfred-dash-workflow&quot;&gt;&lt;a href=&quot;https://github.com/willfarrell/alfred-dash-workflow&quot;&gt;Dash&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/alfred-dash-538bf097f99c3f833f3dfb7a92d6744ac00ab8a5c12ea91cfb68179867135bb8.png&quot; alt=&quot;Dash&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/alfred-dash-538bf097f99c3f833f3dfb7a92d6744ac00ab8a5c12ea91cfb68179867135bb8.png&quot; alt=&quot;Dash&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Allows you to browse &lt;a href=&quot;http://kapeli.com/dash&quot;&gt;Dash&lt;/a&gt; docsets database way faster. More about Dash, below.&lt;/p&gt;
 
 &lt;h3 id=&quot;data-uri-schemehttpsgithubcomajgonalfred2-datauri&quot;&gt;&lt;a href=&quot;https://github.com/ajgon/alfred2-datauri&quot;&gt;Data URI Scheme&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/alfred-datauri-70594cc87d8fc36147a3a8c2cafbc7848dabff838295fbe134b236f855618587.png&quot; alt=&quot;Data URI Scheme&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/alfred-datauri-70594cc87d8fc36147a3a8c2cafbc7848dabff838295fbe134b236f855618587.png&quot; alt=&quot;Data URI Scheme&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Another front-end dev tool. It can convert any given file to its representation in base64 data uri scheme. And for image and vector files it also does compression on the fly.&lt;/p&gt;
 
 &lt;h3 id=&quot;flush-dns-cachehttpsgithubcomcdraegeralfred2-flushdns-workflow&quot;&gt;&lt;a href=&quot;https://github.com/cdraeger/alfred2-flushdns-workflow&quot;&gt;Flush DNS cache&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/alfred-flush-08e31b0bf363bfc9d0f865477b0ee93a2ec7a7aa30f1ee2d379b97fcb729af8f.png&quot; alt=&quot;Flush DNS cache&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/alfred-flush-08e31b0bf363bfc9d0f865477b0ee93a2ec7a7aa30f1ee2d379b97fcb729af8f.png&quot; alt=&quot;Flush DNS cache&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Mac OS X can be very stubborn sometimes when it comes to adding new entries to &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/hosts&lt;/code&gt;. This little extension is an excellent solution.&lt;/p&gt;
 
 &lt;h3 id=&quot;html-entity-lookuphttpsgithubcomajgonalfred2-html-entity-lookup&quot;&gt;&lt;a href=&quot;https://github.com/ajgon/alfred2-html-entity-lookup&quot;&gt;HTML Entity Lookup&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/alfred-entity-38aa973730b5996fbad82307833ab39b34f9992866fe0f434af08b3289317d45.png&quot; alt=&quot;HTML Entity Lookup&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/alfred-entity-38aa973730b5996fbad82307833ab39b34f9992866fe0f434af08b3289317d45.png&quot; alt=&quot;HTML Entity Lookup&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Alfred version of Remy’s Sharp &lt;a href=&quot;http://leftlogic.com/projects/entity-lookup/&quot;&gt;excellent tool&lt;/a&gt; - it allows the user to quickly find the entity based on how it looks.&lt;/p&gt;
 
 &lt;h3 id=&quot;ios-simulator-kithttpsgithubcomsuperkamiossimulatorkit&quot;&gt;&lt;a href=&quot;https://github.com/superkam/iOS_Simulator_Kit&quot;&gt;iOS Simulator Kit&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/alfred-ios-989116ac52c209ddfeff02a1981c2b027013544de8007a9b59a5dd5130b930a4.png&quot; alt=&quot;iOS Simulator Kit&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/alfred-ios-989116ac52c209ddfeff02a1981c2b027013544de8007a9b59a5dd5130b930a4.png&quot; alt=&quot;iOS Simulator Kit&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;For some reason, Alfred and Spotlight search results don’t include iOS Simulator application in their results. With this workflow - it’s not an issue anymore. Also, you can choose with device you wish to emulate from the very beginning.&lt;/p&gt;
 
 &lt;h3 id=&quot;strip-clipboardhttpsgithubcomdavidstaronalfred-workflow-stripclipboardformatting&quot;&gt;&lt;a href=&quot;https://github.com/DavidStaron/alfred-workflow-stripClipboardFormatting&quot;&gt;Strip clipboard&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/alfred-sclip-3665875f96ea52cf539bdaa9d246ed8bbf2382055b2963b3ef777889e55cd3db.png&quot; alt=&quot;Strip clipboard&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/alfred-sclip-3665875f96ea52cf539bdaa9d246ed8bbf2382055b2963b3ef777889e55cd3db.png&quot; alt=&quot;Strip clipboard&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;This is one of the tools, that when installed - you can’t live without them. It strips all the formatting from the clipboard content, leaving only raw text inside.&lt;/p&gt;
 
 &lt;h3 id=&quot;source-treehttpsgithubcomzhaocaialfred2-sourcetree-workflow&quot;&gt;&lt;a href=&quot;https://github.com/zhaocai/alfred2-sourcetree-workflow&quot;&gt;Source Tree&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/alfred-stree-a75d5f3e63b23db82f2e09991ca193dabd563446e6f27eaa9d6299a98f13097d.png&quot; alt=&quot;Source Tree&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/alfred-stree-a75d5f3e63b23db82f2e09991ca193dabd563446e6f27eaa9d6299a98f13097d.png&quot; alt=&quot;Source Tree&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;As the name suggests - it’s a workflow for SourceTree application. It lists all the repositories and allows you to view them in Source Tree or in Finder.&lt;/p&gt;
 
 &lt;h3 id=&quot;timezoneshttpwwwalfredforumcomtopic491-timezones-a-world-clock-script-filter-updated-to-v161&quot;&gt;&lt;a href=&quot;http://www.alfredforum.com/topic/491-timezones-a-world-clock-script-filter-updated-to-v161/&quot;&gt;TimeZones&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/alfred-tz-5823c26ef98b0c98724967c2750fab1549364b03c332b06966dabfc997914b07.png&quot; alt=&quot;TimeZones&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/alfred-tz-5823c26ef98b0c98724967c2750fab1549364b03c332b06966dabfc997914b07.png&quot; alt=&quot;TimeZones&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;X-Team is spread around the globe. Most of the projects are handled simultaneously by developers from different timezones. This extension is a great tool to check if someone on the team is awake yet :)&lt;/p&gt;
 
 &lt;h3 id=&quot;virtualbox-controlhttpswwwdropboxcoms51pyuuj051pydn2virtualboxalfredworkflow&quot;&gt;&lt;a href=&quot;https://www.dropbox.com/s/51pyuuj051pydn2/VirtualBox.alfredworkflow&quot;&gt;VirtualBox Control&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/alfred-vm-9116154b7252dac3a5ba74bae0913640c828b7cc217e1e1e9342eea3d6dcb833.png&quot; alt=&quot;VirtualBox Control&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/alfred-vm-9116154b7252dac3a5ba74bae0913640c828b7cc217e1e1e9342eea3d6dcb833.png&quot; alt=&quot;VirtualBox Control&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Very useful extension for a QA team. They usually have a few VMs configured (mostly for IE8, IE9 and IE10) - and with this extension they can manage them faster.&lt;/p&gt;
 
 &lt;h2 id=&quot;sublime-texthttpwwwsublimetextcom-2httpwwwsublimetextcom2-or-3httpwwwsublimetextcom3&quot;&gt;&lt;a href=&quot;http://www.sublimetext.com/&quot;&gt;Sublime Text&lt;/a&gt; &lt;a href=&quot;http://www.sublimetext.com/2&quot;&gt;2&lt;/a&gt; (or &lt;a href=&quot;http://www.sublimetext.com/3&quot;&gt;3&lt;/a&gt;)&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/sublime-54480bf0343a3279fa45d23dc6e05ebc52505627068ee192aa489f05a3f296f8.png&quot; alt=&quot;Sublime Text&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/sublime-54480bf0343a3279fa45d23dc6e05ebc52505627068ee192aa489f05a3f296f8.png&quot; alt=&quot;Sublime Text&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;This is the editor of choice for most X-Team developers, and for &lt;a href=&quot;http://net.tutsplus.com/articles/news/perfect-workflow-in-sublime-text-free-course/&quot;&gt;a lot of other people too&lt;/a&gt;. It is not language-oriented, like most of the IDEs, but it’s irreplaceable when it comes to using multiple syntaxes.&lt;/p&gt;
 
@@ -796,34 +796,34 @@ you finish configuration!).&lt;/p&gt;
 &lt;p&gt;… and many more.&lt;/p&gt;
 
 &lt;h2 id=&quot;dashhttpkapelicomdash&quot;&gt;&lt;a href=&quot;http://kapeli.com/dash&quot;&gt;Dash&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/dash-2d0f72581edba80d55fea66928f0f9e5e50f231ce9fd6f165075292ba48b749d.png&quot; alt=&quot;Dash&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/dash-2d0f72581edba80d55fea66928f0f9e5e50f231ce9fd6f165075292ba48b749d.png&quot; alt=&quot;Dash&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;A very nice tool which can be a lifesaver on a plane, bus or any place where you want to work that has no Internet available. It’s  an offline documentation database. Simply download docsets you need, and you’re good to go. Integrates nicely with Alfred and Sublime Text, as mentioned earlier.&lt;/p&gt;
 
 &lt;h2 id=&quot;divvyhttpmizagecomdivvy&quot;&gt;&lt;a href=&quot;http://mizage.com/divvy/&quot;&gt;Divvy&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/divvy-add75688577dce4a6d29be480d05db17e1ca3871a9ce0f9cb1d682545fa75dc9.png&quot; alt=&quot;Divvy&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/divvy-add75688577dce4a6d29be480d05db17e1ca3871a9ce0f9cb1d682545fa75dc9.png&quot; alt=&quot;Divvy&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;A simple click and drag window manager. Very useful on iMacs, which have a huge working space and you can confortably work with many windows on one desktop. It is also a very simple application, which does exactly what it’s designed for very well - aligning windows, and assigning shortcuts for them.&lt;/p&gt;
 
 &lt;h2 id=&quot;fontprephttpfontprepcom&quot;&gt;&lt;a href=&quot;http://fontprep.com/&quot;&gt;FontPrep&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/fontprep-1bb9b1f7f01c504d15a4b6c1019a9cb02e64684d31453c0f1468cd1016b736b5.png&quot; alt=&quot;FontPrep&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/fontprep-1bb9b1f7f01c504d15a4b6c1019a9cb02e64684d31453c0f1468cd1016b736b5.png&quot; alt=&quot;FontPrep&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Drag your font into it, click export and you will end up with your font converted to four of the most used formats on the web (otf, ttf, woff and eot) and a CSS file with @font-face directives. Beautiful.&lt;/p&gt;
 
 &lt;h2 id=&quot;imageoptimhttpimageoptimcom&quot;&gt;&lt;a href=&quot;http://imageoptim.com/&quot;&gt;ImageOptim&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/imageoptim-49de64424f43eaec0fc52b1c2df0886046d44cc572f15140187fcf9d085ee3e0.png&quot; alt=&quot;ImageOptim&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/imageoptim-49de64424f43eaec0fc52b1c2df0886046d44cc572f15140187fcf9d085ee3e0.png&quot; alt=&quot;ImageOptim&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Image files generated by graphics programs (such as Photoshop or GIMP), can be huge. The reason is that they add alot of unnecessary data and they handle color and alpha management poorly.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;ImageOptim&lt;/strong&gt; is a solution for that - it comes bundled with many image-optimization tools (like pngcrush for PNG or jpegtran for JPG), compresses an image with each of them, and returns the best result. It saves 30-40% of image space on average - which is a huge improvement, especially today, for graphically overloaded sites.&lt;/p&gt;
 
 &lt;h2 id=&quot;markedhttpmarkedappcom&quot;&gt;&lt;a href=&quot;http://markedapp.com/&quot;&gt;Marked&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/marked-4ccfe1d79b841fac8d1c7781128e6aade99ace274c65a61ec309759c5df882fe.png&quot; alt=&quot;Marked&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/marked-4ccfe1d79b841fac8d1c7781128e6aade99ace274c65a61ec309759c5df882fe.png&quot; alt=&quot;Marked&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;MarkDown documents viewer. Great, when you need to edit a *.md file in your favorite editor (for example Sublime Text, with which it integrates smoothly) and see the live preview.&lt;/p&gt;
 
 &lt;h2 id=&quot;sourcetreehttpwwwsourcetreeappcom&quot;&gt;&lt;a href=&quot;http://www.sourcetreeapp.com/&quot;&gt;SourceTree&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/upload/sourcetree-63906da02d44f50bfe4beda4bb80c0707b749b9d85836e92cb891a29f0d72bb2.png&quot; alt=&quot;SourceTree&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/sourcetree-63906da02d44f50bfe4beda4bb80c0707b749b9d85836e92cb891a29f0d72bb2.png&quot; alt=&quot;SourceTree&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;There are to ways of using git. Conservatives use terminal. New-age programmers use GUI tools. And the most popular GUI for git in our company is SourceTree.&lt;/p&gt;
 
@@ -1536,7 +1536,7 @@ do this, install &lt;a href=&quot;http://www.thekelleys.org.uk/dnsmasq/doc.html&
 &lt;p&gt;Last thing left, is setting a nameserver to 127.0.0.1 in your Network prefpane,
 as shown below.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/upload/dnsmasq-b3d82ae62de4efa3824c442ea2af67494a9bdb6c4e7bfd91c425dc2b00b270fc.png&quot; alt=&quot;dnsmasq configuration&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.rzegockicdn.ml/assets/upload/dnsmasq-b3d82ae62de4efa3824c442ea2af67494a9bdb6c4e7bfd91c425dc2b00b270fc.png&quot; alt=&quot;dnsmasq configuration&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;From now on all *.dev domains will be translated to &lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.0.1&lt;/code&gt; and from there
 all &lt;code class=&quot;highlighter-rouge&quot;&gt;wp.dev&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;php.dev&lt;/code&gt; domains will be handled by nginx. Good stuff.&lt;/p&gt;
