@@ -255,13 +255,13 @@
 
 <p>This one is (im my opinion) is more clean and advanced. To use it, just make your webserver to return below XML file on <code class="highlighter-rouge">autoconfig.</code> subdomain. So (for example) if you have email <code class="highlighter-rouge">myname@mydomain.com</code> - <code class="highlighter-rouge">autoconfig.mydomain.com</code> should return:</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">autoconfig.xml</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;clientConfig</span> <span class="na">version=</span><span class="s">&quot;1.1&quot;</span><span class="nt">&gt;</span>
-</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nt">&lt;emailProvider</span> <span class="na">id=</span><span class="s">&quot;mydomain.com&quot;</span><span class="nt">&gt;</span>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">autoconfig.xml</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;clientConfig</span> <span class="na">version=</span><span class="s">"1.1"</span><span class="nt">&gt;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nt">&lt;emailProvider</span> <span class="na">id=</span><span class="s">"mydomain.com"</span><span class="nt">&gt;</span>
 </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;domain&gt;</span>mydomain.com<span class="nt">&lt;/domain&gt;</span>
 </div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;displayName&gt;</span>Mail<span class="nt">&lt;/displayName&gt;</span>
 </div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;displayShortName&gt;</span>Mail<span class="nt">&lt;/displayShortName&gt;</span>
-</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;incomingServer</span> <span class="na">type=</span><span class="s">&quot;pop3&quot;</span><span class="nt">&gt;</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;incomingServer</span> <span class="na">type=</span><span class="s">"pop3"</span><span class="nt">&gt;</span>
 </div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;hostname&gt;</span>mail.mydomain.com<span class="nt">&lt;/hostname&gt;</span>
 </div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;port&gt;</span>995<span class="nt">&lt;/port&gt;</span>
 </div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;socketType&gt;</span>SSL<span class="nt">&lt;/socketType&gt;</span>
@@ -273,14 +273,14 @@
 </div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">                <span class="nt">&lt;daysToLeaveMessagesOnServer&gt;</span>10<span class="nt">&lt;/daysToLeaveMessagesOnServer&gt;</span>
 </div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;/pop3&gt;</span>
 </div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;/incomingServer&gt;</span>
-</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;incomingServer</span> <span class="na">type=</span><span class="s">&quot;imap&quot;</span><span class="nt">&gt;</span>
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;incomingServer</span> <span class="na">type=</span><span class="s">"imap"</span><span class="nt">&gt;</span>
 </div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;hostname&gt;</span>mail.mydomain.com<span class="nt">&lt;/hostname&gt;</span>
 </div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;port&gt;</span>993<span class="nt">&lt;/port&gt;</span>
 </div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;socketType&gt;</span>SSL<span class="nt">&lt;/socketType&gt;</span>
 </div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;authentication&gt;</span>password-cleartext<span class="nt">&lt;/authentication&gt;</span>
 </div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;username&gt;</span>%EMAILADDRESS%<span class="nt">&lt;/username&gt;</span>
 </div></div><div data-line="25" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;/incomingServer&gt;</span>
-</div></div><div data-line="26" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;outgoingServer</span> <span class="na">type=</span><span class="s">&quot;smtp&quot;</span><span class="nt">&gt;</span>
+</div></div><div data-line="26" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;outgoingServer</span> <span class="na">type=</span><span class="s">"smtp"</span><span class="nt">&gt;</span>
 </div></div><div data-line="27" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;hostname&gt;</span>mail.mydomain.com<span class="nt">&lt;/hostname&gt;</span>
 </div></div><div data-line="28" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;port&gt;</span>587<span class="nt">&lt;/port&gt;</span>
 </div></div><div data-line="29" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;socketType&gt;</span>STARTTLS<span class="nt">&lt;/socketType&gt;</span>
@@ -293,8 +293,8 @@
 <p>If you have an email server on a different domain than your email account, simply add redirect to your httpd server. For example in nginx:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/nginx.conf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">server <span class="o">&#x7b;</span>
-</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">    server_name autoconfig.myotherdomain.com<span class="p">;</span>
-</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    rewrite ^.* https://mydomain.com/config-v1.1.xml permanent<span class="p">;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">    server_name autoconfig.myotherdomain.com;
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    rewrite ^.<span class="k">*</span> https://mydomain.com/config-v1.1.xml permanent;
 </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">&#x7d;</span></div></div></pre></div></figure>
 
 <p>And that’s it! From now on, your email will be automatically discovered by Thunderbird.</p>
@@ -303,9 +303,9 @@
 
 <p>Procedure is very similar here. You just have to set <code class="highlighter-rouge">autodiscover.</code> domain, and XML file is slightly different. So, for example <code class="highlighter-rouge">autodiscover.mydomain.com</code> should return:</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">autodiscover.xml</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;Autodiscover</span> <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/exchange/autodiscover/responseschema/2006&quot;</span><span class="nt">&gt;</span>
-</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nt">&lt;Response</span> <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/exchange/autodiscover/outlook/responseschema/2006a&quot;</span><span class="nt">&gt;</span>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">autodiscover.xml</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nt">&lt;Autodiscover</span> <span class="na">xmlns=</span><span class="s">"http://schemas.microsoft.com/exchange/autodiscover/responseschema/2006"</span><span class="nt">&gt;</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nt">&lt;Response</span> <span class="na">xmlns=</span><span class="s">"http://schemas.microsoft.com/exchange/autodiscover/outlook/responseschema/2006a"</span><span class="nt">&gt;</span>
 </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="nt">&lt;Account&gt;</span>
 </div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;AccountType&gt;</span>email<span class="nt">&lt;/AccountType&gt;</span>
 </div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">            <span class="nt">&lt;Action&gt;</span>settings<span class="nt">&lt;/Action&gt;</span>
@@ -345,8 +345,8 @@
 <p>And again, if your email domain differs from server domain, add proper redirect:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/nginx.conf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">server <span class="o">&#x7b;</span>
-</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">    server_name autodiscover.myotherdomain.com<span class="p">;</span>
-</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    rewrite ^.* https://mydomain.com/autodiscover.xml permanent<span class="p">;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">    server_name autodiscover.myotherdomain.com;
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    rewrite ^.<span class="k">*</span> https://mydomain.com/autodiscover.xml permanent;
 </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">&#x7d;</span></div></div></pre></div></figure>
 
 <p>And that’s it! Enjoy your new, shiny, auto-configuring E-mail!</p>

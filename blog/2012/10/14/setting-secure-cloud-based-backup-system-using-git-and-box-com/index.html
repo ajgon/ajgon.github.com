@@ -296,10 +296,10 @@ all of this together?</p>
 <code class="highlighter-rouge">/etc/davfs2/secrets</code>, set <code class="highlighter-rouge">use_locks</code> to <code class="highlighter-rouge">0</code> and add proper line to
 <code class="highlighter-rouge">/etc/fstab</code>. Then just mount it. So:</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s2">&quot;https://www.box.com/dav    login@email.com     my_box_com_password&quot;</span> &gt;&gt; /etc/davfs2/secrets
-</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">sed -i<span class="s1">&#39;&#39;</span> -r <span class="s1">&#39;s/#?\s*use_locks\s+0/use_locks 1/g&#39;</span> /etc/davfs2/davfs2.conf
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s2">"https://www.box.com/dav    login@email.com     my_box_com_password"</span> &gt;&gt; /etc/davfs2/secrets
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">sed -i<span class="s1">''</span> -r <span class="s1">'s/#?\s*use_locks\s+0/use_locks 1/g'</span> /etc/davfs2/davfs2.conf
 </div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">mkdir /mnt/Box
-</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s2">&quot;https://www.box.com/dav /mnt/Box davfs rw,noauto 0 0&quot;</span> &gt;&gt; /etc/fstab
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s2">"https://www.box.com/dav /mnt/Box davfs rw,noauto 0 0"</span> &gt;&gt; /etc/fstab
 </div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">mount /mnt/Box</div></div></pre></div></figure>
 
 <p>If everything went smooth, you will have access to your box.com account via
@@ -317,9 +317,9 @@ and copy to box.com. Here is how I do it:</p>
 </div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">ln -s /home/Backup/<span class="k">$&#x7b;</span><span class="nv">MACHINE</span><span class="k">&#x7d;</span> /.git
 </div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">git init
 </div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">git add -A etc root home some/other/important/dirs
-</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">git commit -m <span class="s2">&quot;Initial&quot;</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">git commit -m <span class="s2">"Initial"</span>
 </div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">git gc <span class="c"># compress repository</span>
-</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">tar -cf /home/Backup/<span class="k">$&#x7b;</span><span class="nv">MACHINE</span><span class="k">&#x7d;</span>.initial.tar /home/Backup/<span class="k">$&#x7b;</span><span class="nv">MACHINE</span><span class="k">&#x7d;</span>/*
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">tar -cf /home/Backup/<span class="k">$&#x7b;</span><span class="nv">MACHINE</span><span class="k">&#x7d;</span>.initial.tar /home/Backup/<span class="k">$&#x7b;</span><span class="nv">MACHINE</span><span class="k">&#x7d;</span>/<span class="k">*</span>
 </div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">gpg -e -r my.key@email.com /home/Backup/<span class="k">$&#x7b;</span><span class="nv">MACHINE</span><span class="k">&#x7d;</span>.initial.tar
 </div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># box.com has maximum file limit so split files to lesser chunks</span>
 </div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">split --bytes<span class="o">=</span>99m /home/Backup/<span class="k">$&#x7b;</span><span class="nv">MACHINE</span><span class="k">&#x7d;</span>.initial.tar.gpg /home/Backup/<span class="k">$&#x7b;</span><span class="nv">MACHINE</span><span class="k">&#x7d;</span>.initial.tar.
@@ -334,7 +334,7 @@ this initial deploy, make sure that all the files are moved to box.com!</p>
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">export </span><span class="nv">MACHINE</span><span class="o">=</span>DeeDee
 </div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">cd</span> /
 </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">git add -A
-</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">git commit -m <span class="s2">&quot;$&#x7b;NOW&#x7d;&quot;</span> -a
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">git commit -m <span class="s2">"</span><span class="k">$&#x7b;</span><span class="nv">NOW</span><span class="k">&#x7d;</span><span class="s2">"</span> -a
 </div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">git format-patch -1 --stdout &gt; /home/Backup/<span class="k">$&#x7b;</span><span class="nv">MACHINE</span><span class="k">&#x7d;</span>.<span class="k">$&#x7b;</span><span class="nv">NOW</span><span class="k">&#x7d;</span>.patch
 </div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">gpg -e -r your@key.email /home/Backup/<span class="k">$&#x7b;</span><span class="nv">MACHINE</span><span class="k">&#x7d;</span>.<span class="k">$&#x7b;</span><span class="nv">NOW</span><span class="k">&#x7d;</span>.patch
 </div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">split --bytes<span class="o">=</span>50m /home/Backup/<span class="k">$&#x7b;</span><span class="nv">MACHINE</span><span class="k">&#x7d;</span>.<span class="k">$&#x7b;</span><span class="nv">NOW</span><span class="k">&#x7d;</span>.patch.gpg /home/Backup/<span class="k">$&#x7b;</span><span class="nv">MACHINE</span><span class="k">&#x7d;</span>.<span class="k">$&#x7b;</span><span class="nv">NOW</span><span class="k">&#x7d;</span>.patch.
@@ -342,7 +342,7 @@ this initial deploy, make sure that all the files are moved to box.com!</p>
 
 <p>Now all you need to do is put this script to some file, and add it to cron:</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">crontab -e</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="m">0</span> <span class="m">3</span> * * * /backup</div></div></pre></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">crontab -e</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">0 3 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /backup</div></div></pre></div></figure>
 
 <h2 id="restoring-backup">Restoring backup</h2>
 
@@ -351,19 +351,19 @@ directory, then merge them, decrypt and unpack.</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">mkdir -p /home/Restore/.git
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">cd</span> /home/Restore/.git
-</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">cp /mnt/Box/Backups/*.initial.* .
-</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">cat *.initial.* &gt; Backup.initial.tar
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">cp /mnt/Box/Backups/<span class="k">*</span>.initial.<span class="k">*</span> .
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">cat <span class="k">*</span>.initial.<span class="k">*</span> &gt; Backup.initial.tar
 </div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">tar -xf Backup.initial.tar
 </div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">rm -rf Backup.initial.tar</div></div></pre></div></figure>
 
 <p>Now you need to apply the patches:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">cd</span> /home/Restore
-</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">cp /mnt/Box/Backups/patches/* .
-</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">for</span> i in *.patch.aa<span class="p">;</span> <span class="k">do</span> mv <span class="k">$&#x7b;</span><span class="nv">i</span><span class="k">&#x7d;</span> <span class="sb">`</span><span class="nb">echo</span> <span class="k">$&#x7b;</span><span class="nv">i</span><span class="k">&#x7d;</span> <span class="p">|</span> sed -r <span class="s1">&#39;s/.aa$//&#39;</span><span class="sb">`</span><span class="p">;</span> <span class="k">done</span>
-</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># Don&#39;t forget to concatenate splitted patches, so for example:</span>
-</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">cat Backup.2012-10-14.patch.* &gt; Backup.2012-10.14.patch
-</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">git apply *.patch</div></div></pre></div></figure>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">cp /mnt/Box/Backups/patches/<span class="k">*</span> .
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">for </span>i <span class="k">in</span> <span class="k">*</span>.patch.aa; <span class="k">do </span>mv <span class="k">$&#x7b;</span><span class="nv">i</span><span class="k">&#x7d;</span> <span class="sb">`</span><span class="nb">echo</span> <span class="k">$&#x7b;</span><span class="nv">i</span><span class="k">&#x7d;</span> | sed -r <span class="s1">'s/.aa$//'</span><span class="sb">`</span>; <span class="k">done</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># Don't forget to concatenate splitted patches, so for example:</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">cat Backup.2012-10-14.patch.<span class="k">*</span> &gt; Backup.2012-10.14.patch
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">git apply <span class="k">*</span>.patch</div></div></pre></div></figure>
 
 <p>And the last thing is simply to restore repo to it’s current state:</p>
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">git reset --hard master</div></div></pre></div></figure>
