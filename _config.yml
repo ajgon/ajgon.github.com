@@ -13,6 +13,7 @@ assets:
         - _assets/fonts
         - _assets/images
         - _assets/js
+        - _assets/files
 mainnav:
     - {title: 'About', url: '/about'}
     - {title: 'Portfolio', url: '/portfolio'}
