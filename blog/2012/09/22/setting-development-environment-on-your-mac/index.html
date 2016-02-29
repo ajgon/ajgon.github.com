@@ -288,7 +288,7 @@ So just type:</p>
 how awesome it is, so watch
 <a href="https://www.youtube.com/watch?v=m07MiM6rmMc">this video</a>, and then type:</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh</div></div></pre></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh <span class="p">|</span> sh</div></div></pre></div></figure>
 
 <h2 id="installing-dnsmasq-and-nginx">Installing dnsmasq and nginx</h2>
 
@@ -307,25 +307,25 @@ nginx configuration files lives) and add following section at the bottom
 (before the last closing bracket) of the <code class="highlighter-rouge">nginx.conf</code> file:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/usr/local/etc/nginx/nginx.conf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">server <span class="o">&#x7b;</span>
-</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">    server_name ~^<span class="o">(</span>www.<span class="o">)</span>?<span class="o">(</span>?&lt;project&gt;[^.]+<span class="o">)</span>.php.dev;
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">    server_name ~^<span class="o">(</span>www.<span class="o">)</span>?<span class="o">(</span>?&lt;project&gt;<span class="o">[</span>^.<span class="o">]</span>+<span class="o">)</span>.php.dev<span class="p">;</span>
 </div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="c"># This is the path, where your projects lives.</span>
 </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="c"># $project is domain part but as well directory.</span>
 </div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="c"># So something.php.dev will take files from /Users/yourname/Projects/something/public</span>
-</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">    root /Users/yourname/Projects/<span class="nv">$project</span>/public;
-</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">    error_log logs/php.dev.error_log info;
-</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">    index index.html index.php;
-</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">    include php;
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">    root /Users/yourname/Projects/<span class="nv">$project</span>/public<span class="p">;</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">    error_log logs/php.dev.error_log info<span class="p">;</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">    index index.html index.php<span class="p">;</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">    include php<span class="p">;</span>
 </div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">&#x7d;</span>
 </div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">server <span class="o">&#x7b;</span>
-</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">    server_name ~^<span class="o">(</span>www.<span class="o">)</span>?<span class="o">(</span>?&lt;project&gt;[^.]+<span class="o">)</span>.wp.dev;
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">    server_name ~^<span class="o">(</span>www.<span class="o">)</span>?<span class="o">(</span>?&lt;project&gt;<span class="o">[</span>^.<span class="o">]</span>+<span class="o">)</span>.wp.dev<span class="p">;</span>
 </div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="c"># This is the path, where your projects lives.</span>
 </div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="c"># $project is domain part but as well directory.</span>
 </div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="c"># So something.wp.dev will take files from /Users/yourname/Projects/something/public</span>
-</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">    root /Users/yourname/Projects/<span class="nv">$project</span>/public;
-</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">    error_log logs/wp.dev.error_log info;
-</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">    index index.html index.php;
-</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">    include php;
-</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">    include wordpress;
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">    root /Users/yourname/Projects/<span class="nv">$project</span>/public<span class="p">;</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">    error_log logs/wp.dev.error_log info<span class="p">;</span>
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">    index index.html index.php<span class="p">;</span>
+</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">    include php<span class="p">;</span>
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">    include wordpress<span class="p">;</span>
 </div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">&#x7d;</span></div></div></pre></div></figure>
 
 <p>Now type <code class="highlighter-rouge">sudo /usr/local/sbin/nginx -t</code> - if eveyrhing is okay, you should see
@@ -367,10 +367,10 @@ contain PHP recipes out of box, so we need
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">brew install mysql
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">unset </span>TMPDIR
-</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">mysql_install_db --verbose --user<span class="o">=</span><span class="sb">`</span>whoami<span class="sb">`</span> --basedir<span class="o">=</span><span class="s2">"</span><span class="k">$(</span>brew --prefix mysql<span class="k">)</span><span class="s2">"</span> --datadir<span class="o">=</span>/usr/local/var/mysql --tmpdir<span class="o">=</span>/tmp
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">mysql_install_db --verbose --user<span class="o">=</span><span class="sb">`</span>whoami<span class="sb">`</span> --basedir<span class="o">=</span><span class="s2">&quot;$(brew --prefix mysql)&quot;</span> --datadir<span class="o">=</span>/usr/local/var/mysql --tmpdir<span class="o">=</span>/tmp
 </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">mysql.server start
-</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">/usr/local/opt/mysql/bin/mysqladmin -u root password <span class="s1">''</span>
-</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">/usr/local/opt/mysql/bin/mysqladmin -u root -h localhost password <span class="s1">''</span></div></div></pre></div></figure>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">/usr/local/opt/mysql/bin/mysqladmin -u root password <span class="s1">&#39;&#39;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">/usr/local/opt/mysql/bin/mysqladmin -u root -h localhost password <span class="s1">&#39;&#39;</span></div></div></pre></div></figure>
 
 <h2 id="putting-everything-together">Putting everything together</h2>
 
@@ -381,28 +381,27 @@ script which will launch or disable all the services on demand. Just create
 (and make executable) <code class="highlighter-rouge">/usr/local/bin/dev&lt;</code> file with following contents:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/usr/local/bin/dev</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">#!/bin/bash</span>
-</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">if</span> <span class="o">[</span><span class="nv">$# </span>-lt 1 <span class="o">]</span>; <span class="k">then
-<div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nb">echo</span> <span class="s2">"Usage: </span><span class="nv">$0</span><span class="s2"> on|off"</span>
-</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">else
-<div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">    if <span class="o">[</span> <span class="nv">$1</span> <span class="o">=</span> <span class="s1">'on'</span> <span class="o">]</span>; <span class="k">then</span>
-</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="k">$(</span>brew --prefix php54<span class="k">)</span>/sbin/php-fpm --fpm-config /usr/local/etc/php/5.4/php-fpm.conf 2&gt; /dev/null &amp;
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">if</span> <span class="o">[</span><span class="nv">$# </span>-lt <span class="m">1</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nb">echo</span> <span class="s2">&quot;Usage: $0 on|off&quot;</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">else</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="k">if</span> <span class="o">[</span> <span class="nv">$1</span> <span class="o">=</span> <span class="s1">&#39;on&#39;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="k">$(</span>brew --prefix php54<span class="k">)</span>/sbin/php-fpm --fpm-config /usr/local/etc/php/5.4/php-fpm.conf 2&gt; /dev/null <span class="p">&amp;</span>
 </div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">        sudo /usr/local/sbin/nginx
 </div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">        mysql.server start &gt; /dev/null
-</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="k">else
-<div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">        killall php-fpm 2&gt; /dev/null
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="k">else</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">        killall php-fpm 2&gt; /dev/null
 </div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">        sudo killall nginx 2&gt; /dev/null
 </div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">        mysql.server stop 2&gt; /dev/null
-</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="k">fi
-<div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line">fi</div></div>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="k">fi</span>
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">fi</span></div></div></pre></div></figure>
 
-Now when you need to enter "development mode" simply type `dev on` and to quit
-`dev off`.
+<p>Now when you need to enter “development mode” simply type <code class="highlighter-rouge">dev on</code> and to quit
+<code class="highlighter-rouge">dev off</code>.</p>
 
-## Conclusion
+<h2 id="conclusion">Conclusion</h2>
 
-Well, that's all! I hope you will enjoy this simple environment as much as
-I do :).
-</span></div></div></span></div></div></span></div></div></span></div></div></pre></div></figure>
+<p>Well, that’s all! I hope you will enjoy this simple environment as much as
+I do :).</p>
 
         </div>
 

@@ -294,7 +294,7 @@ confirmation - and eventually fail):</p>
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">useradd -s /bin/false -d /var/gpg -M gpgmap
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">mkdir -p /var/gpg/.gnupg
 </div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">chown -R gpgmap /var/gpg
-</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">chmod 700 /var/gpg/.gnupg
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">chmod <span class="m">700</span> /var/gpg/.gnupg
 </div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">sudo -u gpgmap /usr/bin/gpg --gen-key --homedir<span class="o">=</span>/var/gpg/.gnupg
 </div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">sudo -u gpgmap gpg --edit-key your@key.email.com trust quit</div></div></pre></div></figure>
 
@@ -315,18 +315,18 @@ keyhome (set to <code class="highlighter-rouge">/var/gpg/.gnupg</code>) and keym
 receive encrypted content there - follow the hint in file). So all in all your
 config file should look similar to this:</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/gpg-mailgate.conf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nn">[default]</span>
-</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="py">add_header</span> <span class="p">=</span> <span class="s">yes</span>
-</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="py">domains</span> <span class="p">=</span> <span class="s">zoho.com</span>
-</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nn">[gpg]</span>
-</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="py">keyhome</span> <span class="p">=</span> <span class="s">/var/gpg/.gnupg</span>
-</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nn">[logging]</span>
-</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="py">file</span> <span class="p">=</span> <span class="s">/tmp/gpg-mailgate.log</span>
-</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nn">[relay]</span>
-</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="py">host</span> <span class="p">=</span> <span class="s">127.0.0.1</span>
-</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="py">port</span> <span class="p">=</span> <span class="s">10028</span>
-</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nn">[keymap]</span>
-</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="err">email.which.will.receive.encrypted.content@</span><span class="py">zoho.com</span> <span class="p">=</span> <span class="s">123456789ABCDEF</span></div></div></pre></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/gpg-mailgate.conf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">[default]</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="na">add_header</span> <span class="o">=</span> <span class="s">yes</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="na">domains</span> <span class="o">=</span> <span class="s">zoho.com</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">[gpg]</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="na">keyhome</span> <span class="o">=</span> <span class="s">/var/gpg/.gnupg</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">[logging]</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="na">file</span> <span class="o">=</span> <span class="s">/tmp/gpg-mailgate.log</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">[relay]</span>
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="na">host</span> <span class="o">=</span> <span class="s">127.0.0.1</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="na">port</span> <span class="o">=</span> <span class="s">10028</span>
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">[keymap]</span>
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="na">email.which.will.receive.encrypted.content@zoho.com</span> <span class="o">=</span> <span class="s">123456789ABCDEF</span></div></div></pre></div></figure>
 
 <h2 id="setting-postfix">Setting postfix</h2>
 
@@ -342,15 +342,15 @@ make it appear - simply add <code class="highlighter-rouge">X-GPG-Encrypt-Cc</co
 configuration will present as follows:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/postfix/main.cf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># gpg</span>
-</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">header_checks <span class="o">=</span> regexp:/etc/postfix/header_checks
-</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">content_filter <span class="o">=</span> gpg-mailgate</div></div></pre></div></figure>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">header_checks</span> <span class="o">=</span> regexp:/etc/postfix/header_checks
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">content_filter</span> <span class="o">=</span> gpg-mailgate</div></div></pre></div></figure>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/postfix/header_checks</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">/^From: .*/ PREPEND X-GPG-Encrypt-Cc: email.which.will.receive.encrypted.content@zoho.com</div></div></pre></div></figure>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/postfix/master.cf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># gpg-mailgate</span>
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">gpg-mailgate    unix    -       n       n       -       -       pipe
 </div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="nv">flags</span><span class="o">=</span> <span class="nv">user</span><span class="o">=</span>gpgmap <span class="nv">argv</span><span class="o">=</span>/usr/local/bin/gpg-mailgate.py
-</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">127.0.0.1:10028 inet    n       -       n       -       10      smtpd
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">127.0.0.1:10028 inet    n       -       n       -       <span class="m">10</span>      smtpd
 </div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">        -o <span class="nv">content_filter</span><span class="o">=</span>
 </div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">        -o <span class="nv">receive_override_options</span><span class="o">=</span>no_unknown_recipient_checks,no_header_body_checks
 </div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">        -o <span class="nv">smtpd_helo_restrictions</span><span class="o">=</span>
