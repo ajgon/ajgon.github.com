@@ -151,7 +151,8 @@ Another feature which is not available in Kodi. You can either shutdown or suspe
 
 Whole idea is actually pretty simple - just create a script `/usr/local/bin/ping-tv.sh` and fill with content below (don't forget to put your TV IP there).
 
-{% codeblock OSMC:&nbsp;/usr/local/bin/ping-tv.sh lang:sh %}
+{% codeblock OSMC:&nbsp;/usr/local/bin/ping-tv.sh lang:txt %}
+
 #!/bin/bash
 TVIP=<IP of your TV>
 
@@ -166,11 +167,12 @@ if [ $count -eq 0 ]; then
 else
     echo -n 1 > /tmp/tvon
 fi
+
 {% endcodeblock %}
 
 Now, all it's left, is adding this script to the cron. Unfortunatelly, cron cannot launch tasks more often than a minute. And losing up to a minute for script to actually notice that TV is switched off - is unacceptable. However, there is another neat trick under my sleeve - using `sleep`. So fire up `crontab -e` and fill it with:
 
-{% codeblock OSMC: crontab -e lang: sh %}
+{% codeblock OSMC: crontab -e lang:sh %}
 * * * * * /usr/local/bin/ping-tv.sh
 * * * * * sleep 10 && /usr/local/bin/ping-tv.sh
 * * * * * sleep 20 && /usr/local/bin/ping-tv.sh
