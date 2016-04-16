@@ -1,9 +1,10 @@
+---
 # Site settings
 title: Igor \"ajgon\" Rzegocki
 email: igor@rzegocki.pl
 description: "Personal webpage, online CV and blog."
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://rzegocki.pl" # the base hostname & protocol for your site
+baseurl: ""  # the subpath of your site, e.g. /blog/
+url: "http://rzegocki.pl"  # the base hostname & protocol for your site
 permalink: "/blog/:year/:month/:day/:title/"
 
 assets:
@@ -21,8 +22,8 @@ mainnav:
     - {title: 'Blog', url: '/blog'}
 
 pagination:
-    per_page:     5             # maximum number of items per page
-    limit:        false          # Maximum number of pages to paginate (false for unlimited)
+    per_page: 5   # maximum number of items per page
+    limit: false  # Maximum number of pages to paginate (false for unlimited)
 
 portfolio:
     -
@@ -663,8 +664,8 @@ social:
     -
         icon_class: material-icons
         icon_value: vpn_key
-        name: GPG Key
-        url: /public-key.txt
+        name: Keybase
+        url: https://keybase.io/ajgon
 
 # Build settings
 markdown: kramdown
