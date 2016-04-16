@@ -294,29 +294,29 @@ except DCC.</p>
 </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">chown spamd:spamd /var/lib/spamassassin -R</div></div></pre></div></figure>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/default/spamassassin</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># Spamassassin home</span>
-</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">SAHOME</span><span class="o">=</span><span class="s2">&quot;/var/lib/spamassassin&quot;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">SAHOME</span><span class="o">=</span><span class="s2">"/var/lib/spamassassin"</span>
 </div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># Where imap stores user emails</span>
-</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">USERACCOUNTS</span><span class="o">=</span><span class="s2">&quot;/home/vmail&quot;</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">USERACCOUNTS</span><span class="o">=</span><span class="s2">"/home/vmail"</span>
 </div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># Change to one to enable spamd</span>
 </div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">ENABLED</span><span class="o">=</span>1
 </div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># Options</span>
 </div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># See man spamd for possible options. The -d option is automatically added.</span>
 </div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># SpamAssassin uses a preforking model, so be careful! You need to</span>
 </div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># make sure --max-children is not set to anything higher than 5,</span>
-</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># unless you know what you&#39;re doing.</span>
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># unless you know what you're doing.</span>
 </div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># For -A use the IP address of spamc client (probably IP of primary interface)</span>
-</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">OPTIONS</span><span class="o">=</span><span class="s2">&quot;--create-prefs -x --max-children 3 --username spamd --helper-home-dir $&#x7b;SAHOME&#x7d; -s $&#x7b;SAHOME&#x7d;/spamd.log --virtual-config-dir=$&#x7b;USERACCOUNTS&#x7d;/%l@%d/spamassassin -A 192.168.1.1&quot;</span>
-</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>...<span class="o">]</span></div></div></pre></div></figure>
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">OPTIONS</span><span class="o">=</span><span class="s2">"--create-prefs -x --max-children 3 --username spamd --helper-home-dir </span><span class="k">$&#x7b;</span><span class="nv">SAHOME</span><span class="k">&#x7d;</span><span class="s2"> -s </span><span class="k">$&#x7b;</span><span class="nv">SAHOME</span><span class="k">&#x7d;</span><span class="s2">/spamd.log --virtual-config-dir=</span><span class="k">$&#x7b;</span><span class="nv">USERACCOUNTS</span><span class="k">&#x7d;</span><span class="s2">/%l@%d/spamassassin -A 192.168.1.1"</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>...]</div></div></pre></div></figure>
 
 <p>The <code class="highlighter-rouge">virtual-config-dir</code> allows us to have separate user preferences and bayes
 databases for each virtual user. The next thing is to edit
 <code class="highlighter-rouge">/etc/spamassassin/local.cf</code> file:</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/spamassassin/local.cf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>...<span class="o">]</span>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/spamassassin/local.cf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>...]
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># Save spam messages as a message/rfc822 MIME attachment instead of</span>
 </div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># modifying the original message (0: off, 2: use text/plain instead)</span>
 </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">report_safe 0
-</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>...<span class="o">]</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>...]
 </div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">use_dcc 1
 </div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">dcc_path /usr/local/bin/dccproc
 </div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">use_pyzor 1
@@ -346,7 +346,7 @@ it through his intestines, adds headers, and output is pushed further to
 <code class="highlighter-rouge">deliver</code> command. From that point, it can be taken by Sieve. To make this
 work, don’t forget to change the transport!</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/postfix/main.cf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">mailbox_transport</span> <span class="o">=</span> dovecot-spam</div></div></pre></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/postfix/main.cf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">mailbox_transport <span class="o">=</span> dovecot-spam</div></div></pre></div></figure>
 
 <p>Restart postfix:</p>
 
@@ -358,7 +358,7 @@ work, don’t forget to change the transport!</p>
 (<em>Junk</em> is a folder which Thunderbird traditionally uses for spam, you can
 change it of course):</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">.dovecot.sieve</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">if</span> header :contains <span class="s2">&quot;X-Spam-Flag&quot;</span> <span class="o">[</span><span class="s2">&quot;YES&quot;</span><span class="o">]</span> <span class="o">&#x7b;</span> fileinto <span class="s2">&quot;Junk&quot;</span><span class="p">;</span> stop<span class="p">;</span> <span class="o">&#x7d;</span></div></div></pre></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">.dovecot.sieve</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">if </span>header :contains <span class="s2">"X-Spam-Flag"</span> <span class="o">[</span><span class="s2">"YES"</span><span class="o">]</span> <span class="o">&#x7b;</span> fileinto <span class="s2">"Junk"</span>; stop; <span class="o">&#x7d;</span></div></div></pre></div></figure>
 
 <p>To test it, just send an email to protected account and look into the headers.
 You should see a SpamAssassin magic added there. To test filtering, use

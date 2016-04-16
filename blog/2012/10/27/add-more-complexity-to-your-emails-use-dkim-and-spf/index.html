@@ -282,7 +282,7 @@ you need to edit your <code class="highlighter-rouge">/etc/opendkim.conf</code> 
 daemon you are using). Next we need to tell opendkim which port it will be
 using, so in <code class="highlighter-rouge">/etc/default/opendkim</code> uncomment:</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/default/opendkim</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">SOCKET</span><span class="o">=</span><span class="s2">&quot;inet:12345@localhost&quot;</span> <span class="c"># listen on loopback on port 12345</span></div></div></pre></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/default/opendkim</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">SOCKET</span><span class="o">=</span><span class="s2">"inet:12345@localhost"</span> <span class="c"># listen on loopback on port 12345</span></div></div></pre></div></figure>
 
 <p>Now we have to populate those extra files we defined. <code class="highlighter-rouge">TrustedHosts</code> is the
 easiest one, it’s just the list of hosts and domains which are allowed to use
@@ -300,9 +300,9 @@ To do this:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">mkdir -p /etc/mail/dkim/keys/mydomain.com
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">cd</span> /etc/mail/dkim/keys/mydomain.com
-</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">opendkim-genkey -r -b <span class="m">2048</span> -d mydomain.com -s mail
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">opendkim-genkey -r -b 2048 -d mydomain.com -s mail
 </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">chown opendkim:opendkim mail.private
-</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">chmod <span class="m">600</span> mail.private</div></div></pre></div></figure>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">chmod 600 mail.private</div></div></pre></div></figure>
 
 <p>This will create two files: <code class="highlighter-rouge">mail.private</code> - which contains a private RSA key,
 and <code class="highlighter-rouge">mail.txt</code> which contains a contents for DNS TXT record. So let’s make use
@@ -317,7 +317,7 @@ files.</p>
 <code class="highlighter-rouge">mail._domainkey.mydomain.com</code> domain containing contents provided by
 <code class="highlighter-rouge">opendkim-genkey</code>. For example for irgon.com it looks like this:</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">DNS TXT record</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">mail._domainkey.irgon.com descriptive text <span class="s2">&quot;v=DKIM1\; g=*\; k=rsa\; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsfIThdXoizR6sop0gifPwPkT45I/KnTTNKDS4BHWtoU6as62c/3BRQuKqDAIacheZzWbfEPq/M2YvoNrVhx1laltg7aeUhZlcVOtz415lIy8M8oUVTCDxewBKsTEQD5M4Roaadoj7vzpA1JMcOEv36TizFq/KB5GL46pVNyOMJ+Mg&quot;</span> <span class="s2">&quot;97F+EQQeiOFsn/T+tNuxWky3l4Qky3S8U34wYmRSr+sVLu4U31QtocwL4uJ7ofVNdVk0baYo7s1HYnM3CGEKK+zdHTR/AoNiquvVX1lLX9s85bade4cNuRaINjzDyM4fAglLgSHZEtRcRlYqdMEpQcplI1OaSxIFS4DpFL3RwIDAQAB&quot;</span></div></div></pre></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">DNS TXT record</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">mail._domainkey.irgon.com descriptive text <span class="s2">"v=DKIM1</span><span class="se">\;</span><span class="s2"> g=*</span><span class="se">\;</span><span class="s2"> k=rsa</span><span class="se">\;</span><span class="s2"> p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsfIThdXoizR6sop0gifPwPkT45I/KnTTNKDS4BHWtoU6as62c/3BRQuKqDAIacheZzWbfEPq/M2YvoNrVhx1laltg7aeUhZlcVOtz415lIy8M8oUVTCDxewBKsTEQD5M4Roaadoj7vzpA1JMcOEv36TizFq/KB5GL46pVNyOMJ+Mg"</span> <span class="s2">"97F+EQQeiOFsn/T+tNuxWky3l4Qky3S8U34wYmRSr+sVLu4U31QtocwL4uJ7ofVNdVk0baYo7s1HYnM3CGEKK+zdHTR/AoNiquvVX1lLX9s85bade4cNuRaINjzDyM4fAglLgSHZEtRcRlYqdMEpQcplI1OaSxIFS4DpFL3RwIDAQAB"</span></div></div></pre></div></figure>
 
 <p>And that settles DKIM. All we have left is starting it:</p>
 
@@ -328,10 +328,10 @@ files.</p>
 <p>This is really simple part.</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/postfix/main.cf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># DKIM</span>
-</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">milter_default_action</span> <span class="o">=</span> accept
-</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">milter_protocol</span> <span class="o">=</span> 6
-</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">smtpd_milters</span> <span class="o">=</span> inet:localhost:12345
-</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">non_smtpd_milters</span> <span class="o">=</span> inet:localhost:12345</div></div></pre></div></figure>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">milter_default_action <span class="o">=</span> accept
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">milter_protocol <span class="o">=</span> 6
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">smtpd_milters <span class="o">=</span> inet:localhost:12345
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">non_smtpd_milters <span class="o">=</span> inet:localhost:12345</div></div></pre></div></figure>
 
 <p>then. reload it and you are set.</p>
 
@@ -350,8 +350,8 @@ files.</p>
 <code class="highlighter-rouge">check_policy_service unix:private/policy-spf</code>, so in my file it looks like
 this:</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/postfix/main.cf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>...<span class="o">]</span>
-</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">smtpd_recipient_restrictions</span> <span class="o">=</span> reject_unauth_pipelining,
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/postfix/main.cf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>...]
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">smtpd_recipient_restrictions <span class="o">=</span> reject_unauth_pipelining,
 </div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">                               permit_sasl_authenticated,
 </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">                               permit_mynetworks,
 </div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">                               reject_non_fqdn_recipient,
@@ -359,14 +359,14 @@ this:</p>
 </div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">                               reject_unauth_destination,
 </div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">                               reject_unknown_sender_domain,
 </div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">                               check_policy_service unix:private/policy-spf
-</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>...<span class="o">]</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>...]
 </div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">spf-policyd_time_limit <span class="o">=</span> 3600s</div></div></pre></div></figure>
 
 <p>Last but not least is updating a DNS record. This is simple and similar to DKIM -
 just ad TXT record to your TLD containing <code class="highlighter-rouge">v=spf1 a mx ip4:&lt;your ip&gt;</code>, for
 example my looks like this:</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">DNS TXT record</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">irgon.com descriptive text <span class="s2">&quot;v=spf1 a mx ip4:213.134.188.213&quot;</span></div></div></pre></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">DNS TXT record</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">irgon.com descriptive text <span class="s2">"v=spf1 a mx ip4:213.134.188.213"</span></div></div></pre></div></figure>
 
 <p>Don’t forget to restart your Postfix when you’re done!</p>
 
@@ -376,13 +376,13 @@ example my looks like this:</p>
 headers. You should see something like:</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Mail header</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">X-Dkim: OpenDKIM Filter v2.0.1 myexample.com 0224020B8
-</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">Dkim-Signature: <span class="nv">v</span><span class="o">=</span>1<span class="p">;</span> <span class="nv">a</span><span class="o">=</span>rsa-sha256<span class="p">;</span> <span class="nv">c</span><span class="o">=</span>relaxed/simple<span class="p">;</span> <span class="nv">d</span><span class="o">=</span>myexample.com<span class="p">;</span> <span class="nv">s</span><span class="o">=</span>mail<span class="p">;</span> <span class="nv">t</span><span class="o">=</span>1351357546<span class="p">;</span> <span class="nv">bh</span><span class="o">=</span>Rskt6Q/nZKmxgXkWUYP6cCBSDJhtkVT0PSrUEVGVgp4<span class="o">=</span><span class="p">;</span> <span class="nv">h</span><span class="o">=</span>From:Content-Type:Content-Transfer-Encoding:Subject:Message-Id: Date:To:Mime-Version<span class="p">;</span> <span class="nv">b</span><span class="o">=</span>phPQdG6HYaders4Xv0TsK2mT+PFYVk/brOFpnmCjCZtvbeGJ+XwrNk4Tnc9xGELtAglLOVplSvMV9nTK6xonta1qLTtnLYPsY4o/WPfyZYDgHmp6X9ZYP4otAHYK3jC00PbKGNqhXeD3bCc7CBV/aVGMQX4Bt0TjAAgndeYCI9VnvR2zH0iTEjlAT2OXrh2JV+wrK5UOXae8gRPT28F2Mg325YOiDwD1T5bgFtfc9mh2s/NRcy7lyDiPcb3CNV+nMXKyq/47o22LlALv5g5+OBBZACQYpYtgalM54InQDPoL/udvKtI/YYaiByFLwqeYFh2LXX6et 9dAiNCRLL+EoA<span class="o">==</span></div></div></pre></div></figure>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">Dkim-Signature: <span class="nv">v</span><span class="o">=</span>1; <span class="nv">a</span><span class="o">=</span>rsa-sha256; <span class="nv">c</span><span class="o">=</span>relaxed/simple; <span class="nv">d</span><span class="o">=</span>myexample.com; <span class="nv">s</span><span class="o">=</span>mail; <span class="nv">t</span><span class="o">=</span>1351357546; <span class="nv">bh</span><span class="o">=</span>Rskt6Q/nZKmxgXkWUYP6cCBSDJhtkVT0PSrUEVGVgp4<span class="o">=</span>; <span class="nv">h</span><span class="o">=</span>From:Content-Type:Content-Transfer-Encoding:Subject:Message-Id: Date:To:Mime-Version; <span class="nv">b</span><span class="o">=</span>phPQdG6HYaders4Xv0TsK2mT+PFYVk/brOFpnmCjCZtvbeGJ+XwrNk4Tnc9xGELtAglLOVplSvMV9nTK6xonta1qLTtnLYPsY4o/WPfyZYDgHmp6X9ZYP4otAHYK3jC00PbKGNqhXeD3bCc7CBV/aVGMQX4Bt0TjAAgndeYCI9VnvR2zH0iTEjlAT2OXrh2JV+wrK5UOXae8gRPT28F2Mg325YOiDwD1T5bgFtfc9mh2s/NRcy7lyDiPcb3CNV+nMXKyq/47o22LlALv5g5+OBBZACQYpYtgalM54InQDPoL/udvKtI/YYaiByFLwqeYFh2LXX6et 9dAiNCRLL+EoA<span class="o">==</span></div></div></pre></div></figure>
 
 <p>Which means that singing is alive and kicking. To test verification, just send
 yourself an email from DKIM-using provider (like Yahoo or Gmail) and check for
 following header:</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Mail header</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">Authentication-Results: myexample.com<span class="p">;</span> <span class="nv">dkim</span><span class="o">=</span>pass <span class="o">(</span>2048-bit key<span class="p">;</span> insecure key<span class="o">)</span> header.i<span class="o">=</span>@gmail.com<span class="p">;</span> dkim-adsp<span class="o">=</span>pass</div></div></pre></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Mail header</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">Authentication-Results: myexample.com; <span class="nv">dkim</span><span class="o">=</span>pass <span class="o">(</span>2048-bit key; insecure key<span class="o">)</span> header.i<span class="o">=</span>@gmail.com; dkim-adsp<span class="o">=</span>pass</div></div></pre></div></figure>
 
 <p>Which means, that verfication is working. As the last final test, send email to
 `autorespond+dkim@dk.elandsys.comz. This is automated service, which checks
@@ -405,7 +405,7 @@ increase it by adding:</p>
 <p>You can also add sieve filter based on <code class="highlighter-rouge">Authentication-Results</code> if you want to
 treat those suspicious messages differently than normal spam:</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">.dovecot.sieve</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">if</span> header :contains <span class="s2">&quot;Authentication-Results&quot;</span> <span class="s2">&quot;dkim=fail&quot;</span> <span class="o">&#x7b;</span> fileinto <span class="s2">&quot;DANGER&quot;</span><span class="p">;</span> stop<span class="p">;</span> <span class="o">&#x7d;</span></div></div></pre></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">.dovecot.sieve</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">if </span>header :contains <span class="s2">"Authentication-Results"</span> <span class="s2">"dkim=fail"</span> <span class="o">&#x7b;</span> fileinto <span class="s2">"DANGER"</span>; stop; <span class="o">&#x7d;</span></div></div></pre></div></figure>
 
 <p>The possibilities are endless :)</p>
 

@@ -380,7 +380,7 @@
 
 <p>First of all, you need to download and install a Titan skin helper service - either from <a href="http://kodi.wiki/view/Add-on:Titan_skin_helper_service">Kodi Repository</a>, or from its <a href="https://github.com/marcelveldt/script.skin.helper.service/releases">GitHub Page</a>. This neat tool adds many extra options for skin makers, and one of them is <a href="https://github.com/marcelveldt/script.skin.helper.service/blob/master/resources/lib/ListItemMonitor.py#L81">AutoCloseVideoOSD property</a>. All you need to do, is to add it to the current skin. If you’re using OSMC Skin, the easiest way is to edit its <code class="highlighter-rouge">Startup.xml</code> file, and add it as <code class="highlighter-rouge">&lt;onload&gt;</code> property.</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC Machine</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">sed -i<span class="s1">&#39;~&#39;</span> <span class="s1">&#39;s@&lt;/window&gt;@        &lt;onload&gt;Skin.SetString(SkinHelper.AutoCloseVideoOSD, 4)&lt;/onload&gt;\n&lt;/window&gt;@&#39;</span> /usr/share/kodi/addons/skin.osmc/16x9/Startup.xml</div></div></pre></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC Machine</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">sed -i<span class="s1">'~'</span> <span class="s1">'s@&lt;/window&gt;@        &lt;onload&gt;Skin.SetString(SkinHelper.AutoCloseVideoOSD, 4)&lt;/onload&gt;\n&lt;/window&gt;@'</span> /usr/share/kodi/addons/skin.osmc/16x9/Startup.xml</div></div></pre></div></figure>
 
 <p>where <code class="highlighter-rouge">4</code> is time in seconds you wish to OSD appear on screen, before fading out.</p>
 
@@ -402,207 +402,204 @@
 
 <p>Whole idea is actually pretty simple - just create a script <code class="highlighter-rouge">/usr/local/bin/ping-tv.sh</code> and fill with content below (don’t forget to put your TV IP there).</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC:&nbsp;/usr/local/bin/ping-tv.sh</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">#!/bin/bash
-</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">TVIP=&lt;IP of your TV&gt;
-</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">count=$( ping -c 1 -W 1 $TVIP | grep from | wc -l )
-</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">tvon=$( cat /tmp/tvon )
-</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">if [ $count -eq 0 ]; then
-</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">    if [ $tvon -eq 1 ]; then
-</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">        xbmc-send -a 'PlayerControl(Stop)'
-</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">    fi
-</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">    echo -n 0 &gt; /tmp/tvon
-</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">else
-</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">    echo -n 1 &gt; /tmp/tvon
-</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line">fi</div></div></pre></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC:&nbsp;/usr/local/bin/ping-tv.sh</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">#!/bin/bash</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">TVIP</span><span class="o">=</span>&lt;IP of your TV&gt;
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">count</span><span class="o">=</span><span class="k">$(</span> ping -c 1 -W 1 <span class="nv">$TVIP</span> | grep from | wc -l <span class="k">)</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">tvon</span><span class="o">=</span><span class="k">$(</span> cat /tmp/tvon <span class="k">)</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">if</span> <span class="o">[</span> <span class="nv">$count</span> -eq 0 <span class="o">]</span>; <span class="k">then
+<div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">    if <span class="o">[</span> <span class="nv">$tvon</span> -eq 1 <span class="o">]</span>; <span class="k">then
+<div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">        xbmc-send -a <span class="s1">'PlayerControl(Stop)'</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="k">fi
+<div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nb">echo</span> -n 0 &gt; /tmp/tvon
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">else
+<div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nb">echo</span> -n 1 &gt; /tmp/tvon
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">fi</span></div></div>
 
-<p>Now, all it’s left, is adding this script to the cron. Unfortunatelly, cron cannot launch tasks more often than a minute. And losing up to a minute for script to actually notice that TV is switched off - is unacceptable. However, there is another neat trick under my sleeve - using <code class="highlighter-rouge">sleep</code>. So fire up <code class="highlighter-rouge">crontab -e</code> and fill it with:</p>
+Now, all it's left, is adding this script to the cron. Unfortunatelly, cron cannot launch tasks more often than a minute. And losing up to a minute for script to actually notice that TV is switched off - is unacceptable. However, there is another neat trick under my sleeve - using `sleep`. So fire up `crontab -e` and fill it with:
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC: crontab -e</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">* * * * * /usr/local/bin/ping-tv.sh
-</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">* * * * * sleep <span class="m">10</span> <span class="o">&amp;&amp;</span> /usr/local/bin/ping-tv.sh
-</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">* * * * * sleep <span class="m">20</span> <span class="o">&amp;&amp;</span> /usr/local/bin/ping-tv.sh
-</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">* * * * * sleep <span class="m">30</span> <span class="o">&amp;&amp;</span> /usr/local/bin/ping-tv.sh
-</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">* * * * * sleep <span class="m">40</span> <span class="o">&amp;&amp;</span> /usr/local/bin/ping-tv.sh
-</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">* * * * * sleep <span class="m">50</span> <span class="o">&amp;&amp;</span> /usr/local/bin/ping-tv.sh</div></div></pre></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC: crontab -e</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /usr/local/bin/ping-tv.sh
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> sleep 10 <span class="o">&amp;&amp;</span> /usr/local/bin/ping-tv.sh
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> sleep 20 <span class="o">&amp;&amp;</span> /usr/local/bin/ping-tv.sh
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> sleep 30 <span class="o">&amp;&amp;</span> /usr/local/bin/ping-tv.sh
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> sleep 40 <span class="o">&amp;&amp;</span> /usr/local/bin/ping-tv.sh
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> sleep 50 <span class="o">&amp;&amp;</span> /usr/local/bin/ping-tv.sh</div></div></pre></div></figure>
 
-<p>This would force cron to start 6 processes, each one waiting different time before actually pinging the TV. In the end, the maximum waiting time would be shorten to 10 seconds, which is acceptable in my opinion (you can always add more entries following that pattern).</p>
+This would force cron to start 6 processes, each one waiting different time before actually pinging the TV. In the end, the maximum waiting time would be shorten to 10 seconds, which is acceptable in my opinion (you can always add more entries following that pattern).
 
-<h2 id="tv-shows">TV Shows</h2>
+## TV Shows
 
-<p>Ok, let’s make it perfectly clear - I’m not responsible if DEA, FBI, KGB or HGW knock to your door one day. <strong class="warning">This is for informational purposes only</strong>. If your country provides a legal alternative like Hulu or Netflix, you should definitely consider it. If not (or you don’t care), continue reading.</p>
+Ok, let's make it perfectly clear - I'm not responsible if DEA, FBI, KGB or&nbsp;HGW knock to your door one day. <strong class="warning">This is for informational purposes only</strong>. If your country provides a legal alternative like Hulu or Netflix, you should definitely consider it. If not (or you don't care), continue reading.
 
-<p>The simplest approach, is just manually installing torrent client, and download desired shows as they premiere. But what if I told you that you can automate this process to the level where all new shows gets downloaded and categorized automatically, gets their subtitles downloaded, and finally, they’re added to the Kodi Library? And all of that wihout single click (after some configuration of course)?</p>
+The simplest approach, is just manually installing torrent client, and download desired shows as they premiere. But what if I told you that you can automate this process to the level where all new shows gets downloaded and categorized automatically, gets their subtitles downloaded, and finally, they're added to the Kodi Library? And all of that wihout single click (after some configuration of course)?
 
-<p>Interested? Continue… :)</p>
+Interested? Continue... :)
 
-<h3 id="transmission">Transmission</h3>
+### Transmission
 
-<p>First thing you need is a torrent client. I strongly recommend <a href="http://www.transmissionbt.com/">Transmission</a> since it does its job pretty well, and provides a nice web interface. Since we don’t need GUI, we can narrow down the installotion to three packages:</p>
+First thing you need is a torrent client. I strongly recommend [Transmission](http://www.transmissionbt.com/) since it does its job pretty well, and provides a nice web interface. Since we don't need GUI, we can narrow down the installotion to three packages:
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">apt-get install transmission-cli transmission-common transmission-daemon</div></div></pre></div></figure>
 
-<p>If you like, you can also install Kodi Transmission Add-On (under: <em>Add-Ons =&gt; Program =&gt; Transmission</em>), which will provide you a very basic GUI directly from Kodi interface.</p>
+If you like, you can also install Kodi Transmission Add-On (under: *Add-Ons =&gt; Program =&gt; Transmission*), which will provide you a very basic GUI directly from Kodi interface.
 
-<p>Next, you need to do the configuration. All options are stored in <code class="highlighter-rouge">/etc/transmission-daemon/settings.json</code>. Since, those settings are very individual, I won’t provide any examples. Instead, I will direct you to <a href="https://trac.transmissionbt.com/wiki/EditConfigFiles">Transmission settings.json file documenatation</a>. When you finish them up, <strong>don’t restart the daemon</strong>! You will lose all the changes (don’t ask). Instead run:</p>
+Next, you need to do the configuration. All options are stored in `/etc/transmission-daemon/settings.json`. Since, those settings are very individual, I won't provide any examples. Instead, I will direct you to [Transmission settings.json file documenatation](https://trac.transmissionbt.com/wiki/EditConfigFiles). When you finish them up, **don't restart the daemon**! You will lose all the changes (don't ask). Instead run:
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">invoke-rc.d transmission-daemon reload</div></div></pre></div></figure>
 
-<h3 id="rss-feed">RSS Feed</h3>
+### RSS Feed
 
-<p>First thing you need, is the data source of new premieres. The easiest solution is an RSS channel - in this example I will use <a href="http://showrss.info/">showrss.info</a>, since they’re doing exactly that.</p>
+First thing you need, is the data source of new premieres. The easiest solution is an RSS channel - in this example I will use [showrss.info](http://showrss.info/), since they're doing exactly that.
 
-<p>Whole process is rather simple - create an account, add all the shows you wish to be noted on, and create a feed URL on <a href="http://showrss.info/?cs=feeds">Feeds</a> page. Put this URL somewhere, you will need it in a minute.</p>
+Whole process is rather simple - create an account, add all the shows you wish to be noted on, and create a feed URL on [Feeds](http://showrss.info/?cs=feeds) page. Put this URL somewhere, you will need it in a minute.
 
-<h3 id="subliminal">Subliminal</h3>
+### Subliminal
 
-<p>Next thing, is some tool which will download subtitles for you. I strongly recommend <a href="http://subliminal.readthedocs.org/en/latest/">Subliminal</a>, since it’s easy to use and supports many providers.</p>
+Next thing, is some tool which will download subtitles for you. I strongly recommend [Subliminal](http://subliminal.readthedocs.org/en/latest/), since it's easy to use and supports many providers.
 
-<p>Subliminal is a python package. However OSMC doesn’t come with any python package managing tool (which is understandable). In my personal opinion, the easiest one to use is <a href="https://pip.pypa.io/en/stable/">pip</a>, so let’s install it:</p>
+Subliminal is a python package. However OSMC doesn't come with any python package managing tool (which is understandable). In my personal opinion, the easiest one to use is [pip](https://pip.pypa.io/en/stable/), so let's install it:
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">apt-get install python-pip</div></div></pre></div></figure>
 
-<p>Next, install latest stable version of subliminal. Do it from <code class="highlighter-rouge">osmc</code> user, not from <code class="highlighter-rouge">root</code>! There is no need for polluting the system userspace, and thanks to that, all the files will be stored in one, easy-to-wipe-out directory.</p>
+Next, install latest stable version of subliminal. Do it from `osmc` user, not from `root`! There is no need for polluting the system userspace, and thanks to that, all the files will be stored in one, easy-to-wipe-out directory.
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC osmc user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">pip install --user subliminal</div></div></pre></div></figure>
 
-<p>Also local userspace means, you need to add its path to your <code class="highlighter-rouge">$PATH</code> env.</p>
+Also local userspace means, you need to add its path to your `$PATH` env.
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC osmc user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s1">&#39;export PATH=&quot;$HOME/.local/bin:$PATH&quot;&#39;</span> &gt;&gt; ~/.bashrc
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC osmc user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s1">'export PATH="$HOME/.local/bin:$PATH"'</span> &gt;&gt; ~/.bashrc
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">source</span> ~/.bashrc</div></div></pre></div></figure>
 
-<p>If you don’t want to use <code class="highlighter-rouge">napiprojekt</code> provider, you’re done. If you do, read next section.</p>
+If you don't want to use `napiprojekt` provider, you're done. If you do, read next section.
 
-<h4 id="subliminal---napiprojekt">Subliminal - napiprojekt</h4>
+#### Subliminal - napiprojekt
 
-<p>At the time of writing this article, napiprojekt support for subliminal was in beta stage, and was not included in pip repository. The easiest way to check if napiprojekt is enabled, is to check the list of supported providers:</p>
+At the time of writing this article, napiprojekt support for subliminal was in beta stage, and was not included in pip repository. The easiest way to check if napiprojekt is enabled, is to check the list of supported providers:
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC osmc user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">subliminal download --help <span class="p">|</span> grep provider
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC osmc user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">subliminal download --help | grep provider
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">#  -p, --provider [addic7ed|opensubtitles|podnapisi|thesubdb|tvsubtitles]</span></div></div></pre></div></figure>
 
-<p>If napiprojekt is listed, you can skip this step.</p>
+If napiprojekt is listed, you can skip this step.
 
-<p>Otherwise download the freshest development version (if you don’t have a git, invoke <code class="highlighter-rouge">sudo apt-get install git</code>) and install it:</p>
+Otherwise download the freshest development version (if you don't have a git, invoke `sudo apt-get install git`) and install it:
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC osmc user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">git clone --depth<span class="o">=</span><span class="m">1</span> -b develop https://github.com/Diaoul/subliminal.git ~/subliminal
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC osmc user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">git clone --depth<span class="o">=</span>1 -b develop https://github.com/Diaoul/subliminal.git ~/subliminal
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">cd</span> ~/subliminal
 </div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">python setup.py install --user
 </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">cd</span> ~
 </div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">rm -rf ~/subliminal</div></div></pre></div></figure>
 
-<p>Now napiprojekt should be displayed as available provider:</p>
+Now napiprojekt should be displayed as available provider:
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC osmc user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">subliminal download --help <span class="p">|</span> grep provider
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC osmc user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">subliminal download --help | grep provider
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">#  -p, --provider [addic7ed|napiprojekt|opensubtitles|podnapisi|thesubdb|tvsubtitles]</span></div></div></pre></div></figure>
 
-<h3 id="flexget">FlexGet</h3>
+### FlexGet
 
-<p>And now… the biggest star. A tool, which glue all this stuff together: <a href="http://flexget.com/">FlexGet</a>. When properly configured, will parse showrss.info RSS feed, add all new shows to the transmission queue, after finished download move them to proper directory, and finally fetch subtitles. It will also keep an eye on shows which does not have subtitles when downloaded (very common situation for freshest episodes), and try to fetch them when they appear.</p>
+And now... the biggest star. A tool, which glue all this stuff together: [FlexGet](http://flexget.com/). When properly configured, will parse showrss.info RSS feed, add all new shows to the transmission queue, after finished download move them to proper directory, and finally fetch subtitles. It will also keep an eye on shows which does not have subtitles when downloaded (very common situation for freshest episodes), and try to fetch them when they appear.
 
-<h4 id="flexget---installation">FlexGet - Installation</h4>
+#### FlexGet - Installation
 
-<p>No rocket science here (remember - <code class="highlighter-rouge">osmc</code> user, not <code class="highlighter-rouge">root</code>):</p>
+No rocket science here (remember - `osmc` user, not `root`):
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC osmc user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">pip install --user flexget
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">pip install --user transmissionrpc</div></div></pre></div></figure>
 
-<p>The second package is necessary for all FlexGet transmission-related plugins.</p>
+The second package is necessary for all FlexGet transmission-related plugins.
 
-<h4 id="flexget---napiprojekt">FlexGet - napiprojekt</h4>
+#### FlexGet - napiprojekt
 
-<p>If you wish to use napiprojekt and <a href="http://flexget.com/wiki/Plugins/subliminal">subliminal plugin</a>, you need to monkey patch it (however, you can safely skip this step, despite the fact you will use subliminal - see below). Also before applying the patch, check the <code class="highlighter-rouge">PROVIDERS</code> constant in <code class="highlighter-rouge">~/.local/lib/python2.7/site-packages/flexget/plugins/output/subtitles_subliminal.py</code> file. At the time of writing this article <code class="highlighter-rouge">napiprojekt</code> wasn’t there, so if it’s absent, do:</p>
+If you wish to use napiprojekt and [subliminal plugin](http://flexget.com/wiki/Plugins/subliminal), you need to monkey patch it (however, you can safely skip this step, despite the fact you will use subliminal - see below). Also before applying the patch, check the `PROVIDERS` constant in `~/.local/lib/python2.7/site-packages/flexget/plugins/output/subtitles_subliminal.py` file. At the time of writing this article `napiprojekt` wasn't there, so if it's absent, do:
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC osmc user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">sed -i<span class="s1">&#39;~&#39;</span> <span class="s2">&quot;s@&#39;opensubtitles&#39;,@&#39;opensubtitles&#39;,\n    &#39;napiprojekt&#39;,@&quot;</span> ~/.local/lib/python2.7/site-packages/flexget/plugins/output/subtitles_subliminal.py</div></div></pre></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC osmc user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">sed -i<span class="s1">'~'</span> <span class="s2">"s@'opensubtitles',@'opensubtitles',</span><span class="se">\n</span><span class="s2">    'napiprojekt',@"</span> ~/.local/lib/python2.7/site-packages/flexget/plugins/output/subtitles_subliminal.py</div></div></pre></div></figure>
 
-<h4 id="flexget---configuration">FlexGet - configuration</h4>
+#### FlexGet - configuration
 
-<p>The most important step - we need to tell FlexGet what to do, what to fetch and where to put it. You should really, REALLY read the <a href="http://flexget.com/wiki/Configuration">FlexGet Configuration documenatation</a> so you know what you’re doing. After that, you can use this template for a good start (put it to <code class="highlighter-rouge">~/.flexget/config.yml</code>):</p>
+The most important step - we need to tell FlexGet what to do, what to fetch and where to put it. You should really, REALLY read the [FlexGet Configuration documenatation](http://flexget.com/wiki/Configuration) so you know what you're doing. After that, you can use this template for a good start (put it to `~/.flexget/config.yml`):
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">~/.flexget/config.yml</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="l-Scalar-Plain">tasks</span><span class="p-Indicator">:</span>
-</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="l-Scalar-Plain">download-tv-shows</span><span class="p-Indicator">:</span>
-</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">priority</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">10</span>
-</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">rss</span><span class="p-Indicator">:</span>
-</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;showrss_url&gt;</span>
-</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">all_series</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">transmission</span><span class="p-Indicator">:</span>
-</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">localhost</span>
-</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">9091</span>
-</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="l-Scalar-Plain">username</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;transmission_username&gt;</span>
-</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="l-Scalar-Plain">password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;transmission_password&gt;</span>
-</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="l-Scalar-Plain">main_file_only</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">download</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;finished_downloads_path&gt;</span>
-</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="l-Scalar-Plain">sort-tv-shows</span><span class="p-Indicator">:</span>
-</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">priority</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">20</span>
-</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">disable</span><span class="p-Indicator">:</span>
-</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">retry_failed</span>
-</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">metainfo_series</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">thetvdb_lookup</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">require_field</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">series_name</span><span class="p-Indicator">,</span> <span class="nv">series_id</span><span class="p-Indicator">,</span> <span class="nv">series_season</span><span class="p-Indicator">,</span> <span class="nv">tvdb_series_name</span><span class="p-Indicator">]</span>
-</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">find</span><span class="p-Indicator">:</span>
-</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;finished_downloads_path&gt;</span>
-</div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="l-Scalar-Plain">regexp</span><span class="p-Indicator">:</span> <span class="s">&#39;.*\.(avi|mkv|mp4)$&#39;</span>
-</div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="l-Scalar-Plain">recursive</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-</div></div><div data-line="25" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">accept_all</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-</div></div><div data-line="26" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">exists_series</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;tv_shows_path&gt;</span>
-</div></div><div data-line="27" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">move</span><span class="p-Indicator">:</span>
-</div></div><div data-line="28" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="l-Scalar-Plain">to</span><span class="p-Indicator">:</span> <span class="s">&quot;&lt;tv_shows_path&gt;/&quot;</span>
-</div></div><div data-line="29" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="l-Scalar-Plain">filename</span><span class="p-Indicator">:</span> <span class="s">&quot;.&quot;</span>
-</div></div><div data-line="30" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="l-Scalar-Plain">along</span><span class="p-Indicator">:</span>
-</div></div><div data-line="31" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">srt</span>
-</div></div><div data-line="32" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="l-Scalar-Plain">download-subtitles</span><span class="p-Indicator">:</span>
-</div></div><div data-line="33" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">priority</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">30</span>
-</div></div><div data-line="34" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">filesystem</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/etc/gss/mech.d/</span>
-</div></div><div data-line="35" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">disable</span><span class="p-Indicator">:</span>
-</div></div><div data-line="36" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">seen</span>
-</div></div><div data-line="37" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">accept_all</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-</div></div><div data-line="38" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">exec</span><span class="p-Indicator">:</span>
-</div></div><div data-line="39" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">ls -1R &quot;&lt;tv_shows_path&gt;&quot; | grep &#39;\.S0&#39; | sed -r &#39;s@(\.pl)?\....$@@g&#39; | sort | uniq -c | grep &#39;^\s*1&#39; | sed &#39;s@^\s*1\s*@@g&#39; | awk -F# &#39;&#x7b; print &quot;find \&quot;&lt;tv_shows_path&gt;\&quot; -name \&quot;&quot; $1 &quot;\&quot;*&quot; &#x7d;&#39; &gt; /tmp/go</span>
-</div></div><div data-line="40" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">chmod +x /tmp/go</span>
-</div></div><div data-line="41" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">/tmp/go | awk -F&quot;###&quot; &#39;&#x7b; print &quot;\&quot;&quot; $1 &quot;\&quot;&quot; &#x7d;&#39; | tr &#39;\n&#39; &#39; &#39; | xargs /home/osmc/.local/bin/subliminal download -l pl -p napiprojekt -p opensubtitles</span>
-</div></div><div data-line="42" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="l-Scalar-Plain">clean-up</span><span class="p-Indicator">:</span>
-</div></div><div data-line="43" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">priority</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">40</span>
-</div></div><div data-line="44" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">no_entries_ok</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yes</span>
-</div></div><div data-line="45" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="l-Scalar-Plain">clean_transmission</span><span class="p-Indicator">:</span>
-</div></div><div data-line="46" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">localhost</span>
-</div></div><div data-line="47" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">9091</span>
-</div></div><div data-line="48" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="l-Scalar-Plain">username</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;transmission_username&gt;</span>
-</div></div><div data-line="49" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="l-Scalar-Plain">password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;transmission_password&gt;</span>
-</div></div><div data-line="50" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="l-Scalar-Plain">min_ratio</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0</span>
-</div></div><div data-line="51" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="l-Scalar-Plain">finished_for</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1 hours</span></div></div></pre></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">~/.flexget/config.yml</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="s">tasks</span><span class="pi">:</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="s">download-tv-shows</span><span class="pi">:</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">priority</span><span class="pi">:</span> <span class="s">10</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">rss</span><span class="pi">:</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="s">url</span><span class="pi">:</span> <span class="s">&lt;showrss_url&gt;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">all_series</span><span class="pi">:</span> <span class="s">yes</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">transmission</span><span class="pi">:</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="s">host</span><span class="pi">:</span> <span class="s">localhost</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="s">port</span><span class="pi">:</span> <span class="s">9091</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="s">username</span><span class="pi">:</span> <span class="s">&lt;transmission_username&gt;</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="s">password</span><span class="pi">:</span> <span class="s">&lt;transmission_password&gt;</span>
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="s">main_file_only</span><span class="pi">:</span> <span class="s">yes</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">download</span><span class="pi">:</span> <span class="s">&lt;finished_downloads_path&gt;</span>
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="s">sort-tv-shows</span><span class="pi">:</span>
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">priority</span><span class="pi">:</span> <span class="s">20</span>
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">disable</span><span class="pi">:</span>
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="pi">-</span> <span class="s">retry_failed</span>
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">metainfo_series</span><span class="pi">:</span> <span class="s">yes</span>
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">thetvdb_lookup</span><span class="pi">:</span> <span class="s">yes</span>
+</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">require_field</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">series_name</span><span class="pi">,</span> <span class="nv">series_id</span><span class="pi">,</span> <span class="nv">series_season</span><span class="pi">,</span> <span class="nv">tvdb_series_name</span><span class="pi">]</span>
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">find</span><span class="pi">:</span>
+</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="s">path</span><span class="pi">:</span> <span class="s">&lt;finished_downloads_path&gt;</span>
+</div></div><div data-line="23" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="s">regexp</span><span class="pi">:</span> <span class="s1">'</span><span class="s">.*\.(avi|mkv|mp4)$'</span>
+</div></div><div data-line="24" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="s">recursive</span><span class="pi">:</span> <span class="s">yes</span>
+</div></div><div data-line="25" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">accept_all</span><span class="pi">:</span> <span class="s">yes</span>
+</div></div><div data-line="26" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">exists_series</span><span class="pi">:</span> <span class="s">&lt;tv_shows_path&gt;</span>
+</div></div><div data-line="27" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">move</span><span class="pi">:</span>
+</div></div><div data-line="28" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="s">to</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;tv_shows_path&gt;/"</span>
+</div></div><div data-line="29" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="s">filename</span><span class="pi">:</span> <span class="s2">"</span><span class="s">."</span>
+</div></div><div data-line="30" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="s">along</span><span class="pi">:</span>
+</div></div><div data-line="31" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="pi">-</span> <span class="s">srt</span>
+</div></div><div data-line="32" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="s">download-subtitles</span><span class="pi">:</span>
+</div></div><div data-line="33" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">priority</span><span class="pi">:</span> <span class="s">30</span>
+</div></div><div data-line="34" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">filesystem</span><span class="pi">:</span> <span class="s">/etc/gss/mech.d/</span>
+</div></div><div data-line="35" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">disable</span><span class="pi">:</span>
+</div></div><div data-line="36" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="pi">-</span> <span class="s">seen</span>
+</div></div><div data-line="37" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">accept_all</span><span class="pi">:</span> <span class="s">yes</span>
+</div></div><div data-line="38" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">exec</span><span class="pi">:</span>
+</div></div><div data-line="39" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="pi">-</span> <span class="s">ls -1R "&lt;tv_shows_path&gt;" | grep '\.S0' | sed -r 's@(\.pl)?\....$@@g' | sort | uniq -c | grep '^\s*1' | sed 's@^\s*1\s*@@g' | awk -F# '&#x7b; print "find \"&lt;tv_shows_path&gt;\" -name \"" $1 "\"*" &#x7d;' &gt; /tmp/go</span>
+</div></div><div data-line="40" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="pi">-</span> <span class="s">chmod +x /tmp/go</span>
+</div></div><div data-line="41" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="pi">-</span> <span class="s">/tmp/go | awk -F"###" '&#x7b; print "\"" $1 "\"" &#x7d;' | tr '\n' ' ' | xargs /home/osmc/.local/bin/subliminal download -l pl -p napiprojekt -p opensubtitles</span>
+</div></div><div data-line="42" class="code-highlight-row numbered"><div class="code-highlight-line">  <span class="s">clean-up</span><span class="pi">:</span>
+</div></div><div data-line="43" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">priority</span><span class="pi">:</span> <span class="s">40</span>
+</div></div><div data-line="44" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">no_entries_ok</span><span class="pi">:</span> <span class="s">yes</span>
+</div></div><div data-line="45" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="s">clean_transmission</span><span class="pi">:</span>
+</div></div><div data-line="46" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="s">host</span><span class="pi">:</span> <span class="s">localhost</span>
+</div></div><div data-line="47" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="s">port</span><span class="pi">:</span> <span class="s">9091</span>
+</div></div><div data-line="48" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="s">username</span><span class="pi">:</span> <span class="s">&lt;transmission_username&gt;</span>
+</div></div><div data-line="49" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="s">password</span><span class="pi">:</span> <span class="s">&lt;transmission_password&gt;</span>
+</div></div><div data-line="50" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="s">min_ratio</span><span class="pi">:</span> <span class="s">0</span>
+</div></div><div data-line="51" class="code-highlight-row numbered"><div class="code-highlight-line">      <span class="s">finished_for</span><span class="pi">:</span> <span class="s">1 hours</span></div></div></pre></div></figure>
 
-<ul>
-  <li><em>showrss_url</em> - the URL of your ShowRSS feed</li>
-  <li><em>finished_downloads_path</em> - the path, where files finished by transmission would land</li>
-  <li><em>tv_shows_path</em> - the path, where files processed by FlexGet would be moved</li>
-  <li><em>transmission_username</em>, <em>transmission_password</em> - pretty self-explanatory</li>
-</ul>
+* *showrss_url* - the URL of your ShowRSS feed
+* *finished_downloads_path* - the path, where files finished by transmission would land
+* *tv_shows_path* - the path, where files processed by FlexGet would be moved
+* *transmission_username*, *transmission_password* - pretty self-explanatory
 
-<p>So what this scripts does?</p>
+So what this scripts does?
 
-<ul>
-  <li><code class="highlighter-rouge">download-tv-shows</code> - checks ShowRSS feed for new shows, and if found - adds them to tranmission.</li>
-  <li><code class="highlighter-rouge">sort-tv-shows</code> - checks transmission downloads directory for new shows. If found, moves them to tv shows directory, and tries to determine proper show and episode name in file path. So <code class="highlighter-rouge">GreatShow.S01E03.720p.h264.PROPER.mkv</code> from tranmission downloads would become <code class="highlighter-rouge">GreatShow/GreatShow.S01E03 - Episode Name.mkv</code>.</li>
-  <li><code class="highlighter-rouge">download-subtitles</code> - this task is pretty bizzare, I can tell. I tried to use <a href="http://flexget.com/wiki/Plugins/subliminal">subliminal plugin</a> for this example, however it never worked as expected. Instead, I used the bash script which looks for all files without corresponding <code class="highlighter-rouge">*.srt</code>s and fires subliminal on them.</li>
-  <li><code class="highlighter-rouge">clean-up</code> - pretty obvious - clean transmission queue when file is finished processing.</li>
-</ul>
+* `download-tv-shows` - checks ShowRSS feed for new shows, and if found - adds them to tranmission.
+* `sort-tv-shows` - checks transmission downloads directory for new shows. If found, moves them to tv shows directory, and tries to determine proper show and episode name in file path. So `GreatShow.S01E03.720p.h264.PROPER.mkv` from tranmission downloads would become `GreatShow/GreatShow.S01E03 - Episode Name.mkv`.
+* `download-subtitles` - this task is pretty bizzare, I can tell. I tried to use [subliminal plugin](http://flexget.com/wiki/Plugins/subliminal) for this example, however it never worked as expected. Instead, I used the bash script which looks for all files without corresponding `*.srt`s and fires subliminal on them.
+* `clean-up` - pretty obvious - clean transmission queue when file is finished processing.
 
-<h4 id="flexget---cron">FlexGet - cron</h4>
+#### FlexGet - cron
 
-<p>FlexGet itself is not a service, it needs to be run periodically. Thankfully this can be solved with a single line in crontab.</p>
+FlexGet itself is not a service, it needs to be run periodically. Thankfully this can be solved with a single line in crontab.
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC user: crontab -e</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">*/30 * * * * /home/osmc/.local/bin/flexget --cron execute</div></div></pre></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSMC user: crontab -e</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">*</span>/30 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /home/osmc/.local/bin/flexget --cron execute</div></div></pre></div></figure>
 
-<p>I think 30-minutes is a very safe time-window - Your FlexGet scripts shouldn’t overlap.</p>
+I think 30-minutes is a very safe time-window - Your FlexGet scripts shouldn't overlap.
 
-<h2 id="pulsar">Pulsar</h2>
+## Pulsar
 
-<p>Again, remember <strong class="warning">this is for informational purposes only</strong>. I strongly encourage you, to obtain all the videos you wish to watch, using legal sources.</p>
+Again, remember <strong class="warning">this is for informational purposes only</strong>. I strongly encourage you, to obtain all the videos you wish to watch, using legal sources.
 
-<p>Pulsar is a video add-on which allows torrent streaming. Remember <a href="http://popcorn-time.se/">PopCorn time</a>? This is something similar, but for Kodi.</p>
+Pulsar is a video add-on which allows torrent streaming. Remember [PopCorn time](http://popcorn-time.se/)? This is something similar, but for Kodi.
 
-<p>First things first, you would need <a href="http://sourceforge.net/projects/icanuckxbmcrepo/files/repository.pulsarunofficial-1.0.1.zip/download">Unofficial Pulsar Repository</a>. Download it, put into your OSMC, and <code class="highlighter-rouge">Install from ZIP File</code>. The rest is pretty straightforward - navigate to <em>Add-ons =&gt; Install from Repository</em> and choose <em>Pulsar Unofficial</em>. From there, you need Pulsar (from <em>Video add-ons</em> section), and providers (available under <em>Programs</em>). Then, you can add Pulsar to your home screen using <em>Settings =&gt; Apperance =&gt; Skin =&gt; Settings =&gt; Home =&gt; Customise Home Menu</em> and voilla! Grab some pop-corn and enjoy!</p>
+First things first, you would need [Unofficial Pulsar Repository](http://sourceforge.net/projects/icanuckxbmcrepo/files/repository.pulsarunofficial-1.0.1.zip/download). Download it, put into your OSMC, and `Install from ZIP File`. The rest is pretty straightforward - navigate to *Add-ons =&gt; Install from Repository* and choose *Pulsar Unofficial*. From there, you need Pulsar (from *Video add-ons* section), and providers (available under *Programs*). Then, you can add Pulsar to your home screen using *Settings =&gt; Apperance =&gt; Skin =&gt; Settings =&gt; Home =&gt; Customise Home Menu* and voilla! Grab some pop-corn and enjoy!
 
-<h2 id="conclusion">Conclusion</h2>
+## Conclusion
 
-<p>Phew! That was the long one! I’m aware, that some things are not as easy as they should be, but trust me - it’s worth the effort. Kodi can be a pretty powerful tool if you give it a chance, and in return it will pay you back with a Media Center you will find hard to take your eyes off.</p>
+Phew! That was the long one! I'm aware, that some things are not as easy as they should be, but trust me - it's worth the effort. Kodi can be a pretty powerful tool if you give it a chance, and in return it will pay you back with a Media Center you will find hard to take your eyes off.
+</span></div></div></span></div></div></span></div></div></span></div></div></pre></div></figure>
 
         </div>
 

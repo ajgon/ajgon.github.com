@@ -297,16 +297,16 @@ a Linux one (type <code class="highlighter-rouge">83</code>). So, to do this in 
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">n <span class="c"># Create new partition</span>
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">p <span class="c"># Set it as primary...</span>
-</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="m">1</span> <span class="c"># ...and first</span>
-</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>enter<span class="o">]</span> <span class="c"># Start it from the beginning</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">1 <span class="c"># ...and first</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>enter] <span class="c"># Start it from the beginning</span>
 </div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">+64M <span class="c"># And make it 64 Megabytes large (it is enough for the firmware)</span>
 </div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">t <span class="c"># Set partition type</span>
 </div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">e <span class="c"># to FAT16</span>
 </div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">n <span class="c"># Create new partition again</span>
 </div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">p <span class="c"># Set it as primary...</span>
-</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="m">2</span> <span class="c"># ...and second</span>
-</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>enter<span class="o">]</span> <span class="c"># Start when old partition ends...</span>
-</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>enter<span class="o">]</span> <span class="c"># ...and use all available space</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">2 <span class="c"># ...and second</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>enter] <span class="c"># Start when old partition ends...</span>
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>enter] <span class="c"># ...and use all available space</span>
 </div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">w <span class="c"># Write all changes to the image</span></div></div></pre></div></figure>
 
 <p>Next step is mounting those partitions as virtual devices and make filesystems on them:</p>
@@ -332,7 +332,7 @@ out of the box.</p>
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">debootstrap --arch armhf --foreign wheezy root http://ftp.debian.org/debian/
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">cp /usr/bin/qemu-arm-static root/usr/bin/ <span class="c"># needed for syscall emulation</span>
 </div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">LANG</span><span class="o">=</span>C chroot root /debootstrap/debootstrap --second-stage
-</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">chroot root /bin/bash -c <span class="s2">&quot;echo \&quot;root:raspberry\&quot; | chpasswd&quot;</span> <span class="c"># This will set root password to &#39;raspberry&#39;</span></div></div></pre></div></figure>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">chroot root /bin/bash -c <span class="s2">"echo </span><span class="se">\"</span><span class="s2">root:raspberry</span><span class="se">\"</span><span class="s2"> | chpasswd"</span> <span class="c"># This will set root password to 'raspberry'</span></div></div></pre></div></figure>
 
 <p>Next we need to set a minimal set of configuration files, to actually boot our disto.</p>
 
@@ -341,8 +341,8 @@ out of the box.</p>
 
 <p>First is <code class="highlighter-rouge">/etc/fstab</code> which is used to mount initial partitions (boot and proc system).</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Raspberry &#47;etc/fstab</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">proc            /proc           proc    defaults        <span class="m">0</span>       0
-</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">/dev/mmcblk0p1  /boot           vfat    defaults        <span class="m">0</span>       0</div></div></pre></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Raspberry &#47;etc/fstab</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">proc            /proc           proc    defaults        0       0
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">/dev/mmcblk0p1  /boot           vfat    defaults        0       0</div></div></pre></div></figure>
 
 <p>Next is hostname.</p>
 
@@ -359,8 +359,8 @@ out of the box.</p>
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">mkdir -p root/lib/modules
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">curl -L --output /usr/bin/rpi-update https://raw.githubusercontent.com/Hexxeh/rpi-update/master/rpi-update
 </div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">chmod +x /usr/bin/rpi-update
-</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">SKIP_BACKUP</span><span class="o">=</span><span class="m">1</span> <span class="nv">UPDATE_SELF</span><span class="o">=</span><span class="m">0</span> <span class="nv">BOOT_PATH</span><span class="o">=</span>boot <span class="nv">ROOT_PATH</span><span class="o">=</span>root rpi-update
-</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s2">&quot;dwc_otg.lpm_enable=0 console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 rw rootwait&quot;</span> &gt; boot/cmdline.txt</div></div></pre></div></figure>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">SKIP_BACKUP</span><span class="o">=</span>1 <span class="nv">UPDATE_SELF</span><span class="o">=</span>0 <span class="nv">BOOT_PATH</span><span class="o">=</span>boot <span class="nv">ROOT_PATH</span><span class="o">=</span>root rpi-update
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s2">"dwc_otg.lpm_enable=0 console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 rw rootwait"</span> &gt; boot/cmdline.txt</div></div></pre></div></figure>
 
 <p>And that’s it! At this point, if you have a monitor, you can flash your SD Card, plug it in to your Raspberry, and see
 if your Debian boots up. If you also have a keyboard, you should be able to log in to it as well, and do the following
@@ -384,14 +384,14 @@ steps from there. Otherwise, keep using your <code class="highlighter-rouge">rpi
 <p>At first, disable installation of recommended packages - for example, most of the time, we don’t want 3/4 of Xserver
 while installing vim.</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As Raspberry root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s1">&#39;APT::Install-Recommends &quot;0&quot;;&#39;</span> &gt; /etc/apt/apt.conf.d/00norecommends</div></div></pre></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As Raspberry root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s1">'APT::Install-Recommends "0";'</span> &gt; /etc/apt/apt.conf.d/00norecommends</div></div></pre></div></figure>
 
 <p>Next we need to setup a minimal dose of packages, which are necessary to use our distro — <code class="highlighter-rouge">locales</code> for
 basic UTF8 language support, and <code class="highlighter-rouge">openssh-server</code> to allow us to actually sign in to the machine.</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As Raspberry root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">apt-get update
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">LANG</span><span class="o">=</span>C apt-get install locales
-</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s2">&quot;en_US.UTF-8 UTF-8&quot;</span> &gt;&gt; /etc/locale.gen
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s2">"en_US.UTF-8 UTF-8"</span> &gt;&gt; /etc/locale.gen
 </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">locale-gen
 </div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">apt-get install openssh-server openssh-blacklist openssh-blacklist-extra</div></div></pre></div></figure>
 
@@ -448,14 +448,14 @@ and be online.</p>
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Raspberry &#47;etc/wpa_supplicant/wpa_supplicant.conf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">ctrl_interface</span><span class="o">=</span><span class="nv">DIR</span><span class="o">=</span>/var/run/wpa_supplicant <span class="nv">GROUP</span><span class="o">=</span>netdev
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">update_config</span><span class="o">=</span>1
 </div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">network</span><span class="o">=&#x7b;</span>
-</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nv">ssid</span><span class="o">=</span><span class="s2">&quot;MyHomeNetwork&quot;</span>
-</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nv">psk</span><span class="o">=</span><span class="s2">&quot;MyHomePassword&quot;</span>
-</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nv">id_str</span><span class="o">=</span><span class="s2">&quot;home&quot;</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nv">ssid</span><span class="o">=</span><span class="s2">"MyHomeNetwork"</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nv">psk</span><span class="o">=</span><span class="s2">"MyHomePassword"</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nv">id_str</span><span class="o">=</span><span class="s2">"home"</span>
 </div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">&#x7d;</span>
 </div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">network</span><span class="o">=&#x7b;</span>
-</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nv">ssid</span><span class="o">=</span><span class="s2">&quot;MyWorkNetwork&quot;</span>
-</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nv">psk</span><span class="o">=</span><span class="s2">&quot;MyWorkPassword&quot;</span>
-</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nv">id_str</span><span class="o">=</span><span class="s2">&quot;work&quot;</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nv">ssid</span><span class="o">=</span><span class="s2">"MyWorkNetwork"</span>
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nv">psk</span><span class="o">=</span><span class="s2">"MyWorkPassword"</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nv">id_str</span><span class="o">=</span><span class="s2">"work"</span>
 </div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">&#x7d;</span></div></div></pre></div></figure>
 
 <h2 id="flashing">Flashing</h2>
@@ -487,7 +487,7 @@ If you haven’t use monitor and keyboard, you might end not knowing which IP ad
 this problem is use <code class="highlighter-rouge">nmap</code> to detect all open hosts in your subnet, then check which one responds to <code class="highlighter-rouge">root</code> user
 with <code class="highlighter-rouge">raspberry</code> password.</p>
 
-<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">In terminal</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">nmap -p22 -oG - --open 192.168.0.0/24 <span class="p">|</span> grep Host <span class="p">|</span> awk <span class="s1">&#39;&#x7b;print $2&#x7d;&#39;</span> <span class="p">|</span> sort <span class="p">|</span> uniq</div></div></pre></div></figure>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">In terminal</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">nmap -p22 -oG - --open 192.168.0.0/24 | grep Host | awk <span class="s1">'&#x7b;print $2&#x7d;'</span> | sort | uniq</div></div></pre></div></figure>
 
 <p>Don’t forget to change your root password (or disable root login at all) and to secure your system after you sign in!
 The next thing, you might notice is, that your Linux partition is pretty small (768MB). This is due to fact, that
@@ -497,12 +497,12 @@ easily.</p>
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As raspberry root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">fdisk /dev/mmcblk0
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># In fdisk</span>
 </div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">d <span class="c"># Delete partition...</span>
-</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="m">2</span> <span class="c"># ... the linux partition (don&#39;t worry, you won&#39;t lose your data)</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">2 <span class="c"># ... the linux partition (don't worry, you won't lose your data)</span>
 </div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">n <span class="c"># Create ...</span>
 </div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">p <span class="c"># ... primary partition ...</span>
-</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="m">2</span> <span class="c"># number 2</span>
-</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>enter<span class="o">]</span> <span class="c"># Start from the beginning of the free space (as the previous did) ...</span>
-</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>enter<span class="o">]</span> <span class="c"># ... but end up filling all available space</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">2 <span class="c"># number 2</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>enter] <span class="c"># Start from the beginning of the free space (as the previous did) ...</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">[</span>enter] <span class="c"># ... but end up filling all available space</span>
 </div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">w <span class="c"># write changes</span>
 </div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># In shell</span>
 </div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">reboot <span class="c"># to make new partition visible for the system</span>
