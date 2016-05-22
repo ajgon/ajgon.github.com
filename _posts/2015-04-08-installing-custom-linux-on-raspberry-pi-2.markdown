@@ -129,6 +129,11 @@ Next is hostname.
 raspberrypi2
 {% endcodeblock %}
 
+{% codeblock Raspberry &#47;etc/hosts lang:sh %}
+127.0.0.1 raspberrypi2
+::1 raspberrypi2
+{% endcodeblock %}
+
 We also need to set up urls for Debian repositories, so we can download and manage system packages.
 
 {% codeblock Raspberry &#47;etc/apt/sources.list lang:sh %}
@@ -178,14 +183,15 @@ echo 'APT::Install-Recommends "0";' > /etc/apt/apt.conf.d/00norecommends
 {% endcodeblock %}
 
 Next we need to setup a minimal dose of packages, which are necessary to use our distro &mdash; `locales` for
-basic UTF8 language support, and `openssh-server` to allow us to actually sign in to the machine.
+basic UTF8 language support, and `openssh-server` to allow us to actually sign in to the machine. I also
+recommend to install `ntp` to avoid any timestamp-based confusions.
 
 {% codeblock As Raspberry root lang:sh %}
 apt-get update
 LANG=C apt-get install locales
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 locale-gen
-apt-get install openssh-server openssh-blacklist openssh-blacklist-extra
+apt-get install openssh-server openssh-blacklist openssh-blacklist-extra ntp
 {% endcodeblock %}
 
 If you plan, to configure your system with Ansible or some other auto-tool, it's also a good idea to install
@@ -281,7 +287,7 @@ Now you can exit the chroot (and VM if you used it), and flash your SDCard. In O
 {% codeblock OSX Shell lang:sh %}
 diskutil list # Check for you SDCard disk number
 diskutil umountDisk /dev/diskX # Where X is a disc number
-sudo dd if=rpi.img of=/dev/rdiskX
+sudo dd bs=1m if=rpi.img of=/dev/rdiskX
 diskutil eject /dev/diskX
 {% endcodeblock %}
 
@@ -332,9 +338,11 @@ Happy hacking!
 ## [May 04 update] Debian Jessie
 
 Few days ago, [Debian Jessie came out](https://www.debian.org/News/2015/20150426). I checked this guide against it, and
-everything should work out of the box. All you need to do is change `wheezy` to `jessie` in debootstrap phase and in
-`/etc/apt/sources.list` file. Also, the new `/etc/network/interfaces.d` format was introduced, so instead putting all
-of your newtork conf in one file, you can split it to separate files and them put in this directory (i.e.
-`/etc/network/interfaces.d/lo`, `etc/network/interfaces.d/wifi` etc.). You might also have problems with `root` login
-via SSH, if so, set `PermitRootLogin yes` in `/etc/ssh/sshd_config` (but don't forget, to set it back to `no` when
-you finish configuration!).
+everything should work out of the box. However, few slight alterations are necessary:
+
+* change `wheezy` to `jessie` in debootstrap phase and in `/etc/apt/sources.list` file
+* the new `/etc/network/interfaces.d` format was introduced, so instead putting all of your newtork conf in one file,
+  you can split it to separate files and them put in this directory (i.e. `/etc/network/interfaces.d/lo`,
+  `etc/network/interfaces.d/wifi` etc.).
+* you might also have problems with `root` login via SSH, if so, set `PermitRootLogin yes`
+  in `/etc/ssh/sshd_config` (but don't forget, to set it back to `no` when you finish configuration!).
