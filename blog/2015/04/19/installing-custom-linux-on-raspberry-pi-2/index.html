@@ -75,6 +75,8 @@
         
           
         
+          
+        
       
         
           
@@ -89,6 +91,8 @@
         
           
             <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
+          
+        
           
         
           
@@ -111,12 +115,16 @@
         
           
         
+          
+        
       
         
           
         
           
             <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
+          
+        
           
         
           
@@ -154,6 +162,8 @@
       
         
       
+        
+      
     
       
         
@@ -168,6 +178,8 @@
       
         
           <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
+        
+      
         
       
         
@@ -190,12 +202,16 @@
       
         
       
+        
+      
     
       
         
       
         
           <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
+        
+      
         
       
         
@@ -348,6 +364,9 @@ out of the box.</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Raspberry &#47;etc/hostname</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">raspberrypi2</div></div></pre></div></figure>
 
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Raspberry &#47;etc/hosts</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">127.0.0.1 raspberrypi2
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">::1 raspberrypi2</div></div></pre></div></figure>
+
 <p>We also need to set up urls for Debian repositories, so we can download and manage system packages.</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">Raspberry &#47;etc/apt/sources.list</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">deb http://ftp.debian.org/debian/ wheezy main contrib non-free</div></div></pre></div></figure>
@@ -387,13 +406,14 @@ while installing vim.</p>
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As Raspberry root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s1">'APT::Install-Recommends "0";'</span> &gt; /etc/apt/apt.conf.d/00norecommends</div></div></pre></div></figure>
 
 <p>Next we need to setup a minimal dose of packages, which are necessary to use our distro — <code class="highlighter-rouge">locales</code> for
-basic UTF8 language support, and <code class="highlighter-rouge">openssh-server</code> to allow us to actually sign in to the machine.</p>
+basic UTF8 language support, and <code class="highlighter-rouge">openssh-server</code> to allow us to actually sign in to the machine. I also
+recommend to install <code class="highlighter-rouge">ntp</code> to avoid any timestamp-based confusions.</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As Raspberry root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">apt-get update
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">LANG</span><span class="o">=</span>C apt-get install locales
 </div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s2">"en_US.UTF-8 UTF-8"</span> &gt;&gt; /etc/locale.gen
 </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">locale-gen
-</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">apt-get install openssh-server openssh-blacklist openssh-blacklist-extra</div></div></pre></div></figure>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">apt-get install openssh-server openssh-blacklist openssh-blacklist-extra ntp</div></div></pre></div></figure>
 
 <p>If you plan, to configure your system with Ansible or some other auto-tool, it’s also a good idea to install
 sudo, python and aptitude.</p>
@@ -469,7 +489,7 @@ and be online.</p>
 
 <figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">OSX Shell</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">diskutil list <span class="c"># Check for you SDCard disk number</span>
 </div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">diskutil umountDisk /dev/diskX <span class="c"># Where X is a disc number</span>
-</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">sudo dd <span class="k">if</span><span class="o">=</span>rpi.img <span class="nv">of</span><span class="o">=</span>/dev/rdiskX
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">sudo dd <span class="nv">bs</span><span class="o">=</span>1m <span class="k">if</span><span class="o">=</span>rpi.img <span class="nv">of</span><span class="o">=</span>/dev/rdiskX
 </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">diskutil eject /dev/diskX</div></div></pre></div></figure>
 
 <p>Notice, that for <code class="highlighter-rouge">dd</code> I’m using <code class="highlighter-rouge">/dev/rdiskX</code> instead of the <code class="highlighter-rouge">/dev/diskX</code>. It’s because how OSX handles disk devices.
@@ -513,12 +533,16 @@ easily.</p>
 <h2 id="may-04-update-debian-jessie">[May 04 update] Debian Jessie</h2>
 
 <p>Few days ago, <a href="https://www.debian.org/News/2015/20150426">Debian Jessie came out</a>. I checked this guide against it, and
-everything should work out of the box. All you need to do is change <code class="highlighter-rouge">wheezy</code> to <code class="highlighter-rouge">jessie</code> in debootstrap phase and in
-<code class="highlighter-rouge">/etc/apt/sources.list</code> file. Also, the new <code class="highlighter-rouge">/etc/network/interfaces.d</code> format was introduced, so instead putting all
-of your newtork conf in one file, you can split it to separate files and them put in this directory (i.e.
-<code class="highlighter-rouge">/etc/network/interfaces.d/lo</code>, <code class="highlighter-rouge">etc/network/interfaces.d/wifi</code> etc.). You might also have problems with <code class="highlighter-rouge">root</code> login
-via SSH, if so, set <code class="highlighter-rouge">PermitRootLogin yes</code> in <code class="highlighter-rouge">/etc/ssh/sshd_config</code> (but don’t forget, to set it back to <code class="highlighter-rouge">no</code> when
-you finish configuration!).</p>
+everything should work out of the box. However, few slight alterations are necessary:</p>
+
+<ul>
+  <li>change <code class="highlighter-rouge">wheezy</code> to <code class="highlighter-rouge">jessie</code> in debootstrap phase and in <code class="highlighter-rouge">/etc/apt/sources.list</code> file</li>
+  <li>the new <code class="highlighter-rouge">/etc/network/interfaces.d</code> format was introduced, so instead putting all of your newtork conf in one file,
+you can split it to separate files and them put in this directory (i.e. <code class="highlighter-rouge">/etc/network/interfaces.d/lo</code>,
+<code class="highlighter-rouge">etc/network/interfaces.d/wifi</code> etc.).</li>
+  <li>you might also have problems with <code class="highlighter-rouge">root</code> login via SSH, if so, set <code class="highlighter-rouge">PermitRootLogin yes</code>
+in <code class="highlighter-rouge">/etc/ssh/sshd_config</code> (but don’t forget, to set it back to <code class="highlighter-rouge">no</code> when you finish configuration!).</li>
+</ul>
 
         </div>
 

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Build Your Own Cloud Fast, Thanks to Ansible and Automation - Igor \"ajgon\" Rzegocki</title>
+  <meta name="description" content="Last year I wrote an article about installing custom linux distro on Raspberry Pi 2.Since then I configured it as my personal cloud, with email daemon,dropbo...">
+
+  
+  <meta content="/assets/covers/build-your-own-cloud-fast-thanks-to-ansible-and-automation.png" name="og:image">
+  
+  <meta content="http://rzegocki.pl/blog/2016/05/21/build-your-own-cloud-fast-thanks-to-ansible-and-automation/" name="og:url">
+  <meta content='Build Your Own Cloud Fast, Thanks to Ansible and Automation - Igor \"ajgon\" Rzegocki' name="og:title">
+  <meta content="Last year I wrote an article about installing custom linux distro on Raspberry Pi 2.Since then I configured it as my personal cloud, with email daemon,dropbo..." name="og:description">
+
+  <link type="text/css" rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://rzegocki.pl/blog/2016/05/21/build-your-own-cloud-fast-thanks-to-ansible-and-automation/">
+  <link rel="alternate" type="application/rss+xml" title='Igor \"ajgon\" Rzegocki' href="http://rzegocki.pl/feed.xml" />
+</head>
+
+
+  <body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--waterfall mdl-shadow--4dp">
+  <div class="mdl-layout__header-row">
+    <!-- Title -->
+    <span class="mdl-layout-title"><a href="/">Igor \"ajgon\" Rzegocki</a></span>
+    <!-- Add spacer, to align navigation to the right -->
+    <div class="mdl-layout-spacer"></div>
+    <!-- Navigation. We hide it in small screens. -->
+    <nav class="icons-navigation mdl-navigation">
+      <a id="download-cv" class="mdl-button mdl-js-button mdl-button--icon" href="/cv.pdf">
+        <i class="material-icons">file_download</i>
+      </a>
+      <button id="connect-options" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">more_vert</i>
+      </button>
+
+      <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+          for="connect-options">
+          
+            <li><a class="mdl-menu__item" href="https://github.com/ajgon" target="_blank">GitHub</a></li>
+          
+            <li><a class="mdl-menu__item" href="https://linkedin.com/in/ajgon" target="_blank">LinkedIN</a></li>
+          
+            <li><a class="mdl-menu__item" href="https://twitter.com/ajgon" target="_blank">Twitter</a></li>
+          
+            <li><a class="mdl-menu__item" href="https://keybase.io/ajgon" target="_blank">Keybase</a></li>
+          
+      </ul>
+      <div for="download-cv" class="mdl-tooltip">Download CV</div>
+      <div for="connect-options" class="mdl-tooltip">Connect</div>
+    </nav>
+  </div>
+  <div class="mdl-layout__header-row mdl-layout__header-highlighted-row mdl-layout--large-screen-only">
+    <nav class="waterfall-demo-header-nav mdl-navigation">
+      
+        
+          
+        
+          
+        
+          
+        
+          
+            <a href="/" class="mdl-navigation__link">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <a href="/open-source/" class="mdl-navigation__link">Open Source</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+            <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+    </nav>
+  </div>
+</header>
+<div class="mdl-layout__drawer">
+  <span class="mdl-layout-title"><a href="/">ajgon's personal</a></span>
+  <nav class="mdl-navigation">
+    
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="/" class="mdl-navigation__link">About</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="/open-source/" class="mdl-navigation__link">Open Source</a>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+          <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+  </nav>
+</div>
+
+
+      <main class="mdl-layout__content">
+        <div class="post-container full-post narrow mdl-grid">
+    <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+        <a href="/blog/2016/05/21/build-your-own-cloud-fast-thanks-to-ansible-and-automation/">
+            <div class="mdl-card__media mdl-color-text--grey-50" style="background-image: url(/assets/covers/build-your-own-cloud-fast-thanks-to-ansible-and-automation.png">
+                <h3>Build Your Own Cloud Fast, Thanks to Ansible and Automation</h3>
+            </div>
+        </a>
+                <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+            <div class="minilogo" style="background-image: url(/assets/avatars/ajgon.png);"></div>
+            <div>
+                <strong>ajgon</strong>
+                <span>May 21, 2016</span>
+            </div>
+            <div class="mdl-layout-spacer"></div>
+            <div>
+                <button id="share_" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">share</i>
+                </button>
+
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                    for="share_">
+                        <li><a class="mdl-menu__item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://rzegocki.pl/blog/2016/05/21/build-your-own-cloud-fast-thanks-to-ansible-and-automation/&amp;title=" target="_blank" data-width="600" data-height="450">LinkedIN</a></li>
+                        <li><a class="mdl-menu__item" href="https://twitter.com/share?url=http://rzegocki.pl/blog/2016/05/21/build-your-own-cloud-fast-thanks-to-ansible-and-automation/&amp;text=" target="_blank" data-width="500" data-height="550">Twitter</a></li>
+                        <li><a class="mdl-menu__item" href="https://www.facebook.com/sharer/sharer.php?u=http://rzegocki.pl/blog/2016/05/21/build-your-own-cloud-fast-thanks-to-ansible-and-automation/&amp;display=popup" data-width="626" data-height="457" target="_blank">Facebook</a></li>
+                </ul>
+                <div class="mdl-tooltip" for="share_">Share</div>
+            </div>
+        </div>
+
+        <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
+            <p>Last year I wrote an <a href="/blog/2015/04/19/installing-custom-linux-on-raspberry-pi-2/">article about installing custom linux distro on Raspberry Pi 2</a>.
+Since then I configured it as my personal cloud, with <a href="http://www.postfix.org/">email daemon</a>,
+<a href="https://owncloud.org/">dropbox alternative</a>, <a href="https://roundcube.net/">webmail</a>,
+<a href="http://duplicity.nongnu.org/">backup system</a> and some other tools. However it appeared, that
+configuration like that is a real SDCard killer (tons of small files), and in a past year
+I had to replace it twice, each time redoing the whole configure &amp; install again.</p>
+
+<p>This was always a real time consuming <a href="http://www.netlingo.com/word/pita.php">PITA</a>, so
+I decided to automate the whole process, thus the <a href="https://github.com/ajgon/self-hosted-mailserver">self-hosted-mailserver</a>
+project was born.</p>
+
+<p>I wrote it with “Keep it simple and secure” principle in mind. As it will be
+used exclusively by the owner, I assumed he would use most recent versions of
+software and dropped all legacy protocols (like SSL, TLS &lt; 1.2 etc.).</p>
+
+<h2 id="preparation">Preparation</h2>
+
+<p>First of all, you need ansible.</p>
+
+<figure class="code-highlight-figure"><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">brew install ansible</div></div></pre></div></figure>
+
+<p>Also if you haven’t done it already, add your public SSH key file to authorized keys
+of the root user on your Raspberry (or any other server) and set <code class="highlighter-rouge">PermitRootLogin</code>
+to <code class="highlighter-rouge">true</code> (don’t worry though, those scripts will take care of this security risk later on
+and disable it).</p>
+
+<figure class="code-highlight-figure"><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">export </span><span class="nv">MACHINE_IP</span><span class="o">=</span>&lt;machine IP&gt;
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">ssh root@<span class="k">$&#x7b;</span><span class="nv">MACHINE_IP</span><span class="k">&#x7d;</span> <span class="s1">'mkdir /root/.ssh &amp;&amp; chmod 700 /root/.ssh &amp;&amp; touch /root/.ssh/authorized_keys &amp;&amp; chmod 600 /root/.ssh/authorized_keys'</span>
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">scp ~/.ssh/id_rsa.pub root@<span class="k">$&#x7b;</span><span class="nv">MACHINE_IP</span><span class="k">&#x7d;</span>:/root/.ssh/authorized_keys</div></div></pre></div></figure>
+
+<h3 id="setting-up-gpg">Setting up GPG</h3>
+
+<p>If you want to use external backups, you need to install GPG on the server
+(this bases on assumption, to NEVER store any private data remotely without encrypting
+them first). Also, you need a GPG key (you can skip next step if you have one already).</p>
+
+<h4 id="creating-a-gpg-key">Creating a GPG key</h4>
+
+<p>Refer to <a href="https://www.gnupg.org/documentation/">GPG documentation</a> for more examples,
+but in general all you have to do is invoke <code class="highlighter-rouge">gpg --gen-key</code> and answer its questions. Choose RSA,
+4096 bits size, and never expiring key. Then export it and store it somewhere safe.
+You will need it in a minute. Also take a note o the Key-Id property.</p>
+
+<figure class="code-highlight-figure"><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">brew install gpg
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">gpg --gen-key
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">gpg --export -a -r email@used.to.create.key.com &gt; raspberry.public
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">gpg --export-secret-key -a -r email@used.to.create.key.com &gt; raspberry.private
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">gpg --list-keys | grep -B1 <span class="s1">'ajgon@irgon.com'</span> | grep pub | sed <span class="s1">'s/.*\/\(.*\)\ .*/\1/'</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># *The last command returns your Key-Id, note it somewhere as well.</span></div></div></pre></div></figure>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>To make those scripts work, you need to set some of user-based variables (like passwords, emails etc.).
+Those variables are stored in <code class="highlighter-rouge">roles/*/vars/main.yml</code> files.</p>
+
+<h3 id="rolesbasevarsmainyml"><code class="highlighter-rouge">roles/base/vars/main.yml</code></h3>
+
+<p>This one is pretty straightforward. The cloud uses MySQL as a database of choice, for email configuration,
+web applications etc. Here you need to set up a mysql <code class="highlighter-rouge">root</code> user password. If you don’t plan to ever use it
+just type:</p>
+
+<figure class="code-highlight-figure"><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">echo</span> <span class="s2">"mysql_root_password: </span><span class="se">\"</span><span class="k">$(</span>pwgen 30 1<span class="k">)</span><span class="se">\"</span><span class="s2">"</span> &gt; roles/base/vars/main.yml</div></div></pre></div></figure>
+
+<h3 id="rolesduplicityvarsmainyml"><code class="highlighter-rouge">roles/duplicity/vars/main.yml</code></h3>
+
+<p><a href="http://duplicity.nongnu.org/">Duplicity</a> is a tool for automated backups.
+It is known that all people can be divided into two groups: those who have never lost important data
+and those who regularly perform data backups. This task, encrypts all the important
+data (emails, owncloud files etc.) and stores them on WebDav-based remote (personally
+I use <a href="https://box.com">box.com</a>).</p>
+
+<p>Here (besides the WebDav host, username and password) you need to put the GPG Key-Id which you
+noted earlier, under the <code class="highlighter-rouge">encrypt_key</code> property.</p>
+
+<p>Also, there is a VERY important parameter called <code class="highlighter-rouge">cache_directory</code>. For Raspberry it is crucial
+to set it to somewhere outside of the microSD card - otherwise you will kill it pretty quick
+(as I did… twice, before noticing this out).</p>
+
+<p>If you don’t want to set up the duplicity (or plan to do it later manually), just remove
+this task from <code class="highlighter-rouge">main.yml</code> file which lives in root directory of the project.</p>
+
+<h3 id="rolesmaildbvarsmainyml"><code class="highlighter-rouge">roles/maildb/vars/main.yml</code></h3>
+
+<p>First important service of our cloud - the mailserver. Since many things needs to be configured,
+this file is most complicated. So let’s go through it line by line.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">postmaster_email</code> - Basically a local email which will receive all the mailer-daemon failure
+messages. Don’t use some bizzare e-mail you never check here, since those messages are pretty
+important (your email may never reach the recipient, and you will never notice it if you don’t
+check those warnings)</li>
+  <li><code class="highlighter-rouge">username</code>, <code class="highlighter-rouge">password</code> and <code class="highlighter-rouge">database</code> - Since whole accounts setup is stored in RDBMS, you need
+to put its credentials here. Don’t use the root! You would probably never use this account,
+so it is save, to put some auto-generated random characters password here.</li>
+  <li><code class="highlighter-rouge">domains</code> - An array of domains you wish to serve in your server. Each item is a hash, consiting
+following keys:
+    <ul>
+      <li><code class="highlighter-rouge">name</code> - the name of the domain (without user), i.e. for <code class="highlighter-rouge">user@example.com</code> it will be <code class="highlighter-rouge">example.com</code>.</li>
+      <li><code class="highlighter-rouge">primary</code> - <code class="highlighter-rouge">yes</code> or <code class="highlighter-rouge">no</code>. A primary domain (in those scripts context) is a domain you wish to receive
+<a href="http://z-push.org/">Z-Push</a> notifications from. If you configure only one domain (most common case),
+set it to true.</li>
+      <li><code class="highlighter-rouge">users</code> - an array of email/password hashes which will become user accounts. Configure “real” accounts
+here only. There is a separate section for aliases.
+        <ul>
+          <li><code class="highlighter-rouge">email</code> - user email - it’s domain must match the domain name configured for this group, i.e.
+for given example, <code class="highlighter-rouge">user@example.com</code> is valid, while <code class="highlighter-rouge">user@example2.com</code> is not. If you wish
+to have different domains, configure separate <code class="highlighter-rouge">domains</code> groups for them.</li>
+          <li><code class="highlighter-rouge">password</code> - a password for user email.</li>
+        </ul>
+      </li>
+      <li><code class="highlighter-rouge">aliases</code> - here you can configure aliases of the emails.
+        <ul>
+          <li><code class="highlighter-rouge">from</code> - the name of the alias (full email). It must match the <code class="highlighter-rouge">domains</code> name (like user email).</li>
+          <li><code class="highlighter-rouge">to</code> - destination email. This one can be any valid email (doesn’t have to match the domain criteria)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="rolesowncloudvarsmainyml-and-rolesroundcubevarsmainyml"><code class="highlighter-rouge">roles/owncloud/vars/main.yml</code> and <code class="highlighter-rouge">roles/roundcube/vars/main.yml</code></h3>
+
+<p>Configuration for both roundcube and owncloud is pretty straightforwrd. Remember, to use separate RDBMS
+credentials for each one, and use non-admin user with ownCloud.</p>
+
+<h3 id="rolespostfixvarsmainyml"><code class="highlighter-rouge">roles/postfix/vars/main.yml</code></h3>
+
+<p>Here you can configure <a href="https://en.wikipedia.org/wiki/Open_mail_relay">a relay</a>. This is pretty useful
+if your IP is on some kind of blacklist (which is typical for most Internet providers). Here you can
+set up a non-blacklisted relay server which will process your email and deliver it to the destination.
+This isn’t a good option when it comes to privacy, but sometimes - the only one you might have.</p>
+
+<h3 id="rolesnginxvarsmainyml"><code class="highlighter-rouge">roles/nginx/vars/main.yml</code></h3>
+
+<p>As I mentioned - those scripts are written with security in mind. One of the features is
+<a href="https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning">HPKP</a> enabled in a webserver - so you need provide
+a SHA256 sum here of alternate SSL key (the primary will be calculated for you by the scripts).
+HPKP is pretty broad topic, but you can <a href="https://scotthelme.co.uk/hpkp-http-public-key-pinning/">start here</a>
+if you need more details.</p>
+
+<h3 id="rolessecurityvarsmainyml"><code class="highlighter-rouge">roles/security/vars/main.yml</code></h3>
+
+<p>A configuration for all security related data. Currently it’s just username, password and public key for
+“user” account (as you should never login directly via root).</p>
+
+<p>Also you can set here an email for all security-related reports. This email should live outside of the
+server (for example on gmail or any other provider). The reason for this is, that when machine gets compromised
+the local emails may be altered or broken. Of course, nothing prevents an attacker to disable this external
+reporting as well, but at least you have this one extra layer of protection. It is also a good idea to set up
+filtering rules on this external account, to send those messages back to your usual email. Thanks to that, you
+will see them without accessing the external, while keeping them backed up there.</p>
+
+<p>The last setting here is <code class="highlighter-rouge">strong_primes</code>. If you are setting your server on a strong machine (i.e. powerful
+dedicated server etc.), you can set it to <code class="highlighter-rouge">true</code> and call it a day (and skip the rest of this paragraph).
+However if you use some weak microcomputer (like Pi), it’s better idea to set it to false and create those
+primes manually on better machine (like your laptop). Otherwise your ansible deployment can take hours if not days.</p>
+
+<h4 id="creating-primes-manually">Creating primes manually</h4>
+
+<p>First of all, take look on commands you need to invoke:</p>
+
+<figure class="code-highlight-figure"><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">cat roles/<span class="k">*</span>/tasks/main.yml | grep -B1 <span class="s1">'when: security.strong_primes'</span> | grep shell</div></div></pre></div></figure>
+
+<p>You need to slightly alter them, as they normally invoked on remote environment, and use filepaths typical for there
+(i.e. <code class="highlighter-rouge">/etc/ssh</code>). The simplest solution is to rename <code class="highlighter-rouge">/etc</code> to <code class="highlighter-rouge">/tmp</code> and fire them up with this context.
+So for example:</p>
+
+<figure class="code-highlight-figure"><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">mkdir /tmp/ssh /tmp/ssl
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">ssh-keygen -G /tmp/ssh/moduli.all -b 4096 &amp;&amp; ssh-keygen -T /tmp/ssh/moduli.safe -f /tmp/ssh/moduli.all &amp;&amp; mv /tmp/ssh/moduli.safe /tmp/ssh/moduli &amp;&amp; rm /tmp/ssh/moduli.all
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">rm /tmp/ssh/ssh_host_*key* &amp;&amp; ssh-keygen -t ed25519 -f /tmp/ssh/ssh_host_ed25519_key &lt; /dev/null &amp;&amp; ssh-keygen -t rsa -b 4096 -f /tmp/ssh/ssh_host_rsa_key &lt; /dev/null &amp;&amp; chmod 600 /tmp/ssh/ssh_host_*key"
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">openssl dhparam -out /tmp/ssl/dhparams.pem 4096</div></div></pre></div></figure>
+
+<p>After some time, you will end up with <code class="highlighter-rouge">/tmp/ssh</code> and <code class="highlighter-rouge">/tmp/ssl</code> directories with proper keys. Just copy
+them to the corresponding <code class="highlighter-rouge">/etc</code> directories on the server and you’re set.</p>
+
+<h3 id="ssl-keys">SSL keys</h3>
+
+<p>Since all communication would (and should) be handled via SSL, you need to create proper certificates.
+The easiest solution are <a href="http://www.akadia.com/services/ssh_test_certificate.html">self signed ones</a>,
+but I strongly encourage you to use <a href="https://www.startssl.com/">StartSSL</a> or
+<a href="https://letsencrypt.org/">Let’s Encrypt</a> and issue yourself a valid, properly recognized certificate.</p>
+
+<p>After you do this, it’s pretty strightforward - put the private key to <code class="highlighter-rouge">roles/ssl/templates/private-this-machine.pem</code>
+and the certificate chain to <code class="highlighter-rouge">roles/ssl/templates/certs-this-machine.pem</code>.</p>
+
+<h3 id="rolesddclienttemplatesddclientconfj2"><code class="highlighter-rouge">roles/ddclient/templates/ddclient.conf.j2</code></h3>
+
+<p><a href="https://sourceforge.net/p/ddclient/wiki/Home/">ddclient</a> is a nice Perl script used to update dynamic DNS
+entries for accounts on Dynamic DNS Network Service Provider. Thanks to it, if you have a dynamic IP
+you can assign a domain to it, and keep it in sync any time when your IP changes. It supports
+many providers, and I also included a Cloudflare patch. The template itself is pretty explanatory, but you
+can also refer to the <a href="https://sourceforge.net/p/ddclient/wiki/Home/#configuration">ddclient documentation</a>.
+If you don’t want to use this feature (or have a Static IP), just remove <code class="highlighter-rouge">ddclient</code> from the main <code class="highlighter-rouge">main.yml</code> file.</p>
+
+<h2 id="deploy">Deploy</h2>
+
+<p>Phew! After all this configuration, you are ready to deploy. First, you need to set an
+<a href="http://docs.ansible.com/ansible/intro_inventory.html">Ansible Inventory</a> files. Since we set our public
+key as authorized on the remote host, all we have to put in this file is:</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">ansible-inventory</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nn">[local]</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="err">1.2.3.4</span> <span class="py">ansible_ssh_user</span><span class="p">=</span><span class="s">root</span></div></div></pre></div></figure>
+
+<p>where <code class="highlighter-rouge">1.2.3.4</code> is remote IP of your machine obviously. And then, we can fire it up!</p>
+
+<figure class="code-highlight-figure"><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">ansible-playbook -s -i ansible-inventory main.yml</div></div></pre></div></figure>
+
+<p>Hopefully everything go well, and you will end up with your self-hosted, automated cloud.</p>
+
+<h3 id="post-deploy">Post-deploy</h3>
+
+<p>We still have one thing to do - install gpg and import our keys, to make duplicity actually work. So put your
+private and public key on the server, and invoke (on remote):</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">as root on remote</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">apt-get install gnupg
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">gpg --import raspberry.public
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">gpg --allow-secret-key-import --import raspberry.private
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">gpg --list-keys --fingerprint --with-colons | sed -E -n -e <span class="s1">'s/^fpr:::::::::([0-9A-F]+):$/\1:6:/p'</span> | gpg --import-ownertrust</div></div></pre></div></figure>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Well, that was a lot of configuration. Thankfully, you have to do this only once. After that, just archive all those files,
+encrypt them and store them somewhere safe. If you ever need to redo those steps again, almost everything would be ready and
+prepared, and firing up a new instance will be as simple as typing a few commands.</p>
+
+        </div>
+
+        <div id="disqus_thread" class="comments-disqus"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES * * */
+            var disqus_shortname = 'ajgon';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+
+
+        <footer class="mdl-mega-footer">
+  <div class="mdl-mega-footer__top-section mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col">
+      <h5 class="headline">Recent Tweets</h5>
+      <ul class="mdl-mega-footer--link-list mdl-mega-footer--left-align" id="recent-tweets">
+        Loading tweets...
+      </ul>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+      <h5 class="headline">Connect</h5>
+      
+        <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" href="https://github.com/ajgon" id="connect_Q" target="_blank">
+          <i class="material-icons socicon">Q</i>
+        </a>
+        <div for="connect_Q" class="mdl-tooltip">GitHub</div>
+      
+        <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" href="https://linkedin.com/in/ajgon" id="connect_j" target="_blank">
+          <i class="material-icons socicon">j</i>
+        </a>
+        <div for="connect_j" class="mdl-tooltip">LinkedIN</div>
+      
+        <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" href="https://twitter.com/ajgon" id="connect_a" target="_blank">
+          <i class="material-icons socicon">a</i>
+        </a>
+        <div for="connect_a" class="mdl-tooltip">Twitter</div>
+      
+        <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" href="https://keybase.io/ajgon" id="connect_vpn_key" target="_blank">
+          <i class="material-icons">vpn_key</i>
+        </a>
+        <div for="connect_vpn_key" class="mdl-tooltip">Keybase</div>
+      
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+      <h5 class="headline">Contact</h5>
+      <ul class="mdl-mega-footer--link-list">
+        <li>
+          Mail:
+          <script><!--
+            document.write('<a href="mai'),document.write("lto"),document.write(":&#105;&#103;&#111;&#114;"),document.write("@"),document.write('&#114;&#122;&#101;&#103;&#111;&#99;&#107;&#105;&#46;&#112;&#108;">'),document.write("&#105;&#103;&#111;&#114;"),document.write("@"),document.write("&#114;&#122;&#101;&#103;&#111;&#99;&#107;&#105;&#46;&#112;&#108;</a>");
+          // --></script><noscript>:&#105;&#103;&#111;&#114; at
+&#114;&#122;&#101;&#103;&#111;&#99;&#107;&#105; dot &#112;&#108;</noscript>
+        </li>
+        <li>
+          Skype: <a href="skype:igor.rzegocki">igor.rzegocki</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="mdl-mega-footer__bottom-section">
+    Copyright © 2015 - <a href="/avatar.html">Igor Rzegocki</a> - Powered by <a href="http://octopress.org/" target="_blank">Octopress</a>.
+    Previous version of the site, available <a href="/v3">here</a>.
+  </div>
+</footer>
+
+      </main>
+    </div>
+
+    <script type="text/javascript" src="/assets/main.js"></script>
+
+<script>
+  window['GoogleAnalyticsObject'] = 'ga';
+  ga('create', 'UA-65616575-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+
+</html>
