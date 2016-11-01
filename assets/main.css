@@ -6027,7 +6027,8 @@ iframe.heightSet {
 @media screen and (max-width: 1023px) {
   .portfolio-header {
     display: none; } }
-body {
+body.page-portfolio,
+body.page-blog {
   background: url("/assets/bg.jpg") no-repeat center;
   background-size: cover;
   background-position: fixed; }
