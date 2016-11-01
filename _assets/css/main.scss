@@ -3,7 +3,8 @@
 @import "lib/material";
 @import "portfolio";
 
-body {
+body.page-portfolio,
+body.page-blog {
     background: url(asset_path("bg.jpg")) no-repeat center;
     background-size: cover;
     background-position: fixed;

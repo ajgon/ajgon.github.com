@@ -3,7 +3,7 @@
 
   {% include head.html %}
 
-  <body>
+  <body class="page-{{ page.name | replace: '.html', '' }}">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       {% include header.html %}
 

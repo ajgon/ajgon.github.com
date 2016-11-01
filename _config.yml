@@ -4,7 +4,7 @@ title: Igor \"ajgon\" Rzegocki
 email: igor@rzegocki.pl
 description: "Personal webpage, online CV and blog."
 baseurl: ""  # the subpath of your site, e.g. /blog/
-url: "http://rzegocki.pl"  # the base hostname & protocol for your site
+url: "https://rzegocki.pl"  # the base hostname & protocol for your site
 permalink: "/blog/:year/:month/:day/:title/"
 
 assets:
