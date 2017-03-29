@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Setting server-side mail filtering with sieve and dovecot - Igor \"ajgon\" Rzegocki</title>
+  <meta name="description" content="Leaving GMail was of the best decisions for my mail I made recently. But also amost problematic one. I needed to set all the MTA architecture myself. I teste...">
+
+  
+  <meta content="/assets/covers/setting-server-side-mail-filtering-with-sieve-and-dovecot.jpg" name="og:image">
+  
+  <meta content="https://rzegocki.pl/blog/2012/07/16/setting-server-side-mail-filtering-with-sieve-and-dovecot/" name="og:url">
+  <meta content='Setting server-side mail filtering with sieve and dovecot - Igor \"ajgon\" Rzegocki' name="og:title">
+  <meta content="Leaving GMail was of the best decisions for my mail I made recently. But also amost problematic one. I needed to set all the MTA architecture myself. I teste..." name="og:description">
+
+  <link type="text/css" rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://rzegocki.pl/blog/2012/07/16/setting-server-side-mail-filtering-with-sieve-and-dovecot/">
+  <link rel="alternate" type="application/rss+xml" title='Igor \"ajgon\" Rzegocki' href="https://rzegocki.pl/feed.xml" />
+</head>
+
+
+  <body class="page-">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--waterfall mdl-shadow--4dp">
+  <div class="mdl-layout__header-row">
+    <!-- Title -->
+    <span class="mdl-layout-title"><a href="/">Igor \"ajgon\" Rzegocki</a></span>
+    <!-- Add spacer, to align navigation to the right -->
+    <div class="mdl-layout-spacer"></div>
+    <!-- Navigation. We hide it in small screens. -->
+    <nav class="icons-navigation mdl-navigation">
+      <a id="download-cv" class="mdl-button mdl-js-button mdl-button--icon" href="/cv.pdf">
+        <i class="material-icons">file_download</i>
+      </a>
+      <button id="connect-options" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">more_vert</i>
+      </button>
+
+      <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+          for="connect-options">
+          
+            <li><a class="mdl-menu__item" href="https://github.com/ajgon" target="_blank">GitHub</a></li>
+          
+            <li><a class="mdl-menu__item" href="https://linkedin.com/in/ajgon" target="_blank">LinkedIN</a></li>
+          
+            <li><a class="mdl-menu__item" href="https://twitter.com/ajgon" target="_blank">Twitter</a></li>
+          
+            <li><a class="mdl-menu__item" href="https://keybase.io/ajgon" target="_blank">Keybase</a></li>
+          
+      </ul>
+      <div for="download-cv" class="mdl-tooltip">Download CV</div>
+      <div for="connect-options" class="mdl-tooltip">Connect</div>
+    </nav>
+  </div>
+  <div class="mdl-layout__header-row mdl-layout__header-highlighted-row mdl-layout--large-screen-only">
+    <nav class="waterfall-demo-header-nav mdl-navigation">
+      
+        
+          
+        
+          
+        
+          
+        
+          
+            <a href="/" class="mdl-navigation__link">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <a href="/open-source/" class="mdl-navigation__link">Open Source</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+            <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+    </nav>
+  </div>
+</header>
+<div class="mdl-layout__drawer">
+  <span class="mdl-layout-title"><a href="/">ajgon's personal</a></span>
+  <nav class="mdl-navigation">
+    
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="/" class="mdl-navigation__link">About</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="/open-source/" class="mdl-navigation__link">Open Source</a>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+          <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+  </nav>
+</div>
+
+
+      <main class="mdl-layout__content">
+        <div class="post-container full-post narrow mdl-grid">
+    <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+        <a href="/blog/2012/07/16/setting-server-side-mail-filtering-with-sieve-and-dovecot/">
+            <div class="mdl-card__media mdl-color-text--grey-50" style="background-image: url(/assets/covers/setting-server-side-mail-filtering-with-sieve-and-dovecot.jpg">
+                <h3>Setting server-side mail filtering with sieve and dovecot</h3>
+            </div>
+        </a>
+                <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+            <div class="minilogo" style="background-image: url(/assets/avatars/ajgon.png);"></div>
+            <div>
+                <strong>ajgon</strong>
+                <span>Jul 16, 2012</span>
+            </div>
+            <div class="mdl-layout-spacer"></div>
+            <div>
+                <button id="share_" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">share</i>
+                </button>
+
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                    for="share_">
+                        <li><a class="mdl-menu__item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://rzegocki.pl/blog/2012/07/16/setting-server-side-mail-filtering-with-sieve-and-dovecot/&amp;title=" target="_blank" data-width="600" data-height="450">LinkedIN</a></li>
+                        <li><a class="mdl-menu__item" href="https://twitter.com/share?url=https://rzegocki.pl/blog/2012/07/16/setting-server-side-mail-filtering-with-sieve-and-dovecot/&amp;text=" target="_blank" data-width="500" data-height="550">Twitter</a></li>
+                        <li><a class="mdl-menu__item" href="https://www.facebook.com/sharer/sharer.php?u=https://rzegocki.pl/blog/2012/07/16/setting-server-side-mail-filtering-with-sieve-and-dovecot/&amp;display=popup" data-width="626" data-height="457" target="_blank">Facebook</a></li>
+                </ul>
+                <div class="mdl-tooltip" for="share_">Share</div>
+            </div>
+        </div>
+
+        <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
+            <p>Leaving GMail was of the best decisions for my mail I made recently. But also a
+most problematic one. I needed to set all the MTA architecture myself. I tested
+many solutions out there and finally ended with postfix + dovecot
+configuration.  It appears that this is most stable and unproblematic one (at
+least for now).</p>
+
+<!--more-->
+
+<p>The next feature I really missed is Gmail Server-Side mail filtering. I’ve got
+a bunch of machines that access my mail server (computers, phones etc.) and I
+receive lots emails from lists, friends and organizations every day. Setting
+filtering for all of that once, was a big pain. Setting it multiple times on
+all the machines, and then be consistent about it was enormous P.I.T.A. So I
+started looking for solution for that problem and found
+<a href="http://sieve.info/">Sieve</a> (and its
+<a href="http://wiki.dovecot.org/LDA/Sieve">dovecot plugin</a>).</p>
+
+<p>Ok, so how to do it? Firstly, as for dovecot 1.2.x, sieve was completely
+rewritten as a new plugin. It can be obtained from
+<a href="http://www.rename-it.nl/dovecot/1.2/">rename-it.nl website</a>. At the time of
+writing this post, there is no <code class="highlighter-rouge">*.deb</code> package in repositories, so I have to
+build it manually. I also had to install <code class="highlighter-rouge">dovecot-dev</code> package, because of
+sieve configurator, which needs a <code class="highlighter-rouge">dovecot-config</code> file.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As root</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">wget http://www.rename-it.nl/dovecot/1.2/dovecot-1.2-sieve-0.1.19.tar.gz
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">tar -xzvf dovecot-1.2-sieve-0.1.19.tar.gz
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">cd </span>dovecot-1.2-sieve-0.1.19
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">./configure --with-dovecot<span class="o">=</span>/usr/lib/dovecot/ --prefix<span class="o">=</span>/usr
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">make
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">sudo make install</div></div></pre></div></figure>
+
+<p>After that, it was a time to enable sieve plugin in dovecot.</p>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/etc/dovecot/dovecot.conf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">protocol lda <span class="o">&#x7b;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">    ...
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="c"># Support for dynamically loadable plugins. mail_plugins is a space separated</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="c"># list of plugins to load.</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">    mail_plugins <span class="o">=</span> sieve <span class="c"># ... other plugins like quota</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="c"># add those directives when you expect problems - huge time saver!</span>
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">    debug <span class="o">=</span> yes
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">    log_path <span class="o">=</span> /var/log/dovecot-lda.log
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">    info_log_path <span class="o">=</span> /var/log/dovecot-lda.log
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">&#x7d;</span></div></div></pre></div></figure>
+
+<p>There is a possibility to make some adjustments for plugin itself (filters
+paths and so on), but I didn’t find it necessary. However, if you want to - you
+can check them on
+<a href="http://wiki.dovecot.org/LDA/Sieve/Dovecot">LDA/Sieve documentation page</a>.
+After that, just restart postfix and everything is set.</p>
+
+<p>The last step is setting all the filters properly. They should be stored in
+<code class="highlighter-rouge">~/.dovecot.sieve</code> (if you use <code class="highlighter-rouge">mailbox_command</code>) or in
+<code class="highlighter-rouge">/home/vmail/user@domain/.dovecot.sieve</code> (if you use <code class="highlighter-rouge">mailbox_transport</code>).
+Sieve uses it’s own <a href="http://www.ietf.org/rfc/rfc5228.txt">pseudo-language</a> for
+filtering, but below is a part of my file which should provide a
+<a href="http://wiki.dovecot.org/LDA/Sieve/">good example</a> for start:</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">.dovecot.sieve</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># Require plugin for moving messages (fileinto) and vacation responder (vacation)</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">require <span class="o">[</span><span class="s2">"fileinto"</span>, <span class="s2">"vacation"</span><span class="o">]</span>;
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># Move all mails with "List-Id" equal to "users-pl.lists.rootnode.net" to rzegocki_pl/lists IMAP directory</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">if </span>header :contains <span class="s2">"List-Id"</span> <span class="s2">"users-pl.lists.rootnode.net"</span> <span class="o">&#x7b;</span> fileinto <span class="s2">"rzegocki_pl.lists"</span>; stop; <span class="o">&#x7d;</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># If messages are not from a list (most of the lists sets mail header "Precedence" either to "list" or "bulk") then send a vacation email</span>
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">if </span>not header :contains <span class="s2">"Precedence"</span> <span class="o">[</span><span class="s2">"bulk"</span>,<span class="s2">"list"</span><span class="o">]</span> <span class="o">&#x7b;</span>
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">    vacation :days 7 :addresses <span class="o">[</span><span class="s2">"igor@email1.com"</span>, <span class="s2">"igor@email2.com"</span><span class="o">]</span> :subject <span class="s2">"Vacation 15.07 - 22.07"</span> <span class="s2">" ..... "</span>
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">&#x7d;</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c"># Move all messages from my father to one directory</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">if </span>anyof <span class="o">(</span>
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line">    address :is <span class="s2">"sender"</span> <span class="s2">"steven@email1.com"</span>,
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line">    address :is <span class="s2">"sender"</span> <span class="s2">"steven@email2.com"</span>,
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">    address :is <span class="s2">"sender"</span> <span class="s2">"steven@email3.com"</span><span class="o">)</span> <span class="o">&#x7b;</span>
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">        fileinto <span class="s2">"rzegocki_pl.private.steven"</span>; stop;
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="o">&#x7d;</span></div></div></pre></div></figure>
+<p>It took me some time to set everything up (mostly because of lack of
+documentation and multiple domain problems), but the final effect is awesome,
+and confirms that own server is an really, really great idea :)</p>
+
+        </div>
+
+        <div id="disqus_thread" class="comments-disqus"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES * * */
+            var disqus_shortname = 'ajgon';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+
+
+        <footer class="mdl-mega-footer">
+  <div class="mdl-mega-footer__top-section mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col">
+      <h5 class="headline">Open Source</h5>
+      <ul class="mdl-mega-footer--link-list mdl-mega-footer--left-align" id="recent-tweets">
+        <li><a href="http://opsworks-ruby.rzegocki.pl/" target="_blank">opsworks_ruby</a></li>
+        <li><a href="https://github.com/ajgon/self-hosted-mailserver" target="_blank">self-hosted-mailserver</a></li>
+        <li><a href="https://github.com/ajgon/lint-pack" target="_blank">LintPack</a></li>
+        <li><a href="https://github.com/ajgon/chef-imagetragick" target="_blank">chef-imagetragick</a></li>
+        <li><a href="https://github.com/ajgon/jquery-timer" target="_blank">jquery.timer</a></li>
+      </ul>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+      <h5 class="headline">Connect</h5>
+      
+        <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" href="https://github.com/ajgon" id="connect_Q" target="_blank">
+          <i class="material-icons socicon">Q</i>
+        </a>
+        <div for="connect_Q" class="mdl-tooltip">GitHub</div>
+      
+        <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" href="https://linkedin.com/in/ajgon" id="connect_j" target="_blank">
+          <i class="material-icons socicon">j</i>
+        </a>
+        <div for="connect_j" class="mdl-tooltip">LinkedIN</div>
+      
+        <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" href="https://twitter.com/ajgon" id="connect_a" target="_blank">
+          <i class="material-icons socicon">a</i>
+        </a>
+        <div for="connect_a" class="mdl-tooltip">Twitter</div>
+      
+        <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" href="https://keybase.io/ajgon" id="connect_vpn_key" target="_blank">
+          <i class="material-icons">vpn_key</i>
+        </a>
+        <div for="connect_vpn_key" class="mdl-tooltip">Keybase</div>
+      
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+      <h5 class="headline">Contact</h5>
+      <ul class="mdl-mega-footer--link-list">
+        <li>
+          Mail:
+          <script><!--
+            document.write('<a href="mai'),document.write("lto"),document.write(":&#105;&#103;&#111;&#114;"),document.write("@"),document.write('&#114;&#122;&#101;&#103;&#111;&#99;&#107;&#105;&#46;&#112;&#108;">'),document.write("&#105;&#103;&#111;&#114;"),document.write("@"),document.write("&#114;&#122;&#101;&#103;&#111;&#99;&#107;&#105;&#46;&#112;&#108;</a>");
+          // --></script><noscript>:&#105;&#103;&#111;&#114; at
+&#114;&#122;&#101;&#103;&#111;&#99;&#107;&#105; dot &#112;&#108;</noscript>
+        </li>
+        <li>
+          Skype: <a href="skype:igor.rzegocki">igor.rzegocki</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="mdl-mega-footer__bottom-section">
+    Copyright &copy; 2015-2017 - <a href="/avatar.html">Igor Rzegocki</a> - Powered by <a href="http://octopress.org/" target="_blank">Octopress</a>.
+    Previous version of the site, available <a href="/v3">here</a>.
+  </div>
+</footer>
+
+      </main>
+    </div>
+
+    <script type="text/javascript" src="/assets/main.js"></script>
+
+<script>
+  window['GoogleAnalyticsObject'] = 'ga';
+  ga('create', 'UA-65616575-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+  </body>
+
+</html>
