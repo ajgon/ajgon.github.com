@@ -21,5 +21,5 @@ docker-compose run site jekyll build
 ## Deploy
 
 ```
-docker-compose run -e JEKYLL_ENV=production site bash -c "rm -rf /app/_site && bundle exec jekyll build && bundle exec octopress deploy"
+docker-compose run -e JEKYLL_ENV=production site bash -c "rm -rf /app/_site /app/.asset-cache && bundle exec jekyll build && bundle exec octopress deploy"
 ```
