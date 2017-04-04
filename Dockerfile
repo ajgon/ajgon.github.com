@@ -2,7 +2,7 @@ FROM ruby:2.3.1
 
 RUN gem update --no-document --system
 RUN apt-get update
-RUN apt-get install locales nodejs -y
+RUN apt-get install locales nodejs ntp -y
 RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 RUN locale-gen
 
@@ -17,6 +17,11 @@ RUN git config --global user.name "Igor Rzegocki"
 ENV APP_HOME /app
 ENV LC_ALL en_US.UTF-8
 RUN mkdir $APP_HOME
+
+RUN echo 'Europe/Warsaw > /etc/timezone'
+RUN rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/Europe/Warsaw /etc/localtime
+RUN ntpd -gq
+
 WORKDIR $APP_HOME
 
 
