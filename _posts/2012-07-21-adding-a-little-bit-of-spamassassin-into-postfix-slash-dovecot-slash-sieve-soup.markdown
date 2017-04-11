@@ -5,6 +5,7 @@ date: 2012-07-21 12:16
 author: ajgon
 cover: adding-a-little-bit-of-spamassassin-into-postfix-slash-dovecot-slash-sieve-soup.jpg
 categories: Administration
+redirect_from: /blog/2012/07/21/adding-a-little-bit-of-spamassassin-into-postfix-slash-dovecot-slash-sieve-soup/
 ---
 
 I was always prefering "stay in the shadows" policy in terms of email address.

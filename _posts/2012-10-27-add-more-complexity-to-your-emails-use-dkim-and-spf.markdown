@@ -5,6 +5,7 @@ date: 2012-10-27 13:15
 author: ajgon
 cover: add-more-complexity-to-your-emails-use-dkim-and-spf.jpg
 categories: Administration
+redirect_from: /blog/2012/10/27/add-more-complexity-to-your-emails-use-dkim-and-spf/
 ---
 
 The next thing my paranoid me couldn't stand of is that my emails can be easily

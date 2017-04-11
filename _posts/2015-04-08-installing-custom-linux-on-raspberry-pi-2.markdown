@@ -5,6 +5,7 @@ date: 2015-04-19 20:00
 author: ajgon
 cover: installing-custom-linux-on-raspberry-pi-2.jpg
 categories: Administration
+redirect_from: /blog/2015/04/19/installing-custom-linux-on-raspberry-pi-2/
 ---
 
 Few days ago, [I gave myself a present]({% asset_path "upload/rpi.jpg" %}), which (at the very beginning) I was planning to power

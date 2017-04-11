@@ -5,6 +5,7 @@ date: 2012-10-14 12:57
 author: ajgon
 cover: setting-secure-cloud-based-backup-system-using-git-and-box-com.jpg
 categories: Administration
+redirect_from: /blog/2012/10/14/setting-secure-cloud-based-backup-system-using-git-and-box-com/
 ---
 
 After giving up my [spying e-mail provider](http://gmail.com/), and moving

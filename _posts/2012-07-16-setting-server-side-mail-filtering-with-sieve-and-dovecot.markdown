@@ -5,6 +5,7 @@ date: 2012-07-16 11:43
 author: ajgon
 cover: setting-server-side-mail-filtering-with-sieve-and-dovecot.jpg
 categories: Administration
+redirect_from: /blog/2012/07/16/setting-server-side-mail-filtering-with-sieve-and-dovecot/
 ---
 
 Leaving GMail was of the best decisions for my mail I made recently. But also a

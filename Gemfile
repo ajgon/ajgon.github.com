@@ -13,6 +13,7 @@ end
 group :jekyll_plugins do
   gem 'jekyll-assets'
   gem 'jekyll-press'
+  gem 'jekyll-redirect-from'
   gem 'octopress-hooks', github: 'octopress/hooks'
   gem 'octopress-paginate'
   gem 'octopress-codeblock'

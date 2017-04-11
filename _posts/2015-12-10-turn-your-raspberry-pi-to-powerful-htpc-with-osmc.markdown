@@ -5,6 +5,7 @@ date: 2015-12-10 22:15
 author: ajgon
 cover: turn-your-raspberry-pi-to-powerful-htpc-with-osmc.png
 categories: Lifehack
+redirect_from: /blog/2015/12/10/turn-your-raspberry-pi-to-powerful-htpc-with-osmc/
 ---
 
 I am big fan of TV series. There were times (mostly in college), when I watched them almost continuously. Recently I got tired of laptop screen, and moved to [something bigger](http://www.samsung.com/uk/consumer/tv-audio-video/televisions/hd-tvs/UE32H5500AKXXU). I also had a spare Raspberry&nbsp;PI, so naturally the conslusion came&nbsp;- why&nbsp;not connect them together, and create a genuine Mediacenter.

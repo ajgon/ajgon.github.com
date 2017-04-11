@@ -5,6 +5,7 @@ date: 2013-04-14 13:34
 author: ajgon
 cover: setting-encrypted-backup-email-server.jpg
 categories: Administration
+redirect_from: /blog/2013/04/14/setting-encrypted-backup-email-server/
 ---
 
 There is a popular Internet saying that people are divided into two groups -

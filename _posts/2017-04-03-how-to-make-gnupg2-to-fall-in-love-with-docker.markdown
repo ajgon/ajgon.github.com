@@ -5,6 +5,7 @@ date: 2017-04-03 22:19
 author: ajgon
 cover: how-to-make-gnupg2-to-fall-in-love-with-docker.png
 categories: Administration
+redirect_from: /blog/2017/04/03/how-to-make-gnupg2-to-fall-in-love-with-docker/
 ---
 
 While developing my [new replacement](https://www.github.com/wombatapp) of [self-hosted-mailserver](https://github.com/ajgon/self-hosted-mailserver),

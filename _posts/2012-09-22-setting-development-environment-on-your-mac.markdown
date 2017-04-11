@@ -5,6 +5,7 @@ date: 2012-09-22 12:33
 author: ajgon
 cover: setting-development-environment-on-your-mac.jpg
 categories: PHP
+redirect_from: /blog/2012/09/22/setting-development-environment-on-your-mac/
 ---
 
 Recently I bought an

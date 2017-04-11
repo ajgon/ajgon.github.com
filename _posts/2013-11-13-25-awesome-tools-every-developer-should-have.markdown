@@ -5,6 +5,7 @@ date: 2013-11-13 11:09:37
 author: ajgon
 cover: 25-awesome-tools-every-developer-should-have.jpg
 categories: Workflow
+redirect_from: /blog/2013/11/13/25-awesome-tools-every-developer-should-have/
 ---
 
 <blockquote>

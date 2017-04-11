@@ -5,6 +5,7 @@ date: 2016-05-22T11:43:06+02:00
 author: ajgon
 cover: build-your-own-cloud-fast-thanks-to-ansible-and-automation.png
 categories: Administration
+redirect_from: /blog/2016/05/22/build-your-own-cloud-fast-thanks-to-ansible-and-automation/
 ---
 
 Last year I wrote an [article about installing custom linux distro on Raspberry Pi 2](/blog/2015/04/19/installing-custom-linux-on-raspberry-pi-2/).
