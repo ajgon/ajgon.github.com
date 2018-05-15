@@ -19,3 +19,7 @@
         );
     });
 }(jQuery));
+
+window['GoogleAnalyticsObject'] = 'ga';
+ga('create', 'UA-65616575-1', 'auto');
+ga('send', 'pageview');
