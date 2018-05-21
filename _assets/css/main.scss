@@ -363,3 +363,8 @@ body.page-bg {
 .mdl-layout__header--waterfall {
     overflow: visible;
 }
+
+.codedirection {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+}
