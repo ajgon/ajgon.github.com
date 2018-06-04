@@ -172,7 +172,7 @@
     }
 
     .front:after {
-      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQIHWNgkAQAABwAGi24X8EAAAAASUVORK5CYII=) repeat;
+      background: url(asset_path("pix.png")) repeat;
       content: ' ';
       position: absolute;
     }
