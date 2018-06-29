@@ -157,7 +157,7 @@ portfolio:
         promoted: false
         title: Avamys
         subtitle: Allergic rhinitis drug
-        url: http://www.irgon.com/avamys/
+        url: https://www.irgon.com/avamys/
         client: active-pharma
         specs:
             - xhtml
@@ -168,7 +168,7 @@ portfolio:
         promoted: false
         title: Weedo
         subtitle: iPad Accessories
-        url: http://www.irgon.com/weedo/
+        url: https://www.irgon.com/weedo/
         client: weedo
         specs:
             - xhtml
@@ -192,7 +192,7 @@ portfolio:
         promoted: false
         title: Malaria
         subtitle: Malaria informations
-        url: http://www.irgon.com/malaria/
+        url: https://www.irgon.com/malaria/
         client: active-pharma
         specs:
             - xhtml
@@ -203,7 +203,7 @@ portfolio:
         promoted: false
         title: Tyverb
         subtitle: Anti-cancer drug
-        url: http://www.irgon.com/tyverb/
+        url: https://www.irgon.com/tyverb/
         client: active-pharma
         specs:
             - xhtml
@@ -214,7 +214,7 @@ portfolio:
         promoted: false
         title: Votrient 2.0
         subtitle: Pazopanib
-        url: http://www.irgon.com/votrient20/
+        url: https://www.irgon.com/votrient20/
         client: active-pharma
         specs:
             - xhtml
@@ -225,7 +225,7 @@ portfolio:
         promoted: false
         title: Fraxi
         subtitle: Molecular weight heparin
-        url: http://www.irgon.com/fraxi/
+        url: https://www.irgon.com/fraxi/
         client: active-pharma
         specs:
             - xhtml
@@ -236,7 +236,7 @@ portfolio:
         promoted: false
         title: WordWatch
         subtitle: AdSense positioning
-        url: http://www.wordwatch.com/
+        url: https://www.wordwatch.com/
         client: wordwatch
         specs:
             - xhtml
@@ -281,7 +281,7 @@ portfolio:
         promoted: false
         title: Votrient
         subtitle: Pazopanib
-        url: http://www.irgon.com/votrient/
+        url: https://www.irgon.com/votrient/
         client: active-pharma
         specs:
             - xhtml
@@ -303,7 +303,7 @@ portfolio:
         promoted: false
         title: XXLStock
         subtitle: Photo Stock
-        url: http://www.irgon.com/xxlstock/
+        url: https://www.irgon.com/xxlstock/
         client: starfactory
         specs:
             - xhtml
@@ -314,7 +314,7 @@ portfolio:
         promoted: false
         title: Cukrzyca
         subtitle: Diabetics advices
-        url: http://www.irgon.com/cukrzyca/
+        url: https://www.irgon.com/cukrzyca/
         client: active-pharma
         specs:
             - xhtml
@@ -380,7 +380,7 @@ portfolio:
         promoted: false
         title: MaxBart
         subtitle: Construction Company
-        url: http://www.irgon.com/maxbart/
+        url: https://www.irgon.com/maxbart/
         client: ~
         specs:
             - xhtml
@@ -391,7 +391,7 @@ portfolio:
         promoted: false
         title: Instytut piekna
         subtitle: Beauty studio
-        url: http://www.irgon.com/instytutpiekna/
+        url: https://www.irgon.com/instytutpiekna/
         client: ~
         specs:
             - xhtml
@@ -402,7 +402,7 @@ portfolio:
         promoted: true
         title: Schiphol
         subtitle: International Airport
-        url: http://www.irgon.com/schiphol/
+        url: https://www.irgon.com/schiphol/
         client: iizt
         specs:
             - xhtml
@@ -425,7 +425,7 @@ portfolio:
         promoted: false
         title: IIZT
         subtitle: IT Agency
-        url: http://www.irgon.com/iizt/
+        url: https://www.irgon.com/iizt/
         client: iizt
         specs:
             - xhtml
@@ -436,7 +436,7 @@ portfolio:
         promoted: false
         title: Apeiro
         subtitle: IT Agency
-        url: http://www.irgon.com/apeiro/
+        url: https://www.irgon.com/apeiro/
         client: apeiro
         specs:
             - xhtml
@@ -446,7 +446,7 @@ portfolio:
         promoted: false
         title: Kistenmaker
         subtitle: Real Estate Agency
-        url: http://www.irgon.com/kistenmakerterrein/
+        url: https://www.irgon.com/kistenmakerterrein/
         client: iizt
         specs:
             - xhtml
@@ -495,7 +495,7 @@ portfolio:
         promoted: false
         title: Korwin-Mikke
         subtitle: Polish publicist
-        url: http://www.irgon.com/jkm/
+        url: https://www.irgon.com/jkm/
         client: jkm
         specs:
             - xhtml
@@ -505,7 +505,7 @@ portfolio:
         promoted: false
         title: Foteka.pl
         subtitle: Image sharing
-        url: http://www.irgon.com/fotekapl/
+        url: https://www.irgon.com/fotekapl/
         client: devonstudio
         specs:
             - xhtml
@@ -588,7 +588,7 @@ site_clients:
     -
         id: wordwatch
         name: Wordwatch Inc.
-        url: http://www.wordwatch.com/
+        url: https://www.wordwatch.com/
     -
         id: weedo
         name: Weedo
