@@ -1,5 +1,5 @@
         <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-            <div class="minilogo" style="background-image: url({% asset_path "avatars/{{ include.post.author }}.png" %});"></div>
+            <div class="minilogo post-author"></div>
             <div>
                 <strong>{{ include.post.author }}</strong>
                 <span>{{ include.post.date | date: "%b %-d, %Y" }}</span>
@@ -19,3 +19,6 @@
                 <div class="mdl-tooltip" for="share_{{ include.post.name | replace: '.', '-' }}">Share</div>
             </div>
         </div>
+        <style type="text/css" nonce="**CSP_NONCE**">
+            .post-author { background-image: url({% asset_path "avatars/{{ include.post.author }}.png" %}); }
+        </style>

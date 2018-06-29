@@ -8,9 +8,12 @@ paginate: true
 <div class="post-container narrow mdl-grid">
     <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
         <a href="{{ post.url }}">
-            <div class="mdl-card__media mdl-color-text--grey-50" style="background-image: url({% asset_path "covers/{{ post.cover }}" %}">
+            <div class="mdl-card__media mdl-color-text--grey-50 post-hero">
                 <h3>{{ post.title }}</h3>
             </div>
+            <style type="text/css" nonce="**CSP_NONCE**">
+                .post-hero { background-image: url({% asset_path "covers/{{ post.cover }}" %}); }
+            </style>
         </a>
         <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
             {{ post.excerpt }}

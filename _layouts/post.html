@@ -5,9 +5,12 @@ layout: default
 <div class="post-container full-post narrow mdl-grid">
     <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
         <a href="{{ page.url }}">
-            <div class="mdl-card__media mdl-color-text--grey-50" style="background-image: url({% asset_path "covers/{{ page.cover }}" %}">
+            <div class="mdl-card__media mdl-color-text--grey-50 post-hero">
                 <h3>{{ page.title }}</h3>
             </div>
+            <style type="text/css" nonce="**CSP_NONCE**">
+                .post-hero { background-image: url({% asset_path "covers/{{ page.cover }}" %}); }
+            </style>
         </a>
         {% include meta-bar.html post=page menu_position='bottom-right' %}
         <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
