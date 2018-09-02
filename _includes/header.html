@@ -1,12 +1,12 @@
 <header class="mdl-layout__header mdl-layout__header--waterfall mdl-shadow--4dp">
   <div class="mdl-layout__header-row">
     <!-- Title -->
-    <span class="mdl-layout-title"><a href="/">{{ site.title }}</a></span>
+    <span class="mdl-layout-title"><a href="/v4">{{ site.title }}</a></span>
     <!-- Add spacer, to align navigation to the right -->
     <div class="mdl-layout-spacer"></div>
     <!-- Navigation. We hide it in small screens. -->
     <nav class="icons-navigation mdl-navigation">
-      <a id="download-cv" class="mdl-button mdl-js-button mdl-button--icon" href="/cv.pdf">
+      <a id="download-cv" class="mdl-button mdl-js-button mdl-button--icon" href="/v4/cv.pdf">
         <i class="material-icons">file_download</i>
       </a>
       <button id="connect-options" class="mdl-button mdl-js-button mdl-button--icon">
@@ -28,7 +28,7 @@
       {% for item in site.mainnav %}
         {% for node in site.pages %}
           {% if item.title == node.title and node.title %}
-            <a href="{{ node.url }}" class="mdl-navigation__link{% if page.name == node.name or (page.categories and node.name == 'blog.html') %} is-active{% endif %}">{{ node.title }}</a>
+            <a href="{{ item.url }}" class="mdl-navigation__link{% if page.name == node.name or (page.categories and node.name == 'blog.html') %} is-active{% endif %}">{{ node.title }}</a>
           {% endif %}
         {% endfor %}
       {% endfor %}
@@ -36,12 +36,12 @@
   </div>
 </header>
 <div class="mdl-layout__drawer">
-  <span class="mdl-layout-title"><a href="/">ajgon's personal</a></span>
+  <span class="mdl-layout-title"><a href="/v4">ajgon's personal</a></span>
   <nav class="mdl-navigation">
     {% for item in site.mainnav %}
       {% for node in site.pages %}
         {% if item.title == node.title and node.title %}
-          <a href="{{ node.url }}" class="mdl-navigation__link{% if page.name == node.name or (page.categories and node.name == 'blog.html') %} is-active{% endif %}">{{ node.title }}</a>
+          <a href="{{ item.url }}" class="mdl-navigation__link{% if page.name == node.name or (page.categories and node.name == 'blog.html') %} is-active{% endif %}">{{ node.title }}</a>
         {% endif %}
       {% endfor %}
     {% endfor %}

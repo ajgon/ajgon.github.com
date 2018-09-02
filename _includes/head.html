@@ -9,7 +9,7 @@
   {% if page.cover %}
   <meta content="{% asset_path "covers/{{ page.cover }}" %}" name="og:image">
   {% endif %}
-  <meta content="{{ site.url }}{{ page.url }}" name="og:url">
+  <meta content="{{ site.url }}{{ site.baseurl }}{{ page.url }}" name="og:url">
   <meta content='{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}' name="og:title">
   <meta content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" name="og:description">
 

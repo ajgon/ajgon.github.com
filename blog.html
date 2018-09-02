@@ -7,7 +7,7 @@ paginate: true
 {% for post in paginator.posts %}
 <div class="post-container narrow mdl-grid">
     <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-        <a href="{{ post.url }}">
+        <a href="{{ site.baseurl }}{{ post.url }}">
             <div class="mdl-card__media mdl-color-text--grey-50 post-hero">
                 <h3>{{ post.title }}</h3>
             </div>
@@ -25,7 +25,7 @@ paginate: true
 
 <nav class="post-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path }}" class="post-nav__button">
+        <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="post-nav__button">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -34,7 +34,7 @@ paginate: true
     {% endif %}
     <div class="section-spacer"></div>
     {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path }}" class="post-nav__button">
+        <a href="{{ site.baseurl }}{{ paginator.next_page_path }}" class="post-nav__button">
             Older
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_forward</i>

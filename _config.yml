@@ -3,9 +3,10 @@
 title: Igor \"ajgon\" Rzegocki
 email: igor@rzegocki.pl
 description: "Personal webpage, online CV and blog."
-baseurl: ""  # the subpath of your site, e.g. /blog/
 url: "https://www.rzegocki.pl"  # the base hostname & protocol for your site
 permalink: "/blog/:title/"
+root: "/v4"
+baseurl: "/v4"
 
 assets:
     sources:
@@ -16,10 +17,10 @@ assets:
         - _assets/js
         - _assets/files
 mainnav:
-    - {title: 'About', url: '/about'}
-    - {title: 'Portfolio', url: '/portfolio'}
-    - {title: 'Open Source', url: '/open-source'}
-    - {title: 'Blog', url: '/blog'}
+    - {title: 'About', url: '/v4'}
+    - {title: 'Portfolio', url: '/v4/portfolio'}
+    - {title: 'Open Source', url: '/v4/open-source'}
+    - {title: 'Blog', url: '/v4/blog'}
 
 pagination:
     per_page: 5   # maximum number of items per page
