@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Setting development environment on your Mac - Igor \"ajgon\" Rzegocki</title>
+  <meta name="description" content="Recently I bought anawesome piece of hardwareto my MacBook Pro. Unfortunatellyto install it,I had to remove my old HDD and all system files with it as well. ...">
+
+  
+  <meta content="/assets/covers/setting-development-environment-on-your-mac-6bcc83552df45e94a907d02d6f7ec027c80cd7d62a4236b89fc56543737ba5bf.jpg" name="og:image">
+  
+  <meta content="https://www.rzegocki.pl/v4/blog/setting-development-environment-on-your-mac/" name="og:url">
+  <meta content='Setting development environment on your Mac - Igor \"ajgon\" Rzegocki' name="og:title">
+  <meta content="Recently I bought anawesome piece of hardwareto my MacBook Pro. Unfortunatellyto install it,I had to remove my old HDD and all system files with it as well. ..." name="og:description">
+
+  <link type="text/css" rel="stylesheet" href="/assets/main-1de20818043d732846d7ac1e14cfc1feadb5ea366a6fd3a449f748cf1501a869.css">
+  <link rel="canonical" href="https://www.rzegocki.pl/v4/blog/setting-development-environment-on-your-mac/">
+  <link rel="alternate" type="application/rss+xml" title='Igor \"ajgon\" Rzegocki' href="https://www.rzegocki.pl/v4/feed.xml" />
+</head>
+
+
+  <body class="page-bg">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--waterfall mdl-shadow--4dp">
+  <div class="mdl-layout__header-row">
+    <!-- Title -->
+    <span class="mdl-layout-title"><a href="/v4">Igor \"ajgon\" Rzegocki</a></span>
+    <!-- Add spacer, to align navigation to the right -->
+    <div class="mdl-layout-spacer"></div>
+    <!-- Navigation. We hide it in small screens. -->
+    <nav class="icons-navigation mdl-navigation">
+      <a id="download-cv" class="mdl-button mdl-js-button mdl-button--icon" href="/v4/cv.pdf">
+        <i class="material-icons">file_download</i>
+      </a>
+      <button id="connect-options" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">more_vert</i>
+      </button>
+
+      <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+          for="connect-options">
+          
+            <li><a class="mdl-menu__item" href="https://github.com/ajgon" target="_blank">GitHub</a></li>
+          
+            <li><a class="mdl-menu__item" href="https://linkedin.com/in/ajgon" target="_blank">LinkedIN</a></li>
+          
+            <li><a class="mdl-menu__item" href="https://twitter.com/ajgon" target="_blank">Twitter</a></li>
+          
+            <li><a class="mdl-menu__item" href="https://keybase.io/ajgon" target="_blank">Keybase</a></li>
+          
+      </ul>
+      <div for="download-cv" class="mdl-tooltip">Download CV</div>
+      <div for="connect-options" class="mdl-tooltip">Connect</div>
+    </nav>
+  </div>
+  <div class="mdl-layout__header-row mdl-layout__header-highlighted-row mdl-layout--large-screen-only">
+    <nav class="waterfall-demo-header-nav mdl-navigation">
+      
+        
+          
+        
+          
+        
+          
+        
+          
+            <a href="/v4/about" class="mdl-navigation__link">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <a href="/v4/portfolio" class="mdl-navigation__link">Portfolio</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <a href="/v4/open-source" class="mdl-navigation__link">Open Source</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+            <a href="/v4/blog" class="mdl-navigation__link is-active">Blog</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+    </nav>
+  </div>
+</header>
+<div class="mdl-layout__drawer">
+  <span class="mdl-layout-title"><a href="/v4">ajgon's personal</a></span>
+  <nav class="mdl-navigation">
+    
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="/" class="mdl-navigation__link">About</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="/portfolio/" class="mdl-navigation__link">Portfolio</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="/open-source/" class="mdl-navigation__link">Open Source</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+          <a href="/blog/" class="mdl-navigation__link is-active">Blog</a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+  </nav>
+</div>
+
+
+      <main class="mdl-layout__content">
+        <div class="post-container full-post narrow mdl-grid">
+    <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+        <a href="/blog/setting-development-environment-on-your-mac/">
+            <div class="mdl-card__media mdl-color-text--grey-50 post-hero">
+                <h3>Setting development environment on your Mac</h3>
+            </div>
+            <style type="text/css" nonce="**CSP_NONCE**">
+                .post-hero { background-image: url(/assets/covers/setting-development-environment-on-your-mac-6bcc83552df45e94a907d02d6f7ec027c80cd7d62a4236b89fc56543737ba5bf.jpg); }
+            </style>
+        </a>
+                <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+            <div class="minilogo post-author"></div>
+            <div>
+                <strong>ajgon</strong>
+                <span>Sep 22, 2012</span>
+            </div>
+            <div class="mdl-layout-spacer"></div>
+            <div>
+                <button id="share_" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">share</i>
+                </button>
+
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                    for="share_">
+                        <li><a class="mdl-menu__item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.rzegocki.pl/v4/blog/setting-development-environment-on-your-mac/&amp;title=" target="_blank" data-width="600" data-height="450">LinkedIN</a></li>
+                        <li><a class="mdl-menu__item" href="https://twitter.com/share?url=https://www.rzegocki.pl/v4/blog/setting-development-environment-on-your-mac/&amp;text=" target="_blank" data-width="500" data-height="550">Twitter</a></li>
+                        <li><a class="mdl-menu__item" href="https://www.facebook.com/sharer/sharer.php?u=https://www.rzegocki.pl/v4/blog/setting-development-environment-on-your-mac/&amp;display=popup" data-width="626" data-height="457" target="_blank">Facebook</a></li>
+                </ul>
+                <div class="mdl-tooltip" for="share_">Share</div>
+            </div>
+        </div>
+        <style type="text/css" nonce="**CSP_NONCE**">
+            .post-author { background-image: url(/assets/avatars/ajgon-04f8c4022f2e292c90f22f4682f2f27b8f6678bc7bab4d6e306885d2386c42c7.png); }
+        </style>
+
+        <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
+            <p>Recently I bought an
+<a href="http://www.anandtech.com/show/4253/the-crucial-m4-micron-c400-ssd-review">awesome piece of hardware</a>
+to my MacBook Pro. Unfortunatelly
+<a href="http://www.ifixit.com/Guide/Installing-MacBook-Pro-13-Inch-Unibody-Early-2011-Hard-Drive-Replacement/5119/1">to install it</a>,
+I had to remove my old HDD and all system files with it as well. So for that
+occasion I made myself double gift (Christmas are earlier this year ;)) and
+also bought a <a href="http://www.apple.com/osx/">new OS</a>. After smooth installation,
+<a href="http://blog.alutam.com/2012/04/01/optimizing-macos-x-lion-for-ssd/">some tweaks</a>
+and <a href="http://mobilityupdate.com/mac/crucal-m4-macbook-pro-2011/">huge performance boost</a>
+I started setting my developer environment once again - nice and clean.</p>
+
+<!--more-->
+
+<h2 id="installing-developer-must-have-applications">Installing developer “must-have” applications</h2>
+
+<p>Firstly, two most important things are a terminal emulator - in my case, it is
+<a href="http://www.iterm2.com/#/section/home">iTerm2</a>, and
+<a href="https://developer.apple.com/technologies/tools/">XCode</a> with
+<a href="http://stackoverflow.com/questions/9329243/xcode-4-4-command-line-tools">command line tools</a>.
+Next thing is of course package manager. After alot of nasty fighting and bad
+experiences with <a href="http://www.macports.org/">macports</a> I switched to
+<a href="http://mxcl.github.com/homebrew/">Homebrew</a> and I love it. To install it,
+simply type:</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">ruby &lt;<span class="o">(</span>curl -fsSkL raw.github.com/mxcl/homebrew/go<span class="o">)</span></div></div></pre></div></figure>
+
+<p>After installing it, i suggest to type <code class="highlighter-rouge">brew doctor</code> and follow the
+instructions if something unexpected occurs. However, in clean
+Mountain Lion+XCode+command line tools installation I didn’t get any warnings,
+so you shouldn’t as well.</p>
+
+<p>Next important thing is <a href="http://git-scm.com/">git</a>. Even if you don’t plan to
+use it (but I strongly recommend this tool), install it, because a lot of
+software depends on it these days. Especially if you are a Ruby developer.
+So just type:</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">brew install git</div></div></pre></div></figure>
+
+<p>and you’re set. Another thing, which I really like is
+<a href="http://www.zsh.org/">Z Shell</a> with it’s excellent extension
+<a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a>. Words can’t describe
+how awesome it is, so watch
+<a href="https://www.youtube.com/watch?v=m07MiM6rmMc">this video</a>, and then type:</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh</div></div></pre></div></figure>
+
+<h2 id="installing-dnsmasq-and-nginx">Installing dnsmasq and nginx</h2>
+
+<p>The next step is installing <a href="http://nginx.org/">nginx</a>, which is a great
+alternative to <a href="http://www.apache.org/">apache</a>.</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">brew install nginx
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">sudo ln -s /usr/local/etc/nginx /etc/nginx</div></div></pre></div></figure>
+
+<p>As for configuration, take look at my
+<a href="https://github.com/ajgon/DeeDee/tree/master/etc/nginx">DeeDee project nginx configuration files</a>
+- they are really good starting point for configuring your nginx. However, if
+you are lazy, just take and copy <code class="highlighter-rouge">wordpress</code> and <code class="highlighter-rouge">php</code> files from <code class="highlighter-rouge">extra/lang</code>
+directory (on DeeDee github) to <code class="highlighter-rouge">/usr/local/etc/nginx</code> (this is where your
+nginx configuration files lives) and add following section at the bottom
+(before the last closing bracket) of the <code class="highlighter-rouge">nginx.conf</code> file:</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/usr/local/etc/nginx/nginx.conf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">server <span class="o">&#x7b;</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">    server_name ~^<span class="o">(</span>www.<span class="o">)</span>?<span class="o">(</span>?&lt;project&gt;[^.]+<span class="o">)</span>.php.dev;
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="c"># This is the path, where your projects lives.</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="c"># $project is domain part but as well directory.</span>
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="c"># So something.php.dev will take files from /Users/yourname/Projects/something/public</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">    root /Users/yourname/Projects/<span class="nv">$project</span>/public;
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">    error_log logs/php.dev.error_log info;
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">    index index.html index.php;
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">    include php;
+</div></div><div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">&#x7d;</span>
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line"> </div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">server <span class="o">&#x7b;</span>
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">    server_name ~^<span class="o">(</span>www.<span class="o">)</span>?<span class="o">(</span>?&lt;project&gt;[^.]+<span class="o">)</span>.wp.dev;
+</div></div><div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="c"># This is the path, where your projects lives.</span>
+</div></div><div data-line="15" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="c"># $project is domain part but as well directory.</span>
+</div></div><div data-line="16" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="c"># So something.wp.dev will take files from /Users/yourname/Projects/something/public</span>
+</div></div><div data-line="17" class="code-highlight-row numbered"><div class="code-highlight-line">    root /Users/yourname/Projects/<span class="nv">$project</span>/public;
+</div></div><div data-line="18" class="code-highlight-row numbered"><div class="code-highlight-line">    error_log logs/wp.dev.error_log info;
+</div></div><div data-line="19" class="code-highlight-row numbered"><div class="code-highlight-line">    index index.html index.php;
+</div></div><div data-line="20" class="code-highlight-row numbered"><div class="code-highlight-line">    include php;
+</div></div><div data-line="21" class="code-highlight-row numbered"><div class="code-highlight-line">    include wordpress;
+</div></div><div data-line="22" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="o">&#x7d;</span></div></div></pre></div></figure>
+
+<p>Now type <code class="highlighter-rouge">sudo /usr/local/sbin/nginx -t</code> - if eveyrhing is okay, you should see
+a proper message.</p>
+
+<p>Next thing we need to do is to make those wp.dev and php.dev domains work. To
+do this, install <a href="http://www.thekelleys.org.uk/dnsmasq/doc.html">dnsmasq</a>:</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">brew install dnsmasq
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">cp <span class="k">$(</span>brew --prefix dnsmasq<span class="k">)</span>/dnsmasq.conf.example /usr/local/etc/dnsmasq.conf
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">sudo cp <span class="k">$(</span>brew --prefix dnsmasq<span class="k">)</span>/homebrew.mxcl.dnsmasq.plist /Library/LaunchDaemons</div></div></pre></div></figure>
+
+<p>Now edit newly created <code class="highlighter-rouge">dnsmasq.conf</code> file and add:</p>
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/usr/local/etc/dnsmasq.conf</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nv">address</span><span class="o">=</span>/.dev/127.0.0.1</div></div></pre></div></figure>
+
+<p>Last thing left, is setting a nameserver to 127.0.0.1 in your Network prefpane,
+as shown below.</p>
+
+<p><img src="/assets/upload/dnsmasq-b3d82ae62de4efa3824c442ea2af67494a9bdb6c4e7bfd91c425dc2b00b270fc.png" alt="dnsmasq configuration" /></p>
+
+<p>From now on all *.dev domains will be translated to <code class="highlighter-rouge">127.0.0.1</code> and from there
+all <code class="highlighter-rouge">wp.dev</code> and <code class="highlighter-rouge">php.dev</code> domains will be handled by nginx. Good stuff.</p>
+
+<h2 id="installing-php-fpm-and-mysql">Installing PHP-FPM and MySQL</h2>
+
+<p>Unlike apache, nginx doesn’t have a native PHP module, so we have to help
+ourselves with FastCGI extension. Thankfully there is a great wrapper for
+PHPcgi called PHP-FPM. Not only it sets all the hard work for us, but it also
+watches PHP for unexpected crashes (well.. yeah, it’s PHP after all) and
+restarts it immediately - so it saves our time. Unfortunately, brew doesn’t
+contain PHP recipes out of box, so we need
+<a href="https://github.com/josegonzalez/homebrew-php">a little help</a>. To install PHP:</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">brew tap homebrew/dupes
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line">brew tap josegonzalez/homebrew-php
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">brew install php54 --with-mysql --with-fpm --with-intl <span class="c"># you can add --with-pgsql if you are using it</span></div></div></pre></div></figure>
+
+<p>Installing MySQL is a little bit complicated:</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">As user</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line">brew install mysql
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="nb">unset </span>TMPDIR
+</div></div><div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">mysql_install_db --verbose --user<span class="o">=</span><span class="sb">`</span>whoami<span class="sb">`</span> --basedir<span class="o">=</span><span class="s2">"</span><span class="k">$(</span>brew --prefix mysql<span class="k">)</span><span class="s2">"</span> --datadir<span class="o">=</span>/usr/local/var/mysql --tmpdir<span class="o">=</span>/tmp
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line">mysql.server start
+</div></div><div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">/usr/local/opt/mysql/bin/mysqladmin -u root password <span class="s1">''</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">/usr/local/opt/mysql/bin/mysqladmin -u root -h localhost password <span class="s1">''</span></div></div></pre></div></figure>
+
+<h2 id="putting-everything-together">Putting everything together</h2>
+
+<p>As you may noticed, all this stuff won’t start automatically. I think it’s a
+good approach, because when I use my mac for normal stuff, I don’t want any
+unnecessary resources consumed. So to tie all of this together, I have a simple
+script which will launch or disable all the services on demand. Just create
+(and make executable) <code class="highlighter-rouge">/usr/local/bin/dev&lt;</code> file with following contents:</p>
+
+<figure class="code-highlight-figure"><figcaption class="code-highlight-caption"><span class="code-highlight-caption-title">/usr/local/bin/dev</span></figcaption><div class="code-highlight"><pre class="code-highlight-pre"><div data-line="1" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="c">#!/bin/bash</span>
+</div></div><div data-line="2" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">if</span> <span class="o">[</span><span class="nv">$# </span>-lt 1 <span class="o">]</span>; <span class="k">then
+<div data-line="3" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="nb">echo</span> <span class="s2">"Usage: </span><span class="nv">$0</span><span class="s2"> on|off"</span>
+</div></div><div data-line="4" class="code-highlight-row numbered"><div class="code-highlight-line"><span class="k">else
+<div data-line="5" class="code-highlight-row numbered"><div class="code-highlight-line">    if <span class="o">[</span> <span class="nv">$1</span> <span class="o">=</span> <span class="s1">'on'</span> <span class="o">]</span>; <span class="k">then</span>
+</div></div><div data-line="6" class="code-highlight-row numbered"><div class="code-highlight-line">        <span class="k">$(</span>brew --prefix php54<span class="k">)</span>/sbin/php-fpm --fpm-config /usr/local/etc/php/5.4/php-fpm.conf 2&gt; /dev/null &amp;
+</div></div><div data-line="7" class="code-highlight-row numbered"><div class="code-highlight-line">        sudo /usr/local/sbin/nginx
+</div></div><div data-line="8" class="code-highlight-row numbered"><div class="code-highlight-line">        mysql.server start &gt; /dev/null
+</div></div><div data-line="9" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="k">else
+<div data-line="10" class="code-highlight-row numbered"><div class="code-highlight-line">        killall php-fpm 2&gt; /dev/null
+</div></div><div data-line="11" class="code-highlight-row numbered"><div class="code-highlight-line">        sudo killall nginx 2&gt; /dev/null
+</div></div><div data-line="12" class="code-highlight-row numbered"><div class="code-highlight-line">        mysql.server stop 2&gt; /dev/null
+</div></div><div data-line="13" class="code-highlight-row numbered"><div class="code-highlight-line">    <span class="k">fi
+<div data-line="14" class="code-highlight-row numbered"><div class="code-highlight-line">fi</div></div>
+
+Now when you need to enter "development mode" simply type `dev on` and to quit
+`dev off`.
+
+## Conclusion
+
+Well, that's all! I hope you will enjoy this simple environment as much as
+I do :).
+</span></div></div></span></div></div></span></div></div></span></div></div></pre></div></figure>
+
+        </div>
+
+        <div id="disqus_thread" class="comments-disqus"></div>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+
+
+        <footer class="mdl-mega-footer">
+  <div class="mdl-mega-footer__top-section mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col">
+      <h5 class="headline">Open Source</h5>
+      <ul class="mdl-mega-footer--link-list mdl-mega-footer--left-align" id="recent-tweets">
+        <li><a href="https://opsworks-ruby.rzegocki.pl/" target="_blank">opsworks_ruby</a></li>
+        <li><a href="https://github.com/ajgon/self-hosted-mailserver" target="_blank">self-hosted-mailserver</a></li>
+        <li><a href="https://github.com/ajgon/lint-pack" target="_blank">LintPack</a></li>
+        <li><a href="https://github.com/ajgon/chef-imagetragick" target="_blank">chef-imagetragick</a></li>
+        <li><a href="https://github.com/ajgon/jquery-timer" target="_blank">jquery.timer</a></li>
+      </ul>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+      <h5 class="headline">Connect</h5>
+      
+        <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" href="https://github.com/ajgon" id="connect_Q" target="_blank">
+          <i class="material-icons socicon">Q</i>
+        </a>
+        <div for="connect_Q" class="mdl-tooltip">GitHub</div>
+      
+        <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" href="https://linkedin.com/in/ajgon" id="connect_j" target="_blank">
+          <i class="material-icons socicon">j</i>
+        </a>
+        <div for="connect_j" class="mdl-tooltip">LinkedIN</div>
+      
+        <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" href="https://twitter.com/ajgon" id="connect_a" target="_blank">
+          <i class="material-icons socicon">a</i>
+        </a>
+        <div for="connect_a" class="mdl-tooltip">Twitter</div>
+      
+        <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" href="https://keybase.io/ajgon" id="connect_vpn_key" target="_blank">
+          <i class="material-icons">vpn_key</i>
+        </a>
+        <div for="connect_vpn_key" class="mdl-tooltip">Keybase</div>
+      
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+      <h5 class="headline">Contact</h5>
+      <ul class="mdl-mega-footer--link-list">
+        <li>
+            Mail: <span class="codedirection">&#108;&#112;.&#105;&#107;&#99;&#111;&#103;&#101;&#122;&#114;@&#114;&#111;&#103;&#105;</span>
+        </li>
+        <li>
+          Skype: <a href="skype:igor.rzegocki">igor.rzegocki</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="mdl-mega-footer__bottom-section">
+    Copyright &copy; 2015-2018 - <a href="/v4/avatar.html">Igor Rzegocki</a> - Powered by <a href="https://bit.ly/1Fnhbjo" target="_blank">Octopress</a>.
+    Previous version of the site, available <a href="/v3">here</a>.
+  </div>
+</footer>
+
+      </main>
+    </div>
+
+    <script type="text/javascript" src="/assets/main-a3ee47e44601ec5d8cd3d221614064c72bec805b843a363fa992e15f98e4c1d2.js"></script>
+
+  </body>
+
+</html>
